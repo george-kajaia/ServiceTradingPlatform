@@ -1,0 +1,43 @@
+# Git needs forward slashes (/) in .gitignore, even on Windows.
+# A pattern without a leading slash matches in every folder.
+
+# ---- Secrets: never upload ----
+*.ppk
+*.pem
+*.pfx
+*.key
+PPK Files/
+appsettings.json
+appsettings.*.json
+!appsettings.Example.json
+.env
+.env.*
+
+# ---- .NET (ServiceTokenAPI) ----
+.vs/
+.publish/
+publish/
+bin/
+obj/
+*.user
+
+# ---- Angular apps (Web Apps/*) ----
+node_modules/
+dist/
+.angular/
+
+# ---- Backups and editor leftovers ----
+*.bak
+*.save
+*.disabled
+*.swp
+Thumbs.db
+.DS_Store
+.gitignore.old-backup
+
+# ---- QA build copies and Python cache ----
+_dist/
+__pycache__/
+
+# ---- Local Claude settings ----
+.claude/settings.local.json

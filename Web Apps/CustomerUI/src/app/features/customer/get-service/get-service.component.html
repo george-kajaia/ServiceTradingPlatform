@@ -1,0 +1,50 @@
+<div class="qr-backdrop" (click)="close()">
+  <div class="qr-modal" role="dialog" aria-modal="true" aria-labelledby="qr-title" (click)="$event.stopPropagation()">
+
+    <button class="qr-modal__close" (click)="close()" aria-label="Close">×</button>
+
+    <div class="qr-modal__header">
+      <h2 class="qr-modal__title" id="qr-title">Get Service</h2>
+      <p class="qr-modal__subtitle">Show this QR code to the company staff</p>
+    </div>
+
+    <!-- Connecting -->
+    <div *ngIf="connecting" class="qr-modal__state" role="status">
+      <div class="qr-spinner" aria-hidden="true"></div>
+      <p>Connecting...</p>
+    </div>
+
+    <!-- Error -->
+    <div *ngIf="!connecting && error" class="qr-modal__state qr-modal__state--error" role="alert">
+      <span class="qr-modal__state-icon">⚠</span>
+      <p>{{ error }}</p>
+      <div class="qr-modal__state-actions">
+        <button class="qr-btn qr-btn--primary" (click)="retry()">Try Again</button>
+        <button class="qr-btn qr-btn--ghost" (click)="close()">Close</button>
+      </div>
+    </div>
+
+    <!-- QR Code -->
+    <div *ngIf="!connecting && !error" class="qr-modal__body">
+      <div class="qr-modal__token-info">
+        <span class="qr-modal__company">{{ token.companyName }}</span>
+        <span class="qr-modal__product">{{ token.productName }}</span>
+        <span class="qr-modal__count">Uses remaining: <strong>{{ token.remainingCount }}</strong></span>
+      </div>
+
+      <div class="qr-modal__qr-wrap">
+        <img [src]="qrDataUrl" alt="Service QR Code" class="qr-modal__qr-img" />
+      </div>
+
+      <p class="qr-modal__hint">
+        Waiting for company to scan and confirm...
+        <span class="qr-modal__waiting-dot"></span>
+      </p>
+    </div>
+
+    <div *ngIf="!connecting && !error" class="qr-modal__footer">
+      <button class="qr-btn qr-btn--ghost" (click)="close()">Cancel</button>
+    </div>
+
+  </div>
+</div>

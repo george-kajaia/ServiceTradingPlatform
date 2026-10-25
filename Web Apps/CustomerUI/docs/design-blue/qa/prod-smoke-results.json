@@ -1,0 +1,152 @@
+[
+ {
+  "r": "/",
+  "w": 360,
+  "ok": false,
+  "sw": 472,
+  "iw": 472,
+  "text": 3257,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/login",
+  "w": 360,
+  "ok": true,
+  "sw": 360,
+  "iw": 360,
+  "text": 75,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/marketplace",
+  "w": 360,
+  "ok": true,
+  "sw": 360,
+  "iw": 360,
+  "text": 858,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/cart",
+  "w": 360,
+  "ok": true,
+  "sw": 360,
+  "iw": 360,
+  "text": 278,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/checkout",
+  "w": 360,
+  "ok": false,
+  "sw": 633,
+  "iw": 633,
+  "text": 374,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/",
+  "w": 768,
+  "ok": true,
+  "sw": 768,
+  "iw": 768,
+  "text": 3283,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/login",
+  "w": 768,
+  "ok": true,
+  "sw": 768,
+  "iw": 768,
+  "text": 75,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/marketplace",
+  "w": 768,
+  "ok": true,
+  "sw": 768,
+  "iw": 768,
+  "text": 864,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/cart",
+  "w": 768,
+  "ok": true,
+  "sw": 768,
+  "iw": 768,
+  "text": 278,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/checkout",
+  "w": 768,
+  "ok": true,
+  "sw": 768,
+  "iw": 768,
+  "text": 374,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/",
+  "w": 1440,
+  "ok": true,
+  "sw": 1440,
+  "iw": 1440,
+  "text": 3283,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/login",
+  "w": 1440,
+  "ok": true,
+  "sw": 1440,
+  "iw": 1440,
+  "text": 75,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/marketplace",
+  "w": 1440,
+  "ok": true,
+  "sw": 1440,
+  "iw": 1440,
+  "text": 864,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/cart",
+  "w": 1440,
+  "ok": true,
+  "sw": 1440,
+  "iw": 1440,
+  "text": 278,
+  "console": 0,
+  "pageErrors": 0
+ },
+ {
+  "r": "/checkout",
+  "w": 1440,
+  "ok": true,
+  "sw": 1440,
+  "iw": 1440,
+  "text": 374,
+  "console": 0,
+  "pageErrors": 0
+ }
+]

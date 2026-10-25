@@ -1,0 +1,143 @@
+<div class="dashboard-container">
+  <h2>Admin Dashboard</h2>
+
+  <div class="tabs" role="group" aria-label="Dashboard sections">
+    <button class="tab" [class.active]="activeTab === 'companies'" [attr.aria-pressed]="activeTab === 'companies'" (click)="setTab('companies')">
+      Companies
+    </button>
+    <button class="tab" [class.active]="activeTab === 'requests'" [attr.aria-pressed]="activeTab === 'requests'" (click)="setTab('requests')">
+      Requests
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="info" role="status">Loading...</div>
+
+  <!-- Companies tab -->
+  <section *ngIf="activeTab === 'companies'" class="panel">
+    <div class="panel-header">
+      <div class="panel-header-left">        
+        <h3>Companies</h3>
+      </div>
+    </div>
+
+    <div class="filters">
+      <label>
+        Name
+        <input type="text" [(ngModel)]="companyFilter.name" (ngModelChange)="applyCompanyFilter()" />
+      </label>
+
+      <label>
+        Tax Code
+        <input type="text" [(ngModel)]="companyFilter.taxCode" (ngModelChange)="applyCompanyFilter()" />
+      </label>
+
+      <label>
+        Status
+        <select [(ngModel)]="companyFilter.status" (ngModelChange)="applyCompanyFilter()">
+          <option value="">All</option>
+          <option value="0">Not Active</option>
+          <option value="1">Active</option>
+        </select>
+      </label>
+
+      <button class="secondary" (click)="clearCompanyFilter()">Clear filter</button>
+      <button class="secondary" (click)="loadCompanies()">Refresh</button>
+    </div>
+
+    <div *ngIf="!loading && filteredCompanies.length > 0" class="table-scroll">
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Company</th>
+          <th>Tax Code</th>
+          <th>Status</th>
+          <th>Reg Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of filteredCompanies">
+          <td>{{ c.id }}</td>
+          <td>{{ c.name }}</td>
+          <td>{{ c.taxCode }}</td>
+          <td><span class="status" [class.status--ok]="c.status === 1">{{ c.status === 1 ? 'Active' : 'Not Active' }}</span></td>
+          <td>{{ c.regDate | date: 'medium' }}</td>
+          <td>
+            <button (click)="approveCompany(c)" [disabled]="c.status === 1">Approve</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="!loading && filteredCompanies.length === 0" class="muted">No companies found.</div>
+  </section>
+
+  <!-- Requests tab -->
+  <section *ngIf="activeTab === 'requests'" class="panel">
+    <div class="panel-header">
+      <h3>Requests</h3>
+    </div>
+
+    <div class="filters">
+      <label>
+        Company Id
+        <input type="number" [(ngModel)]="requestFilter.companyId" (keyup.enter)="loadRequests()" />
+      </label>
+
+      <label>
+        Status
+        <select [(ngModel)]="requestFilter.status" (ngModelChange)="loadRequests()">
+          <option value="">All</option>
+          <option value="0">None</option>
+          <option value="1">Created</option>
+          <option value="2">Authorised</option>
+          <option value="3">Approved</option>
+        </select>
+      </label>
+
+      <button class="secondary" (click)="clearRequestFilter()">Clear filter</button>
+
+      <button class="secondary" (click)="loadRequests()">Refresh</button>
+    </div>
+
+    <div *ngIf="!loading && filteredRequests.length > 0" class="table-scroll">
+    <table class="grid grid--wide">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Company</th>
+          <th>Product</th>
+          <th>Service Token Count</th>
+          <th>Reg Date</th>
+          <th>Status</th>
+          <th>Authorize Date</th>
+          <th>Approve Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of filteredRequests">
+          <td>{{ r.id }}</td>
+          <td>{{ r.companyName }}</td>
+          <td>{{ r.productName }}</td>
+          <td>{{ r.serviceTokenCount }}</td>
+          <td>{{ r.regDate | date: 'medium' }}</td>
+          <td><span class="status" [class.status--ok]="(+r.status) === 3" [class.status--info]="(+r.status) === 2" [class.status--warn]="(+r.status) === 1">{{ requestStatusLabel(r.status) }}</span></td>
+          <td>{{ r.authorizeDate ? (r.authorizeDate | date: 'medium') : '-' }}</td>
+          <td>{{ r.approveDate ? (r.approveDate | date: 'medium') : '-' }}</td>
+          <td class="action-col">
+            <!-- NOTE: Avoid using global Number() in templates; Angular resolves identifiers against the component context. -->
+            <button (click)="approveRequest(r)" [disabled]="(+r.status) !== 2">Approve</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="!loading && filteredRequests.length === 0" class="muted">No requests found.</div>
+  </section>
+
+  <a routerLink="/" class="back-link">Back to main page</a>
+</div>

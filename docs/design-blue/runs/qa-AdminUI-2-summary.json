@@ -1,0 +1,142 @@
+{
+  "exit_code": 0,
+  "peak_active_tokens": 78907,
+  "capacity": 1000000,
+  "result": {
+    "duration_api_ms": 94804,
+    "stop_reason": "end_turn",
+    "session_id": "79beaf83-c5df-44d5-b3c7-fb592cbc4d65",
+    "total_cost_usd": 0.43969990000000003,
+    "usage": {
+      "input_tokens": 46,
+      "cache_creation_input_tokens": 73678,
+      "cache_read_input_tokens": 1275629,
+      "output_tokens": 12785,
+      "output_tokens_details": {
+        "thinking_tokens": 1675
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 73678
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 991,
+          "cache_read_input_tokens": 74915,
+          "cache_creation_input_tokens": 3274,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 3274,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 46,
+        "outputTokens": 12785,
+        "cacheReadInputTokens": 1275629,
+        "cacheCreationInputTokens": 73678,
+        "webSearchRequests": 0,
+        "costUSD": 0.43969990000000003,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1675,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01TdyVTNn54ek9ow2EkyW9F6",
+        "tool_input": {
+          "command": "cd \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform/docs/design-blue\"; ls; ls runs; wc -c brief.md runs/designer-report.md coordinator-findings.md qa-calibration-notes.md; cd ../../New/AdminUI; git status --short | head -30; ls docs docs/design-blue 2>&1 | head"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01TPjLBEFUvY2koxhPFrVpqc",
+        "tool_input": {
+          "command": "sed -i 's#undefined|null|\\[object/#undefined|null|object Object/#' docs/design-blue/qa/harness.cjs && node --check docs/design-blue/qa/harness.cjs && echo ok; grep -n \"blueRing\" docs/design-blue/qa/harness.cjs | head -3"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_016axGT9PYoCJGDwPwj6myrN",
+        "tool_input": {
+          "command": "T=$(mktemp -d); echo $T > docs/design-blue/qa/.tmpdir; node node_modules/@angular/cli/bin/ng.js build --configuration development --output-path \"$T/dev\" > docs/design-blue/qa/build-dev.log 2>&1; echo dev=$?; node node_modules/@angular/cli/bin/ng.js build --configuration production --output-path \"$T/prod\" > docs/design-blue/qa/build-prod.log 2>&1; echo prod=$?; tail -5 docs/design-blue/qa/build-prod.log; echo $T",
+          "timeout": 600000
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01Gwr8KKrbP73v5YPyRTqZh3",
+        "tool_input": {
+          "command": "node node_modules/@angular/cli/bin/ng.js build --configuration development --output-path docs/design-blue/qa/_dist/dev > docs/design-blue/qa/build-dev.log 2>&1; echo dev=$?",
+          "timeout": 600000
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01EXRZbocqoagtktRiBNnJ36",
+        "tool_input": {
+          "command": "rm -rf docs/design-blue/qa/_dist docs/design-blue/qa/.tmpdir; git status --short | grep -v \"^ M src\\|docs/\""
+        }
+      }
+    ],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 36,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "No open reproducible bugs in the tested AdminUI scope. This is not proof that none exist. The dev and production builds both exit 0, and the browser harness passed in dev (559/559) and prod (488/488). Nothing is committed or staged, and I didn't touch app code.\n\nThe three round-1 bugs are now fixed:\n- **BUG-1:** status text contrast now passes after the green was darkened to `#166534`.\n- **BUG-2:** the Requests Approve button is reachable at 1440 with both long and short data.\n- **BUG-3:** the confirm dialog returns focus to its opener after Escape and after a backdrop click.\n\nThe existing harness needed these updates first:\n- It still expected the old green, `#15803D`.\n- Focus checks now wait for transitions to settle.\n- Mobile filter widths are compared to the real parent content width.\n- I added checks for the dialog (Shift+Tab, scroll lock and restore, focus return) and for empty-body 500 toasts. Login and company-approve toasts show the English fallback instead of undefined.\n\n**Browser runs**\n- **Dev run:** 0 unexpected console or page errors, and no remote requests got out.\n- **Prod run:** 0 remote requests got out. The 33 console entries marked unexpected were all \"Service Worker registration blocked\", which my harness causes on purpose.\n- **Coverage:** routes, login, Companies and Requests (populated, empty, error with Retry, filters, approve, conflict) at 360, 768 and 1440 widths. Colours, focus, contrast and touch targets were checked too. I reviewed the 1440 Requests and 360 dialog screenshots.\n\n**Coordinator findings**\n- The Admin items (status contrast, Approve reachability, focus return, focus ring, empty-error toast) are verified.\n- The dialog focus and scroll findings are verified for the Admin confirm dialog.\n- The Investor price and token-detail status gates, and the Company/Service scanner findings, don't apply to AdminUI, so I didn't test them.\n\n**Not verified**\n- Real touch hardware: I emulated coarse pointer by rewriting the media query in the served local JS/CSS.\n- The real Inter font, because Google Fonts was stubbed.\n- Safari and Firefox, screen readers, reduced motion, and the service worker in prod.\n- The unrouted Home component.\n- The confirm dialog on the production build, because it needs a dev-only debug API.\n- Pixel match to the concept, since only a direction reference exists.\n\nMy attempt to delete the build output in `docs/design-blue/qa/_dist` was denied, so it is still there and safe to delete.\n\nFiles are in `docs/design-blue/`:\n- `qa-report.md`\n- `QA-CHECKPOINT.md`\n- `qa/harness.cjs`\n- `results-dev.json`\n- `results-prod.json`\n\nThe screenshots are in `docs/design-blue/screenshots/`.\n\nBUG_COUNT: 0",
+    "ttft_ms": 1384,
+    "type": "result",
+    "duration_ms": 278334,
+    "uuid": "0eadaed1-857d-4f6e-849d-da6fa05b1ffc",
+    "ttft_stream_ms": 1033,
+    "time_to_request_ms": 314,
+    "first_content_frame_ms": 1033,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

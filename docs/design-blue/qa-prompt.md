@@ -1,0 +1,25 @@
+You are the existing qa-tester Claude agent. Test the implemented blue redesign in THIS app, independently of its frontend engineer. Read ../../docs/design-blue/brief.md, ../../docs/design-blue/runs/designer-report.md, relevant implementation report in ../../docs/design-blue/runs and current diff. Preserve existing human work. You may write only test harness/fixtures/evidence/report/checkpoint files in this app's docs/design-blue directory; do not fix app code, edit project settings, add dependencies, commit, stage, push or deploy. This task authorizes a dependency-free standalone local browser test harness; no Karma/Jasmine setup is requested, so the rule to seek approval for new devDependencies does not apply. Run builds and test the real local UI, not only static inspection. Report reproducible bugs for frontend-engineer to fix.
+
+Tooling already installed:
+- node: C:/Program Files/nodejs/node.exe
+- Playwright: require('C:/Users/georg/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')
+- Headless Chrome executablePath: C:/Program Files/Google/Chrome/Application/chrome.exe
+- Angular CLI: node node_modules/@angular/cli/bin/ng.js
+- Prefer a standalone .cjs harness so require works without modifying dependencies. Start a local Angular dev server with node child_process.spawn(process.execPath,[CLI,'serve','--host','127.0.0.1','--port',port],{windowsHide:true,...}) on a per-app dedicated port (Investor 4311, Company 4312, Admin 4313, Service 4314). Reuse if already healthy. Always dispose only processes you own. Wait for server readiness, do not claim tests ran without actual results.
+
+Use isolated headless test browser profiles and synthetic fixture data. Intercept ALL requests to service-tokens.com and its subdomains, APIs, payments, hubs and third parties before navigation. Fulfill known API reads/login with realistic fixtures matching existing TypeScript interfaces; safe synthetic mutations may be mocked. Unknown remote requests must abort or fail visibly, never reach production. No real account/password/QR/payment/identity data. Do not enable a physical camera. Mock camera permissions unavailable and test scanner errors/details/confirmation state using isolated fixtures where practical; state unavailable without hardware must be explicitly recorded. Do not weaken server or browser security settings.
+
+Create/run meaningful assertions covering:
+1. All routes, auth forms and reachable protected screens with synthetic login, preserving business behavior. Check populated and empty/error/loading where practical; document exactly which state was exercised.
+2. 360x800, 768x1024, 1440x1000 screenshots of key routes and dialogs. Screenshot filenames identify app/route/width/state. Check viewport overflow, overlays/clipping, control sizes, readable labels. Tables may scroll only inside their explicit container. Review screenshots for card alignment, consistent gaps, price hierarchy and modal layout.
+3. Computed style matches the blue/neutral token contract; no green/purple/pink brand leftovers (semantic success/error colors allowed). Solid blue primary controls, accessible contrast against real backgrounds, visible focus and labels, effective mobile touch targets >=44px.
+4. Relevant interactions: Investor market tabs/filters, token detail, cart add/remove and checkout/payment status presentation; Company request/product/user tables and dialogs; Admin companies/requests filters/dialogs; Service scanner launch/cancel/error/retry. Use only synthetic data and stub payment, QR/SignalR outcomes.
+5. Dev build and production build. Capture console errors/pageerrors and failed requests. Fixture mismatches are harness defects: fix fixtures before reporting app bugs. Existing backend security or production availability issues are outside the redesign and must be distinguished from visual regressions.
+
+Keep logs/read output compact, maintain docs/design-blue/QA-CHECKPOINT.md after phases, and save docs/design-blue/qa-report.md with exact commands/results, screenshot/test evidence and bug ledger (id, severity, repro route/viewport/state, expected/actual, source owner). Re-run existing harness when present after fixes; expand only for new evidence. Include honest unverified items.
+
+End your response with BUG_COUNT: <number of reproducible open redesign/regression bugs>. BUG_COUNT: 0 is valid only if actual builds/browser assertions completed and no open defects remain in the tested scope. A setup blocker means VERIFICATION_BLOCKED, not 0. Do not claim an exhaustive proof that no bug exists or pixel equality to an unavailable full-screen design reference.
+
+Also read ../../docs/design-blue/coordinator-findings.md and test its concrete app-specific price and dialog focus/scroll findings. Do not omit these known design-contract gaps.
+
+Read ../../docs/design-blue/qa-calibration-notes.md. Keep strict actual visual/behavior assertions, but correct harness assumptions about breakpoint boundaries, stable focus rendering, native whole-page Tab cycling, parent content widths and fixtures. Do not change app source to fit incorrect tests.

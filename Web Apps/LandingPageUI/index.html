@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Service Tokens — Prepaid services you can buy, use and resell</title>
+  <meta name="description" content="Service Tokens is a marketplace where companies sell their services as digital tokens, and customers buy, redeem with a QR code, or resell them.">
+  <link rel="canonical" href="https://www.service-tokens.com/">
+  <meta name="theme-color" content="#2563EB">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Service Tokens">
+  <meta property="og:title" content="Service Tokens — Prepaid services you can buy, use and resell">
+  <meta property="og:description" content="Companies sell their services as digital tokens. Customers buy them, redeem them with a QR code, or resell them.">
+  <meta property="og:url" content="https://www.service-tokens.com/">
+  <meta property="og:image" content="https://www.service-tokens.com/icon-512x512.png">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icon-192x192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icon-192x192.png">
+
+  <!-- Styles are inline on purpose: nginx caches .css files for a year,
+       while index.html is never cached, so edits show up immediately. -->
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --primary-subtle: #EAF1FF;
+      --text: #172033;
+      --text-secondary: #596779;
+      --page: #F4F7FB;
+      --surface: #FFFFFF;
+      --border: #E0E6EE;
+      --success: #166534;
+      --success-subtle: #E7F5EC;
+      --radius-card: 12px;
+      --radius-panel: 16px;
+      --radius-control: 8px;
+      --shadow: 0 1px 2px rgba(23, 32, 51, .06), 0 4px 16px rgba(23, 32, 51, .06);
+      --focus: 0 0 0 2px #FFFFFF, 0 0 0 4px #2563EB;
+      --max: 1120px;
+      --gutter: 24px;
+    }
+    @media (max-width: 640px) { :root { --gutter: 16px; } }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--page);
+    }
+    h1, h2, h3 { line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
+    p { margin: 0; }
+    a { color: var(--primary); }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: none; box-shadow: var(--focus); border-radius: var(--radius-control); }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+    .section { padding: 72px 0; }
+    .section--white { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
+    .section-head h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
+    .section-head p { color: var(--text-secondary); margin-top: 12px; }
+    .eyebrow { display: inline-block; font-size: .8125rem; font-weight: 600; color: var(--primary); background: var(--primary-subtle); padding: 4px 10px; border-radius: 999px; margin-bottom: 16px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 20px; border-radius: var(--radius-control);
+      font: inherit; font-weight: 600; font-size: .9375rem; text-decoration: none; cursor: pointer;
+      border: 1px solid transparent; transition: background-color .15s ease, border-color .15s ease;
+    }
+    .btn--primary { background: var(--primary); color: #fff; }
+    .btn--primary:hover { background: var(--primary-hover); }
+    .btn--secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+    .btn--secondary:hover { border-color: #C5CFDB; background: #FAFBFD; }
+
+    /* Header */
+    .header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid var(--border); }
+    .header__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.0625rem; color: var(--text); text-decoration: none; }
+    .brand__mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; background: var(--primary); color: #fff; font-size: 1.05rem; }
+    .nav { display: flex; align-items: center; gap: 28px; }
+    .nav a { color: var(--text-secondary); text-decoration: none; font-size: .9375rem; font-weight: 500; }
+    .nav a:hover { color: var(--text); }
+    .header__cta { display: flex; gap: 8px; }
+    @media (max-width: 900px) { .nav { display: none; } }
+    @media (max-width: 480px) { .header__cta .btn--secondary { display: none; } }
+
+    /* Hero */
+    .hero { padding: 80px 0 72px; }
+    .hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+    .hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); }
+    .hero h1 span { color: var(--primary); }
+    .hero__lead { font-size: 1.125rem; color: var(--text-secondary); margin-top: 20px; max-width: 560px; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .hero__note { margin-top: 16px; font-size: .875rem; color: var(--text-secondary); }
+    @media (max-width: 900px) { .hero { padding: 48px 0 56px; } .hero__grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* Hero illustration: a token card */
+    .token-visual { position: relative; padding: 24px; }
+    .token-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-panel);
+      box-shadow: var(--shadow); padding: 24px; max-width: 380px; margin: 0 auto;
+    }
+    .token-card__top { display: flex; align-items: center; gap: 12px; }
+    .token-card__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: var(--primary-subtle); color: var(--primary); font-size: 1.3rem; }
+    .token-card__label { font-size: .8125rem; color: var(--text-secondary); }
+    .token-card__title { font-weight: 600; }
+    .token-card__rows { margin: 20px 0; display: grid; gap: 10px; }
+    .token-card__row { display: flex; justify-content: space-between; font-size: .9375rem; }
+    .token-card__row span:first-child { color: var(--text-secondary); }
+    .token-card__row span:last-child { font-weight: 600; }
+    .token-card__actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .chip { text-align: center; font-size: .8125rem; font-weight: 600; padding: 8px 4px; border-radius: var(--radius-control); background: var(--page); border: 1px solid var(--border); color: var(--text); }
+    .chip--active { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .qr-badge {
+      position: absolute; right: 0; bottom: -8px; display: flex; align-items: center; gap: 10px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card);
+      box-shadow: var(--shadow); padding: 10px 14px; font-size: .875rem; font-weight: 600;
+    }
+    .qr-badge__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px var(--success-subtle); }
+    @media (max-width: 480px) { .token-visual { padding: 0 0 24px; } .qr-badge { right: 8px; } }
+
+    /* Flow strip */
+    .flow { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .flow__step { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px; font-weight: 600; font-size: .9375rem; }
+    .flow__arrow { color: var(--text-secondary); }
+
+    /* Cards */
+    .grid { display: grid; gap: 20px; }
+    .grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .grid--2 { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 900px) { .grid--3, .grid--2 { grid-template-columns: 1fr; } }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 24px; }
+    .card h3 { font-size: 1.125rem; margin: 14px 0 8px; }
+    .card p { color: var(--text-secondary); font-size: .9375rem; }
+    .step-num { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--primary-subtle); color: var(--primary); font-weight: 700; }
+
+    /* Audience panels */
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-panel); padding: 32px; display: flex; flex-direction: column; }
+    .panel__tag { font-size: .8125rem; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: .06em; }
+    .panel h3 { font-size: 1.5rem; margin: 8px 0 12px; }
+    .panel > p { color: var(--text-secondary); }
+    .checklist { list-style: none; padding: 0; margin: 24px 0 28px; display: grid; gap: 12px; }
+    .checklist li { display: flex; gap: 12px; font-size: .9375rem; }
+    .checklist li::before { content: "✓"; flex: 0 0 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: var(--success-subtle); color: var(--success); font-weight: 700; font-size: .75rem; margin-top: 2px; }
+    .panel .btn { margin-top: auto; align-self: flex-start; }
+    @media (max-width: 640px) { .panel { padding: 24px; } }
+
+    /* FAQ */
+    .faq { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); }
+    .faq summary { list-style: none; cursor: pointer; padding: 18px 20px; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--primary); font-size: 1.25rem; line-height: 1; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { padding: 0 20px 18px; color: var(--text-secondary); font-size: .9375rem; }
+
+    /* CTA band */
+    .cta { background: var(--primary); color: #fff; border-radius: var(--radius-panel); padding: 48px 32px; text-align: center; }
+    .cta h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    .cta p { margin-top: 12px; opacity: .9; }
+    .cta__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .cta .btn--white { background: #fff; color: var(--primary); }
+    .cta .btn--white:hover { background: var(--primary-subtle); }
+    .cta .btn--outline { border-color: rgba(255,255,255,.6); color: #fff; }
+    .cta .btn--outline:hover { background: rgba(255,255,255,.1); }
+    .cta a:focus-visible { box-shadow: 0 0 0 2px var(--primary), 0 0 0 4px #fff; }
+
+    /* Footer */
+    .footer { padding: 48px 0 32px; border-top: 1px solid var(--border); background: var(--surface); }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+    .footer h4 { font-size: .875rem; margin: 0 0 12px; }
+    .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .footer ul a, .footer__about p { color: var(--text-secondary); text-decoration: none; font-size: .9375rem; }
+    .footer ul a:hover { color: var(--text); }
+    .footer__about p { margin-top: 12px; max-width: 320px; }
+    .footer__bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: .875rem; color: var(--text-secondary); }
+    @media (max-width: 640px) { .footer__grid { grid-template-columns: 1fr 1fr; } .footer__about { grid-column: 1 / -1; } }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="/" aria-label="Service Tokens home">
+        <span class="brand__mark" aria-hidden="true">◈</span>
+        Service Tokens
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#how-it-works">How it works</a>
+        <a href="#companies">For companies</a>
+        <a href="#customers">For customers</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header__cta">
+        <a class="btn btn--secondary" href="https://company.service-tokens.com/">For companies</a>
+        <a class="btn btn--primary" href="https://customer.service-tokens.com/">Marketplace</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="eyebrow">Service marketplace</span>
+          <h1>Prepaid services you can <span>buy, use and resell</span></h1>
+          <p class="hero__lead">
+            Service Tokens lets companies sell their services as digital tokens.
+            Customers buy them on the marketplace, redeem them with a QR code at the
+            point of service — or resell them to someone else if their plans change.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://customer.service-tokens.com/">Browse the marketplace</a>
+            <a class="btn btn--secondary" href="https://company.service-tokens.com/">Sell your services</a>
+          </div>
+          <p class="hero__note">Free to join for customers. Companies are reviewed before listing.</p>
+        </div>
+
+        <div class="token-visual" aria-hidden="true">
+          <div class="token-card">
+            <div class="token-card__top">
+              <div class="token-card__icon">◈</div>
+              <div>
+                <div class="token-card__label">Service token</div>
+                <div class="token-card__title">Your favourite local service</div>
+              </div>
+            </div>
+            <div class="token-card__rows">
+              <div class="token-card__row"><span>Services included</span><span>10</span></div>
+              <div class="token-card__row"><span>Remaining</span><span>7</span></div>
+              <div class="token-card__row"><span>Status</span><span>Active</span></div>
+            </div>
+            <div class="token-card__actions">
+              <div class="chip">Buy</div>
+              <div class="chip chip--active">Use</div>
+              <div class="chip">Resell</div>
+            </div>
+          </div>
+          <div class="qr-badge"><span class="qr-badge__dot"></span>Redeemed by QR scan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section--white" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>One platform connects the companies that provide services and the customers who use them.</p>
+        </div>
+        <div class="flow" aria-hidden="true" style="margin-bottom: 40px;">
+          <span class="flow__step">Issue</span><span class="flow__arrow">→</span>
+          <span class="flow__step">Buy</span><span class="flow__arrow">→</span>
+          <span class="flow__step">Redeem</span><span class="flow__arrow">or</span>
+          <span class="flow__step">Resell</span>
+        </div>
+        <div class="grid grid--3">
+          <article class="card">
+            <div class="step-num">1</div>
+            <h3>Companies issue tokens</h3>
+            <p>A company registers, is approved, and creates tokens for its services — setting the price, number of uses and schedule.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">2</div>
+            <h3>Customers buy</h3>
+            <p>Customers browse the marketplace and buy tokens directly from the issuing company with a secure online payment.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">3</div>
+            <h3>Redeem or resell</h3>
+            <p>At the point of service, staff scan the customer's QR code to redeem a use. Tokens that aren't needed can be resold.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audiences -->
+    <section class="section">
+      <div class="container grid grid--2">
+        <article class="panel" id="companies">
+          <span class="panel__tag">For companies</span>
+          <h3>Turn your services into revenue up front</h3>
+          <p>Sell prepaid services online and redeem them in seconds at your location.</p>
+          <ul class="checklist">
+            <li>Get paid before the service is delivered, improving cash flow</li>
+            <li>Set your own price, number of uses and schedule</li>
+            <li>Reach new customers through a shared marketplace</li>
+            <li>Redeem with any phone using the QR scanner app</li>
+          </ul>
+          <a class="btn btn--primary" href="https://company.service-tokens.com/">Register your company</a>
+        </article>
+
+        <article class="panel" id="customers">
+          <span class="panel__tag">For customers</span>
+          <h3>Services you control — and can pass on</h3>
+          <p>Buy the services you use, keep them in one place, and stay flexible.</p>
+          <ul class="checklist">
+            <li>Browse tokens from many service companies in one place</li>
+            <li>Redeem by showing a QR code — no paper vouchers</li>
+            <li>Resell tokens you no longer need to other buyers</li>
+            <li>Track remaining uses for every token you own</li>
+          </ul>
+          <a class="btn btn--primary" href="https://customer.service-tokens.com/">Open the marketplace</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--white" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>What is a service token?</summary>
+            <p>A service token is a digital, prepaid voucher for a specific service, issued by a company on the platform. It includes a set number of uses that you redeem when you receive the service.</p>
+          </details>
+          <details>
+            <summary>How do I buy a token?</summary>
+            <p>Create a free account on the marketplace, browse the available tokens and pay online. The token appears in your account immediately.</p>
+          </details>
+          <details>
+            <summary>How is a token redeemed?</summary>
+            <p>Open the token in your account to show its QR code. The company's staff scan it with the Service Tokens scanner, and one use is redeemed instantly.</p>
+          </details>
+          <details>
+            <summary>Can I resell a token?</summary>
+            <p>Yes. If your plans change, you can offer your token for resale to other buyers on the platform.</p>
+          </details>
+          <details>
+            <summary>How can my company start selling?</summary>
+            <p>Register your company on the company portal. After our team reviews and approves the registration, you can create tokens for your services and start selling.</p>
+          </details>
+          <details>
+            <summary>Is my data secure?</summary>
+            <p>All connections to the platform are encrypted with TLS, and payments are processed by a dedicated payment provider — we never store your card details.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="cta">
+          <h2>Ready to get started?</h2>
+          <p>Questions, partnerships or support — write to us at
+            <a href="mailto:admin@service-tokens.com" style="color:#fff; font-weight:600;">admin@service-tokens.com</a>.</p>
+          <div class="cta__actions">
+            <a class="btn btn--white" href="https://customer.service-tokens.com/">Browse the marketplace</a>
+            <a class="btn btn--outline" href="https://company.service-tokens.com/">Register your company</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__about">
+          <a class="brand" href="/"><span class="brand__mark" aria-hidden="true">◈</span>Service Tokens</a>
+          <p>A marketplace for prepaid services that customers can buy, redeem and resell.</p>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="https://customer.service-tokens.com/">Marketplace</a></li>
+            <li><a href="https://company.service-tokens.com/">Company portal</a></li>
+            <li><a href="https://service.service-tokens.com/">Redemption scanner</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="mailto:admin@service-tokens.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">© <span id="year">2026</span> Service Tokens. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

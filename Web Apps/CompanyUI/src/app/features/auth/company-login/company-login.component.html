@@ -1,0 +1,86 @@
+<div class="auth-container" [class.wide]="isRegisterMode">
+  <h2>Company {{ isRegisterMode ? 'Registration' : 'Login' }}</h2>
+
+  <button class="toggle-btn" (click)="toggleMode()">
+    Switch to {{ isRegisterMode ? 'Login' : 'Register' }}
+  </button>
+
+  <form *ngIf="!isRegisterMode" (ngSubmit)="onLogin()" class="auth-form">
+    <label>
+      Username
+      <input type="text" [(ngModel)]="loginModel.userName" name="loginUserName" required />
+    </label>
+    <label>
+      Password
+      <input type="password" [(ngModel)]="loginModel.password" name="loginPassword" required />
+    </label>
+    <button type="submit" [disabled]="loading">Login</button>
+  </form>
+
+  <form *ngIf="isRegisterMode" (ngSubmit)="onRegister()" class="auth-form register-grid">
+    <label>
+      Company Name
+      <input type="text" [(ngModel)]="registerModel.name" name="name" required />
+    </label>
+    <label>
+      Tax Code
+      <input type="text" [(ngModel)]="registerModel.taxCode" name="taxCode" required />
+    </label>
+    <label class="span-2">
+      Address
+      <input type="text" [(ngModel)]="registerModel.address" name="address" required />
+    </label>
+    <label>
+      Legal Form
+      <select [(ngModel)]="registerModel.legalForm" name="legalForm" required>
+        <option [ngValue]="null" disabled>-- Select legal form --</option>
+        <option *ngFor="let lf of legalForms" [ngValue]="lf.id">{{ lf.name }}</option>
+      </select>
+    </label>
+    <label>
+      Economic Activity
+      <select [(ngModel)]="registerModel.economicActivity" name="economicActivity" required>
+        <option [ngValue]="null" disabled>-- Select economic activity --</option>
+        <option *ngFor="let ea of economicActivities" [ngValue]="ea.id">{{ ea.name }}</option>
+      </select>
+    </label>
+    <label>
+      Email
+      <input type="email" [(ngModel)]="registerModel.mail" name="mail" required />
+    </label>
+    <label>
+      Phone
+      <input type="tel" [(ngModel)]="registerModel.phone" name="phone" required />
+    </label>
+
+    <h3 class="section-title span-2">Payout bank account</h3>
+    <p class="section-hint span-2">
+      The account your company is paid into when a customer's card payment is split.
+      Optional — you can add it later from the dashboard.
+    </p>
+    <label class="span-2">
+      IBAN
+      <input type="text" [(ngModel)]="registerModel.bankAccountIban" name="bankAccountIban" />
+    </label>
+    <label>
+      Beneficiary Name
+      <input type="text" [(ngModel)]="registerModel.bankAccountName" name="bankAccountName" />
+    </label>
+    <label>
+      Bank Name
+      <input type="text" [(ngModel)]="registerModel.bankName" name="bankName" />
+    </label>
+
+    <label>
+      Username
+      <input type="text" [(ngModel)]="registerModel.userName" name="regUserName" required />
+    </label>
+    <label>
+      Password
+      <input type="password" [(ngModel)]="registerModel.password" name="regPassword" required />
+    </label>
+    <button type="submit" class="span-2" [disabled]="loading">Register</button>
+  </form>
+
+  <a routerLink="/" class="back-link">Back to main page</a>
+</div>

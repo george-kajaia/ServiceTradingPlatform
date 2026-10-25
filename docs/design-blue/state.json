@@ -1,0 +1,39 @@
+{
+  "phase": "corrections and first QA",
+  "implementation_done": [
+    "CustomerUI",
+    "CompanyUI",
+    "AdminUI",
+    "ServiceUI"
+  ],
+  "qa_done": {
+    "AdminUI": 3,
+    "CompanyUI": 7
+  },
+  "fix_done": [
+    "AdminUI first correction"
+  ],
+  "active_sessions": {
+    "qa-InvestorUI-1": 13476,
+    "qa-ServiceUI-1": 69517,
+    "fix-CompanyUI-1": 1721
+  },
+  "live_preview": {
+    "app": "CustomerUI",
+    "url": "http://127.0.0.1:4200/",
+    "exec_session": 58401,
+    "iab_tab": "6",
+    "requested_by_user": true,
+    "keep_running": true
+  },
+  "pending": [
+    "AdminUI second QA",
+    "CustomerUI and ServiceUI corrections after QA",
+    "Company second QA after corrections",
+    "repeat QA until no genuine open defects",
+    "final integration/product/security Claude reviews",
+    "independent screenshots/build verification"
+  ],
+  "prompts": "docs/design-blue",
+  "no_commit_push_deploy": true
+}

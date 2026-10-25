@@ -1,0 +1,63 @@
+# AdminUI
+
+Platform admin back-office for the Service Token platform. Workspace conventions and the agent
+team live in `../../CLAUDE.md` and `../../.claude/`.
+
+## Commands
+
+```bash
+npm install
+npm start                                   # ng serve → http://localhost:4200
+npx ng build --configuration development    # verification build
+npm run build                               # production → dist/service-token-admin-ui
+```
+
+No test runner is configured.
+
+## Architecture
+
+- Angular 17 **standalone components** (no NgModules), bootstrapped with `bootstrapApplication` in `src/main.ts`.
+- Routes (`src/app/app.routes.ts`): `''` → `login`, `login` → `AdminLoginComponent`,
+  `dashboard` → `AdminDashboardComponent`, `**` → `login`. No route guards.
+- `core/api/` — one `providedIn: 'root'` HttpClient wrapper per API controller (admin, company, customer,
+  product, request, service-token, bond-request) using `environment.apiBaseUrl`.
+- `core/state/` — in-memory state for the logged-in admin (plus company/customer holders).
+- `core/services/` — `ToastService`, `DialogService`, rendered once in `AppComponent`.
+- `features/admin/dashboard` — main admin view; `features/auth/admin-login` — login.
+- `src/environments/environment.ts` — API base URL (commented localhost alternative).
+
+## Related repos
+
+The backend is **ServiceTokenAPI** at `../../ServiceTokenAPI` — a separate repo with its own Claude team.
+It is the source of truth for routes, parameter binding, DTO fields and enum numbers. This repo may **read** it
+(`additionalDirectories` in `.claude/settings.json`) but never edits it: if the UI needs an API change, write the
+request for George to run in the API repo. AdminUI, CompanyUI, CustomerUI and ServiceUI share copied code.
+
+## Claude Code team (`.claude/`)
+
+The main session acts as Engineering Manager: it turns asks into specs, delegates, and **verifies** results
+(re-runs the build, reads `git log`) before reporting.
+
+| Agent | Use for |
+|---|---|
+| `product-manager` | Fuzzy ask → stories, acceptance criteria, tickets, API needs (read-only) |
+| `architect` | Routes, component structure, state, API methods/models for a new flow (read-only, opus) |
+| `designer` | Screen specs: layout, states, copy, accessibility (read-only) |
+| `frontend-engineer` | All code changes in this repo |
+| `qa-tester` | Angular unit tests (proposes a runner setup first — none configured yet) |
+| `code-reviewer` | After non-trivial changes, before commit (read-only) |
+| `security-reviewer` | Login/identity, admin actions, config; before releases (read-only, opus) |
+| `product-verifier` | End of every user-facing feature: real user flow works (read-only) |
+| `release-manager` | CHANGELOG, version, deploy runbook — never deploys |
+
+Skills: `/check`, `/new-ticket`, `/new-feature`, `/api-contract-sync`, `pre-flight`, `new-component`.
+Rules: `.claude/rules/workflow.md` (always), `.claude/rules/angular.md` (`src/**` only).
+Hooks: `git push` is blocked unless `ng build` passes; a Stop hook warns about uncommitted changes.
+Delegate only when it pays — a small change is faster done directly.
+
+## Conventions
+
+- Commits: `<type>(admin): <description>`; types `feat|fix|refactor|perf|test|docs|chore|security`. Push to `main`.
+- Banned in new code: `any`, hard-coded API URLs outside `src/environments/`, sensitive data in web storage,
+  `innerHTML` on user content, models that drift from the API DTOs.
+- The API has no authentication: the UI is never a security boundary.

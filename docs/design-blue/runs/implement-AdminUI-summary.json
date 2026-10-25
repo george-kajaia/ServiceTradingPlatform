@@ -1,0 +1,119 @@
+{
+  "exit_code": 0,
+  "peak_active_tokens": 81528,
+  "capacity": 1000000,
+  "result": {
+    "duration_api_ms": 158423,
+    "stop_reason": "end_turn",
+    "session_id": "9910d4bb-4f46-4c6a-8652-0a6804dda965",
+    "total_cost_usd": 0.5467291,
+    "usage": {
+      "input_tokens": 34,
+      "cache_creation_input_tokens": 80777,
+      "cache_read_input_tokens": 870186,
+      "output_tokens": 25770,
+      "output_tokens_details": {
+        "thinking_tokens": 984
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 80777
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1010,
+          "cache_read_input_tokens": 79729,
+          "cache_creation_input_tokens": 1048,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 1048,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 34,
+        "outputTokens": 25770,
+        "cacheReadInputTokens": 870186,
+        "cacheCreationInputTokens": 80777,
+        "webSearchRequests": 0,
+        "costUSD": 0.5467291,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 984,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01XipuxZXD1xV6Y7jLRoxope",
+        "tool_input": {
+          "command": "cd \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform/New/AdminUI\" && git status --short && ls ../../docs/design-blue ../../docs/design-blue/baseline && find src -name \"*.scss\" -o -name \"*.html\" | xargs wc -l"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01HChm5ZujXFqBBCG6gXc5YZ",
+        "tool_input": {
+          "command": "sed -i 's/\"theme_color\": \"#171717\"/\"theme_color\": \"#2563EB\"/; s/\"background_color\": \"#0a0a0a\"/\"background_color\": \"#F4F7FB\"/' src/manifest.webmanifest; mkdir -p docs/design-blue; cat > docs/design-blue/CHECKPOINT.md <<'EOF'\n# AdminUI blue redesign - checkpoint\nStatus: implementation complete; dev + production builds pass; legacy-colour grep clean. Not committed (per instructions).\nFiles: src/styles/_variables.scss, _base.scss, themes/_user.scss, themes/_admin.scss; admin-dashboard (scss+html), admin-login (scss+html), home scss, toast scss, confirm-dialog scss; index.html + manifest theme colours.\nTemplate changes: removed stray \"filteredRequests\" text, table-scroll wrappers, status badges, aria-pressed on tabs, autocomplete on login.\nRemaining: browser QA at 360/768/1440. Known: Google Fonts @import in styles.scss was already present (untouched).\nEOF"
+        }
+      }
+    ],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 51,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "The blue redesign is implemented across AdminUI. Both builds pass, but I haven't looked at any screen in a browser. The tree was clean before I started, so there were no human edits to merge. Nothing is staged or committed.\n\n**Verification**\n- The development build (`ng build --configuration development`) passes.\n- The production build (`ng build --configuration production`) passes.\n- A search of `src` for the old cyan/green/violet/pink/dark-navy colours, `linear-gradient` and `z-index: 1000` returned nothing. One earlier shell command was blocked, so I didn't run the search again after the final `manifest.webmanifest` edits. They only touched `src/manifest.webmanifest`, which the search doesn't cover for these colours.\n- Not verified: the layout at 360, 768 and 1440 px, keyboard focus, contrast, and the modal and toast states. QA still has to check those in the browser.\n\n**What changed**\n- **Tokens:** the blue/ink/page/line/ok/danger/warn tokens, 44px control height, focus ring and shadows are in `src/styles/_variables.scss`. They are the shared tokens from the designer report.\n- **Global styles:**\n  - `src/styles/themes/_user.scss` is rewritten flat and blue: buttons, inputs, tables, tabs, badges, alerts, modal, card and page.\n  - `src/styles/themes/_admin.scss` is remapped to the same blue tokens.\n  - `src/styles/_base.scss` now has a page background, a visible focus ring and reduced-motion handling.\n- **Routes:**\n  - `/dashboard`: restyled with a scrollable table wrapper and a sticky header. Filters stack below 768px.\n  - `/login`: restyled.\n  - `/` (home): moved from dark navy to the light blue surface.\n- **Toast and confirm dialog:**\n  - Toast: white surface with a coloured left bar, bottom on mobile, 44px close button.\n  - Confirm dialog: neutral backdrop, 16px radius, buttons stack below 480px.\n- **Theme colours:** `index.html` and `manifest.webmanifest` theme and background colours are now blue and light.\n\n**Template changes**\n- **Stray text:** the dashboard template had the visible text \"filteredRequests\" in front of the heading. I removed it.\n- **Class mismatch:** the dashboard SCSS targeted classes the template never used, so I restyled to the template's real classes.\n- **Dashboard markup:** I added table scroll wrappers, text status badges and `aria-pressed` on the tabs.\n- **Login:** I added `autocomplete` on the login inputs.\n\nNo bindings, API calls, TypeScript, dependencies or other apps were touched. I wrote `docs/design-blue/CHECKPOINT.md`.\n\n**Remaining issues**\n- Approve in the Companies table has no confirmation dialog, because adding one would change the approval flow.\n- The Google Fonts `@import` in `styles.scss` was already there and I left it alone.",
+    "ttft_ms": 4512,
+    "type": "result",
+    "duration_ms": 240452,
+    "uuid": "04ccd52b-70c8-4991-a004-e3e923e0e131",
+    "ttft_stream_ms": 4139,
+    "time_to_request_ms": 2732,
+    "first_content_frame_ms": 4148,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

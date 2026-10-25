@@ -1,0 +1,87 @@
+// ============================================
+// Base Styles - Kajaia Bonds Trading Platform
+// ============================================
+
+@use 'variables' as *;
+
+// CSS Reset & Base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  min-height: 100vh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// Remove default button styles
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// Remove default list styles
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Selection
+::selection {
+  background: rgba($info-500, 0.3);
+  color: $neutral-50;
+}

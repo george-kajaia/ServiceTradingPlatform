@@ -1,0 +1,20 @@
+== viewport 360x800 (prod)
+== viewport 768x1024 (prod)
+== viewport 1440x1000 (prod)
+
+[prod] assertions: 488/488 passed, 0 failed; console/page errors total=96 unexpected=33; blocked remote=0; screenshots=54
+CONSOLE routes@360 warning: Service Worker registration blocked by Playwright
+CONSOLE routes@360 warning: Service Worker registration blocked by Playwright
+CONSOLE routes@360 warning: Service Worker registration blocked by Playwright
+CONSOLE login@360 warning: Service Worker registration blocked by Playwright
+CONSOLE companies@360 warning: Service Worker registration blocked by Playwright
+CONSOLE companies-loading@360 warning: Service Worker registration blocked by Playwright
+CONSOLE companies-empty@360 warning: Service Worker registration blocked by Playwright
+CONSOLE requests@360 warning: Service Worker registration blocked by Playwright
+CONSOLE requests-empty@360 warning: Service Worker registration blocked by Playwright
+CONSOLE short-data@360 warning: Service Worker registration blocked by Playwright
+CONSOLE tab-order@360 warning: Service Worker registration blocked by Playwright
+CONSOLE routes@768 warning: Service Worker registration blocked by Playwright
+CONSOLE routes@768 warning: Service Worker registration blocked by Playwright
+CONSOLE routes@768 warning: Service Worker registration blocked by Playwright
+CONSOLE login@768 warning: Service Worker registration blocked by Playwright

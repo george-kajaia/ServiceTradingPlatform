@@ -1,0 +1,142 @@
+{
+  "exit_code": 0,
+  "peak_active_tokens": 132131,
+  "capacity": 1000000,
+  "result": {
+    "duration_api_ms": 390292,
+    "stop_reason": "end_turn",
+    "session_id": "c0bb6c44-a211-4673-9b90-95e70e826c5b",
+    "total_cost_usd": 1.3084921,
+    "usage": {
+      "input_tokens": 100,
+      "cache_creation_input_tokens": 126847,
+      "cache_read_input_tokens": 4299746,
+      "output_tokens": 56120,
+      "output_tokens_details": {
+        "thinking_tokens": 14489
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 126847
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1140,
+          "cache_read_input_tokens": 127486,
+          "cache_creation_input_tokens": 3872,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 3872,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 100,
+        "outputTokens": 56120,
+        "cacheReadInputTokens": 4299746,
+        "cacheCreationInputTokens": 126847,
+        "webSearchRequests": 0,
+        "costUSD": 1.3084921,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 14489,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_018QYdYmosoifzAcP9rDom2U",
+        "tool_input": {
+          "command": "cd \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform\"; ls docs/design-blue docs/design-blue/runs; ls New/AdminUI/docs/design-blue 2>&1 | head; cd New/AdminUI; git status --short | head -30; wc -c ../../docs/design-blue/brief.md ../../docs/design-blue/runs/*"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01Gz8h6fbAuSapGFkZmUY67H",
+        "tool_input": {
+          "command": "git -C \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform/New/AdminUI\" status --short | head -30"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01KAViGQDjLma5tjMzaWyZ2D",
+        "tool_input": {
+          "command": "sed -i \"s#x.textContent.trim().split('\\\\\\\\n')\\[0\\].trim()#x.firstChild.textContent.trim()#g\" docs/design-blue/qa/harness.cjs; grep -c \"firstChild.textContent\" docs/design-blue/qa/harness.cjs; grep -n \"widths.every\" docs/design-blue/qa/harness.cjs | cut -c1-80"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01JBhkGAnzqdAEAdwERs5gih",
+        "tool_input": {
+          "command": "D=$(mktemp -d); echo $D > docs/design-blue/qa/.tmpdir; (node node_modules/@angular/cli/bin/ng.js build --configuration development --output-path \"$D/dev\" 2>&1 | tail -15) ; echo \"=== PROD\"; (node node_modules/@angular/cli/bin/ng.js build --configuration production --output-path \"$D/prod\" 2>&1 | tail -20)",
+          "timeout": 590000
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01BUxSo2hpJkSZBLV5ohiTDc",
+        "tool_input": {
+          "command": "node node_modules/@angular/cli/bin/ng.js build --configuration development --output-path C:/Users/georg/AppData/Local/Temp/qa-admin-build/dev > docs/design-blue/qa/build-dev.log 2>&1; echo exit=$?; tail -12 docs/design-blue/qa/build-dev.log",
+          "timeout": 590000
+        }
+      }
+    ],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 88,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "AdminUI has 3 open bugs, all Low or Medium. Neither build warned, and login and the approve flows work. The dev run passed 531 of 541 browser assertions and the prod run passed 475 of 482. Every failing assertion belongs to one of the bugs below.\n\n- **Dev build** (`ng build --configuration development`): passes with no warnings.\n- **Production build**: passes with no warnings.\n- **Browser runs**: the harness ran at 360x800, 768x1024 and 1440x1000, with mocked API fixtures. The fixtures covered the populated, empty, loading, error and retry states. I tested login, the Companies and Requests tabs with filters and approve, and toasts.\n- **Network and console**: no request reached the real network. The 30 console errors in the dev run all come from the error fixtures I injected on purpose. The prod run has no unexpected console errors besides the service-worker warnings I caused by blocking the service worker.\n- **Confirm dialog**: I tested it in the dev run only. Its dev-only hook doesn't exist in the prod build, and the Delete button isn't in the dashboard template.\n- **Old brand colours**: none of the old cyan, green, violet or pink hex values, gradients or `z-index: 1000` remain in `src`.\n- **Screenshots**: 54 dev and 51 prod, named by app, route, width and state.\n\n## Open bugs\n| ID | Severity | Where | Expected | Actual | Owner |\n|---|---|---|---|---|---|\n| BUG-1 | Low | `/dashboard`, \"Active\" and \"Approved\" badges, all viewports | Text contrast at least 4.5:1 | `.status--ok` (`#15803D` on `#E7F5EC`) measures 4.46:1 | frontend-engineer, `admin-dashboard.component.scss` (`.status--ok`) |\n| BUG-2 | Medium | `/dashboard` Requests tab, 1440x1000, even with short names | Approve button reachable without horizontal scroll | Table scroll width is 1071px against a 1028px wrapper, so the Actions column and the Approve button are cut off | frontend-engineer, `admin-dashboard.component.scss` |\n| BUG-3 | Low | Confirm dialog, all viewports | Focus returns to the button that opened it | After Escape or backdrop close, focus lands on the app root | frontend-engineer, `confirm-dialog.component.ts` |\n\nI also noted, but did not count, that the focus ring on buttons (35% blue, no border change) is only about 1.7:1 against white. That comes from the shared design token, so it is a design decision.\n\n## Not covered\n- The `home` component, because it isn't routed.\n- Real touch hardware, since I rewrote the `(pointer: coarse)` media query in the served bundles to simulate it.\n- Real Inter font loading, because I stubbed Google Fonts.\n- Safari and Firefox.\n- Screen readers.\n- Service-worker behaviour.\n- Pixel equality to the concept reference.\n\nI wrote only inside `docs/design-blue/`. Nothing is staged or committed.\n\nFiles are in `docs/design-blue/`:\n- `qa-report.md`\n- `QA-CHECKPOINT.md`\n- `qa/harness.cjs`\n- `results-dev.json`\n- `results-prod.json`\n- `screenshots/`\n\nBUG_COUNT: 3",
+    "ttft_ms": 1439,
+    "type": "result",
+    "duration_ms": 883704,
+    "uuid": "2a34e6eb-4bf3-4f04-886d-992cbc6855eb",
+    "ttft_stream_ms": 1097,
+    "time_to_request_ms": 405,
+    "first_content_frame_ms": 1098,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

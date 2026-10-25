@@ -1,0 +1,112 @@
+{
+  "exit_code": 0,
+  "peak_active_tokens": 35036,
+  "capacity": 1000000,
+  "result": {
+    "duration_api_ms": 52854,
+    "stop_reason": "end_turn",
+    "session_id": "22e01639-1dbf-40aa-9862-cf35ab1d718c",
+    "total_cost_usd": 0.16334869999999999,
+    "usage": {
+      "input_tokens": 22,
+      "cache_creation_input_tokens": 29811,
+      "cache_read_input_tokens": 230272,
+      "output_tokens": 6575,
+      "output_tokens_details": {
+        "thinking_tokens": 746
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 29811
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 712,
+          "cache_read_input_tokens": 33402,
+          "cache_creation_input_tokens": 920,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 920,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 22,
+        "outputTokens": 6575,
+        "cacheReadInputTokens": 230272,
+        "cacheCreationInputTokens": 29811,
+        "webSearchRequests": 0,
+        "costUSD": 0.16334869999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 746,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_012WSQ3ow7CAWzcMZja4NzTK",
+        "tool_input": {
+          "command": "cd \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform\"; ls docs/design-blue docs/design-blue/runs | head -80; cat docs/design-blue/qa-calibration-notes.md; cat New/AdminUI/docs/design-blue/CHECKPOINT.md; cd New/AdminUI; git status --short"
+        }
+      }
+    ],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 26,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "I fixed all three open AdminUI findings plus the two shared items from the coordinator notes. Both builds pass: `npx ng build --configuration development` and `npm run build`. I did not run the browser harness, and I didn't stage or commit anything.\n\n- **Status contrast (BUG-1):** I changed `$ok` from `#15803D` to `#166534` in `_variables.scss`. I estimate about 6.7:1 on `#E7F5EC`, calculated rather than measured. Brand blue is unchanged. The darker green also applies to the other places `$ok` is used, including the green buttons and success toasts.\n- **Approve button clipped at 1440 (BUG-2):** In `admin-dashboard.component.scss`, I lowered the Requests table's minimum width from 960px to 720px. Name and date cells now wrap. The Id, token count, status and Actions cells stay on one line. Mobile and tablet widths still scroll inside the table wrapper. I haven't confirmed in a browser that the Approve button now fits at 1440.\n- **Confirm dialog (BUG-3):** In `confirm-dialog.component.ts`, the dialog now remembers the button that opened it and returns focus there on close. It also locks body scrolling while open and restores it on close or destroy.\n- **Button focus ring:** `$focus-ring` is now a 2px white ring plus a 2px `#2563EB` ring, instead of the faint 35% blue shadow. Input blue borders are untouched.\n- **Empty error toast:** `ToastService.error` in `toast.service.ts` now falls back to \"Something went wrong. Please try again.\" when the message is missing, blank or over 200 characters.\n\nI left the 768px toast placement and the native Tab step to the document body unchanged, per the calibration notes.\n\nThe ledger is in `docs/design-blue/CHECKPOINT.md`.\n\nThe other three apps (CompanyUI, InvestorUI, ServiceUI) share copied tokens and toast code, so they need the same colour, ring and toast changes.\n\nThe shell was blocked when I tried a `cd` compound command, so I ran the builds directly in the working directory.",
+    "ttft_ms": 2176,
+    "type": "result",
+    "duration_ms": 103649,
+    "uuid": "d7c009a2-d6dd-437f-8e4b-a78dcf588244",
+    "ttft_stream_ms": 1478,
+    "time_to_request_ms": 290,
+    "first_content_frame_ms": 1478,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

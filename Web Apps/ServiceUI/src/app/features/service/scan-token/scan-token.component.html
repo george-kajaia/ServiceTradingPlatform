@@ -1,0 +1,148 @@
+<div class="scan-backdrop" (click)="cancel()">
+  <div class="scan-modal" role="dialog" aria-modal="true" aria-label="Scan customer QR" (click)="$event.stopPropagation()">
+
+    <button class="scan-modal__close" (click)="cancel()" aria-label="Close">×</button>
+
+    <!-- ── SCANNING STATE ─────────────────────────────── -->
+    <ng-container *ngIf="state === 'scanning'">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Scan Customer QR</h2>
+        <p class="scan-modal__subtitle">Point camera at the customer's QR code</p>
+      </div>
+      <div class="scan-modal__camera-wrap">
+        <video #videoEl class="scan-modal__video" autoplay muted playsinline></video>
+        <div class="scan-modal__viewfinder">
+          <span class="scan-modal__corner scan-modal__corner--tl"></span>
+          <span class="scan-modal__corner scan-modal__corner--tr"></span>
+          <span class="scan-modal__corner scan-modal__corner--bl"></span>
+          <span class="scan-modal__corner scan-modal__corner--br"></span>
+          <div class="scan-modal__scan-line"></div>
+        </div>
+      </div>
+      <div class="scan-modal__footer">
+        <button class="scan-btn scan-btn--ghost" (click)="cancel()">Cancel</button>
+      </div>
+    </ng-container>
+
+    <!-- ── LOADING STATE ──────────────────────────────── -->
+    <ng-container *ngIf="state === 'loading'">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Loading Token...</h2>
+      </div>
+      <div class="scan-modal__state">
+        <div class="scan-spinner"></div>
+        <p>Fetching token details</p>
+      </div>
+      <!-- Keep video element in DOM but hidden so @ViewChild reference stays valid -->
+      <video #videoEl class="scan-modal__video scan-modal__video--hidden" autoplay muted playsinline></video>
+    </ng-container>
+
+    <!-- ── CONFIRM STATE ──────────────────────────────── -->
+    <ng-container *ngIf="state === 'confirm' && token">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Confirm Service</h2>
+        <p class="scan-modal__subtitle">Review token details before confirming</p>
+      </div>
+
+      <div class="scan-modal__token-details">
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Company</span>
+          <span class="token-detail-row__value">{{ token.companyName }}</span>
+        </div>
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Product</span>
+          <span class="token-detail-row__value">{{ token.productName }}</span>
+        </div>
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Owner</span>
+          <span class="token-detail-row__value mono">{{ token.ownerPublicKey | slice:0:16 }}…</span>
+        </div>
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Status</span>
+          <span class="token-detail-row__value">{{ statusLabel(token.status) }}</span>
+        </div>
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Uses Remaining</span>
+          <span class="token-detail-row__value token-detail-row__value--highlight">{{ token.count }}</span>
+        </div>
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Schedule</span>
+          <span class="token-detail-row__value">{{ scheduleLabel(token.scheduleType) }}</span>
+        </div>
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Valid From</span>
+          <span class="token-detail-row__value">{{ token.startDate | date:'mediumDate' }}</span>
+        </div>
+        <div class="token-detail-row">
+          <span class="token-detail-row__label">Valid Until</span>
+          <span class="token-detail-row__value">{{ token.endDate ? (token.endDate | date:'mediumDate') : 'No expiry' }}</span>
+        </div>
+        <div class="token-detail-row token-detail-row--mono">
+          <span class="token-detail-row__label">Token ID</span>
+          <span class="token-detail-row__value mono">{{ payload?.tokenId }}</span>
+        </div>
+        <div class="token-detail-row token-detail-row--mono">
+          <span class="token-detail-row__label">Row Version</span>
+          <span class="token-detail-row__value mono">{{ payload?.rowVersion }}</span>
+        </div>
+        <div class="token-detail-row token-detail-row--mono">
+          <span class="token-detail-row__label">Connection ID</span>
+          <span class="token-detail-row__value mono">{{ payload?.connectionId }}</span>
+        </div>
+      </div>
+
+      <!-- Keep video element hidden so @ViewChild reference stays valid -->
+      <video #videoEl class="scan-modal__video scan-modal__video--hidden" autoplay muted playsinline></video>
+
+      <div class="scan-modal__footer scan-modal__footer--confirm">
+        <button class="scan-btn scan-btn--ghost" (click)="cancel()">Cancel</button>
+        <button class="scan-btn scan-btn--confirm" (click)="confirm()">
+          ✓ Confirm Service
+        </button>
+      </div>
+    </ng-container>
+
+    <!-- ── SUBMITTING STATE ───────────────────────────── -->
+    <ng-container *ngIf="state === 'submitting'">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Confirming...</h2>
+      </div>
+      <div class="scan-modal__state">
+        <div class="scan-spinner"></div>
+        <p>Processing service request</p>
+      </div>
+      <video #videoEl class="scan-modal__video scan-modal__video--hidden" autoplay muted playsinline></video>
+    </ng-container>
+
+    <!-- ── ERROR STATE ────────────────────────────────── -->
+    <ng-container *ngIf="state === 'error'">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Error</h2>
+      </div>
+      <div class="scan-modal__state scan-modal__state--error" role="alert">
+        <span class="scan-modal__state-icon" aria-hidden="true">⚠</span>
+        <p>{{ errorMessage }}</p>
+      </div>
+      <div class="scan-modal__token-details" *ngIf="payload">
+        <div class="token-detail-row token-detail-row--mono">
+          <span class="token-detail-row__label">Token ID</span>
+          <span class="token-detail-row__value mono">{{ payload.tokenId }}</span>
+        </div>
+        <div class="token-detail-row token-detail-row--mono">
+          <span class="token-detail-row__label">Row Version</span>
+          <span class="token-detail-row__value mono">{{ payload.rowVersion }}</span>
+        </div>
+        <div class="token-detail-row token-detail-row--mono">
+          <span class="token-detail-row__label">Connection ID</span>
+          <span class="token-detail-row__value mono">{{ payload.connectionId }}</span>
+        </div>
+      </div>
+      <video #videoEl class="scan-modal__video scan-modal__video--hidden" autoplay muted playsinline></video>
+      <div class="scan-modal__footer">
+        <button class="scan-btn scan-btn--ghost" (click)="cancel()">Close</button>
+        <button class="scan-btn scan-btn--confirm" (click)="rescan()">Try Again</button>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

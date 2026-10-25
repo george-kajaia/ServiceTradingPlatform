@@ -1,0 +1,148 @@
+{
+  "exit_code": 0,
+  "peak_active_tokens": 158890,
+  "capacity": 1000000,
+  "result": {
+    "duration_api_ms": 468198,
+    "stop_reason": "end_turn",
+    "session_id": "92542b76-e08b-46dc-b972-27726ea7c475",
+    "total_cost_usd": 1.3438176000000002,
+    "usage": {
+      "input_tokens": 72,
+      "cache_creation_input_tokens": 153628,
+      "cache_read_input_tokens": 3564736,
+      "output_tokens": 60313,
+      "output_tokens_details": {
+        "thinking_tokens": 18269
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 153628
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1286,
+          "cache_read_input_tokens": 152829,
+          "cache_creation_input_tokens": 5310,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 5310,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 72,
+        "outputTokens": 60313,
+        "cacheReadInputTokens": 3564736,
+        "cacheCreationInputTokens": 153628,
+        "webSearchRequests": 0,
+        "costUSD": 1.3438176000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 18269,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01VRsZdJJ7fuaCmjhTQEkaxg",
+        "tool_input": {
+          "command": "cd \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform\"; ls docs/design-blue docs/design-blue/runs New/CompanyUI/docs/design-blue 2>&1 | head -50; cd New/CompanyUI; git status --short | head -30"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_0187NoFC8EJKb2n8jbGJUpVH",
+        "tool_input": {
+          "command": "git -C \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform/New/CompanyUI\" status --short | head -40"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_016opNZPDaJKaGXhsu8XAKQe",
+        "tool_input": {
+          "command": "cd src/app; find . -name \"*.ts\" ! -name \"*.spec.ts\" | head -50; cat ../environments/environment.ts; cat app.routes.ts; ls ../../docs/design-blue; cat core/api/*.ts | head -150"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01NntT6YzYwHGyjo96dbcGmG",
+        "tool_input": {
+          "command": "git check-ignore dist docs; ls dist 2>&1 | head; ls docs/design-blue; (curl -s -o /dev/null -w \"%{http_code}\\n\" http://127.0.0.1:4312/ || echo down)"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_011468o9ePbpDB5vpUaTMhy4",
+        "tool_input": {
+          "command": "node node_modules/@angular/cli/bin/ng.js build --configuration development 2>&1 | tail -15; echo EXIT=$?",
+          "timeout": 400000
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01VBY9HKyq7bFQS3EYL8xRFA",
+        "tool_input": {
+          "command": "node -e \"\nconst fs=require('fs');const f='docs/design-blue/qa/harness.cjs';let s=fs.readFileSync(f,'utf8');\ns=s.replace(\\\"await page.locator('.modal').waitFor({ state: 'detached', timeout: 6000 }).catch(() => {});\\n  const cr =\\\",\\\"await page.waitForTimeout(2200); await page.locator('.modal').waitFor({ state: 'detached', timeout: 6000 }).catch(() => {}); await page.locator('table.grid tbody tr').first().waitFor({ timeout: 6000 });\\n  const cr =\\\");\nfs.writeFileSync(f,s);\"\ncat > docs/design-blue/qa/probe.cjs <<'EOF'\nconst { chromium } = require('C:/Users/georg/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');\n(async()=>{const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});const p=await b.newPage();\nawait p.route('**/*',r=>r.request().url().startsWith('http://127.0.0.1:4312')?r.continue():r.abort());\nawait p.goto('http://127.0.0.1:4312/login');await p.keyboard.press('Tab');await p.keyboard.press('Tab');\nconsole.log(await p.evaluate(()=>{const e=document.activeElement,c=getComputedStyle(e);return {tag:e.tagName,outline:c.outline,shadow:c.boxShadow,border:c.borderColor,bg:c.backgroundColor}}));\nawait b.close();})();\nEOF\nnode docs/design-blue/qa/probe.cjs"
+        }
+      }
+    ],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 74,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "CompanyUI QA found 7 open redesign/regression bugs. Both builds pass and the real UI ran in headless Chrome at 360, 768 and 1440.\n\n**Builds and runs**\n- **Dev build:** passed.\n- **Production build:** passed.\n- **Dev harness:** 268 checks passed, 49 failed.\n- **Production harness:** 265 passed, 52 failed. The extra 3 failures are the prod-only link-focus check in B6.\n- **Harness failures:** every failing check maps to a bug below. I fixed harness defects (timing, locators, a wrong fixture expectation) before recording any app bug.\n- **Isolation:** all non-local requests were intercepted. The only remote request was the Google Fonts `@import` in `src/styles.scss`, which was aborted. No unmocked API calls hit.\n\n**What passed**\n- No horizontal overflow, clipped labels, gradients or cyan/purple/pink colours. Greens appear only as semantic success colours.\n- Primary buttons are solid blue and at least 44px tall, and the modal close buttons are 44\u00d744.\n- Request URLs, params and bodies were asserted for login, requests, products, users and company, and all matched.\n- Console errors were only the ones my injected 401/500/404 fixtures caused.\n\n**Bug ledger**\n\n| ID | Severity | What fails |\n|---|---|---|\n| B1 | High | Dashboard dialogs: focus doesn't move in, Tab escapes to the background, the background scrolls (scrollY 111\u2013570), focus lands on `BODY` after close, and Escape only works if focus is already inside. This confirms the coordinator finding. |\n| B2 | Medium | The shared confirm dialog handles focus-in, Tab trap and Escape correctly. It has no scroll lock, and focus returns to `BODY` instead of the Delete button. |\n| B3 | Medium | Escape closes the Request Add modal while the create request is still in flight. From reading the source (not browser-tested), the dashboard backdrop also has no click-to-close. |\n| B4 | Low | Products table prices are raw numbers, left-aligned, without tabular numerals. A zero price renders correctly. The Investor price-on-cards finding doesn't apply to this app, so this is the Company equivalent. |\n| B5 | Low | The \"Active\" badge and the home \"\u2713\" icon are #15803D on #E7F5EC, which is 4.46:1 and just under AA. That is the brief's own token pair. |\n| B6 | Low | Links use the browser's default 1px outline instead of the blue focus ring. The home footer logo link is 27px tall. |\n| B7 | Low | The Products and Users search inputs have only a placeholder and no accessible label. |\n\n**Unverified**\n- **Scanner:** the scan overlay is unreachable. `ScanTokenComponent` isn't used by any route or template, so I couldn't test launch, cancel, error or retry. Its TypeScript also lacks the `confirm()` method its template calls.\n- **Fonts:** Inter isn't rendered in screenshots because the Google Fonts `@import` is blocked.\n- **Screenshots:** I inspected about 6 of roughly 180 by eye. The rest were covered by the automated audits.\n- **Not tested:** Safari, Firefox, `prefers-reduced-motion` and real pictogram upload.\n- **Pre-existing, not counted:** the password field is `type=\"text\"` and there is no route guard.\n\nNothing was staged, committed or pushed, and no app code was touched. Everything is in `docs/design-blue/`: `qa-report.md`, `QA-CHECKPOINT.md`, and a `qa/` folder with `harness.cjs`, `summarize.cjs`, `probe.cjs`, the results JSON files and screenshots.\n\nBUG_COUNT: 7",
+    "ttft_ms": 1743,
+    "type": "result",
+    "duration_ms": 1117623,
+    "uuid": "33ef56bd-ad53-4f89-b4f0-edcdc74085d8",
+    "ttft_stream_ms": 1036,
+    "time_to_request_ms": 302,
+    "first_content_frame_ms": 1037,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

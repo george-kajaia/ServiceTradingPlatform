@@ -1,0 +1,324 @@
+<!-- ═══ TOP APP BAR ═════════════════════════════════════════ -->
+<header class="app-bar">
+  <div class="app-bar__inner">
+    <div class="app-bar__brand">
+      <span class="app-bar__logo">◈</span>
+      <span class="app-bar__title">Marketplace</span>
+    </div>
+    <div class="app-bar__meta">
+      <button class="app-bar__refresh" (click)="refreshCurrentTab()" [disabled]="loading" aria-label="Refresh">
+        <span [class.spinning]="loading">↻</span>
+      </button>
+      <span class="app-bar__key" title="{{ customerPublicKey }}">{{ customerName }}</span>
+      <button class="logout-btn" (click)="logout()" title="Log out"><span aria-hidden="true">⏻</span> Log Out</button>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="desktop-tabs">
+    <button class="desktop-tab" [class.desktop-tab--active]="activeTab === 'yourTokens'" (click)="setTab('yourTokens')">
+      My Tokens
+    </button>
+    <button class="desktop-tab" [class.desktop-tab--active]="activeTab === 'primaryMarket'" (click)="setTab('primaryMarket')">
+      Primary Market
+    </button>
+    <button class="desktop-tab" [class.desktop-tab--active]="activeTab === 'secondaryMarket'" (click)="setTab('secondaryMarket')">
+      Secondary Market
+    </button>
+
+    <!-- Cart button — right side -->
+    <div class="desktop-tabs__spacer"></div>
+    <button class="cart-btn" (click)="openCart()">
+      🛒 Cart
+      <span class="cart-btn__badge" *ngIf="cartService.count > 0">{{ cartService.count }}</span>
+    </button>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <label class="filter-bar__field">
+      <span class="filter-bar__label">Company</span>
+      <select [(ngModel)]="marketCompanyId" class="filter-bar__input" (ngModelChange)="onCompanyChange()">
+        <option [ngValue]="-1">All companies</option>
+        <option *ngFor="let c of companies" [ngValue]="c.id">{{ c.name }}</option>
+      </select>
+    </label>
+    <label class="filter-bar__field">
+      <span class="filter-bar__label">Product</span>
+      <select [(ngModel)]="marketProductId" class="filter-bar__input" (ngModelChange)="onProductChange()">
+        <option [ngValue]="-1">All products</option>
+        <option *ngFor="let p of products" [ngValue]="p.id">{{ p.name }}</option>
+      </select>
+    </label>
+    <label class="filter-bar__field">
+      <span class="filter-bar__label">Request</span>
+      <select [(ngModel)]="marketRequestId" class="filter-bar__input" [disabled]="!isRequestFilterEnabled">
+        <option [ngValue]="-1">All requests</option>
+        <option *ngFor="let r of requests" [ngValue]="r.id">{{ r.id }} — {{ r.productName }}</option>
+      </select>
+    </label>
+    <button class="filter-bar__btn filter-bar__btn--primary" (click)="applyFilters()">Apply</button>
+    <button class="filter-bar__btn" (click)="refreshFilters()">Reset</button>
+  </div>
+</header>
+
+<!-- ═══ LOADING INDICATOR ════════════════════════════════════ -->
+<div class="loading-bar" *ngIf="loading" role="status" aria-label="Loading"></div>
+
+<!-- ═══ MAIN CONTENT ════════════════════════════════════════ -->
+<main class="main-content">
+
+  <!-- ── My Tokens ──────────────────────────────────────── -->
+  <section *ngIf="activeTab === 'yourTokens'" class="tab-content">
+    <div class="card-grid">
+      <div class="token-card" *ngFor="let t of filteredYourTokens" (click)="openDetail(t, 'yourTokens')">
+        <div class="token-card__image">
+          <img *ngIf="pictogramSrc(t)" [src]="pictogramSrc(t)" [alt]="t.productName" />
+          <div *ngIf="!pictogramSrc(t)" class="token-card__image-placeholder">◈</div>
+        </div>
+        <div class="token-card__header">
+          <span class="token-card__company">{{ t.companyName }}</span>
+          <span class="badge" [class]="statusClass(t.status)">{{ tokenStatusLabel(t.status) }}</span>
+        </div>
+        <div class="token-card__product">{{ t.productName }}</div>
+        <div class="token-card__body">
+          <div class="token-card__stat">
+            <span class="token-card__stat-label">Remaining service count</span>
+            <span class="token-card__stat-value">{{ t.remainingCount }}</span>
+          </div>
+          <div class="token-card__stat">
+            <span class="token-card__stat-label">Total service count</span>
+            <span class="token-card__stat-value">{{ t.serviceCount }}</span>
+          </div>
+          <div class="token-card__stat-row">
+            <div class="token-card__stat">
+              <span class="token-card__stat-label">Start date</span>
+              <span class="token-card__stat-value">{{ t.startDate | date:'mediumDate' }}</span>
+            </div>
+            <div class="token-card__stat">
+              <span class="token-card__stat-label">End date</span>
+              <span class="token-card__stat-value">{{ t.endDate ? (t.endDate | date:'mediumDate') : '—' }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="token-card__footer">
+          <span class="token-card__id">Token #{{ t.id | slice:0:8 }}…</span>
+          <div class="token-card__actions" (click)="$event.stopPropagation()">
+            <button *ngIf="+t.status === 2" class="tc-btn tc-btn--sm tc-btn--green"
+              (click)="openGetService(t)">Get Service</button>
+            <button *ngIf="+t.status === 2" class="tc-btn tc-btn--sm tc-btn--outline"
+              (click)="markForResell(t)">Resell</button>
+            <button *ngIf="+t.status === 1" class="tc-btn tc-btn--sm tc-btn--warn"
+              (click)="cancelReselling(t)">Cancel Resell</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="empty-msg" *ngIf="!loading && filteredYourTokens.length === 0">No tokens found.</p>
+  </section>
+
+  <!-- ── Primary Market ───────────────────────────────────── -->
+  <section *ngIf="activeTab === 'primaryMarket'" class="tab-content">
+    <div class="card-grid">
+      <div class="token-card token-card--buyable token-card--primary" *ngFor="let t of visiblePrimaryTokens"
+           (click)="openDetail(t, 'primaryMarket')">
+        <div class="token-card__image">
+          <img *ngIf="pictogramSrc(t)" [src]="pictogramSrc(t)" [alt]="t.productName" />
+          <div *ngIf="!pictogramSrc(t)" class="token-card__image-placeholder">◈</div>
+        </div>
+        <div class="token-card__header">
+          <span class="token-card__company">{{ t.companyName }}</span>
+          <span class="badge badge--green">Available</span>
+        </div>
+        <div class="token-card__product">{{ t.productName }}</div>
+        <div class="token-card__body">
+          <div class="token-card__stat">
+            <span class="token-card__stat-label">Total service count</span>
+            <span class="token-card__stat-value">{{ t.serviceCount }}</span>
+          </div>
+          <div class="token-card__stat token-card__stat--full" *ngIf="t.term != null">
+            <span class="token-card__stat-label">Term</span>
+            <span class="token-card__stat-value">{{ t.term }} - Months</span>
+          </div>
+          <div class="token-card__stat token-card__stat--full">
+            <span class="token-card__stat-label">Schedule</span>
+            <span class="token-card__stat-value">{{ scheduleTypeLabel(t.scheduleType) }}</span>
+          </div>
+        </div>
+        <div class="token-card__footer">
+          <span class="token-card__id">Token #{{ t.id | slice:0:8 }}…</span>
+          <div class="token-card__actions" (click)="$event.stopPropagation()">
+            <button class="tc-btn tc-btn--sm tc-btn--outline"
+              [class.tc-btn--in-cart]="cartService.has(t.id)"
+              [disabled]="cartService.has(t.id)"
+              (click)="addToCart(t)">
+              {{ cartService.has(t.id) ? '✓ In Cart' : '🛒 Cart' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="empty-msg" *ngIf="!loading && visiblePrimaryTokens.length === 0">No tokens available.</p>
+  </section>
+
+  <!-- ── Secondary Market ─────────────────────────────────── -->
+  <section *ngIf="activeTab === 'secondaryMarket'" class="tab-content">
+    <div class="card-grid">
+      <div class="token-card token-card--buyable" *ngFor="let t of visibleSecondaryTokens"
+           (click)="openDetail(t, 'secondaryMarket')">
+        <div class="token-card__image">
+          <img *ngIf="pictogramSrc(t)" [src]="pictogramSrc(t)" [alt]="t.productName" />
+          <div *ngIf="!pictogramSrc(t)" class="token-card__image-placeholder">◈</div>
+        </div>
+        <div class="token-card__header">
+          <span class="token-card__company">{{ t.companyName }}</span>
+          <span class="badge badge--blue">Resale</span>
+        </div>
+        <div class="token-card__product">{{ t.productName }}</div>
+        <div class="token-card__body">
+          <div class="token-card__stat">
+            <span class="token-card__stat-label">Remaining service count</span>
+            <span class="token-card__stat-value">{{ t.remainingCount }}</span>
+          </div>
+          <div class="token-card__stat">
+            <span class="token-card__stat-label">Total service count</span>
+            <span class="token-card__stat-value">{{ t.serviceCount }}</span>
+          </div>
+          <div class="token-card__stat-row" *ngIf="t.startDate || t.endDate">
+            <div class="token-card__stat" *ngIf="t.startDate">
+              <span class="token-card__stat-label">Start date</span>
+              <span class="token-card__stat-value">{{ t.startDate | date:'mediumDate' }}</span>
+            </div>
+            <div class="token-card__stat" *ngIf="t.endDate">
+              <span class="token-card__stat-label">End date</span>
+              <span class="token-card__stat-value">{{ t.endDate | date:'mediumDate' }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="token-card__footer">
+          <span class="token-card__id">Token #{{ t.id | slice:0:8 }}…</span>
+          <div class="token-card__actions" (click)="$event.stopPropagation()">
+            <button class="tc-btn tc-btn--sm tc-btn--outline"
+              [class.tc-btn--in-cart]="cartService.has(t.id)"
+              [disabled]="cartService.has(t.id)"
+              (click)="addToCart(t)">
+              {{ cartService.has(t.id) ? '✓ In Cart' : '🛒 Cart' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="empty-msg" *ngIf="!loading && visibleSecondaryTokens.length === 0">No tokens available.</p>
+  </section>
+</main>
+
+<!-- ═══ BOTTOM TAB BAR (mobile) ═════════════════════════════ -->
+<nav class="bottom-nav" role="tablist" aria-label="Marketplace tabs">
+  <button class="bottom-nav__tab" role="tab"
+          [class.bottom-nav__tab--active]="activeTab === 'yourTokens'"
+          (click)="setTab('yourTokens')">
+    <span class="bottom-nav__icon">◈</span>
+    <span class="bottom-nav__label">My Tokens</span>
+  </button>
+  <button class="bottom-nav__tab" role="tab"
+          [class.bottom-nav__tab--active]="activeTab === 'primaryMarket'"
+          (click)="setTab('primaryMarket')">
+    <span class="bottom-nav__icon">🏪</span>
+    <span class="bottom-nav__label">Primary</span>
+  </button>
+  <button class="bottom-nav__tab" role="tab"
+          [class.bottom-nav__tab--active]="activeTab === 'secondaryMarket'"
+          (click)="setTab('secondaryMarket')">
+    <span class="bottom-nav__icon">🔄</span>
+    <span class="bottom-nav__label">Secondary</span>
+  </button>
+  <button class="bottom-nav__tab" role="tab" (click)="openCart()">
+    <span class="bottom-nav__icon">🛒<span class="cart-badge-mobile" *ngIf="cartService.count > 0">{{ cartService.count }}</span></span>
+    <span class="bottom-nav__label">Cart</span>
+  </button>
+</nav>
+
+<!-- ═══ TOKEN DETAIL MODAL ══════════════════════════════════ -->
+<div class="modal-backdrop" *ngIf="detailToken" (click)="closeDetail()">
+  <div class="modal" role="dialog" aria-modal="true" [attr.aria-label]="detailToken.productName" (click)="$event.stopPropagation()">
+    <button class="modal__close" (click)="closeDetail()" aria-label="Close">×</button>
+
+    <div class="modal__image">
+      <img *ngIf="pictogramSrc(detailToken)" [src]="pictogramSrc(detailToken)" [alt]="detailToken.productName" />
+      <div *ngIf="!pictogramSrc(detailToken)" class="modal__image-placeholder">◈</div>
+    </div>
+
+    <div class="modal__body">
+      <div class="modal__company-row">
+        <span class="modal__company">{{ detailToken.companyName }}</span>
+        <span *ngIf="detailTab === 'yourTokens'" class="badge" [class]="statusClass(detailToken.status)">{{ tokenStatusLabel(detailToken.status) }}</span>
+        <span *ngIf="detailTab === 'secondaryMarket'" class="badge badge--blue">Resale</span>
+      </div>
+      <h2 class="modal__product">{{ detailToken.productName }}</h2>
+
+      <dl class="modal__details">
+        <!-- ── My Tokens: same fields and order as the card list ── -->
+        <ng-container *ngIf="detailTab === 'yourTokens'">
+          <div><dt>Remaining service count</dt><dd>{{ detailToken.remainingCount }}</dd></div>
+          <div><dt>Total service count</dt><dd>{{ detailToken.serviceCount }}</dd></div>
+          <div class="full-span"><dt>Start date</dt><dd>{{ detailToken.startDate | date:'mediumDate' }}</dd></div>
+          <div class="full-span"><dt>End date</dt><dd>{{ detailToken.endDate ? (detailToken.endDate | date:'mediumDate') : '—' }}</dd></div>
+          <div class="full-span"><dt>Token</dt><dd class="mono">{{ detailToken.id }}</dd></div>
+        </ng-container>
+
+        <!-- ── Primary Market ── -->
+        <ng-container *ngIf="detailTab === 'primaryMarket'">
+          <div><dt>Total service count</dt><dd>{{ detailToken.serviceCount }}</dd></div>
+          <div class="full-span" *ngIf="detailToken.term != null"><dt>Term</dt><dd>{{ detailToken.term }} - Months</dd></div>
+          <div class="full-span"><dt>Schedule</dt><dd>{{ scheduleTypeLabel(detailToken.scheduleType) }}</dd></div>
+          <div class="full-span"><dt>Token</dt><dd class="mono">{{ detailToken.id }}</dd></div>
+        </ng-container>
+
+        <!-- ── Secondary Market ── -->
+        <ng-container *ngIf="detailTab === 'secondaryMarket'">
+          <div><dt>Remaining service count</dt><dd>{{ detailToken.remainingCount }}</dd></div>
+          <div><dt>Total service count</dt><dd>{{ detailToken.serviceCount }}</dd></div>
+          <div class="full-span"><dt>Start date</dt><dd>{{ detailToken.startDate | date:'mediumDate' }}</dd></div>
+          <div class="full-span"><dt>End date</dt><dd>{{ detailToken.endDate ? (detailToken.endDate | date:'mediumDate') : '—' }}</dd></div>
+          <div class="full-span"><dt>Token</dt><dd class="mono">{{ detailToken.id }}</dd></div>
+        </ng-container>
+      </dl>
+
+      <div class="modal__actions">
+        <!-- My Tokens actions -->
+        <ng-container *ngIf="detailTab === 'yourTokens'">
+          <button *ngIf="+detailToken.status === 2" class="tc-btn tc-btn--green" (click)="openGetService(detailToken); closeDetail()">Get Service</button>
+          <button *ngIf="+detailToken.status === 2" class="tc-btn tc-btn--outline" (click)="markForResell(detailToken); closeDetail()">Mark for Resell</button>
+          <button *ngIf="+detailToken.status === 1" class="tc-btn tc-btn--warn" (click)="cancelReselling(detailToken); closeDetail()">Cancel Reselling</button>
+        </ng-container>
+
+        <!-- Primary Market actions -->
+        <ng-container *ngIf="detailTab === 'primaryMarket'">
+          <button class="tc-btn tc-btn--outline" [class.tc-btn--in-cart]="cartService.has(detailToken.id)"
+            [disabled]="cartService.has(detailToken.id)"
+            (click)="addToCart(detailToken)">
+            {{ cartService.has(detailToken.id) ? '✓ In Cart' : '🛒 Add to Cart' }}
+          </button>
+        </ng-container>
+
+        <!-- Secondary Market actions -->
+        <ng-container *ngIf="detailTab === 'secondaryMarket'">
+          <button class="tc-btn tc-btn--outline" [class.tc-btn--in-cart]="cartService.has(detailToken.id)"
+            [disabled]="cartService.has(detailToken.id)"
+            (click)="addToCart(detailToken)">
+            {{ cartService.has(detailToken.id) ? '✓ In Cart' : '🛒 Add to Cart' }}
+          </button>
+        </ng-container>
+
+        <button class="tc-btn tc-btn--ghost" (click)="closeDetail()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GET SERVICE QR OVERLAY ══════════════════════════════ -->
+<app-get-service
+  *ngIf="getServiceToken"
+  [token]="getServiceToken"
+  (closed)="onGetServiceClosed($event)">
+</app-get-service>

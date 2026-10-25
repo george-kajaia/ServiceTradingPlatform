@@ -1,0 +1,242 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: $page;
+  color: $ink;
+  font-family: $font-family-base;
+}
+
+// ============================================
+// Home Page Block
+// ============================================
+.home-page {
+  @include container;
+  padding-block: $space-6 $space-16;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding-inline: $container-padding-mobile;
+  }
+}
+
+// ============================================
+// Header Block
+// ============================================
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-6;
+  padding: $space-3 $space-5;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+
+  @include sm-down {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $space-4;
+  }
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+
+  &-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+    @include flex-center;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+    background: $blue-600;
+    color: #ffffff;
+  }
+
+  &-text {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    color: $ink;
+  }
+}
+
+.main-menu {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  @include sm-down {
+    justify-content: space-between;
+  }
+}
+
+.menu-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: $ctl-h;
+  padding: 0 $space-3;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $ink-2;
+  transition: background $transition-base, color $transition-base;
+
+  &:hover {
+    background: $blue-50;
+    color: $blue-700;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+}
+
+// ============================================
+// PWA Install Banner Block
+// ============================================
+.install-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  margin-top: $space-4;
+  padding: $space-3 $space-4;
+  background: $blue-50;
+  border: 1px solid rgba($blue-600, 0.25);
+  border-radius: $radius-lg;
+
+  @include sm-down {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+.install-banner-content {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  @include sm-down {
+    justify-content: center;
+  }
+}
+
+.install-banner-icon {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-md;
+  background: $blue-600;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.install-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+
+  strong {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $ink;
+  }
+
+  span {
+    font-size: $font-size-xs;
+    color: $ink-2;
+  }
+}
+
+.install-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  flex-shrink: 0;
+
+  @include sm-down {
+    justify-content: center;
+  }
+}
+
+.install-btn {
+  min-height: $ctl-h;
+  padding: $space-2 $space-5;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: #ffffff;
+  background: $blue-600;
+  border-radius: $radius-md;
+  transition: background $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    background: $blue-700;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+}
+
+.dismiss-btn {
+  @include flex-center;
+  width: $ctl-h;
+  height: $ctl-h;
+  font-size: $font-size-lg;
+  color: $ink-2;
+  border-radius: $radius-md;
+  transition: color $transition-base, background $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    color: $ink;
+    background: rgba($ink, 0.06);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+}
+
+// ============================================
+// Hero Block
+// ============================================
+.hero {
+  @include flex-center;
+  padding-top: $space-16;
+  text-align: center;
+
+  @include sm-down {
+    padding-top: $space-10;
+  }
+
+  &-content {
+    max-width: 640px;
+
+    h1 {
+      font-size: clamp(#{$font-size-xl}, 5vw, #{$font-size-3xl});
+      font-weight: $font-weight-bold;
+      line-height: $line-height-tight;
+      letter-spacing: -0.02em;
+      color: $ink;
+    }
+  }
+
+  &-subtitle {
+    margin-top: $space-4;
+    font-size: $font-size-md;
+    line-height: $line-height-relaxed;
+    color: $ink-2;
+  }
+}

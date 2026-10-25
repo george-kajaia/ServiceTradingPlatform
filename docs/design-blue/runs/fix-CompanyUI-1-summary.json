@@ -1,0 +1,127 @@
+{
+  "exit_code": 0,
+  "peak_active_tokens": 112521,
+  "capacity": 1000000,
+  "result": {
+    "duration_api_ms": 181507,
+    "stop_reason": "end_turn",
+    "session_id": "15a2ef25-5cf4-4c6b-8a5d-87e6bbe7cad7",
+    "total_cost_usd": 0.7104610000000001,
+    "usage": {
+      "input_tokens": 50,
+      "cache_creation_input_tokens": 107295,
+      "cache_read_input_tokens": 1806035,
+      "output_tokens": 26152,
+      "output_tokens_details": {
+        "thinking_tokens": 5920
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 107295
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1308,
+          "cache_read_input_tokens": 110305,
+          "cache_creation_input_tokens": 1501,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 1501,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 50,
+        "outputTokens": 26152,
+        "cacheReadInputTokens": 1806035,
+        "cacheCreationInputTokens": 107295,
+        "webSearchRequests": 0,
+        "costUSD": 0.7104610000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 5920,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01RF6A7DaStbTRmsbEFD2R3A",
+        "tool_input": {
+          "command": "cd \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform\"; ls docs/design-blue docs/design-blue/runs New/CompanyUI/docs/design-blue; git -C New/CompanyUI status --short"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01D5gzrxYo1CWE27ogF9PH3i",
+        "tool_input": {
+          "command": "git -C \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform/New/CompanyUI\" status --short"
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_014cj32beT9mrdSaNCh2nZSW",
+        "tool_input": {
+          "command": "node node_modules/@angular/cli/bin/ng.js build --configuration production 2>&1 | tail -15; echo EXIT=${PIPESTATUS[0]}",
+          "timeout": 400000
+        }
+      }
+    ],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 70,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "I fixed all seven QA bugs (B1\u2013B7) plus the coordinator's scanner and toast findings. Both the development and production builds pass. I did not run the browser harness or check any viewport, so focus, scroll lock and the 360/768/1440 layouts are untested. `git status` was blocked, so I couldn't check for George's unrelated uncommitted files. I didn't stage or commit anything.\n\n- **B1 \u2013 dashboard dialogs:** I added a shared directive, `src/app/shared/directives/modal-dialog.directive.ts`, and put it on the dashboard modal. It moves focus in on open and keeps Tab and Shift+Tab inside. Escape now works from any focus, and background scroll is locked until the last dialog closes. Focus returns to the button that opened it. Clicking the backdrop now closes the modal.\n- **B2 \u2013 confirm dialog:** It uses the same directive, so it now locks scroll and returns focus to the Delete button. Its existing focus, Tab and Escape handling is unchanged.\n- **B3 \u2013 Escape during submit:** While a create or update request is in flight, Escape, backdrop click, \u00d7, and Cancel are all blocked, and the \u00d7 and Cancel buttons are disabled. Dismissal still works while a view or edit dialog is only loading its data.\n- **B4 \u2013 prices:** The price column and the product-detail price are tabular and right-aligned. A zero price still shows.\n- **B5 \u2013 green text:** The success green is now `#166534`.\n- **B6 \u2013 focus ring and links:**\n  - The shared focus ring is now the double ring from the brief.\n  - The \"Back to main page\" links (login and dashboard) and the home footer logo have the blue ring.\n  - The footer logo is now 44px tall.\n- **B7 \u2013 search labels:** The Products and Users search inputs have `aria-label`s.\n- **Unrequested:** I gave the Products Delete button the red `danger` style, which the QA report listed as an observation, not a bug.\n- **Toast:** Error toasts show \"Something went wrong. Please try again.\" when the message is empty, so an empty-body 500 no longer shows a blank toast.\n- **Scanner:**\n  - I removed the dead confirm branch and the unused helpers.\n  - The flow is now scanning, then submitting while the real request runs, then closed. Camera-denied and invalid-QR errors still offer a retry.\n  - A repeat decode can no longer send a second POST.\n  - The QR payload is checked before any field is read, so JSON `null`, arrays, wrong types and missing fields show the existing error and send no POST. A `rowVersion` of 0 is accepted.\n  - Close, Escape and backdrop are blocked while the request is pending.\n  - The camera is released if the component is destroyed while it is still starting.\n  - API parameters are unchanged.\n\nThe scanner component is still not used by any route or template, so it can't be reached in the UI. The stale `ServiceTokenDto` model is unused by anything reachable, so I left it. The sibling apps carry copies of the dialog and toast code and will need the same fixes.\n\nFiles touched, all under `src/` except the checkpoint (the QA agent's harness and docs are untouched):\n- **Directive:** `shared/directives/modal-dialog.directive.ts` (new)\n- **Dashboard:** `features/company/dashboard/company-dashboard.component.ts`, `.html` and `.scss`\n- **Scanner:** `features/company/scan-token/scan-token.component.ts` and `.html`\n- **Shared:** `shared/components/confirm-dialog/confirm-dialog.component.ts`, `core/services/toast.service.ts`\n- **Styles:** `styles/_variables.scss`, `features/auth/company-login/company-login.component.scss`, `features/home/home.component.scss`\n- **Checkpoint:** `docs/design-blue/CHECKPOINT.md`, which now holds the correction ledger",
+    "ttft_ms": 1568,
+    "type": "result",
+    "duration_ms": 233120,
+    "uuid": "7378acb0-99f7-41ed-a415-af4ad485dcfc",
+    "ttft_stream_ms": 1189,
+    "time_to_request_ms": 402,
+    "first_content_frame_ms": 1189,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

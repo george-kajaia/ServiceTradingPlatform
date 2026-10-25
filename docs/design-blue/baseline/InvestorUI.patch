@@ -1,0 +1,82 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 1bf4603..005bb62 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -41,6 +41,9 @@ Bootstrapped in [src/main.ts](src/main.ts) with `bootstrapApplication`, providin
+ | `/` | `HomeComponent` |
+ | `/login` | `InvestorLoginComponent` |
+ | `/marketplace` | `InvestorMarketplaceComponent` |
++| `/cart` | `CartComponent` |
++| `/checkout` | `CheckoutComponent` (Flitt embedded checkout) |
++| `/payment/return` | `PaymentReturnComponent` |
+ | `/token/:id` | `TokenDetailComponent` |
+ 
+ ### QR / Get-Service Flow
+@@ -63,3 +66,39 @@ The app is a PWA (service worker enabled in production builds via `ngsw-config.j
+ - Target URL: `https://investor.service-tokens.com`
+ - EC2 path: `/var/www/ServiceTokenUI/investor`
+ - Build output: `dist/service-token-investor-ui`
++
++## Related repos
++
++The backend is **ServiceTokenAPI** at `../../ServiceTokenAPI` — a separate repo with its own Claude team.
++It is the source of truth for routes, parameter binding, DTO fields and enum numbers. This repo may **read** it
++(`additionalDirectories` in `.claude/settings.json`) but never edits it: if the UI needs an API change, write the
++request for George to run in the API repo. AdminUI, CompanyUI, InvestorUI and ServiceUI share copied code.
++
++## Claude Code team (`.claude/`)
++
++The main session acts as Engineering Manager: it turns asks into specs, delegates, and **verifies** results
++(re-runs the build, reads `git log`) before reporting.
++
++| Agent | Use for |
++|---|---|
++| `product-manager` | Fuzzy ask → stories, acceptance criteria, tickets, API needs (read-only) |
++| `architect` | Routes, component structure, state, API methods/models for a new flow (read-only, opus) |
++| `designer` | Screen specs: layout, states, copy, accessibility (read-only) |
++| `frontend-engineer` | All code changes in this repo |
++| `qa-tester` | Angular unit tests (proposes a runner setup first — none configured yet) |
++| `code-reviewer` | After non-trivial changes, before commit (read-only) |
++| `security-reviewer` | Login/identity, checkout / payments / redemption, config; before releases (read-only, opus) |
++| `product-verifier` | End of every user-facing feature: real user flow works (read-only) |
++| `release-manager` | CHANGELOG, version, deploy runbook — never deploys |
++
++Skills: `/check`, `/new-ticket`, `/new-feature`, `/api-contract-sync`, `pre-flight`, `new-component`.
++Rules: `.claude/rules/workflow.md` (always), `.claude/rules/angular.md` (`src/**` only).
++Hooks: `git push` is blocked unless `ng build` passes; a Stop hook warns about uncommitted changes.
++Delegate only when it pays — a small change is faster done directly.
++
++## Conventions
++
++- Commits: `<type>(investor): <description>`; types `feat|fix|refactor|perf|test|docs|chore|security`. Push to `main`.
++- Banned in new code: `any`, hard-coded API URLs outside `src/environments/`, sensitive data in web storage,
++  `innerHTML` on user content, models that drift from the API DTOs.
++- The API has no authentication: the UI is never a security boundary.
+diff --git a/src/app/features/home/home.component.html b/src/app/features/home/home.component.html
+index 11fb950..b37ebf1 100644
+--- a/src/app/features/home/home.component.html
++++ b/src/app/features/home/home.component.html
+@@ -1,6 +1,3 @@
+-<!-- ═══════════════════════════ TEST MODE NOTICE ═══════════════════════════ -->
+-<p class="test-mode-notice">This application is currently running in test mode. Data is not real and no actual transactions will be processed.</p>
+-
+ <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+ <nav class="navbar" role="navigation" aria-label="Main navigation">
+   <div class="navbar__inner">
+diff --git a/src/styles.scss b/src/styles.scss
+index 935f5d7..21a882c 100644
+--- a/src/styles.scss
++++ b/src/styles.scss
+@@ -25,12 +25,3 @@ body {
+ 
+ a { text-decoration: none; }
+ 
+-// ═══════════════════════════ TEST MODE NOTICE ═══════════════════════════
+-.test-mode-notice {
+-  margin: 0;
+-  padding: 8px 24px;
+-  font-size: 13px;
+-  color: #78350f;
+-  background: #fef9ec;
+-  text-align: center;
+-}

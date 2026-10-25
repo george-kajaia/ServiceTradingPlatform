@@ -1,0 +1,500 @@
+@use '../../../styles/variables' as *;
+
+// ── Reset & base ──────────────────────────────────────────────────────────────
+:host {
+  display: block;
+  font-family: $font-family-base;
+  font-size: $font-size-md;
+  color: $ink;
+  background: $page;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+a { text-decoration: none; }
+
+a:focus-visible, button:focus-visible { outline: none; box-shadow: $focus-ring; }
+
+// ── Shared layout ─────────────────────────────────────────────────────────────
+.section-inner {
+  max-width: calc(#{$container-max-width} + 2 * #{$container-padding});
+  margin: 0 auto;
+  padding: 0 $container-padding-mobile;
+
+  @media (min-width: $breakpoint-md) { padding: 0 $container-padding; }
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: $ink;
+  text-align: center;
+  margin: 0 0 $space-3;
+  letter-spacing: -0.3px;
+}
+
+.section-subtitle {
+  font-size: $font-size-md;
+  color: $ink-2;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+// ── Buttons ───────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background $transition-base, border-color $transition-base;
+  white-space: nowrap;
+  min-height: $ctl-h;
+  padding: $space-3 $space-6;
+  font-size: $font-size-md;
+
+  &--primary {
+    background: $blue-600;
+    color: #fff;
+    &:hover { background: $blue-700; }
+  }
+
+  &--outline {
+    background: $surface;
+    color: $blue-700;
+    border-color: $blue-600;
+    &:hover { background: $blue-50; }
+  }
+  &--lg { padding: $space-3 $space-8; min-height: 52px; }
+
+  &--full { width: 100%; }
+
+  &:disabled { opacity: 0.55; cursor: not-allowed; }
+}
+
+.btn__spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .btn__spinner { animation: none; } }
+
+// ── Navbar ────────────────────────────────────────────────────────────────────
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background: $surface;
+  border-bottom: 1px solid $line;
+  box-shadow: $shadow-card;
+
+  &__inner {
+    max-width: calc(#{$container-max-width} + 2 * #{$container-padding});
+    margin: 0 auto;
+    padding: $space-2 $container-padding-mobile;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+
+    @media (min-width: $breakpoint-md) { padding: $space-2 $container-padding; }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    color: $blue-600;
+    font-weight: 700;
+    font-size: $font-size-lg;
+    flex-shrink: 0;
+  }
+
+  &__logo-icon { font-size: 1.4rem; }
+  &__auth {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    flex-shrink: 0;
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    gap: $space-6;
+    flex: 1;
+    justify-content: center;
+
+    @media (max-width: 767px) { display: none; }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: $ctl-h;
+    color: $ink;
+    font-size: $font-size-base;
+    font-weight: 500;
+    transition: color $transition-base;
+    border-radius: $radius-md;
+    &:hover, &:focus-visible { color: $blue-600; }
+  }
+}
+
+// ── Hero ──────────────────────────────────────────────────────────────────────
+.hero {
+  background: $surface;
+  border-bottom: 1px solid $line;
+  padding: $space-12 0;
+
+  @media (min-width: $breakpoint-md) { padding: 96px 0 80px; }
+
+  &__inner {
+    max-width: calc(#{$container-max-width} + 2 * #{$container-padding});
+    margin: 0 auto;
+    padding: 0 $container-padding-mobile;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-10;
+    align-items: center;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 0 $container-padding;
+      grid-template-columns: 1fr 1fr;
+      gap: $space-12;
+    }
+  }
+
+  &__headline {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    color: $ink;
+    line-height: 1.2;
+    margin: 0 0 $space-5;
+    letter-spacing: -0.5px;
+  }
+
+  &__subheadline {
+    font-size: $font-size-lg;
+    color: $ink-2;
+    line-height: 1.6;
+    margin: 0 0 $space-8;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-4 $space-6;
+    flex-wrap: wrap;
+  }
+
+  &__secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: $ctl-h;
+    color: $blue-600;
+    font-weight: 600;
+    font-size: $font-size-base;
+    &:hover { text-decoration: underline; }
+  }
+
+  &__visual { display: flex; justify-content: center; }
+}
+
+.token-graphic {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  padding: $space-6 $space-5;
+  box-shadow: $shadow-card;
+  max-width: 100%;
+
+  @media (min-width: $breakpoint-md) { padding: $space-8 $space-10; }
+}
+
+.token {
+  display: flex; flex-direction: column; align-items: center; gap: $space-3; width: 70px;
+
+  @media (min-width: $breakpoint-md) { width: 90px; }
+
+  &__icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: $blue-50;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; color: $blue-700;
+
+    @media (min-width: $breakpoint-md) { width: 64px; height: 64px; font-size: 1.6rem; }
+  }
+
+  &__label { font-size: $font-size-sm; font-weight: 600; color: $ink; text-align: center; }
+}
+
+.token-arrow { font-size: 1.5rem; color: $ink-2; }
+
+// ── How It Works ──────────────────────────────────────────────────────────────
+.how-it-works { padding: $space-12 0; background: $page; @media (min-width: $breakpoint-md) { padding: 80px 0; } }
+
+.hiw {
+  &__steps {
+    display: flex; flex-direction: column; align-items: center;
+    gap: $space-4; margin-top: $space-10;
+
+    @media (min-width: $breakpoint-md) { flex-direction: row; align-items: flex-start; gap: 0; }
+  }
+  &__step {
+    flex: 1; text-align: center; padding: 0; max-width: 320px; width: 100%;
+    @media (min-width: $breakpoint-md) { padding: 0 $space-6; max-width: none; }
+  }
+  &__step-number {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: $blue-600; color: #fff;
+    font-weight: 700; font-size: $font-size-base;
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: $space-4;
+  }
+  &__step-icon { font-size: 2.4rem; display: block; margin-bottom: $space-4; }
+  &__step-title { font-size: $font-size-lg; font-weight: 700; color: $ink; margin: 0 0 $space-2; }
+  &__step-desc { font-size: $font-size-base; color: $ink-2; line-height: 1.6; margin: 0; }
+  &__connector {
+    width: 2px; height: 32px;
+    background: $line;
+    flex-shrink: 0;
+
+    @media (min-width: $breakpoint-md) { width: 80px; height: 2px; margin-top: 60px; }
+  }
+}
+
+// ── Value Proposition ─────────────────────────────────────────────────────────
+.value-prop { padding: $space-12 0; background: $surface; border-block: 1px solid $line; @media (min-width: $breakpoint-md) { padding: 80px 0; } }
+
+.vp {
+  &__cards {
+    display: grid; grid-template-columns: 1fr; gap: $space-4; margin-top: $space-10;
+    @media (min-width: $breakpoint-sm) { grid-template-columns: repeat(2, 1fr); gap: $space-5; }
+    @media (min-width: $breakpoint-lg) { grid-template-columns: repeat(4, 1fr); }
+  }
+  &__card {
+    background: $surface; border: 1px solid $line; border-radius: $radius-lg; padding: $space-6 $space-5;
+    box-shadow: $shadow-card;
+    transition: border-color $transition-base;
+    &:hover { border-color: $blue-600; }
+  }
+  &__card-icon { font-size: 2rem; margin-bottom: $space-4; display: block; }
+  &__card-title { font-size: $font-size-md; font-weight: 700; color: $ink; margin: 0 0 $space-2; }
+  &__card-desc { font-size: $font-size-base; color: $ink-2; line-height: 1.6; margin: 0; }
+}
+
+// ── Trust ─────────────────────────────────────────────────────────────────────
+.trust {
+  padding: $space-12 0; background: $page; text-align: center;
+  @media (min-width: $breakpoint-md) { padding: 80px 0; }
+
+  &__mission {
+    max-width: 640px; margin: 0 auto $space-10;
+    font-size: $font-size-md; color: $ink-2; line-height: 1.7;
+  }
+  &__badges { display: flex; justify-content: center; gap: $space-4; flex-wrap: wrap; margin-bottom: 0; }
+  &__badge {
+    display: flex; align-items: center; gap: $space-3;
+    background: $blue-50; border: 1px solid $line; border-radius: $radius-full; padding: $space-3 $space-5;
+    &-icon { font-size: 1.1rem; }
+    &-text { font-size: $font-size-base; font-weight: 500; color: $blue-700; }
+  }
+}
+
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+.faq {
+  padding: $space-12 0; background: $surface; border-top: 1px solid $line;
+  @media (min-width: $breakpoint-md) { padding: 80px 0; }
+
+  &__list { margin: $space-10 auto 0; max-width: 760px; }
+  &__item {
+    border: 1px solid $line; border-radius: $radius-lg; margin-bottom: $space-3;
+    background: $surface; overflow: hidden;
+    &--open { border-color: $blue-600; }
+  }
+  &__btn {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: $space-4; background: none; border: none; cursor: pointer;
+    font-size: $font-size-md; font-weight: 600; color: $ink; text-align: left; gap: $space-4;
+    min-height: $ctl-h; font-family: inherit;
+    &:focus-visible { outline: none; box-shadow: inset $focus-ring; }
+    &:hover { background: $page; }
+    @media (min-width: $breakpoint-md) { padding: $space-5 $space-6; }
+  }
+  &__chevron { font-size: 1.3rem; color: $blue-600; flex-shrink: 0; }
+  &__answer {
+    padding: 0 $space-4 $space-5; color: $ink-2; font-size: $font-size-base; line-height: 1.7; margin: 0;
+    @media (min-width: $breakpoint-md) { padding: 0 $space-6 $space-5; }
+  }
+}
+
+// ── Bottom CTA ────────────────────────────────────────────────────────────────
+.bottom-cta {
+  padding: $space-12 0;
+  background: $blue-600;
+  text-align: center;
+  @media (min-width: $breakpoint-md) { padding: 80px 0; }
+
+  &__inner { display: flex; flex-direction: column; align-items: center; gap: $space-5; }
+  &__title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #fff; margin: 0; }
+  &__sub { font-size: $font-size-md; color: #fff; margin: 0; max-width: 480px; }
+  &__btn { background: #fff; color: $blue-700; &:hover { background: $blue-50; } }
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.footer {
+  background: $surface; border-top: 1px solid $line; padding: $space-10 0 $space-8;
+
+  &__inner {
+    max-width: calc(#{$container-max-width} + 2 * #{$container-padding}); margin: 0 auto; padding: 0 $container-padding-mobile;
+    display: flex; flex-direction: column; align-items: center; gap: $space-6; text-align: center;
+    @media (min-width: $breakpoint-md) { padding: 0 $container-padding; }
+  }
+  &__logo { display: inline-flex; align-items: center; gap: $space-2; color: $blue-600; font-weight: 700; font-size: $font-size-lg; }
+  &__tagline { color: $ink-2; font-size: $font-size-base; margin: 6px 0 0; }
+  &__links { display: flex; gap: $space-2 $space-6; flex-wrap: wrap; justify-content: center; }
+  &__link {
+    display: inline-flex; align-items: center; min-height: $ctl-h;
+    color: $blue-600; font-size: $font-size-base;
+    &:hover { text-decoration: underline; }
+  }
+  &__copy { color: $ink-2; font-size: $font-size-sm; margin: 0; }
+}
+
+// ═══════════════════════════ FEATURED TOKENS ═══════════════════════════
+.featured-tokens {
+  background: $page;
+  padding: $space-12 0;
+  border-top: 1px solid $line;
+  border-bottom: 1px solid $line;
+
+  &__loading {
+    text-align: center;
+    color: $ink-2;
+    padding: $space-10 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: $space-4;
+    margin-top: $space-8;
+
+    @media (min-width: $breakpoint-md) { gap: $space-5; }
+  }
+
+  &__empty {
+    text-align: center;
+    color: $ink-2;
+    padding: $space-10 0;
+    grid-column: 1 / -1;
+  }
+}
+
+.ft-card {
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color $transition-base, box-shadow $transition-base;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  &:hover {
+    border-color: $blue-600;
+    box-shadow: $shadow-pop;
+  }
+
+  &:focus-visible { outline: none; border-color: $blue-600; box-shadow: $focus-ring; }
+
+  &__image {
+    height: 140px;
+    background: $page;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  &__image-placeholder { font-size: 3rem; color: $ink-2; }
+
+  &__body { padding: $space-4 $space-4 $space-2; flex: 1; }
+
+  &__company {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    color: $blue-700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: $space-1;
+  }
+
+  &__product {
+    font-size: $font-size-md;
+    font-weight: 600;
+    color: $ink;
+    margin-bottom: $space-3;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  &__stats { display: flex; flex-wrap: wrap; gap: $space-2 $space-4; }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-sm;
+    color: $ink;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__stat-label {
+    font-size: $font-size-xs;
+    color: $ink-2;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__footer {
+    padding: $space-3 $space-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-2;
+    border-top: 1px solid $line;
+  }
+
+  &__price {
+    font-size: $font-size-md;
+    font-weight: 700;
+    color: $ink;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__cta {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $blue-700;
+  }
+}

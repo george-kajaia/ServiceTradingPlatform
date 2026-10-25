@@ -1,0 +1,117 @@
+<div class="detail-page" *ngIf="token">
+
+  <!-- Header -->
+  <header class="detail-header">
+    <button class="back-btn" (click)="goBack()" aria-label="Back">
+      <span class="back-btn__icon">&lsaquo;</span>
+      <span class="back-btn__label">Marketplace</span>
+    </button>
+    <h1 class="detail-header__title">Token #{{ token.id }}</h1>
+    <span class="badge" [class]="tokenStatusClass">
+      {{ tokenStatusText }}
+    </span>
+    <button class="logout-btn" (click)="logout()" title="Log out">⏻ Log Out</button>
+  </header>
+
+  <!-- Company section -->
+  <section class="detail-section">
+    <h2 class="detail-section__title">Company</h2>
+    <div class="detail-row">
+      <span class="detail-row__label">Name</span>
+      <span class="detail-row__value">{{ tokenCompanyName }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-row__label">Company ID</span>
+      <span class="detail-row__value mono">{{ tokenCompanyId }}</span>
+    </div>
+  </section>
+
+  <!-- Token details -->
+  <section class="detail-section">
+    <h2 class="detail-section__title">Token Details</h2>
+    <div class="detail-row">
+      <span class="detail-row__label">Product ID</span>
+      <span class="detail-row__value mono">{{ token.productName }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-row__label">Request ID</span>
+      <span class="detail-row__value mono">{{ token.requestId }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-row__label">Remaining service count</span>
+      <span class="detail-row__value">{{ token.remainingCount }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-row__label">Total service count</span>
+      <span class="detail-row__value">{{ token.serviceCount }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-row__label">Schedule</span>
+      <span class="detail-row__value">{{ scheduleLabel(token.scheduleType) }}</span>
+    </div>
+  </section>
+
+  <!-- Dates -->
+  <section class="detail-section">
+    <h2 class="detail-section__title">Validity</h2>
+    <div class="detail-row">
+      <span class="detail-row__label">Start Date</span>
+      <span class="detail-row__value">{{ token.startDate | date:'mediumDate' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-row__label">End Date</span>
+      <span class="detail-row__value">{{ token.endDate ? (token.endDate | date:'mediumDate') : 'No expiry' }}</span>
+    </div>
+  </section>
+
+  <!-- Owner (secondary market) -->
+  <section class="detail-section" *ngIf="isSecondary">
+    <h2 class="detail-section__title">Current Owner</h2>
+    <div class="detail-row">
+      <span class="detail-row__label">Public Key</span>
+      <span class="detail-row__value mono small">{{ tokenOwnerKey }}</span>
+    </div>
+  </section>
+
+  <!-- Row version -->
+  <section class="detail-section detail-section--muted">
+    <div class="detail-row">
+      <span class="detail-row__label">Row Version</span>
+      <span class="detail-row__value mono">{{ token.rowVersion }}</span>
+    </div>
+  </section>
+
+</div>
+
+<!-- Action bar -->
+<div class="action-bar" *ngIf="token">
+  <button *ngIf="canGetService" class="action-bar__btn action-bar__btn--primary"
+    (click)="showGetService = true" [disabled]="loading">
+    Get Service
+  </button>
+  <button *ngIf="canMarkForResell" class="action-bar__btn action-bar__btn--primary"
+    (click)="markForResell()" [disabled]="loading">
+    <span *ngIf="loading" class="spinner"></span>
+    {{ loading ? 'Processing...' : 'Mark for Resell' }}
+  </button>
+  <button *ngIf="canCancelReselling" class="action-bar__btn action-bar__btn--warn"
+    (click)="cancelReselling()" [disabled]="loading">
+    <span *ngIf="loading" class="spinner"></span>
+    {{ loading ? 'Processing...' : 'Cancel Reselling' }}
+  </button>
+  <button *ngIf="canBuy" class="action-bar__btn action-bar__btn--primary"
+    (click)="buy()" [disabled]="loading">
+    <span *ngIf="loading" class="spinner"></span>
+    {{ loading ? 'Purchasing...' : 'Buy Token' }}
+  </button>
+  <button class="action-bar__btn action-bar__btn--ghost" (click)="goBack()">
+    Cancel
+  </button>
+</div>
+
+<!-- Get Service QR Overlay -->
+<app-get-service
+  *ngIf="showGetService && token"
+  [token]="token"
+  (closed)="onGetServiceClosed($event)">
+</app-get-service>

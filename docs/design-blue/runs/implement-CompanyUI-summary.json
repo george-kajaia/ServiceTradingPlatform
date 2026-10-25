@@ -1,0 +1,112 @@
+{
+  "exit_code": 0,
+  "peak_active_tokens": 109954,
+  "capacity": 1000000,
+  "result": {
+    "duration_api_ms": 188564,
+    "stop_reason": "end_turn",
+    "session_id": "d1230dd6-a1a9-45bf-a85b-cc26be9079da",
+    "total_cost_usd": 0.7123122999999999,
+    "usage": {
+      "input_tokens": 34,
+      "cache_creation_input_tokens": 109184,
+      "cache_read_input_tokens": 929243,
+      "output_tokens": 34636,
+      "output_tokens_details": {
+        "thinking_tokens": 1268
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 109184
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 982,
+          "cache_read_input_tokens": 108360,
+          "cache_creation_input_tokens": 824,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 824,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "modelUsage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 34,
+        "outputTokens": 34636,
+        "cacheReadInputTokens": 929243,
+        "cacheCreationInputTokens": 109184,
+        "webSearchRequests": 0,
+        "costUSD": 0.7123122999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1268,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "toolu_01Fz4C2Xj9BntKVEoRsRKaXh",
+        "tool_input": {
+          "command": "cd \"C:/Users/georg/Documents/Projects/Net/Service Token Monetization Platform/New/CompanyUI\" && git status --short && ls ../../docs/design-blue/baseline && find src -name \"*.scss\" -o -name \"*.html\" | xargs wc -l"
+        }
+      }
+    ],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "safety_stops": 0,
+    "is_error": false,
+    "num_turns": 57,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "The blue redesign is applied across the CompanyUI routes, the scan modal, and the shared toast and confirm dialog. Both builds pass (development and production, run via `node node_modules/@angular/cli/bin/ng.js`). I did not run it in a browser, so nothing has been checked at 360, 768 or 1440 widths. I did not commit, stage or push anything.\n\n**What changed**\n- **Shared tokens and theme:** `src/styles/_variables.scss`, `_mixins.scss`, `_base.scss` and `themes/_user.scss` now carry the brief's blue tokens.\n  - Gradients and hover lifts are gone.\n  - Buttons and inputs are 44px tall with a visible focus ring.\n  - Modals use the shared z-index, a dvh max-height and stack their buttons below 480px.\n  - Badges, tables and tabs use the blue and neutral pairings.\n  - Page gutters are 16px on mobile.\n  - Reduced-motion is honoured.\n  - `themes/_admin.scss` is now an empty stub; nothing in this app used it.\n- **Toast and confirm dialog:** restyled to the same tokens. Toasts sit at the bottom on mobile.\n- **`/` (home):** SCSS only. The legacy `#1a56db` blue and the gradients are replaced with tokens, the container is 1120px, and the nav fits at 360px. Your edits to `home.component.html` are untouched.\n- **`/login`:** SCSS only, with the blue form, button and error styling.\n- **`/dashboard`:**\n  - New SCSS.\n  - The three tables are now wrapped in a contained scroll wrapper.\n  - Add, Create and Save buttons are primary blue.\n  - The modal has dialog attributes, a Close label on its \u00d7 button, and closes on Escape.\n  - Forms and details go single-column on small screens.\n- **Scan modal:** blue scanner styling, with the confirm button changed from green to blue. It is also marked as a dialog, and the error state is announced to screen readers. The camera, QR payload and redemption logic are untouched.\n- **`index.html`:** `theme-color` is now `#2563EB`.\n\nI left `styles.scss` alone, since you edited it. The new tokens reach it through its existing imports. A search of `src` for the old cyan, green and violet hexes, `linear-gradient` and `z-index: 1000` finds nothing.\n\n**Not done**\n- Focus does not move into the dashboard or scan dialogs on open, and background scroll is not locked. Both need TypeScript changes, which I avoided.\n- `.scan-token-btn` is styled, but no template uses it. That was already the case before this work.\n- The company user password input is `type=\"text\"`. That was also already the case before this work.\n\nI did not run the product-verifier or security-reviewer agents. My notes are in `docs/design-blue/CHECKPOINT.md`. All other changes are in `src/` (the files listed above).",
+    "ttft_ms": 4086,
+    "type": "result",
+    "duration_ms": 335784,
+    "uuid": "72161275-d652-41aa-8790-ec50947b0345",
+    "ttft_stream_ms": 3710,
+    "time_to_request_ms": 2799,
+    "first_content_frame_ms": 3712,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

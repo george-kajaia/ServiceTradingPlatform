@@ -1,0 +1,44 @@
+<div class="home-page">
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-mark">ST</span>
+      <span class="logo-text">Service Token Platform</span>
+    </div>
+
+    <nav class="main-menu">
+      <a routerLink="/company/login" class="menu-link">For Companies</a>
+      <a routerLink="/customer/login" class="menu-link">For Customers</a>
+      <a routerLink="/login" class="menu-link">Admin</a>
+    </nav>
+  </header>
+
+  <!-- PWA Install Banner -->
+  <div class="install-banner" *ngIf="showInstallBanner">
+    <div class="install-banner-content">
+      <div class="install-banner-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </div>
+      <div class="install-banner-text">
+        <strong>Kajaia Bonds</strong>
+        <span>Install the app for a better experience</span>
+      </div>
+    </div>
+    <div class="install-banner-actions">
+      <button class="install-btn" (click)="installApp()">Install</button>
+      <button class="dismiss-btn" (click)="dismissBanner()" aria-label="Dismiss">&times;</button>
+    </div>
+  </div>
+
+  <main class="hero">
+    <div class="hero-content">
+      <h1>Issue, buy, and sell service tokens.</h1>
+      <p class="hero-subtitle">
+        A platform for issuing, trading, and managing service tokens for companies and customers.
+      </p>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,122 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index f83de9e..a64fd06 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -61,3 +61,39 @@ to the investor's QR screen.
+ 
+ ### Environment
+ `src/environments/environment.ts` is the only environment file; it holds `apiBaseUrl` with a commented local alternative.
++
++## Related repos
++
++The backend is **ServiceTokenAPI** at `../../ServiceTokenAPI` — a separate repo with its own Claude team.
++It is the source of truth for routes, parameter binding, DTO fields and enum numbers. This repo may **read** it
++(`additionalDirectories` in `.claude/settings.json`) but never edits it: if the UI needs an API change, write the
++request for George to run in the API repo. AdminUI, CompanyUI, InvestorUI and ServiceUI share copied code.
++
++## Claude Code team (`.claude/`)
++
++The main session acts as Engineering Manager: it turns asks into specs, delegates, and **verifies** results
++(re-runs the build, reads `git log`) before reporting.
++
++| Agent | Use for |
++|---|---|
++| `product-manager` | Fuzzy ask → stories, acceptance criteria, tickets, API needs (read-only) |
++| `architect` | Routes, component structure, state, API methods/models for a new flow (read-only, opus) |
++| `designer` | Screen specs: layout, states, copy, accessibility (read-only) |
++| `frontend-engineer` | All code changes in this repo |
++| `qa-tester` | Angular unit tests (proposes a runner setup first — none configured yet) |
++| `code-reviewer` | After non-trivial changes, before commit (read-only) |
++| `security-reviewer` | Login/identity, QR scan / redemption, config; before releases (read-only, opus) |
++| `product-verifier` | End of every user-facing feature: real user flow works (read-only) |
++| `release-manager` | CHANGELOG, version, deploy runbook — never deploys |
++
++Skills: `/check`, `/new-ticket`, `/new-feature`, `/api-contract-sync`, `pre-flight`, `new-component`.
++Rules: `.claude/rules/workflow.md` (always), `.claude/rules/angular.md` (`src/**` only).
++Hooks: `git push` is blocked unless `ng build` passes; a Stop hook warns about uncommitted changes.
++Delegate only when it pays — a small change is faster done directly.
++
++## Conventions
++
++- Commits: `<type>(service): <description>`; types `feat|fix|refactor|perf|test|docs|chore|security`. Push to `main`.
++- Banned in new code: `any`, hard-coded API URLs outside `src/environments/`, sensitive data in web storage,
++  `innerHTML` on user content, models that drift from the API DTOs.
++- The API has no authentication: the UI is never a security boundary.
+diff --git a/src/app/features/home/home.component.html b/src/app/features/home/home.component.html
+index 759989d..bf73e7e 100644
+--- a/src/app/features/home/home.component.html
++++ b/src/app/features/home/home.component.html
+@@ -19,16 +19,6 @@
+   </div>
+ </nav>
+ 
+-<!-- ═══════════════════════════ TEST MODE BANNER ═══════════════════════════ -->
+-<div class="test-mode-banner" role="alert" aria-live="polite">
+-  <span class="test-mode-banner__icon" aria-hidden="true">🧪</span>
+-  <div class="test-mode-banner__text">
+-    <strong>Testing Environment</strong>
+-    <span>This application is currently running in <strong>test mode</strong>. Data is not real and no actual transactions will be processed.</span>
+-  </div>
+-</div>
+-
+-
+ <main>
+   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+   <section class="hero" id="top" aria-label="Hero">
+diff --git a/src/styles.scss b/src/styles.scss
+index f4af438..008ec2c 100644
+--- a/src/styles.scss
++++ b/src/styles.scss
+@@ -12,52 +12,3 @@
+ 
+ // Import Google Fonts
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+-
+-
+-// ═══════════════════════════ TEST MODE BANNER ═══════════════════════════
+-.test-mode-banner {
+-  display: flex;
+-  align-items: center;
+-  gap: 12px;
+-  background: linear-gradient(90deg, #fef3c7, #fde68a);
+-  border-bottom: 2px solid #f59e0b;
+-  padding: 12px 24px;
+-  font-size: 14px;
+-  color: #78350f;
+-  position: sticky;
+-  top: 0;
+-  z-index: 999;
+-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+-
+-  &__icon {
+-    font-size: 20px;
+-    flex-shrink: 0;
+-  }
+-
+-  &__text {
+-    display: flex;
+-    flex-wrap: wrap;
+-    gap: 4px;
+-    align-items: center;
+-
+-    strong:first-child {
+-      font-size: 15px;
+-      margin-right: 6px;
+-    }
+-
+-    span {
+-      opacity: 0.9;
+-    }
+-  }
+-
+-  @media (max-width: 600px) {
+-    padding: 10px 16px;
+-    font-size: 13px;
+-
+-    &__text {
+-      flex-direction: column;
+-      align-items: flex-start;
+-      gap: 2px;
+-    }
+-  }
+-}

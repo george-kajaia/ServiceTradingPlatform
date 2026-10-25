@@ -1,0 +1,375 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: $page;
+  font-family: $font-family-base;
+  color: $ink;
+}
+
+button { font-family: inherit; }
+button:focus-visible, input:focus-visible { outline: none; box-shadow: $focus-ring; }
+
+// ── Top bar ──────────────────────────────────────────────
+.checkout-header {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background: $surface;
+  border-bottom: 1px solid $line;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $space-3;
+  padding: $space-2 $container-padding-mobile;
+  min-height: 60px;
+
+  @include md { padding: $space-2 $container-padding; }
+
+  &__back {
+    min-height: $ctl-h;
+    background: none;
+    border: none;
+    font-size: $font-size-base;
+    font-weight: 600;
+    color: $blue-600;
+    cursor: pointer;
+    padding: 0 $space-3;
+    border-radius: $radius-md;
+    transition: background $transition-base;
+    &:hover:not(:disabled) { background: $blue-50; }
+    &:disabled { opacity: 0.55; cursor: not-allowed; }
+  }
+
+  &__title {
+    flex: 1;
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $ink;
+    margin: 0;
+  }
+}
+
+// ── States (loading / empty) ─────────────────────────────
+.checkout-state {
+  max-width: 480px;
+  margin: $space-12 auto;
+  text-align: center;
+  padding: 0 $container-padding-mobile;
+
+  &__icon { font-size: 3rem; margin-bottom: $space-3; }
+
+  h2 { margin: 0 0 $space-2; font-size: 1.25rem; color: $ink; }
+  p  { color: $ink-2; margin: 0 0 $space-5; }
+}
+
+// ── Body layout ──────────────────────────────────────────
+.checkout-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: $space-4 $container-padding-mobile $space-12;
+  display: grid;
+  gap: $space-4;
+
+  @include md { padding: $space-8 $container-padding $space-16; gap: $space-6; }
+}
+
+// ── Order summary ────────────────────────────────────────
+.summary {
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  padding: $space-4;
+  box-shadow: $shadow-card;
+
+  @include md { padding: $space-6; }
+
+  &__heading {
+    margin: 0 0 $space-4;
+    font-size: $font-size-md;
+    font-weight: 700;
+  }
+
+  &__list { list-style: none; margin: 0; padding: 0; }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-3 0;
+    border-bottom: 1px solid $line;
+    &:last-child { border-bottom: none; }
+  }
+
+  &__thumb {
+    width: 48px;
+    height: 48px;
+    flex: none;
+    border-radius: $radius-md;
+    overflow: hidden;
+    background: $page;
+    @include flex-center;
+
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  &__thumb-placeholder { color: $ink-2; font-size: 1.4rem; }
+
+  &__info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  &__product { font-weight: 600; @include truncate; }
+  &__company { font-size: $font-size-sm; color: $ink-2; @include truncate; }
+
+  &__price { font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; text-align: right; }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $space-4;
+    padding-top: $space-4;
+    border-top: 2px solid $line;
+    font-weight: 700;
+    font-size: $font-size-lg;
+  }
+  &__total-value { color: $ink; font-variant-numeric: tabular-nums; }
+
+  &__note {
+    margin: $space-3 0 0;
+    font-size: $font-size-sm;
+    color: $ink-2;
+  }
+}
+
+// ── Pay panel ────────────────────────────────────────────
+.pay-panel {
+  display: grid;
+  gap: $space-3;
+  justify-items: center;
+
+  &__secure {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: $ink-2;
+    text-align: center;
+    max-width: 420px;
+  }
+
+  &__loading { display: inline-flex; align-items: center; gap: $space-2; }
+}
+
+// ── Buttons ──────────────────────────────────────────────
+.btn {
+  min-height: $ctl-h;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base;
+
+  &:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  &--primary {
+    padding: $space-2 $space-6;
+    background: $blue-600;
+    color: #fff;
+    &:hover:not(:disabled) { background: $blue-700; }
+  }
+
+  &--pay {
+    width: 100%;
+    max-width: 420px;
+    min-height: 52px;
+    padding: $space-3 $space-6;
+    font-size: $font-size-md;
+    background: $blue-600;
+    color: #fff;
+    &:hover:not(:disabled) { background: $blue-700; }
+  }
+
+  &--ghost {
+    padding: $space-2 $space-5;
+    background: $surface;
+    color: $ink;
+    border-color: $line;
+    &:hover:not(:disabled) { background: $page; border-color: $ink-2; }
+  }
+}
+
+// ── Spinner ──────────────────────────────────────────────
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid $line;
+  border-top-color: $blue-600;
+  border-radius: 50%;
+  margin: 0 auto $space-3;
+  animation: spin 0.8s linear infinite;
+
+  &--sm { width: 16px; height: 16px; border-width: 2px; margin: 0; }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+
+// ── Embedded Flitt widget ────────────────────────────────
+.embedded {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: $space-4;
+    text-align: center;
+  }
+
+  &__product { font-weight: 700; font-size: $font-size-md; }
+  &__company { font-size: $font-size-base; color: $ink-2; }
+  &__step {
+    margin-top: 6px;
+    font-size: $font-size-xs;
+    font-weight: 700;
+    color: $blue-700;
+    background: $blue-50;
+    border-radius: $radius-full;
+    padding: 3px $space-3;
+    font-variant-numeric: tabular-nums;
+  }
+
+  // Keep the iframe fully visible at 360px: no clipping, never collapses.
+  &__widget {
+    min-height: 360px;
+    width: 100%;
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-card;
+    padding: $space-2;
+    overflow-x: auto;
+
+    @include md { padding: $space-3; }
+  }
+
+  &__hint {
+    margin-top: $space-3;
+    text-align: center;
+    font-size: $font-size-sm;
+    color: $ink-2;
+  }
+}
+
+// ── Status icon (pending / done) ─────────────────────────
+.icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto $space-4;
+  border-radius: 50%;
+  @include flex-center;
+  font-size: 2rem;
+  font-weight: 700;
+  background: $blue-50;
+  color: $blue-700;
+
+  &--success { background: $ok-bg; color: $ok; }
+  &--mixed   { background: $warn-bg; color: $warn; }
+  &--pending { background: $page; color: $ink-2; border: 1px solid $line; }
+}
+
+.muted { color: $ink-2; }
+
+// ── Result list (done) ───────────────────────────────────
+.result-list {
+  list-style: none;
+  margin: $space-5 auto 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  max-width: 420px;
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  padding: $space-3 0;
+  border-bottom: 1px solid $line;
+  &:last-child { border-bottom: none; }
+
+  &__name { font-weight: 600; @include truncate; }
+
+  &__badge {
+    flex: none;
+    padding: 3px 10px;
+    border-radius: $radius-full;
+    font-size: $font-size-xs;
+    font-weight: 700;
+
+    &--success { background: $ok-bg; color: $ok; }
+    &--failed  { background: $danger-bg; color: $danger; }
+  }
+}
+
+// ── Actions ──────────────────────────────────────────────
+.actions {
+  display: flex;
+  gap: $space-3;
+  justify-content: center;
+  margin-top: $space-6;
+  flex-wrap: wrap;
+
+  @include sm-down { flex-direction: column; .btn { width: 100%; } }
+}
+
+// ── Saved card + save-card opt-in ────────────────────────
+.saved-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  margin-bottom: $space-3;
+  border: 1px solid $line;
+  border-radius: $radius-md;
+  background: $surface;
+  width: 100%;
+  max-width: 420px;
+
+  &__info { display: flex; align-items: center; gap: $space-2; min-width: 0; }
+  &__icon { font-size: 1.1rem; }
+  &__text { font-weight: 600; overflow-wrap: anywhere; }
+
+  &__remove {
+    flex: none;
+    min-height: $ctl-h;
+    border: none;
+    background: transparent;
+    color: $danger;
+    font-weight: 700;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    padding: 0 $space-3;
+    border-radius: $radius-sm;
+    &:hover { background: $danger-bg; }
+  }
+}
+
+.save-card {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-3;
+  font-size: $font-size-base;
+  cursor: pointer;
+  user-select: none;
+  min-height: $ctl-h;
+
+  input { width: 20px; height: 20px; cursor: pointer; accent-color: $blue-600; flex: none; }
+}

@@ -1,0 +1,749 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: $page;
+  color: $ink;
+  font-family: $font-family-base;
+}
+
+// ============================================
+// Dashboard Container Block
+// ============================================
+.dashboard-container {
+  @include container;
+  padding-block: $space-8;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding-block: $space-4;
+  }
+
+  > h2 {
+    @include text-title;
+    margin-bottom: $space-6;
+  }
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-6;
+
+  h2 {
+    @include text-title;
+    margin: 0;
+  }
+}
+
+.scan-token-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  min-height: $ctl-h;
+  padding: $space-2 $space-5;
+  background: $blue-600;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: background $transition-base;
+
+  &:hover {
+    background: $blue-700;
+  }
+}
+
+// ============================================
+// Company Info Block
+// ============================================
+.company-info {
+  padding: $space-5;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  margin-bottom: $space-6;
+  box-shadow: $shadow-card;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding: $space-4;
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: $space-3 $space-6;
+    align-items: end;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: $space-1;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 479px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+.label {
+  @include text-caption;
+  color: $ink-2;
+}
+
+.value {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $ink;
+}
+
+.company-actions {
+  display: flex;
+  gap: $space-2;
+  margin-top: auto;
+}
+
+// ============================================
+// Badge Modifiers (always carry text)
+// ============================================
+.badge-active,
+.badge-inactive {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+}
+
+.badge-active {
+  background: $ok-bg;
+  color: $ok;
+}
+
+.badge-inactive {
+  background: $page;
+  border: 1px solid $line;
+  color: $ink-2;
+}
+
+// ============================================
+// Tabs Block
+// ============================================
+.tabs {
+  display: flex;
+  gap: $space-2;
+  margin-bottom: $space-4;
+  overflow-x: auto;
+  border-bottom: 1px solid $line;
+}
+
+.tab {
+  min-height: $ctl-h;
+  padding: $space-2 $space-4;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: $radius-md $radius-md 0 0;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $ink-2;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background $transition-base, color $transition-base;
+
+  &:hover:not(.active):not(:disabled) {
+    background: $page;
+    color: $ink;
+    border-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  &.active {
+    background: $blue-50;
+    color: $blue-700;
+    border-bottom-color: $blue-600;
+  }
+}
+
+// ============================================
+// Panel Block
+// ============================================
+.panel {
+  padding: $space-6;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding: $space-4;
+  }
+
+  &-header {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $space-3;
+    margin-bottom: $space-4;
+
+    h3 {
+      @include text-heading;
+      margin: 0;
+      color: $ink;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+// ============================================
+// Search Row Block
+// ============================================
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  align-items: center;
+  margin-bottom: $space-4;
+
+  input {
+    width: 280px;
+    max-width: 100%;
+  }
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    flex-direction: column;
+    align-items: stretch;
+
+    input,
+    button {
+      width: 100%;
+    }
+  }
+}
+
+// ============================================
+// Table (Grid) Block
+// ============================================
+.table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid $line;
+  border-radius: $radius-md;
+}
+
+.grid {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  background: $surface;
+
+  th,
+  td {
+    padding: $space-3;
+    text-align: left;
+    font-size: $font-size-base;
+    border-bottom: 1px solid $line;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  th {
+    background: $page;
+    color: $ink-2;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  td {
+    color: $ink;
+  }
+
+  tbody tr {
+    cursor: pointer;
+
+    &:hover {
+      background: $blue-50;
+    }
+
+    &.selected {
+      background: $blue-50;
+      box-shadow: inset 3px 0 0 $blue-600;
+    }
+  }
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.grid th.num,
+.grid td.num {
+  text-align: right;
+}
+
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  align-items: center;
+}
+
+// ============================================
+// Button Styles
+// ============================================
+button {
+  min-height: $ctl-h;
+  padding: $space-2 $space-4;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-md;
+  color: $ink;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base, color $transition-base;
+
+  &:hover:not(:disabled) {
+    background: $page;
+    border-color: #C9D2DE;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    background: $blue-600;
+    border-color: $blue-600;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background: $blue-700;
+      border-color: $blue-700;
+    }
+  }
+
+  &.secondary {
+    background: $surface;
+    color: $ink;
+  }
+
+  &.danger {
+    background: $surface;
+    border-color: rgba($danger, 0.4);
+    color: $danger;
+
+    &:hover:not(:disabled) {
+      background: $danger-bg;
+      border-color: $danger;
+    }
+  }
+
+  &.tab,
+  &.tab:hover:not(.active):not(:disabled) {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+// ============================================
+// Input & Select Styles
+// ============================================
+input,
+select {
+  min-height: $ctl-h;
+  padding: $space-2 $space-3;
+  background: $surface;
+  border: 1px solid #C9D2DE;
+  border-radius: $radius-md;
+  color: $ink;
+  font-size: $font-size-md;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: $blue-600;
+    box-shadow: $focus-ring;
+  }
+
+  &::placeholder {
+    color: $ink-2;
+  }
+}
+
+select {
+  cursor: pointer;
+}
+
+// ============================================
+// Messages
+// ============================================
+.info {
+  padding: $space-3;
+  background: $blue-50;
+  border: 1px solid rgba($blue-600, 0.3);
+  border-radius: $radius-md;
+  color: $blue-700;
+  font-size: $font-size-base;
+}
+
+.error {
+  padding: $space-3;
+  background: $danger-bg;
+  border: 1px solid rgba($danger, 0.3);
+  border-radius: $radius-md;
+  color: $danger;
+  font-size: $font-size-base;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin-bottom: $space-3;
+
+  .error-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+}
+
+.validation-error {
+  display: block;
+  margin-top: $space-1;
+  color: $danger;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}
+
+label.has-error {
+  input, select, textarea {
+    border-color: $danger;
+
+    &:focus {
+      border-color: $danger;
+      box-shadow: 0 0 0 3px rgba($danger, 0.25);
+    }
+  }
+}
+
+.muted {
+  padding: $space-4;
+  color: $ink-2;
+  font-size: $font-size-base;
+  text-align: center;
+}
+
+.hint {
+  margin-top: $space-4;
+  padding-top: $space-3;
+  border-top: 1px solid $line;
+  color: $ink-2;
+  font-size: $font-size-xs;
+}
+
+// ============================================
+// Back Link
+// ============================================
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: $ctl-h;
+  margin-top: $space-4;
+  color: $blue-600;
+  font-size: $font-size-base;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: $blue-700;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+    border-radius: $radius-sm;
+  }
+}
+
+// ============================================
+// Modal Block
+// ============================================
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba($ink, 0.5);
+  @include flex-center;
+  padding: $space-4;
+  z-index: $z-modal-backdrop;
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-pop;
+
+  &.wide {
+    max-width: 680px;
+  }
+
+  &-header {
+    @include flex-between;
+    gap: $space-3;
+    padding: $space-4 $space-6;
+    border-bottom: 1px solid $line;
+
+    h3 {
+      @include text-heading;
+      margin: 0;
+      color: $ink;
+    }
+  }
+
+  &-body {
+    padding: $space-6;
+  }
+
+  &-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: $space-3;
+    margin-top: $space-4;
+  }
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    &-header {
+      padding: $space-3 $space-4;
+    }
+
+    &-body {
+      padding: $space-4;
+    }
+  }
+
+  @media (max-width: 479px) {
+    &-actions {
+      flex-direction: column-reverse;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.icon-btn {
+  width: $ctl-h;
+  height: $ctl-h;
+  padding: 0;
+  flex-shrink: 0;
+  border-radius: $radius-full;
+  @include flex-center;
+  font-size: $font-size-xl;
+  line-height: 1;
+  background: $surface;
+  border: 1px solid $line;
+  color: $ink-2;
+
+  &:hover:not(:disabled) {
+    background: $page;
+    color: $ink;
+  }
+}
+
+// ============================================
+// Details Block (Modal View)
+// ============================================
+.details {
+  display: grid;
+  gap: $space-2;
+
+  > div {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: $space-3;
+    padding: $space-3;
+    background: $page;
+    border: 1px solid $line;
+    border-radius: $radius-md;
+
+    @media (max-width: 479px) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: $space-1;
+    }
+  }
+
+  dt {
+    color: $ink-2;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+  }
+
+  dd {
+    margin: 0;
+    font-size: $font-size-base;
+    color: $ink;
+    overflow-wrap: anywhere;
+  }
+}
+
+// ============================================
+// Form Block (Modal Add/Edit)
+// ============================================
+.form {
+  display: grid;
+  gap: $space-4;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+    font-size: $font-size-base;
+    color: $ink-2;
+  }
+
+  input,
+  select {
+    margin-top: 0;
+  }
+}
+
+.helper {
+  color: $ink-2;
+  font-size: $font-size-xs;
+}
+
+// ============================================
+// Company Grid (modal form — mirrors registration)
+// ============================================
+.company-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4 $space-5;
+
+  .span-2 {
+    grid-column: 1 / -1;
+  }
+
+  .section-title {
+    margin: $space-2 0 0;
+    padding-top: $space-4;
+    border-top: 1px solid $line;
+    color: $ink;
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+  }
+
+  .modal-actions {
+    margin-top: $space-2;
+  }
+
+  input[readonly] {
+    background: $page;
+    color: $ink;
+    cursor: default;
+  }
+
+  @media (max-width: 639px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// ============================================
+// Pictogram Upload
+// ============================================
+.pictogram-upload {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-3;
+  border: 1px dashed #C9D2DE;
+  border-radius: $radius-md;
+
+  &:hover {
+    background: $blue-50;
+  }
+
+  input[type="file"] {
+    min-height: 0;
+    padding: $space-2 0;
+    border: 0;
+    background: transparent;
+    font-size: $font-size-base;
+    color: $ink;
+    cursor: pointer;
+    max-width: 100%;
+  }
+}
+
+.pictogram-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-2;
+
+  img {
+    max-width: min(160px, 100%);
+    max-height: 160px;
+    border-radius: $radius-md;
+    border: 1px solid $line;
+    object-fit: contain;
+    background: $page;
+    padding: $space-2;
+  }
+}
+
+.pictogram-view {
+  margin-top: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  .label {
+    font-size: $font-size-base;
+    font-weight: 600;
+    color: $ink-2;
+  }
+}
+
+.pictogram-img {
+  max-width: min(200px, 100%);
+  max-height: 200px;
+  border-radius: $radius-md;
+  border: 1px solid $line;
+  object-fit: contain;
+  background: $page;
+  padding: $space-2;
+}

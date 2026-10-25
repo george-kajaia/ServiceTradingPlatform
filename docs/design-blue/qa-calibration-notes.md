@@ -1,0 +1,10 @@
+# QA calibration notes from independent evidence review
+
+These are harness checks, not permission to suppress genuine app failures. Reproduce before classifying.
+
+- The agreed mobile layout breakpoint is **below 768px**. 768px is a tablet/desktop layout even if the Playwright context hasTouch=true. Toast top-right at 768px is valid; do not force the app to use a phone layout just to satisfy an isMobile flag.
+- Focus assertions must wait for CSS transitions/animation-frame styles to settle. A computed outline width with outline-style:none is not a visible ring; likewise rgba(...,0) zero-size box-shadow is not a visible ring. Compare stable focused/unfocused border or nontransparent shadow/outline, and confirm with screenshot. The saved Admin 360 input-focus screenshot visibly has a blue ring.
+- The native Tab sequence can briefly return to document.body/browser chrome after the last focusable page element before wrapping. Do not invent tabindex/focus trapping for the whole page. Iterate the actual visible page focusable controls once in logical order. A **dialog**, however, must trap Tab/Shift+Tab, move focus inside, return focus and manage background scrolling.
+- Mobile filter field widths should equal the **available parent content width**, not viewport width less a guessed constant. Admin filter fields are nested within a padded panel and a padded filter group. The Admin 360 populated screenshot shows full-width stacked fields within that actual content area.
+- The semantic green text #15803D on #E7F5EC was measured at about 4.46:1. This is a genuine AA failure for normal-sized enabled text and must be corrected (e.g. darker semantic text or a lighter background); brand blue values should stay unchanged.
+- Synthetic fixture login/storage/SignalR/polling behavior must match real source. Test failures caused by mismatched fixture IDs/properties/routes or accidentally modifying test setup every page load are harness defects. Never change product code solely to accommodate inaccurate fixtures.

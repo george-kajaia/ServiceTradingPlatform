@@ -1,0 +1,54 @@
+<div class="scan-backdrop" appModalDialog [dismissBlocked]="state === 'submitting'" (dismiss)="cancel()" (click)="cancel()">
+  <div class="scan-modal" role="dialog" aria-modal="true" aria-label="Scan customer QR" [attr.aria-busy]="state === 'submitting'" (click)="$event.stopPropagation()">
+
+    <button class="scan-modal__close" type="button" (click)="cancel()" [disabled]="state === 'submitting'" aria-label="Close">×</button>
+
+    <!-- ── SCANNING STATE ─────────────────────────────── -->
+    <ng-container *ngIf="state === 'scanning'">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Scan Customer QR</h2>
+        <p class="scan-modal__subtitle">Point camera at the customer's QR code</p>
+      </div>
+      <div class="scan-modal__camera-wrap">
+        <video #videoEl class="scan-modal__video" autoplay muted playsinline></video>
+        <div class="scan-modal__viewfinder">
+          <span class="scan-modal__corner scan-modal__corner--tl"></span>
+          <span class="scan-modal__corner scan-modal__corner--tr"></span>
+          <span class="scan-modal__corner scan-modal__corner--bl"></span>
+          <span class="scan-modal__corner scan-modal__corner--br"></span>
+          <div class="scan-modal__scan-line"></div>
+        </div>
+      </div>
+      <div class="scan-modal__footer">
+        <button class="scan-btn scan-btn--ghost" type="button" (click)="cancel()">Cancel</button>
+      </div>
+    </ng-container>
+
+    <!-- ── SUBMITTING STATE (automatic redemption in flight) ── -->
+    <ng-container *ngIf="state === 'submitting'">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Confirming...</h2>
+      </div>
+      <div class="scan-modal__state" role="status">
+        <div class="scan-spinner"></div>
+        <p>Processing service request</p>
+      </div>
+    </ng-container>
+
+    <!-- ── ERROR STATE ────────────────────────────────── -->
+    <ng-container *ngIf="state === 'error'">
+      <div class="scan-modal__header">
+        <h2 class="scan-modal__title">Error</h2>
+      </div>
+      <div class="scan-modal__state scan-modal__state--error" role="alert">
+        <span class="scan-modal__state-icon" aria-hidden="true">⚠</span>
+        <p>{{ errorMessage }}</p>
+      </div>
+      <div class="scan-modal__footer">
+        <button class="scan-btn scan-btn--ghost" type="button" (click)="cancel()">Close</button>
+        <button class="scan-btn scan-btn--confirm" type="button" (click)="rescan()">Try Again</button>
+      </div>
+    </ng-container>
+
+  </div>
+</div>
