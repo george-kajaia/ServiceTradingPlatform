@@ -1,0 +1,21 @@
+Workspace extension with invalid name (defaultProject) found.
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+- Generating browser application bundles (phase: setup)...
+√ Browser application bundle generation complete.
+√ Browser application bundle generation complete.
+- Copying assets...
+√ Copying assets complete.
+- Generating index html...
+√ Index html generation complete.
+- Generating service worker...
+√ Service worker generation complete.
+
+Initial chunk files           | Names         |  Raw size | Estimated transfer size
+main.28d51ebac36b3067.js      | main          | 412.83 kB |               106.75 kB
+polyfills.59eafe872ae5b128.js | polyfills     |  34.01 kB |                11.08 kB
+styles.72deee10c05a9a9a.css   | styles        |  12.65 kB |                 2.45 kB
+runtime.13a476472517ad1b.js   | runtime       | 922 bytes |               512 bytes
+
+                              | Initial total | 460.39 kB |               120.78 kB
+
+Build at: 2026-10-14T20:12:33.719Z - Hash: f57568f018a6689a - Time: 3564ms

@@ -1,0 +1,5 @@
+== viewport 360x800 (dev)
+== viewport 768x1024 (dev)
+== viewport 1440x1000 (dev)
+
+[dev] assertions: 559/559 passed, 0 failed; console/page errors total=42 unexpected=0; blocked remote=0; screenshots=57

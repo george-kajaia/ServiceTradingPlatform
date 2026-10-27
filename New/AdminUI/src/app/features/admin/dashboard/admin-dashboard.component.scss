@@ -1,0 +1,351 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: $page;
+  color: $ink;
+  font-family: $font-family-base;
+}
+
+// ============================================
+// Container (template root: .dashboard-container)
+// ============================================
+.dashboard-container {
+  @include container;
+  padding-block: $space-6;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding-inline: $container-padding-mobile;
+  }
+
+  > h2 {
+    @include text-title;
+    margin-bottom: $space-6;
+    color: $ink;
+  }
+}
+
+// ============================================
+// Tabs
+// ============================================
+.tabs {
+  display: flex;
+  gap: $space-2;
+  margin-bottom: $space-4;
+  border-bottom: 1px solid $line;
+  overflow-x: auto;
+
+  button {
+    min-height: $ctl-h;
+    padding: $space-2 $space-4;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: $radius-md $radius-md 0 0;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $ink-2;
+    white-space: nowrap;
+
+    &:hover:not(.active):not(:disabled) {
+      background: $page;
+      border-color: transparent;
+      border-bottom-color: transparent;
+      color: $ink;
+    }
+
+    &.active {
+      background: $blue-50;
+      border-bottom-color: $blue-600;
+      color: $blue-700;
+    }
+  }
+}
+
+// ============================================
+// Panel
+// ============================================
+.panel {
+  padding: $space-5;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+  min-width: 0;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding: $space-4;
+  }
+
+  h3 {
+    @include text-heading;
+    margin: 0 0 $space-4;
+    color: $ink;
+  }
+}
+
+.panel-header-left {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  h3 {
+    margin: 0 0 $space-4;
+  }
+}
+
+// ============================================
+// Filters
+// ============================================
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  align-items: flex-end;
+  margin-bottom: $space-4;
+  padding: $space-4;
+  background: $page;
+  border: 1px solid $line;
+  border-radius: $radius-md;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    flex-direction: column;
+    align-items: stretch;
+
+    input,
+    select,
+    button {
+      width: 100%;
+    }
+  }
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $ink-2;
+}
+
+input,
+select {
+  min-height: $ctl-h;
+  min-width: 140px;
+  padding: $space-2 $space-3;
+  background: $surface;
+  border: 1px solid $line-strong;
+  border-radius: $radius-md;
+  color: $ink;
+  font-size: $font-size-md;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: $blue-600;
+    box-shadow: $focus-ring;
+  }
+
+  &::placeholder {
+    color: $ink-2;
+  }
+}
+
+select {
+  cursor: pointer;
+}
+
+// ============================================
+// Buttons (neutral secondary by default)
+// ============================================
+button {
+  min-height: $ctl-h;
+  padding: $space-2 $space-4;
+  background: $surface;
+  border: 1px solid $line-strong;
+  border-radius: $radius-md;
+  color: $ink;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base, color $transition-base;
+
+  &:hover:not(:disabled) {
+    background: $page;
+    border-color: $ink-2;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+// Approve buttons in table cells: solid success action
+td button {
+  min-height: 36px;
+  padding: $space-1 $space-4;
+  background: $ok;
+  border: 1px solid $ok;
+  color: #ffffff;
+  font-size: $font-size-sm;
+
+  &:hover:not(:disabled) {
+    background: darken($ok, 6%);
+    border-color: darken($ok, 6%);
+  }
+
+  &:disabled {
+    background: $page;
+    border-color: $line;
+    color: $ink-2;
+  }
+
+  @media (pointer: coarse) {
+    min-height: $ctl-h;
+  }
+}
+
+// ============================================
+// Table (Grid) - scrolls inside the panel, not the viewport
+// ============================================
+.table-scroll {
+  max-width: 100%;
+  overflow: auto;
+  max-height: 70vh;
+  border: 1px solid $line;
+  border-radius: $radius-md;
+}
+
+.grid {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: $surface;
+
+  th,
+  td {
+    padding: $space-2 $space-3;
+    text-align: left;
+    font-size: $font-size-sm;
+    border-bottom: 1px solid $line;
+    white-space: nowrap;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: $page;
+    color: $ink-2;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  tbody tr:hover {
+    background: $blue-50;
+  }
+
+  td {
+    color: $ink;
+  }
+}
+
+.grid--wide {
+  min-width: 720px;
+
+  // Let wide date/name columns wrap so the Actions column stays reachable on desktop
+  td {
+    white-space: normal;
+    vertical-align: middle;
+  }
+
+  td.action-col,
+  td:first-child,
+  td:nth-child(4),
+  td:nth-child(6) {
+    white-space: nowrap;
+  }
+}
+
+// Status labels (text always present)
+.status {
+  display: inline-block;
+  padding: 2px $space-2;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  background: $page;
+  color: $ink-2;
+  border: 1px solid $line;
+
+  &--ok {
+    background: $ok-bg;
+    border-color: transparent;
+    color: $ok;
+  }
+
+  &--warn {
+    background: $warn-bg;
+    border-color: transparent;
+    color: $warn;
+  }
+
+  &--info {
+    background: $blue-50;
+    border-color: transparent;
+    color: $blue-700;
+  }
+}
+
+// ============================================
+// Messages
+// ============================================
+.info,
+.muted {
+  padding: $space-4;
+  text-align: center;
+  color: $ink-2;
+  font-size: $font-size-sm;
+}
+
+.error {
+  margin-top: $space-4;
+  padding: $space-3 $space-4;
+  background: $danger-bg;
+  border-left: 3px solid $danger;
+  border-radius: $radius-sm;
+  color: $danger;
+  font-size: $font-size-sm;
+}
+
+// ============================================
+// Back Link
+// ============================================
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: $ctl-h;
+  margin-top: $space-4;
+  color: $blue-600;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: $blue-700;
+    text-decoration: underline;
+  }
+}

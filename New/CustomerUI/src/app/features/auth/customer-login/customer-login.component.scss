@@ -1,0 +1,131 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh; // dynamic viewport for mobile
+  background: $page;
+  color: $ink;
+  font-family: $font-family-base;
+  padding: $space-6 $space-4;
+  padding-top: max(#{$space-10}, env(safe-area-inset-top, #{$space-10}));
+  @include flex-center;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  padding: $space-6 $space-4;
+  box-shadow: $shadow-card;
+
+  @include sm { padding: $space-8 $space-6; }
+
+  h2 {
+    text-align: center;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $ink;
+    margin: 0 0 $space-6;
+  }
+}
+
+// ── Tab toggle (secondary) ────────────────────────────────────
+.toggle-btn {
+  display: block;
+  width: 100%;
+  min-height: $ctl-h;
+  padding: $space-2 $space-4;
+  margin-bottom: $space-6;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-md;
+  color: $ink;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base;
+
+  &:hover { background: $blue-50; border-color: $blue-600; color: $blue-700; }
+  &:focus-visible { outline: none; box-shadow: $focus-ring; }
+}
+
+// ── Form ──────────────────────────────────────────────────────
+.auth-form {
+  display: flex; flex-direction: column; gap: $space-4;
+
+  label {
+    display: flex; flex-direction: column; gap: $space-2;
+    font-size: $font-size-sm; font-weight: $font-weight-semibold;
+    color: $ink-2; text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  input {
+    min-height: $ctl-h;
+    padding: $space-3 $space-4;
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: $radius-md;
+    color: $ink;
+    font-size: $font-size-md; // 16px — prevents iOS zoom
+    font-family: $font-family-base;
+    transition: border-color $transition-base, box-shadow $transition-base;
+    -webkit-appearance: none;
+
+    &:focus {
+      outline: none;
+      border-color: $blue-600;
+      box-shadow: $focus-ring;
+    }
+  }
+
+  button[type="submit"] {
+    margin-top: $space-2;
+    padding: $space-3 $space-4;
+    background: $blue-600;
+    border: none; border-radius: $radius-md;
+    color: #fff;
+    font-size: $font-size-md; font-weight: $font-weight-semibold;
+    font-family: $font-family-base;
+    cursor: pointer;
+    min-height: 48px; // touch target
+    transition: background $transition-base;
+
+    &:hover:not(:disabled) { background: $blue-700; }
+    &:focus-visible { outline: none; box-shadow: $focus-ring; }
+    &:disabled { opacity: 0.55; cursor: not-allowed; }
+  }
+}
+
+// ── Error message ─────────────────────────────────────────────
+.auth-error {
+  padding: $space-3 $space-4;
+  background: $danger-bg;
+  border: 1px solid $danger;
+  border-radius: $radius-md;
+  color: $danger;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  text-align: center;
+}
+
+// ── Back link ─────────────────────────────────────────────────
+.back-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $ctl-h;
+  margin-top: $space-3;
+  color: $blue-600;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  &:hover, &:focus-visible { text-decoration: underline; }
+  &:focus-visible { outline: none; box-shadow: $focus-ring; border-radius: $radius-md; }
+}

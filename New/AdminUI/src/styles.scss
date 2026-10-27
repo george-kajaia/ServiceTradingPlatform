@@ -1,0 +1,15 @@
+// ============================================
+// Kajaia Bonds - Global Styles Entry Point
+// ============================================
+// Core
+@use 'styles/variables' as *;
+@use 'styles/base';
+
+// Themes (can be used via class)
+@use 'styles/themes/user';
+@use 'styles/themes/admin';
+
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+

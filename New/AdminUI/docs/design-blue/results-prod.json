@@ -1,0 +1,3527 @@
+{
+ "mode": "prod",
+ "total": 488,
+ "passed": 488,
+ "failed": 0,
+ "results": [
+  {
+   "id": "route \"/\" redirects to /login",
+   "vp": 360,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "unknown route redirects to /login",
+   "vp": 360,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "unauthenticated /dashboard redirects to /login (existing behaviour, no guard)",
+   "vp": 360,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "no API calls made while unauthenticated",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "login/empty: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/empty: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login: primary button solid blue #2563EB with white text",
+   "vp": 360,
+   "ok": true,
+   "detail": "rgb(37, 99, 235) rgb(255, 255, 255)"
+  },
+  {
+   "id": "login: primary button height >=44 and radius 8px",
+   "vp": 360,
+   "ok": true,
+   "detail": "47 8px"
+  },
+  {
+   "id": "login: inputs have visible labels (Username/Password)",
+   "vp": 360,
+   "ok": true,
+   "detail": "Username,Password"
+  },
+  {
+   "id": "login: card radius 16px, page bg #F4F7FB",
+   "vp": 360,
+   "ok": true,
+   "detail": "16px rgb(244, 247, 251)"
+  },
+  {
+   "id": "login: heading text preserved \"Administrator Login\"",
+   "vp": 360,
+   "ok": true,
+   "detail": "Administrator Login"
+  },
+  {
+   "id": "login: link blue #2563EB",
+   "vp": 360,
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "login: card fits viewport with side gutter >=16px",
+   "vp": 360,
+   "ok": true,
+   "detail": "16 328"
+  },
+  {
+   "id": "login/username input: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "login/password input: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "login/submit button: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgba(0, 0, 0, 0)\"}"
+  },
+  {
+   "id": "login/back link: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"none\",\"outline\":\"solid 2px\",\"border\":\"rgb(29, 78, 216)\"}"
+  },
+  {
+   "id": "login/loading: submit disabled while request pending",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"d\":true,\"op\":\"0.55\"}"
+  },
+  {
+   "id": "login/error: API error message shown in toast",
+   "vp": 360,
+   "ok": true,
+   "detail": "Invalid username or password."
+  },
+  {
+   "id": "login/error: toast within viewport",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"msg\":\"Invalid username or password.\",\"l\":16,\"r\":344,\"top\":714,\"b\":784,\"bg\":\"rgb(255, 255, 255)\",\"leftBar\":\"rgb(185, 28, 28) 4px\",\"closeH\":44,\"closeW\":44,\"role\":\"alert\",\"vh\":800,\"vw\":360}"
+  },
+  {
+   "id": "login/error: toast white surface with danger left bar",
+   "vp": 360,
+   "ok": true,
+   "detail": "rgb(255, 255, 255) rgb(185, 28, 28) 4px"
+  },
+  {
+   "id": "login/error: toast dismiss control >=44px",
+   "vp": 360,
+   "ok": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login/error: toast placement (bottom on mobile, top-right on desktop)",
+   "vp": 360,
+   "ok": true,
+   "detail": "top=714 bottom=784 right=344"
+  },
+  {
+   "id": "login/error-toast: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "login/error-toast: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error-toast: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error: stays on /login, button re-enabled",
+   "vp": 360,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "login: retry with valid creds reaches /dashboard (Login + GetById calls)",
+   "vp": 360,
+   "ok": true,
+   "detail": "POST /User/Login,POST /User/Login,GET /User/GetById/7"
+  },
+  {
+   "id": "companies: GetAll called with skip=0&take=500",
+   "vp": 360,
+   "ok": true,
+   "detail": "POST /User/Login,GET /User/GetById/7,GET /Company/GetAll?skip=0&take=500"
+  },
+  {
+   "id": "companies: heading, tabs and 4 rows preserved",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "companies/populated: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: INFO disabled-control contrast",
+   "vp": 360,
+   "ok": true,
+   "detail": "[{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13}]"
+  },
+  {
+   "id": "companies: panel gutter 16px (mobile 16 / desktop 24)",
+   "vp": 360,
+   "ok": true,
+   "detail": "left=16 w=328"
+  },
+  {
+   "id": "companies: panel radius 16px, padding 20px desktop / 16px mobile",
+   "vp": 360,
+   "ok": true,
+   "detail": "16px 16px"
+  },
+  {
+   "id": "companies: table scrolls only inside .table-scroll wrapper",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"o\":\"auto\",\"w\":294,\"scrolls\":true}"
+  },
+  {
+   "id": "companies: at 360 the table actually scrolls inside its wrapper (not the page)",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies: sticky table header",
+   "vp": 360,
+   "ok": true,
+   "detail": "sticky"
+  },
+  {
+   "id": "companies: active tab blue-50 bg, blue-700 text, blue-600 underline",
+   "vp": 360,
+   "ok": true,
+   "detail": "rgb(29, 78, 216)|rgb(234, 241, 255)|rgb(37, 99, 235)"
+  },
+  {
+   "id": "companies: aria-pressed on tabs",
+   "vp": 360,
+   "ok": true,
+   "detail": "true,false"
+  },
+  {
+   "id": "companies: tab height >=44",
+   "vp": 360,
+   "ok": true,
+   "detail": "44"
+  },
+  {
+   "id": "companies: row data rendered (name/tax/status labels)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[\"1\",\"Alpha Logistics LLC\",\"201234567\",\"Active\",\"Mar 1, 2026, 9:30:00 AM\",\"Approve\"]"
+  },
+  {
+   "id": "companies: Approve disabled only for Active rows",
+   "vp": 360,
+   "ok": true,
+   "detail": "[true,false,false,true]"
+  },
+  {
+   "id": "companies: enabled Approve is solid success green w/ white text",
+   "vp": 360,
+   "ok": true,
+   "detail": "rgb(22, 101, 52) rgb(255, 255, 255)"
+  },
+  {
+   "id": "companies: status badges are text-labelled (Active green-on-tint, Not Active neutral)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[{\"t\":\"Active\",\"bg\":\"rgb(231, 245, 236)\",\"c\":\"rgb(22, 101, 52)\"},{\"t\":\"Not Active\",\"bg\":\"rgb(244, 247, 251)\",\"c\":\"rgb(89, 103, 121)\"}]"
+  },
+  {
+   "id": "companies/tab button: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(89, 103, 121)\"}"
+  },
+  {
+   "id": "companies/Approve button: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(22, 101, 52)\"}"
+  },
+  {
+   "id": "companies/name filter: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "companies/Clear filter button: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(203, 212, 223)\"}"
+  },
+  {
+   "id": "companies: filter labels Name/Tax Code/Status",
+   "vp": 360,
+   "ok": true,
+   "detail": "Name,Tax Code,Status"
+  },
+  {
+   "id": "companies: filters stack full-width on mobile",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"l\":[\"Name\",\"Tax Code\",\"Status\"],\"stacked\":true,\"widths\":[260,260,260,260,260],\"vw\":360,\"parents\":[260,260,260,260,260]}"
+  },
+  {
+   "id": "companies filter: name \"beta\" -> 1 row",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: tax code \"2111\" -> Gamma only",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: status Active -> 2 rows",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: empty result copy \"No companies found.\"",
+   "vp": 360,
+   "ok": true,
+   "detail": "No companies found."
+  },
+  {
+   "id": "companies/filter-empty: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "companies/filter-empty: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/filter-empty: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/filter-empty: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies filter: Clear filter restores 4 rows",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve: PATCH /Company/Approve?companyId=2&rowVersion=12",
+   "vp": 360,
+   "ok": true,
+   "detail": "PATCH /Company/Approve?companyId=2&rowVersion=12"
+  },
+  {
+   "id": "companies approve: success toast text + list reloaded (row now Active, button disabled)",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve: success toast within viewport, green left bar",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"l\":16,\"r\":344,\"t\":714,\"b\":784,\"bar\":\"rgb(22, 101, 52)\",\"vw\":360,\"vh\":800}"
+  },
+  {
+   "id": "companies approve conflict(409): error toast shows API message",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve conflict: row stays Not Active",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login 500 empty body: toast is nonempty readable English fallback",
+   "vp": 360,
+   "ok": true,
+   "detail": "Something went wrong. Please try again."
+  },
+  {
+   "id": "company approve 500 empty body: toast nonempty fallback",
+   "vp": 360,
+   "ok": true,
+   "detail": "Something went wrong. Please try again."
+  },
+  {
+   "id": "companies/loading: \"Loading...\" status shown (role=status), no table/empty text",
+   "vp": 360,
+   "ok": true,
+   "detail": "Loading..."
+  },
+  {
+   "id": "companies/loading: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "companies/loading: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/loading: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/loading: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: \"No companies found.\" and no table",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "companies/empty: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error(500): toast \"Failed to load companies...\" with Retry action",
+   "vp": 360,
+   "ok": true,
+   "detail": "Failed to load companies. Please check your connection."
+  },
+  {
+   "id": "companies/error: page shows empty state not stale table",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error: Retry action >=44px tall",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"h\":44,\"w\":55.296875}"
+  },
+  {
+   "id": "companies/error-toast: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "companies/error-toast: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error-toast: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error: Retry reloads and shows populated table",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests: GetAll?CompanyId=-1&status=0 on tab open",
+   "vp": 360,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0"
+  },
+  {
+   "id": "requests/populated: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "requests/populated: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: INFO disabled-control contrast",
+   "vp": 360,
+   "ok": true,
+   "detail": "[{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13}]"
+  },
+  {
+   "id": "INFO (pointer: coarse) matches",
+   "vp": 360,
+   "ok": true,
+   "detail": "false"
+  },
+  {
+   "id": "requests: tab pressed state switches",
+   "vp": 360,
+   "ok": true,
+   "detail": "false,true"
+  },
+  {
+   "id": "requests: filter labels Company Id/Status",
+   "vp": 360,
+   "ok": true,
+   "detail": "Company Id,Status"
+  },
+  {
+   "id": "requests: status labels None/Created/Authorised/Approved shown as text",
+   "vp": 360,
+   "ok": true,
+   "detail": "Created,Authorised,Approved,None"
+  },
+  {
+   "id": "requests: status badge colors (Created warn, Authorised blue, Approved ok, None neutral)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[{\"t\":\"Created\",\"bg\":\"rgb(254, 243, 226)\",\"c\":\"rgb(146, 64, 14)\"},{\"t\":\"Authorised\",\"bg\":\"rgb(234, 241, 255)\",\"c\":\"rgb(29, 78, 216)\"},{\"t\":\"Approved\",\"bg\":\"rgb(231, 245, 236)\",\"c\":\"rgb(22, 101, 52)\"},{\"t\":\"None\",\"bg\":\"rgb(244, 247, 251)\",\"c\":\"rgb(89, 103, 121)\"}]"
+  },
+  {
+   "id": "requests: Approve enabled only for Authorised (status 2)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[true,false,true,true]"
+  },
+  {
+   "id": "requests: null company/product render empty not \"null\"",
+   "vp": 360,
+   "ok": true,
+   "detail": "104|||1|Jul 7, 2026, 10:00:00 AM|None|-|-|Approve"
+  },
+  {
+   "id": "requests: dash placeholder for missing authorize/approve dates",
+   "vp": 360,
+   "ok": true,
+   "detail": "101|Alpha Logistics LLC|Fuel Voucher 50|500|Jul 1, 2026, 10:00:00 AM|Created|-|-|Approve"
+  },
+  {
+   "id": "requests: wide table scrolls inside wrapper (<=1440 min 960)",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"w\":294,\"s\":true}"
+  },
+  {
+   "id": "requests filter: status Authorised -> refetch status=2, 1 row",
+   "vp": 360,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0,GET /Request/GetAll?CompanyId=-1&status=2"
+  },
+  {
+   "id": "requests filter: Company Id + Enter -> CompanyId=4&status=2 sent",
+   "vp": 360,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0,GET /Request/GetAll?CompanyId=-1&status=2,GET /Request/GetAll?CompanyId=4&status=2"
+  },
+  {
+   "id": "requests filter: empty copy \"No requests found.\"",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "requests/filter-empty: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/filter-empty: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/filter-empty: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests filter: Clear + Refresh -> all 4 rows",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/Company Id input: visible keyboard focus indicator",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "requests approve: POST /Request/Approve?requestId=102&rowVersion=2",
+   "vp": 360,
+   "ok": true,
+   "detail": "POST /Request/Approve?requestId=102&rowVersion=2"
+  },
+  {
+   "id": "requests approve: toast text + row becomes Approved/disabled",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: \"No requests found.\"",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "requests/empty: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/empty: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error(500): toast \"Failed to load requests...\" with Retry",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no horizontal viewport overflow",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":360,\"clientW\":360,\"bodyScrollW\":360}"
+  },
+  {
+   "id": "requests/error-toast: text contrast >= AA",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error-toast: no gradients/background images",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no text <12px",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no clipped button/label text",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: controls >=44px (coarse pointer, all)",
+   "vp": 360,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error: Retry works",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests approve conflict(409): error toast shows API message",
+   "vp": 360,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "INFO requests short-data: wrapper scrollWidth/clientWidth, Actions column visible without scrolling",
+   "vp": 360,
+   "ok": true,
+   "detail": "{\"scrollW\":909,\"clientW\":292,\"actionsVisible\":false}"
+  },
+  {
+   "id": "dashboard tab order logical (tabs -> filters -> Approve buttons) & every stop shows focus",
+   "vp": 360,
+   "ok": true,
+   "detail": "Companies > Requests > INPUT > INPUT > AllNot ActiveAct > Clear filter > Refresh > Approve > Approve > Back to main pag"
+  },
+  {
+   "id": "route \"/\" redirects to /login",
+   "vp": 768,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "unknown route redirects to /login",
+   "vp": 768,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "unauthenticated /dashboard redirects to /login (existing behaviour, no guard)",
+   "vp": 768,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "no API calls made while unauthenticated",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "login/empty: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/empty: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login: primary button solid blue #2563EB with white text",
+   "vp": 768,
+   "ok": true,
+   "detail": "rgb(37, 99, 235) rgb(255, 255, 255)"
+  },
+  {
+   "id": "login: primary button height >=44 and radius 8px",
+   "vp": 768,
+   "ok": true,
+   "detail": "47 8px"
+  },
+  {
+   "id": "login: inputs have visible labels (Username/Password)",
+   "vp": 768,
+   "ok": true,
+   "detail": "Username,Password"
+  },
+  {
+   "id": "login: card radius 16px, page bg #F4F7FB",
+   "vp": 768,
+   "ok": true,
+   "detail": "16px rgb(244, 247, 251)"
+  },
+  {
+   "id": "login: heading text preserved \"Administrator Login\"",
+   "vp": 768,
+   "ok": true,
+   "detail": "Administrator Login"
+  },
+  {
+   "id": "login: link blue #2563EB",
+   "vp": 768,
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "login: card fits viewport with side gutter >=16px",
+   "vp": 768,
+   "ok": true,
+   "detail": "184 400"
+  },
+  {
+   "id": "login/username input: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "login/password input: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "login/submit button: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgba(0, 0, 0, 0)\"}"
+  },
+  {
+   "id": "login/back link: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"none\",\"outline\":\"solid 2px\",\"border\":\"rgb(29, 78, 216)\"}"
+  },
+  {
+   "id": "login/loading: submit disabled while request pending",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"d\":true,\"op\":\"0.55\"}"
+  },
+  {
+   "id": "login/error: API error message shown in toast",
+   "vp": 768,
+   "ok": true,
+   "detail": "Invalid username or password."
+  },
+  {
+   "id": "login/error: toast within viewport",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"msg\":\"Invalid username or password.\",\"l\":414.171875,\"r\":744,\"top\":24,\"b\":94,\"bg\":\"rgb(255, 255, 255)\",\"leftBar\":\"rgb(185, 28, 28) 4px\",\"closeH\":44,\"closeW\":44,\"role\":\"alert\",\"vh\":1024,\"vw\":768}"
+  },
+  {
+   "id": "login/error: toast white surface with danger left bar",
+   "vp": 768,
+   "ok": true,
+   "detail": "rgb(255, 255, 255) rgb(185, 28, 28) 4px"
+  },
+  {
+   "id": "login/error: toast dismiss control >=44px",
+   "vp": 768,
+   "ok": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login/error: toast placement (bottom on mobile, top-right on desktop)",
+   "vp": 768,
+   "ok": true,
+   "detail": "top=24 bottom=94 right=744"
+  },
+  {
+   "id": "login/error-toast: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "login/error-toast: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error-toast: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error: stays on /login, button re-enabled",
+   "vp": 768,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "login: retry with valid creds reaches /dashboard (Login + GetById calls)",
+   "vp": 768,
+   "ok": true,
+   "detail": "POST /User/Login,POST /User/Login,GET /User/GetById/7"
+  },
+  {
+   "id": "companies: GetAll called with skip=0&take=500",
+   "vp": 768,
+   "ok": true,
+   "detail": "POST /User/Login,GET /User/GetById/7,GET /Company/GetAll?skip=0&take=500"
+  },
+  {
+   "id": "companies: heading, tabs and 4 rows preserved",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "companies/populated: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: INFO disabled-control contrast",
+   "vp": 768,
+   "ok": true,
+   "detail": "[{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13}]"
+  },
+  {
+   "id": "companies: panel gutter 24px (mobile 16 / desktop 24)",
+   "vp": 768,
+   "ok": true,
+   "detail": "left=24 w=720"
+  },
+  {
+   "id": "companies: panel radius 16px, padding 20px desktop / 16px mobile",
+   "vp": 768,
+   "ok": true,
+   "detail": "16px 20px"
+  },
+  {
+   "id": "companies: table scrolls only inside .table-scroll wrapper",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"o\":\"auto\",\"w\":678,\"scrolls\":true}"
+  },
+  {
+   "id": "companies: sticky table header",
+   "vp": 768,
+   "ok": true,
+   "detail": "sticky"
+  },
+  {
+   "id": "companies: active tab blue-50 bg, blue-700 text, blue-600 underline",
+   "vp": 768,
+   "ok": true,
+   "detail": "rgb(29, 78, 216)|rgb(234, 241, 255)|rgb(37, 99, 235)"
+  },
+  {
+   "id": "companies: aria-pressed on tabs",
+   "vp": 768,
+   "ok": true,
+   "detail": "true,false"
+  },
+  {
+   "id": "companies: tab height >=44",
+   "vp": 768,
+   "ok": true,
+   "detail": "44"
+  },
+  {
+   "id": "companies: row data rendered (name/tax/status labels)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[\"1\",\"Alpha Logistics LLC\",\"201234567\",\"Active\",\"Mar 1, 2026, 9:30:00 AM\",\"Approve\"]"
+  },
+  {
+   "id": "companies: Approve disabled only for Active rows",
+   "vp": 768,
+   "ok": true,
+   "detail": "[true,false,false,true]"
+  },
+  {
+   "id": "companies: enabled Approve is solid success green w/ white text",
+   "vp": 768,
+   "ok": true,
+   "detail": "rgb(22, 101, 52) rgb(255, 255, 255)"
+  },
+  {
+   "id": "companies: status badges are text-labelled (Active green-on-tint, Not Active neutral)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[{\"t\":\"Active\",\"bg\":\"rgb(231, 245, 236)\",\"c\":\"rgb(22, 101, 52)\"},{\"t\":\"Not Active\",\"bg\":\"rgb(244, 247, 251)\",\"c\":\"rgb(89, 103, 121)\"}]"
+  },
+  {
+   "id": "companies/tab button: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(89, 103, 121)\"}"
+  },
+  {
+   "id": "companies/Approve button: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(22, 101, 52)\"}"
+  },
+  {
+   "id": "companies/name filter: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "companies/Clear filter button: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(203, 212, 223)\"}"
+  },
+  {
+   "id": "companies: filter labels Name/Tax Code/Status",
+   "vp": 768,
+   "ok": true,
+   "detail": "Name,Tax Code,Status"
+  },
+  {
+   "id": "companies filter: name \"beta\" -> 1 row",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: tax code \"2111\" -> Gamma only",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: status Active -> 2 rows",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: empty result copy \"No companies found.\"",
+   "vp": 768,
+   "ok": true,
+   "detail": "No companies found."
+  },
+  {
+   "id": "companies/filter-empty: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "companies/filter-empty: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/filter-empty: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/filter-empty: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies filter: Clear filter restores 4 rows",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve: PATCH /Company/Approve?companyId=2&rowVersion=12",
+   "vp": 768,
+   "ok": true,
+   "detail": "PATCH /Company/Approve?companyId=2&rowVersion=12"
+  },
+  {
+   "id": "companies approve: success toast text + list reloaded (row now Active, button disabled)",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve: success toast within viewport, green left bar",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"l\":401.65625,\"r\":744,\"t\":24,\"b\":94,\"bar\":\"rgb(22, 101, 52)\",\"vw\":768,\"vh\":1024}"
+  },
+  {
+   "id": "companies approve conflict(409): error toast shows API message",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve conflict: row stays Not Active",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login 500 empty body: toast is nonempty readable English fallback",
+   "vp": 768,
+   "ok": true,
+   "detail": "Something went wrong. Please try again."
+  },
+  {
+   "id": "company approve 500 empty body: toast nonempty fallback",
+   "vp": 768,
+   "ok": true,
+   "detail": "Something went wrong. Please try again."
+  },
+  {
+   "id": "companies/loading: \"Loading...\" status shown (role=status), no table/empty text",
+   "vp": 768,
+   "ok": true,
+   "detail": "Loading..."
+  },
+  {
+   "id": "companies/loading: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "companies/loading: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/loading: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/loading: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: \"No companies found.\" and no table",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "companies/empty: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error(500): toast \"Failed to load companies...\" with Retry action",
+   "vp": 768,
+   "ok": true,
+   "detail": "Failed to load companies. Please check your connection."
+  },
+  {
+   "id": "companies/error: page shows empty state not stale table",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error: Retry action >=44px tall",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"h\":44,\"w\":55.296875}"
+  },
+  {
+   "id": "companies/error-toast: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "companies/error-toast: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error-toast: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error: Retry reloads and shows populated table",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests: GetAll?CompanyId=-1&status=0 on tab open",
+   "vp": 768,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0"
+  },
+  {
+   "id": "requests/populated: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "requests/populated: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: INFO disabled-control contrast",
+   "vp": 768,
+   "ok": true,
+   "detail": "[{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13}]"
+  },
+  {
+   "id": "INFO (pointer: coarse) matches",
+   "vp": 768,
+   "ok": true,
+   "detail": "true"
+  },
+  {
+   "id": "requests: tab pressed state switches",
+   "vp": 768,
+   "ok": true,
+   "detail": "false,true"
+  },
+  {
+   "id": "requests: filter labels Company Id/Status",
+   "vp": 768,
+   "ok": true,
+   "detail": "Company Id,Status"
+  },
+  {
+   "id": "requests: status labels None/Created/Authorised/Approved shown as text",
+   "vp": 768,
+   "ok": true,
+   "detail": "Created,Authorised,Approved,None"
+  },
+  {
+   "id": "requests: status badge colors (Created warn, Authorised blue, Approved ok, None neutral)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[{\"t\":\"Created\",\"bg\":\"rgb(254, 243, 226)\",\"c\":\"rgb(146, 64, 14)\"},{\"t\":\"Authorised\",\"bg\":\"rgb(234, 241, 255)\",\"c\":\"rgb(29, 78, 216)\"},{\"t\":\"Approved\",\"bg\":\"rgb(231, 245, 236)\",\"c\":\"rgb(22, 101, 52)\"},{\"t\":\"None\",\"bg\":\"rgb(244, 247, 251)\",\"c\":\"rgb(89, 103, 121)\"}]"
+  },
+  {
+   "id": "requests: Approve enabled only for Authorised (status 2)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[true,false,true,true]"
+  },
+  {
+   "id": "requests: null company/product render empty not \"null\"",
+   "vp": 768,
+   "ok": true,
+   "detail": "104|||1|Jul 7, 2026, 10:00:00 AM|None|-|-|Approve"
+  },
+  {
+   "id": "requests: dash placeholder for missing authorize/approve dates",
+   "vp": 768,
+   "ok": true,
+   "detail": "101|Alpha Logistics LLC|Fuel Voucher 50|500|Jul 1, 2026, 10:00:00 AM|Created|-|-|Approve"
+  },
+  {
+   "id": "requests: wide table scrolls inside wrapper (<=1440 min 960)",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"w\":678,\"s\":true}"
+  },
+  {
+   "id": "requests filter: status Authorised -> refetch status=2, 1 row",
+   "vp": 768,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0,GET /Request/GetAll?CompanyId=-1&status=2"
+  },
+  {
+   "id": "requests filter: Company Id + Enter -> CompanyId=4&status=2 sent",
+   "vp": 768,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0,GET /Request/GetAll?CompanyId=-1&status=2,GET /Request/GetAll?CompanyId=4&status=2"
+  },
+  {
+   "id": "requests filter: empty copy \"No requests found.\"",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "requests/filter-empty: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/filter-empty: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/filter-empty: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests filter: Clear + Refresh -> all 4 rows",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/Company Id input: visible keyboard focus indicator",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "requests approve: POST /Request/Approve?requestId=102&rowVersion=2",
+   "vp": 768,
+   "ok": true,
+   "detail": "POST /Request/Approve?requestId=102&rowVersion=2"
+  },
+  {
+   "id": "requests approve: toast text + row becomes Approved/disabled",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: \"No requests found.\"",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "requests/empty: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/empty: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error(500): toast \"Failed to load requests...\" with Retry",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no horizontal viewport overflow",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":768,\"clientW\":768,\"bodyScrollW\":768}"
+  },
+  {
+   "id": "requests/error-toast: text contrast >= AA",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error-toast: no gradients/background images",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no text <12px",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no clipped button/label text",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: controls >=44px (coarse pointer, all)",
+   "vp": 768,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error: Retry works",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests approve conflict(409): error toast shows API message",
+   "vp": 768,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "INFO requests short-data: wrapper scrollWidth/clientWidth, Actions column visible without scrolling",
+   "vp": 768,
+   "ok": true,
+   "detail": "{\"scrollW\":909,\"clientW\":676,\"actionsVisible\":false}"
+  },
+  {
+   "id": "dashboard tab order logical (tabs -> filters -> Approve buttons) & every stop shows focus",
+   "vp": 768,
+   "ok": true,
+   "detail": "Companies > Requests > INPUT > INPUT > AllNot ActiveAct > Clear filter > Refresh > Approve > Approve > Back to main pag"
+  },
+  {
+   "id": "route \"/\" redirects to /login",
+   "vp": 1440,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "unknown route redirects to /login",
+   "vp": 1440,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "unauthenticated /dashboard redirects to /login (existing behaviour, no guard)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "no API calls made while unauthenticated",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "login/empty: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/empty: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/empty: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login: primary button solid blue #2563EB with white text",
+   "vp": 1440,
+   "ok": true,
+   "detail": "rgb(37, 99, 235) rgb(255, 255, 255)"
+  },
+  {
+   "id": "login: primary button height >=44 and radius 8px",
+   "vp": 1440,
+   "ok": true,
+   "detail": "47 8px"
+  },
+  {
+   "id": "login: inputs have visible labels (Username/Password)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Username,Password"
+  },
+  {
+   "id": "login: card radius 16px, page bg #F4F7FB",
+   "vp": 1440,
+   "ok": true,
+   "detail": "16px rgb(244, 247, 251)"
+  },
+  {
+   "id": "login: heading text preserved \"Administrator Login\"",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Administrator Login"
+  },
+  {
+   "id": "login: link blue #2563EB",
+   "vp": 1440,
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "login: card fits viewport with side gutter >=16px",
+   "vp": 1440,
+   "ok": true,
+   "detail": "520 400"
+  },
+  {
+   "id": "login/username input: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "login/password input: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "login/submit button: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgba(0, 0, 0, 0)\"}"
+  },
+  {
+   "id": "login/back link: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"none\",\"outline\":\"solid 2px\",\"border\":\"rgb(29, 78, 216)\"}"
+  },
+  {
+   "id": "login/loading: submit disabled while request pending",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"d\":true,\"op\":\"0.55\"}"
+  },
+  {
+   "id": "login/error: API error message shown in toast",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Invalid username or password."
+  },
+  {
+   "id": "login/error: toast within viewport",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"msg\":\"Invalid username or password.\",\"l\":1086.171875,\"r\":1416,\"top\":24,\"b\":94,\"bg\":\"rgb(255, 255, 255)\",\"leftBar\":\"rgb(185, 28, 28) 4px\",\"closeH\":44,\"closeW\":44,\"role\":\"alert\",\"vh\":1000,\"vw\":1440}"
+  },
+  {
+   "id": "login/error: toast white surface with danger left bar",
+   "vp": 1440,
+   "ok": true,
+   "detail": "rgb(255, 255, 255) rgb(185, 28, 28) 4px"
+  },
+  {
+   "id": "login/error: toast dismiss control >=44px",
+   "vp": 1440,
+   "ok": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login/error: toast placement (bottom on mobile, top-right on desktop)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "top=24 bottom=94 right=1416"
+  },
+  {
+   "id": "login/error-toast: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "login/error-toast: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error-toast: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login/error-toast: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login/error: stays on /login, button re-enabled",
+   "vp": 1440,
+   "ok": true,
+   "detail": "http://127.0.0.1:4313/login"
+  },
+  {
+   "id": "login: retry with valid creds reaches /dashboard (Login + GetById calls)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "POST /User/Login,POST /User/Login,GET /User/GetById/7"
+  },
+  {
+   "id": "companies: GetAll called with skip=0&take=500",
+   "vp": 1440,
+   "ok": true,
+   "detail": "POST /User/Login,GET /User/GetById/7,GET /Company/GetAll?skip=0&take=500"
+  },
+  {
+   "id": "companies: heading, tabs and 4 rows preserved",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "companies/populated: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/populated: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/populated: INFO desktop table buttons <44px (spec allows 36px in dense tables)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"el\":\"button\",\"text\":\"Approve\",\"w\":84.3,\"h\":36,\"inTable\":true}"
+  },
+  {
+   "id": "companies/populated: INFO disabled-control contrast",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13}]"
+  },
+  {
+   "id": "companies: panel gutter 24px (mobile 16 / desktop 24)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "left=184 w=1072"
+  },
+  {
+   "id": "companies: panel radius 16px, padding 20px desktop / 16px mobile",
+   "vp": 1440,
+   "ok": true,
+   "detail": "16px 20px"
+  },
+  {
+   "id": "companies: table scrolls only inside .table-scroll wrapper",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"o\":\"auto\",\"w\":1030,\"scrolls\":false}"
+  },
+  {
+   "id": "companies: sticky table header",
+   "vp": 1440,
+   "ok": true,
+   "detail": "sticky"
+  },
+  {
+   "id": "companies: active tab blue-50 bg, blue-700 text, blue-600 underline",
+   "vp": 1440,
+   "ok": true,
+   "detail": "rgb(29, 78, 216)|rgb(234, 241, 255)|rgb(37, 99, 235)"
+  },
+  {
+   "id": "companies: aria-pressed on tabs",
+   "vp": 1440,
+   "ok": true,
+   "detail": "true,false"
+  },
+  {
+   "id": "companies: tab height >=44",
+   "vp": 1440,
+   "ok": true,
+   "detail": "44"
+  },
+  {
+   "id": "companies: row data rendered (name/tax/status labels)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[\"1\",\"Alpha Logistics LLC\",\"201234567\",\"Active\",\"Mar 1, 2026, 9:30:00 AM\",\"Approve\"]"
+  },
+  {
+   "id": "companies: Approve disabled only for Active rows",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[true,false,false,true]"
+  },
+  {
+   "id": "companies: enabled Approve is solid success green w/ white text",
+   "vp": 1440,
+   "ok": true,
+   "detail": "rgb(22, 101, 52) rgb(255, 255, 255)"
+  },
+  {
+   "id": "companies: status badges are text-labelled (Active green-on-tint, Not Active neutral)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[{\"t\":\"Active\",\"bg\":\"rgb(231, 245, 236)\",\"c\":\"rgb(22, 101, 52)\"},{\"t\":\"Not Active\",\"bg\":\"rgb(244, 247, 251)\",\"c\":\"rgb(89, 103, 121)\"}]"
+  },
+  {
+   "id": "companies/tab button: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(89, 103, 121)\"}"
+  },
+  {
+   "id": "companies/Approve button: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(22, 101, 52)\"}"
+  },
+  {
+   "id": "companies/name filter: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "companies/Clear filter button: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(203, 212, 223)\"}"
+  },
+  {
+   "id": "companies: filter labels Name/Tax Code/Status",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Name,Tax Code,Status"
+  },
+  {
+   "id": "companies filter: name \"beta\" -> 1 row",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: tax code \"2111\" -> Gamma only",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: status Active -> 2 rows",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies filter: empty result copy \"No companies found.\"",
+   "vp": 1440,
+   "ok": true,
+   "detail": "No companies found."
+  },
+  {
+   "id": "companies/filter-empty: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "companies/filter-empty: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/filter-empty: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/filter-empty: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/filter-empty: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies filter: Clear filter restores 4 rows",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve: PATCH /Company/Approve?companyId=2&rowVersion=12",
+   "vp": 1440,
+   "ok": true,
+   "detail": "PATCH /Company/Approve?companyId=2&rowVersion=12"
+  },
+  {
+   "id": "companies approve: success toast text + list reloaded (row now Active, button disabled)",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve: success toast within viewport, green left bar",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"l\":1073.65625,\"r\":1416,\"t\":24,\"b\":94,\"bar\":\"rgb(22, 101, 52)\",\"vw\":1440,\"vh\":1000}"
+  },
+  {
+   "id": "companies approve conflict(409): error toast shows API message",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies approve conflict: row stays Not Active",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login 500 empty body: toast is nonempty readable English fallback",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Something went wrong. Please try again."
+  },
+  {
+   "id": "company approve 500 empty body: toast nonempty fallback",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Something went wrong. Please try again."
+  },
+  {
+   "id": "companies/loading: \"Loading...\" status shown (role=status), no table/empty text",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Loading..."
+  },
+  {
+   "id": "companies/loading: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "companies/loading: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/loading: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/loading: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/loading: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: \"No companies found.\" and no table",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "companies/empty: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/empty: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/empty: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error(500): toast \"Failed to load companies...\" with Retry action",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Failed to load companies. Please check your connection."
+  },
+  {
+   "id": "companies/error: page shows empty state not stale table",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error: Retry action >=44px tall",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"h\":44,\"w\":55.296875}"
+  },
+  {
+   "id": "companies/error-toast: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "companies/error-toast: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error-toast: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "companies/error-toast: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "companies/error: Retry reloads and shows populated table",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests: GetAll?CompanyId=-1&status=0 on tab open",
+   "vp": 1440,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0"
+  },
+  {
+   "id": "requests/populated: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "requests/populated: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/populated: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/populated: INFO desktop table buttons <44px (spec allows 36px in dense tables)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"el\":\"button\",\"text\":\"Approve\",\"w\":84.3,\"h\":36,\"inTable\":true}"
+  },
+  {
+   "id": "requests/populated: INFO disabled-control contrast",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13},{\"el\":\"button\",\"text\":\"Approve\",\"ratio\":2.24,\"need\":4.5,\"fs\":13}]"
+  },
+  {
+   "id": "INFO (pointer: coarse) matches",
+   "vp": 1440,
+   "ok": true,
+   "detail": "false"
+  },
+  {
+   "id": "requests: tab pressed state switches",
+   "vp": 1440,
+   "ok": true,
+   "detail": "false,true"
+  },
+  {
+   "id": "requests: filter labels Company Id/Status",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Company Id,Status"
+  },
+  {
+   "id": "requests: status labels None/Created/Authorised/Approved shown as text",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Created,Authorised,Approved,None"
+  },
+  {
+   "id": "requests: status badge colors (Created warn, Authorised blue, Approved ok, None neutral)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[{\"t\":\"Created\",\"bg\":\"rgb(254, 243, 226)\",\"c\":\"rgb(146, 64, 14)\"},{\"t\":\"Authorised\",\"bg\":\"rgb(234, 241, 255)\",\"c\":\"rgb(29, 78, 216)\"},{\"t\":\"Approved\",\"bg\":\"rgb(231, 245, 236)\",\"c\":\"rgb(22, 101, 52)\"},{\"t\":\"None\",\"bg\":\"rgb(244, 247, 251)\",\"c\":\"rgb(89, 103, 121)\"}]"
+  },
+  {
+   "id": "requests: Approve enabled only for Authorised (status 2)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[true,false,true,true]"
+  },
+  {
+   "id": "requests: null company/product render empty not \"null\"",
+   "vp": 1440,
+   "ok": true,
+   "detail": "104|||1|Jul 7, 2026, 10:00:00 AM|None|-|-|Approve"
+  },
+  {
+   "id": "requests: dash placeholder for missing authorize/approve dates",
+   "vp": 1440,
+   "ok": true,
+   "detail": "101|Alpha Logistics LLC|Fuel Voucher 50|500|Jul 1, 2026, 10:00:00 AM|Created|-|-|Approve"
+  },
+  {
+   "id": "requests: wide table scrolls inside wrapper (<=1440 min 960)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"w\":1030,\"s\":false}"
+  },
+  {
+   "id": "requests filter: status Authorised -> refetch status=2, 1 row",
+   "vp": 1440,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0,GET /Request/GetAll?CompanyId=-1&status=2"
+  },
+  {
+   "id": "requests filter: Company Id + Enter -> CompanyId=4&status=2 sent",
+   "vp": 1440,
+   "ok": true,
+   "detail": "GET /Request/GetAll?CompanyId=-1&status=0,GET /Request/GetAll?CompanyId=-1&status=2,GET /Request/GetAll?CompanyId=4&status=2"
+  },
+  {
+   "id": "requests filter: empty copy \"No requests found.\"",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "requests/filter-empty: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/filter-empty: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/filter-empty: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/filter-empty: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests filter: Clear + Refresh -> all 4 rows",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/Company Id input: visible keyboard focus indicator",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"focused\":true,\"shadow\":\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(37, 99, 235) 0px 0px 0px 4px\",\"outline\":\"none 3px\",\"border\":\"rgb(37, 99, 235)\"}"
+  },
+  {
+   "id": "requests approve: POST /Request/Approve?requestId=102&rowVersion=2",
+   "vp": 1440,
+   "ok": true,
+   "detail": "POST /Request/Approve?requestId=102&rowVersion=2"
+  },
+  {
+   "id": "requests approve: toast text + row becomes Approved/disabled",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: \"No requests found.\"",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "requests/empty: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/empty: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/empty: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/empty: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error(500): toast \"Failed to load requests...\" with Retry",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no horizontal viewport overflow",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1440,\"clientW\":1440,\"bodyScrollW\":1440}"
+  },
+  {
+   "id": "requests/error-toast: text contrast >= AA",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error-toast: no purple/pink/cyan or non-semantic green",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error-toast: no gradients/background images",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no text <12px",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: no clipped button/label text",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests/error-toast: controls >=44px (desktop, non-table)",
+   "vp": 1440,
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "requests/error: Retry works",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "requests approve conflict(409): error toast shows API message",
+   "vp": 1440,
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "INFO requests short-data: wrapper scrollWidth/clientWidth, Actions column visible without scrolling",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1028,\"clientW\":1028,\"actionsVisible\":true}"
+  },
+  {
+   "id": "requests (short data, desktop 1440): Actions column visible without horizontal scroll",
+   "vp": 1440,
+   "ok": true,
+   "detail": "{\"scrollW\":1028,\"clientW\":1028,\"actionsVisible\":true}"
+  },
+  {
+   "id": "dashboard tab order logical (tabs -> filters -> Approve buttons) & every stop shows focus",
+   "vp": 1440,
+   "ok": true,
+   "detail": "Companies > Requests > INPUT > INPUT > AllNot ActiveAct > Clear filter > Refresh > Approve > Approve > Back to main pag"
+  }
+ ],
+ "console": [
+  {
+   "scenario": "routes@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "login@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "login-error@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "login-error@360",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+   "expected": true
+  },
+  {
+   "scenario": "login-error@360",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "companies@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-conflict@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "companies-conflict@360",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+   "expected": true
+  },
+  {
+   "scenario": "companies-conflict@360",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@360",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@360",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@360",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@360",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "companies-loading@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-empty@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-error@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "companies-error@360",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "companies-error@360",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "requests@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "requests-empty@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "requests-error@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "requests-error@360",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "requests-error@360",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@360",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@360",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "short-data@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "tab-order@360",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "login@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "login-error@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "login-error@768",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+   "expected": true
+  },
+  {
+   "scenario": "login-error@768",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "companies@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-conflict@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "companies-conflict@768",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+   "expected": true
+  },
+  {
+   "scenario": "companies-conflict@768",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@768",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@768",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@768",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@768",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "companies-loading@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-empty@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-error@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "companies-error@768",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "companies-error@768",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "requests@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "requests-empty@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "requests-error@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "requests-error@768",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "requests-error@768",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@768",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@768",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "short-data@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "tab-order@768",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "routes@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "login@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "login-error@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "login-error@1440",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+   "expected": true
+  },
+  {
+   "scenario": "login-error@1440",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "companies@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-conflict@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "companies-conflict@1440",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+   "expected": true
+  },
+  {
+   "scenario": "companies-conflict@1440",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@1440",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "login-500-empty@1440",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@1440",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "approve-500-empty@1440",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "companies-loading@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-empty@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "companies-error@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "companies-error@1440",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "companies-error@1440",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "requests@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "requests-empty@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "requests-error@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "requests-error@1440",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "expected": true
+  },
+  {
+   "scenario": "requests-error@1440",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@1440",
+   "type": "error",
+   "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+   "expected": true
+  },
+  {
+   "scenario": "requests-conflict@1440",
+   "type": "error",
+   "text": "na",
+   "expected": true
+  },
+  {
+   "scenario": "short-data@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  },
+  {
+   "scenario": "tab-order@1440",
+   "type": "warning",
+   "text": "Service Worker registration blocked by Playwright",
+   "expected": false
+  }
+ ],
+ "unexpectedConsole": 33,
+ "blocked": [],
+ "apiCalls": [
+  "POST /User/Login",
+  "GET /User/GetById/7",
+  "GET /Company/GetAll?skip=0&take=500",
+  "PATCH /Company/Approve?companyId=2&rowVersion=12",
+  "GET /Request/GetAll?CompanyId=-1&status=0",
+  "GET /Request/GetAll?CompanyId=-1&status=2",
+  "GET /Request/GetAll?CompanyId=4&status=2",
+  "POST /Request/Approve?requestId=102&rowVersion=2"
+ ],
+ "shots": 54
+}

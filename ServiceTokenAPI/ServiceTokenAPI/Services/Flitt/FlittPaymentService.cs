@@ -1,6 +1,5 @@
 using System.Globalization;
 using System.Net.Http.Json;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Options;
@@ -9,10 +8,6 @@ using ServiceTokenApi.Options;
 
 namespace ServiceTokenApi.Services.Flitt
 {
-    /// <summary>
-    /// Raised when a call to the Flitt API fails. Carries a safe, user-facing-ish message;
-    /// full diagnostics are logged separately.
-    /// </summary>
     public sealed class FlittPaymentException(string message) : Exception(message);
 
     public sealed class FlittPaymentService(
@@ -140,59 +135,71 @@ namespace ServiceTokenApi.Services.Flitt
         public bool VerifySignature(IReadOnlyDictionary<string, string> parameters) =>
             FlittSignature.Verify(_options.SecretKey, parameters);
 
-        public async Task<FlittSettlementResult> SettlementAsync(FlittSettlementOrder order, CancellationToken ct = default)
+        public async Task<FlittOrderResult> ChargeSavedCardAsync(decimal amount, string orderId, string description, string rectoken, CancellationToken ct = default)
         {
-            // The settlement body is { "request": { "version": 2.0, "data": <base64(order)>, "signature": <sha1> } }.
-            // `data` is the base64 of { "order": { ... } }; the signature is sha1(payoutSecret + '|' + data).
-            var dataOpts = new JsonSerializerOptions(JsonOpts)
-            {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            };
-            var orderJson = JsonSerializer.Serialize(new { order }, dataOpts);
-            var data = Convert.ToBase64String(Encoding.UTF8.GetBytes(orderJson));
-            var signature = FlittSignature.BuildForData(_options.PayoutSecretKey, data);
+            // Payment with a saved card (POST /api/recurring): host-to-host, no card form and no
+            // 3-D Secure. The final result comes back in this same response.
+            var minorAmount = (long)Math.Round(amount * 100m, MidpointRounding.AwayFromZero);
+            var merchantId = _options.MerchantId.ToString(CultureInfo.InvariantCulture);
+            var callbackUrl = NullIfBlank(_options.ServerCallbackUrl);
 
-            var envelope = new
+            var signatureParams = new List<KeyValuePair<string, string?>>
             {
-                request = new
+                new("order_id", orderId),
+                new("merchant_id", merchantId),
+                new("order_desc", description),
+                new("amount", minorAmount.ToString(CultureInfo.InvariantCulture)),
+                new("currency", _options.Currency),
+                new("rectoken", rectoken),
+                new("server_callback_url", callbackUrl)
+            };
+            var signature = FlittSignature.Build(_options.SecretKey, signatureParams);
+
+            var envelope = new FlittRequestEnvelope<FlittRecurringRequest>
+            {
+                Request = new FlittRecurringRequest
                 {
-                    version = "2.0",
-                    data,
-                    signature
+                    OrderId = orderId,
+                    MerchantId = _options.MerchantId,
+                    OrderDesc = description,
+                    Amount = minorAmount,
+                    Currency = _options.Currency,
+                    Rectoken = rectoken,
+                    ServerCallbackUrl = callbackUrl,
+                    Signature = signature
                 }
             };
 
-            using var resp = await http.PostAsJsonAsync("settlement", envelope, JsonOpts, ct);
+            var jsonOpts = new JsonSerializerOptions(JsonOpts)
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            using var resp = await http.PostAsJsonAsync("recurring", envelope, jsonOpts, ct);
             var raw = await resp.Content.ReadAsStringAsync(ct);
 
             if (!resp.IsSuccessStatusCode)
             {
-                logger.LogError("Flitt settlement failed: {Status} {Body}", (int)resp.StatusCode, raw);
-                return new FlittSettlementResult
-                {
-                    ResponseStatus = "failure",
-                    ErrorMessage = $"HTTP {(int)resp.StatusCode}",
-                    RawBody = Trim(raw)
-                };
+                logger.LogError("Flitt saved-card payment failed: {Status} {Body}", (int)resp.StatusCode, raw);
+                throw new FlittPaymentException($"Flitt saved-card payment failed (HTTP {(int)resp.StatusCode}): {Trim(raw)}");
             }
 
-            try
-            {
-                using var doc = JsonDocument.Parse(raw);
-                var root = doc.RootElement.TryGetProperty("response", out var r) ? r : doc.RootElement;
+            using var doc = JsonDocument.Parse(raw);
+            if (!doc.RootElement.TryGetProperty("response", out var response)
+                || response.ValueKind != JsonValueKind.Object)
+                throw new FlittPaymentException("Unexpected saved-card payment response from Flitt.");
 
-                return new FlittSettlementResult
-                {
-                    ResponseStatus = GetString(root, "response_status") ?? "success",
-                    ErrorCode = root.TryGetProperty("error_code", out var ec) && ec.ValueKind == JsonValueKind.Number ? ec.GetInt32() : null,
-                    ErrorMessage = GetString(root, "error_message"),
-                    RawBody = Trim(raw)
-                };
-            }
-            catch (JsonException)
-            {
-                return new FlittSettlementResult { ResponseStatus = "success", RawBody = Trim(raw) };
-            }
+            var flat = FlittSignature.Flatten(
+                response.EnumerateObject().ToDictionary(p => p.Name, p => p.Value));
+
+            // An error envelope (e.g. bad or expired token) carries no signature.
+            var hasError = flat.ContainsKey("error_code");
+            var valid = !hasError && VerifySignature(flat);
+
+            if (!hasError && !valid)
+                logger.LogWarning("Flitt saved-card response signature mismatch for order {OrderId}", orderId);
+
+            return new FlittOrderResult { Parameters = flat, SignatureValid = valid };
         }
 
         // Flitt order_status vocabulary: created, processing, approved, declined, expired, reversed.

@@ -33,6 +33,20 @@ export class PaymentApiService {
     }).pipe(map(r => this.normalizeInitiate(r)));
   }
 
+  /**
+   * Pays for the supplied in-cart tokens with the customer's saved card — no card form is shown.
+   * Returns the order id to poll; the token field is empty for this flow.
+   */
+  payWithSavedCard(
+    tokens: PaymentTokenRef[],
+    customerPublicKey: string
+  ): Observable<InitiateEmbeddedPaymentResult> {
+    return this.http.post<any>(`${this.baseUrl}/PayWithSavedCard`, {
+      tokens,
+      customerPublicKey
+    }).pipe(map(r => this.normalizeInitiate(r)));
+  }
+
   /** Polls the current status of a payment order by its order id. */
   getStatus(orderId: string): Observable<PaymentBatchStatusResult> {
     return this.http.get<any>(`${this.baseUrl}/GetStatus`, {

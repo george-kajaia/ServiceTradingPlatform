@@ -1,0 +1,178 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: $page;
+}
+
+.scan-page {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $space-8 $space-6;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding: $space-4;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3;
+    margin-bottom: $space-6;
+
+    h2 {
+      margin: 0;
+      color: $ink;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      line-height: $line-height-tight;
+    }
+  }
+
+  &__company {
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: $radius-lg;
+    padding: $space-5 $space-6;
+    margin-bottom: $space-4;
+    box-shadow: $shadow-card;
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      padding: $space-4;
+    }
+  }
+
+  &__action {
+    max-width: 480px;
+    margin-inline: auto;
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: $radius-xl;
+    padding: $space-8 $space-6;
+    text-align: center;
+    box-shadow: $shadow-card;
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      max-width: none;
+      padding: $space-6 $space-4;
+    }
+  }
+
+  &__hint {
+    margin: 0 0 $space-5;
+    color: $ink-2;
+    font-size: $font-size-md;
+  }
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-4;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    min-width: 0;
+  }
+
+  .label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $ink-2;
+  }
+
+  .value {
+    color: $ink;
+    font-weight: $font-weight-medium;
+    overflow-wrap: anywhere;
+  }
+
+  .badge-active {
+    color: $ok;
+    font-weight: $font-weight-semibold;
+  }
+
+  .badge-inactive {
+    color: $danger;
+    font-weight: $font-weight-semibold;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Primary scan action: prominent, full width in its column (>= 56px)
+.scan-token-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  width: 100%;
+  min-height: 56px;
+  padding: $space-3 $space-6;
+  background: $blue-600;
+  color: #fff;
+  border: none;
+  border-radius: $radius-md;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: background $transition-base;
+
+  &:hover {
+    background: $blue-700;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+}
+
+.logout-btn {
+  min-height: $ctl-h;
+  padding: $space-2 $space-4;
+  background: $surface;
+  color: $ink;
+  border: 1px solid $line-strong;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base, color $transition-base;
+
+  &:hover {
+    background: $page;
+    border-color: $danger;
+    color: $danger;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: $ctl-h;
+  margin-top: $space-4;
+  color: $blue-600;
+  text-decoration: none;
+  font-size: $font-size-base;
+
+  &:hover,
+  &:focus-visible {
+    color: $blue-700;
+    text-decoration: underline;
+  }
+}

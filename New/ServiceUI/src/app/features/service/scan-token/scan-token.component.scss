@@ -1,0 +1,302 @@
+@use '../../../../styles/variables' as *;
+
+// ── Backdrop ──────────────────────────────────────────────────
+.scan-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba($ink, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-modal-backdrop;
+  padding: $space-4;
+
+  // Full screen on small phones
+  @media (max-width: 479px) {
+    padding: 0;
+    align-items: stretch;
+  }
+}
+
+// ── Modal ─────────────────────────────────────────────────────
+.scan-modal {
+  position: relative;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: $space-8 $space-6 $space-6;
+  box-shadow: $shadow-pop;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-5;
+
+  @media (max-width: 479px) {
+    max-width: none;
+    max-height: none;
+    height: 100dvh;
+    border: none;
+    border-radius: 0;
+    padding: $space-8 $space-4 max($space-4, env(safe-area-inset-bottom));
+  }
+
+  &__close {
+    position: absolute;
+    top: $space-2;
+    right: $space-2;
+    width: $ctl-h;
+    height: $ctl-h;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: $ink-2;
+    cursor: pointer;
+    border-radius: $radius-md;
+    line-height: 1;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover { background: $page; color: $ink; }
+    &:focus-visible { outline: none; box-shadow: $focus-ring; }
+  }
+
+  &__header {
+    text-align: center;
+    width: 100%;
+    padding-inline: $space-6;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $ink;
+    margin: 0 0 $space-1;
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $ink-2;
+    margin: 0;
+  }
+
+  // ── Camera ───────────────────────────────────────────────
+  &__camera-wrap {
+    position: relative;
+    width: min(100%, 320px);
+    aspect-ratio: 1 / 1;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    background: #000;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  // ── Viewfinder overlay ────────────────────────────────────
+  &__viewfinder {
+    position: absolute;
+    inset: 20px;
+    pointer-events: none;
+  }
+
+  &__corner {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-color: $blue-600;
+    border-style: solid;
+    // dark outline keeps the brackets visible over bright video
+    filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+
+    &--tl { top: 0; left: 0; border-width: 4px 0 0 4px; border-radius: 4px 0 0 0; }
+    &--tr { top: 0; right: 0; border-width: 4px 4px 0 0; border-radius: 0 4px 0 0; }
+    &--bl { bottom: 0; left: 0; border-width: 0 0 4px 4px; border-radius: 0 0 0 4px; }
+    &--br { bottom: 0; right: 0; border-width: 0 4px 4px 0; border-radius: 0 0 4px 0; }
+  }
+
+  &__scan-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 3px;
+    background: $blue-600;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8), 0 0 8px rgba($blue-600, 0.8);
+    animation: scan 2s ease-in-out infinite;
+  }
+
+  // ── Token details ─────────────────────────────────────────
+  &__token-details {
+    width: 100%;
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: $radius-lg;
+    overflow: hidden;
+  }
+
+  // ── Footer ───────────────────────────────────────────────
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: $space-3;
+
+    &--confirm {
+      justify-content: space-between;
+    }
+
+    .scan-btn {
+      flex: 1;
+    }
+
+    // Stack on mobile, primary action first
+    @media (max-width: 479px) {
+      flex-direction: column-reverse;
+      margin-top: auto;
+    }
+  }
+
+  // ── State (loading / error) ───────────────────────────────
+  &__state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-6 0;
+    color: $ink-2;
+    font-size: $font-size-md;
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    &--error {
+      width: 100%;
+      padding: $space-4;
+      background: $danger-bg;
+      border: 1px solid rgba($danger, 0.3);
+      border-radius: $radius-md;
+      color: $danger;
+    }
+
+    &-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+  }
+}
+
+// ── Token detail rows ─────────────────────────────────────────
+.token-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-bottom: 1px solid $line;
+
+  &:last-child { border-bottom: none; }
+
+  &__label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $ink-2;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  &__value {
+    font-size: $font-size-base;
+    color: $ink;
+    font-weight: $font-weight-medium;
+    text-align: right;
+    min-width: 0;
+    overflow-wrap: anywhere;
+
+    &--highlight {
+      display: inline-block;
+      padding: $space-1 $space-3;
+      background: $blue-50;
+      border-radius: $radius-md;
+      color: $blue-700;
+      font-size: $font-size-md;
+      font-weight: $font-weight-bold;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+}
+
+.mono { font-family: $font-family-mono; }
+
+.token-detail-row--mono {
+  align-items: flex-start;
+
+  .token-detail-row__value {
+    word-break: break-all;
+    font-size: $font-size-xs;
+  }
+}
+
+// ── Scan line animation ────────────────────────────────────────
+@keyframes scan {
+  0%   { top: 0; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+// ── Spinner ───────────────────────────────────────────────────
+.scan-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid $blue-50;
+  border-top-color: $blue-600;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// ── Buttons ───────────────────────────────────────────────────
+.scan-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $ctl-h;
+  padding: $space-2 $space-5;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+
+  &:focus-visible { outline: none; box-shadow: $focus-ring; }
+
+  &--ghost {
+    background: $surface;
+    border-color: $line-strong;
+    color: $ink;
+    &:hover { background: $page; border-color: $ink-2; }
+  }
+
+  &--confirm {
+    background: $blue-600;
+    color: #fff;
+    &:hover { background: $blue-700; }
+    &:disabled { opacity: 0.55; cursor: not-allowed; }
+  }
+}

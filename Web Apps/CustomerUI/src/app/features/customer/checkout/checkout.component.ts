@@ -35,6 +35,9 @@ export class CheckoutComponent implements OnInit {
   /** The customer's currently saved card (if any), shown on the summary. */
   savedMethod: CustomerPaymentMethod | null = null;
 
+  /** True while the current order is being paid with the saved card (no widget is shown). */
+  payingWithSavedCard = false;
+
   private readonly CONTAINER = '#flitt-checkout';
 
   constructor(
@@ -125,33 +128,55 @@ export class CheckoutComponent implements OnInit {
     return this.checkoutFlow.total;
   }
 
+  /** Pays with a card entered in the embedded Flitt form. */
   pay(): void {
+    this.start(false);
+  }
+
+  /** Pays with the customer's saved card: no card form, the card is charged straight away. */
+  payWithSavedCard(): void {
+    if (!this.savedMethod) return;
+    this.start(true);
+  }
+
+  private start(useSavedCard: boolean): void {
     const customer = this.customerState.customer;
     if (!customer) { this.router.navigate(['/login']); return; }
 
-    const started = this.checkoutFlow.begin(this.cartService.items, customer.publicKey, this.saveCard);
+    // A saved-card payment never asks Flitt for a new card token.
+    const saveCard = useSavedCard ? false : this.saveCard;
+    const started = this.checkoutFlow.begin(this.cartService.items, customer.publicKey, saveCard);
     if (!started) {
       this.toast.warning('There are no payable items in your cart.');
       return;
     }
-    this.processOrder();
+    this.processOrder(useSavedCard);
   }
 
-  /** Pays for the whole cart with a single embedded Flitt widget / one charge. */
-  private async processOrder(): Promise<void> {
+  /** Pays for the whole cart in one charge: embedded Flitt widget, or the saved card. */
+  private async processOrder(useSavedCard = false): Promise<void> {
     this.state = 'paying';
 
     // Create the single order if we don't already have one (fresh checkout, not a resume).
     if (!this.checkoutFlow.hasPendingOrder()) {
+      this.payingWithSavedCard = useSavedCard;
       try {
-        await firstValueFrom(this.checkoutFlow.initiate());
+        await firstValueFrom(useSavedCard
+          ? this.checkoutFlow.initiateWithSavedCard()
+          : this.checkoutFlow.initiate());
       } catch (err: any) {
-        this.toast.error(this.errorText(err, 'Could not start the payment.'));
+        this.toast.error(this.errorText(err, useSavedCard
+          ? 'Could not charge your saved card. Please pay with your card.'
+          : 'Could not start the payment.'));
         this.checkoutFlow.clear();
         this.refreshItems();
+        this.payingWithSavedCard = false;
         this.state = this.payableItems.length === 0 ? 'empty' : 'summary';
         return;
       }
+    } else {
+      // Resuming: an order without a widget token was a saved-card payment.
+      this.payingWithSavedCard = !this.checkoutFlow.currentToken;
     }
 
     const token = this.checkoutFlow.currentToken;
@@ -187,8 +212,21 @@ export class CheckoutComponent implements OnInit {
   }
 
   private finish(): void {
-    this.results = this.checkoutFlow.results();
+    const results = this.checkoutFlow.results();
     this.checkoutFlow.clear();
+
+    // Saved card declined (or the bank wanted 3-D Secure, which saved-card payments can't do):
+    // nothing was bought, so go back to the summary and let the buyer enter their card.
+    if (this.payingWithSavedCard && results.length > 0 && results.every(r => r.outcome !== 'success')) {
+      this.payingWithSavedCard = false;
+      this.toast.error('Your saved card was declined. Please pay with your card.');
+      this.refreshItems();
+      this.state = this.payableItems.length === 0 ? 'empty' : 'summary';
+      return;
+    }
+
+    this.payingWithSavedCard = false;
+    this.results = results;
     this.state = 'done';
   }
 

@@ -1,0 +1,533 @@
+// ============================================
+// Shared blue theme - light, flat, marketplace
+// (kept under the `user` name so existing @use consumers compile)
+// ============================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Theme Colors (aliases of the shared blue tokens)
+$user-primary-400: $blue-600;
+$user-primary-500: $blue-600;
+$user-primary-600: $blue-700;
+
+$user-secondary-400: $blue-600;
+$user-secondary-500: $blue-600;
+$user-secondary-600: $blue-700;
+
+$user-accent-400: $ok;
+$user-accent-500: $ok;
+$user-accent-600: $ok;
+
+$user-bg-base: $page;
+$user-bg-surface: $surface;
+$user-bg-elevated: $page;
+$user-bg-hover: $blue-50;
+
+$user-border-subtle: $line;
+$user-border-default: $line;
+$user-border-strong: $line-strong;
+
+$user-text-primary: $ink;
+$user-text-secondary: $ink-2;
+$user-text-muted: $ink-2;
+
+// Flat (no gradients)
+$user-gradient-primary: $blue-600;
+$user-gradient-accent: $ok;
+
+.user-theme {
+  background: $user-bg-base;
+  color: $user-text-primary;
+  min-height: 100vh;
+
+  @include custom-scrollbar($user-border-strong, $user-bg-surface);
+}
+
+// Page Container
+.page {
+  @include container;
+  padding-block: $space-8;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding-inline: $container-padding-mobile;
+    padding-block: $space-6;
+  }
+
+  &__header {
+    margin-bottom: $space-6;
+  }
+
+  &__title {
+    @include text-title;
+    margin: 0;
+  }
+
+  &__subtitle {
+    @include text-body;
+    color: $user-text-secondary;
+    margin-top: $space-2;
+  }
+}
+
+// Card Component
+.card {
+  @include card($user-bg-surface, $user-border-subtle);
+  padding: $space-6;
+  box-shadow: $shadow-card;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding: $space-4;
+  }
+
+  &--elevated {
+    border-radius: $radius-xl;
+    box-shadow: $shadow-card;
+  }
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $space-4;
+  }
+
+  &__title {
+    @include text-heading;
+    margin: 0;
+  }
+
+  &__body {
+    @include text-body;
+  }
+
+  &__footer {
+    margin-top: $space-4;
+    padding-top: $space-4;
+    border-top: 1px solid $user-border-subtle;
+  }
+}
+
+// Button Component
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  min-height: $ctl-h;
+  padding: $space-2 $space-4;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background $transition-base, border-color $transition-base, color $transition-base, box-shadow $transition-base;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+    color: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #ffffff;
+      border-right-color: transparent;
+      border-radius: $radius-full;
+      animation: btn-spin 0.7s linear infinite;
+    }
+  }
+
+  &--primary {
+    background: $blue-600;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background: $blue-700;
+    }
+  }
+
+  &--secondary {
+    background: $surface;
+    border-color: $line-strong;
+    color: $ink;
+
+    &:hover:not(:disabled) {
+      background: $page;
+      border-color: $ink-2;
+    }
+
+    &.is-loading::after {
+      border-color: $blue-600;
+      border-right-color: transparent;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $blue-700;
+
+    &:hover:not(:disabled) {
+      background: $blue-50;
+    }
+  }
+
+  &--success {
+    background: $ok;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background: darken($ok, 6%);
+    }
+  }
+
+  &--danger {
+    background: $danger;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background: darken($danger, 6%);
+    }
+  }
+
+  &--sm {
+    min-height: 36px;
+    padding: $space-1 $space-3;
+    font-size: $font-size-sm;
+
+    @media (pointer: coarse) {
+      min-height: $ctl-h;
+    }
+  }
+
+  &--lg {
+    min-height: 48px;
+    padding: $space-3 $space-6;
+    font-size: $font-size-md;
+    border-radius: $radius-md;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--icon {
+    width: $ctl-h;
+    height: $ctl-h;
+    padding: 0;
+    border-radius: $radius-full;
+  }
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+// Input Component
+.input {
+  display: block;
+  width: 100%;
+  min-height: $ctl-h;
+  padding: $space-2 $space-3;
+  background: $user-bg-surface;
+  border: 1px solid $line-strong;
+  border-radius: $radius-md;
+  color: $user-text-primary;
+  font-size: $font-size-md;
+  font-family: inherit;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &::placeholder {
+    color: $user-text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $blue-600;
+    box-shadow: $focus-ring;
+  }
+
+  &--error {
+    border-color: $danger;
+  }
+}
+
+.select {
+  @extend .input;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23596779' d='M2.5 4.5L6 8l3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $space-3 center;
+  padding-right: $space-8;
+}
+
+// Form Field
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+
+  &__label {
+    @include text-small;
+    color: $user-text-secondary;
+    font-weight: $font-weight-medium;
+  }
+
+  &__helper {
+    @include text-caption;
+    color: $ink-2;
+  }
+
+  &__error {
+    @include text-caption;
+    color: $danger;
+  }
+}
+
+// Table Component (wrap in an overflow-x:auto container)
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: $user-bg-surface;
+
+  &__head {
+    background: $page;
+
+    th {
+      padding: $space-3 $space-4;
+      text-align: left;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      color: $user-text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid $user-border-default;
+    }
+  }
+
+  &__body {
+    tr {
+      border-bottom: 1px solid $user-border-subtle;
+
+      &:hover {
+        background: $blue-50;
+      }
+
+      &--selected {
+        background: $blue-50;
+        box-shadow: inset 3px 0 0 $blue-600;
+      }
+
+      &--clickable {
+        cursor: pointer;
+      }
+    }
+
+    td {
+      padding: $space-3 $space-4;
+      font-size: $font-size-base;
+      color: $user-text-primary;
+    }
+  }
+}
+
+// Tabs Component
+.tabs {
+  display: flex;
+  gap: $space-2;
+  margin-bottom: $space-4;
+  overflow-x: auto;
+
+  &__tab {
+    min-height: $ctl-h;
+    padding: $space-2 $space-4;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: $radius-md $radius-md 0 0;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $user-text-secondary;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background $transition-base, color $transition-base;
+
+    &:hover:not(.tabs__tab--active) {
+      background: $page;
+      color: $ink;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: $focus-ring;
+    }
+
+    &--active {
+      background: $blue-50;
+      color: $blue-700;
+      border-bottom-color: $blue-600;
+    }
+  }
+}
+
+// Badge Component (text always accompanies colour)
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-2;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+
+  &--success {
+    background: $ok-bg;
+    color: $ok;
+  }
+
+  &--error {
+    background: $danger-bg;
+    color: $danger;
+  }
+
+  &--warning {
+    background: $warn-bg;
+    color: $warn;
+  }
+
+  &--info {
+    background: $blue-50;
+    color: $blue-700;
+  }
+
+  &--neutral {
+    background: $page;
+    color: $ink-2;
+    border: 1px solid $line;
+  }
+}
+
+// Modal Component
+.modal {
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba($ink, 0.5);
+    @include flex-center;
+    padding: $space-4;
+    z-index: $z-modal-backdrop;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 560px;
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-pop;
+    z-index: $z-modal;
+  }
+
+  &__header {
+    @include flex-between;
+    padding: $space-5 $space-6;
+    border-bottom: 1px solid $user-border-subtle;
+  }
+
+  &__title {
+    @include text-heading;
+    margin: 0;
+  }
+
+  &__body {
+    padding: $space-6;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: $space-3;
+    padding: $space-4 $space-6;
+    border-top: 1px solid $user-border-subtle;
+  }
+
+  @media (max-width: 479px) {
+    &__header,
+    &__body,
+    &__footer {
+      padding: $space-4;
+    }
+
+    &__footer {
+      flex-direction: column-reverse;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Alert Messages
+.alert {
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+
+  &--error {
+    background: $danger-bg;
+    border: 1px solid rgba($danger, 0.3);
+    color: $danger;
+  }
+
+  &--success {
+    background: $ok-bg;
+    border: 1px solid rgba($ok, 0.3);
+    color: $ok;
+  }
+
+  &--info {
+    background: $blue-50;
+    border: 1px solid rgba($blue-600, 0.3);
+    color: $blue-700;
+  }
+}
+
+// Link
+.link {
+  color: $blue-600;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover,
+  &:focus-visible {
+    color: $blue-700;
+    text-decoration: underline;
+  }
+}
+
+// Utility Classes
+.text-muted {
+  color: $user-text-muted;
+}
+
+.text-secondary {
+  color: $user-text-secondary;
+}
+
+.mono {
+  @include text-mono;
+}

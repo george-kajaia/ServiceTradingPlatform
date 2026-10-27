@@ -1,0 +1,528 @@
+<div class="dashboard-container" *ngIf="company">
+  <div class="dashboard-header">
+    <h2>Company Dashboard</h2>
+  </div>
+
+  <section class="company-info">
+    <div class="company-info-grid">
+      <div><span class="label">Id</span><span class="value">{{ company.id }}</span></div>
+      <div><span class="label">Name</span><span class="value">{{ company.name }}</span></div>
+      <div><span class="label">Reg Date</span><span class="value">{{ company.regDate | date }}</span></div>
+      <div>
+        <span class="label">Status</span>
+        <span class="value" [class.badge-active]="company.status === 1" [class.badge-inactive]="company.status !== 1">
+          {{ company.status === 1 ? 'Active' : 'Not Active' }}
+        </span>
+      </div>
+      <div>
+        <span class="value company-actions">
+          <button (click)="onCompanyView()">View</button>
+          <button (click)="onCompanyEdit()">Edit</button>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <div class="tabs">
+    <button class="tab" [class.active]="activeTab === 'requests'" (click)="setTab('requests')">
+      Requests
+    </button>
+    <button class="tab" [class.active]="activeTab === 'products'" (click)="setTab('products')">
+      Products
+    </button>
+    <button class="tab" [class.active]="activeTab === 'users'" (click)="setTab('users')">
+      Users
+    </button>
+  </div>
+
+  <!-- Requests Tab -->
+  <section *ngIf="activeTab === 'requests'" class="panel">
+    <div class="panel-header">
+      <h3>Requests</h3>
+
+      <div class="actions">
+        <button class="secondary" (click)="loadRequests()" [disabled]="requestsLoading">Refresh</button>
+        <button (click)="onRequestView()" [disabled]="!selectedRequest">View</button>
+        <button class="primary" (click)="onRequestAdd()">Add</button>
+        <button (click)="onRequestEdit()" [disabled]="!selectedRequest || (+selectedRequest?.status) !== 1">Edit</button>
+        <button class="danger" (click)="onRequestDelete()" [disabled]="requestsLoading || !selectedRequest || (+selectedRequest?.status) !== 1">Delete</button>
+      </div>
+    </div>
+
+    <div *ngIf="requestsLoading" class="info">Loading requests...</div>
+
+    <div class="table-wrap" *ngIf="!requestsLoading && requests.length > 0">
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Service Token Count</th>
+          <th>Reg Date</th>
+          <th>Status</th>
+          <th>Authorize Date</th>
+          <th>Approve Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let r of requests"
+          (click)="selectRequest(r)"
+          [class.selected]="selectedRequest?.id === r.id">
+          <td>{{ r.id }}</td>
+          <td>{{ r.serviceTokenCount }}</td>
+          <td>{{ r.regDate | date: 'medium' }}</td>
+          <td>{{ requestStatusLabel(r.status) }}</td>
+          <td>{{ r.authorizeDate ? (r.authorizeDate | date: 'medium') : '-' }}</td>
+          <td>{{ r.approveDate ? (r.approveDate | date: 'medium') : '-' }}</td>
+          <td>
+            <div class="row-actions">
+              <button (click)="authorizeRequestRow(r, $event)" [disabled]="requestsLoading || (+r.status) !== 1">Authorize</button>
+              <button (click)="deauthorizeRequestRow(r, $event)" [disabled]="requestsLoading || (+r.status) !== 2">Deauthorize</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="!requestsLoading && requests.length === 0" class="muted">
+      No requests found for this company.
+    </div>
+
+
+  </section>
+
+  <!-- Products Tab -->
+  <section *ngIf="activeTab === 'products'" class="panel">
+    <div class="panel-header">
+      <h3>Products</h3>
+
+      <div class="actions">
+        <button class="secondary" (click)="reloadProducts()" [disabled]="productsLoading">Refresh</button>
+        <button (click)="onProductView()" [disabled]="!selectedProduct">View</button>
+        <button class="primary" (click)="onProductAdd()">Add</button>
+        <button (click)="onProductEdit()" [disabled]="!selectedProduct">Edit</button>
+        <button class="danger" (click)="onProductDelete()" [disabled]="!selectedProduct">Delete</button>
+      </div>
+    </div>
+
+    <div class="search-row">
+      <input
+        type="text"
+        [(ngModel)]="productSearch"
+        aria-label="Search products"
+        placeholder="Search (server-side, optional)"
+        (keyup.enter)="reloadProducts()" />
+      <button class="secondary" (click)="reloadProducts()" [disabled]="productsLoading">Search</button>
+      <button class="secondary" (click)="loadMoreProducts()" [disabled]="productsLoading">Load more</button>
+    </div>
+
+    <div *ngIf="productsLoading" class="info">Loading products...</div>
+
+    <div class="table-wrap" *ngIf="!productsLoading && products.length > 0">
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Product</th>
+          <th>Service Count</th>
+          <th class="num">Price</th>
+          <th>Term</th>
+          <th>Schedule Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let p of products"
+          (click)="selectProduct(p)"
+          [class.selected]="selectedProduct?.id === p.id">
+          <td>{{ p.id }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.serviceCount }}</td>
+          <td class="num">{{ p.price }}</td>
+          <td>{{ p.term ?? '-' }}</td>
+          <td>{{ scheduleTypeLabel(p.scheduleType.periodType, p.scheduleType.periodNumber) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="!productsLoading && products.length === 0" class="muted">
+      No products found for this company.
+    </div>
+  </section>
+
+  <!-- Users Tab -->
+  <section *ngIf="activeTab === 'users'" class="panel">
+    <div class="panel-header">
+      <h3>Users</h3>
+
+      <div class="actions">
+        <button class="secondary" (click)="reloadUsers()" [disabled]="usersLoading">Refresh</button>
+        <button (click)="onUserView()" [disabled]="!selectedUser">View</button>
+        <button class="primary" (click)="onUserAdd()">Add</button>
+        <button (click)="onUserEdit()" [disabled]="!selectedUser">Edit</button>
+        <button class="danger" (click)="onUserDelete()" [disabled]="usersLoading || !selectedUser">Delete</button>
+      </div>
+    </div>
+
+    <div class="search-row">
+      <input
+        type="text"
+        [(ngModel)]="userSearch"
+        aria-label="Search users"
+        placeholder="Search (server-side, optional)"
+        (keyup.enter)="reloadUsers()" />
+      <button class="secondary" (click)="reloadUsers()" [disabled]="usersLoading">Search</button>
+      <button class="secondary" (click)="loadMoreUsers()" [disabled]="usersLoading">Load more</button>
+    </div>
+
+    <div *ngIf="usersLoading" class="info">Loading users...</div>
+
+    <div class="table-wrap" *ngIf="!usersLoading && users.length > 0">
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>User Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let u of users"
+          (click)="selectUser(u)"
+          [class.selected]="selectedUser?.id === u.id">
+          <td>{{ u.userName }}</td>
+          <td>{{ userTypeLabel(u.userType) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div *ngIf="!usersLoading && users.length === 0" class="muted">
+      No users found for this company.
+    </div>
+  </section>
+
+  <a routerLink="/" class="back-link">Back to main page</a>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" *ngIf="modalOpen" appModalDialog
+       [dismissBlocked]="modalSubmitting" (dismiss)="requestClose()" (click)="onBackdropClick($event)">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="company-modal-title"
+         [class.wide]="modalMode === 'companyView' || modalMode === 'companyEdit'">
+      <div class="modal-header">
+        <h3 id="company-modal-title">{{ modalTitle }}</h3>
+        <button class="icon-btn" type="button" aria-label="Close" (click)="requestClose()" [disabled]="modalSubmitting">×</button>
+      </div>
+
+      <div class="modal-body">
+        <div *ngIf="modalLoading" class="info">Loading...</div>
+        <div *ngIf="modalError" class="error" role="alert">
+          <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4m0 4h.01"/>
+          </svg>
+          {{ modalError }}
+        </div>
+
+        <!-- Company View / Edit (mirrors the Company Registration form) -->
+        <ng-container *ngIf="modalMode === 'companyView' || modalMode === 'companyEdit'">
+          <form (ngSubmit)="submitCompanyEdit()" class="form company-grid">
+            <label>
+              Company Name
+              <input type="text" [(ngModel)]="companyForm.name" name="cName"
+                     [readonly]="modalMode === 'companyView'" required />
+            </label>
+            <label>
+              Tax Code
+              <input type="text" [(ngModel)]="companyForm.taxCode" name="cTaxCode"
+                     [readonly]="modalMode === 'companyView'" required />
+            </label>
+
+            <label class="span-2">
+              Address
+              <input type="text" [(ngModel)]="companyForm.address" name="cAddress"
+                     [readonly]="modalMode === 'companyView'" required />
+            </label>
+
+            <label>
+              Legal Form
+              <ng-container *ngIf="modalMode === 'companyEdit'; else legalFormView">
+                <select [(ngModel)]="companyForm.legalForm" name="cLegalForm" required>
+                  <option [ngValue]="null" disabled>-- Select legal form --</option>
+                  <option *ngFor="let lf of legalForms" [ngValue]="lf.id">{{ lf.name }}</option>
+                </select>
+              </ng-container>
+              <ng-template #legalFormView>
+                <input type="text" [value]="legalFormName(companyForm.legalForm)" readonly />
+              </ng-template>
+            </label>
+
+            <label>
+              Economic Activity
+              <ng-container *ngIf="modalMode === 'companyEdit'; else economicActivityView">
+                <select [(ngModel)]="companyForm.economicActivity" name="cEconomicActivity" required>
+                  <option [ngValue]="null" disabled>-- Select economic activity --</option>
+                  <option *ngFor="let ea of economicActivities" [ngValue]="ea.id">{{ ea.name }}</option>
+                </select>
+              </ng-container>
+              <ng-template #economicActivityView>
+                <input type="text" [value]="economicActivityName(companyForm.economicActivity)" readonly />
+              </ng-template>
+            </label>
+
+            <label>
+              Email
+              <input type="email" [(ngModel)]="companyForm.mail" name="cMail"
+                     [readonly]="modalMode === 'companyView'" required />
+            </label>
+            <label>
+              Phone
+              <input type="tel" [(ngModel)]="companyForm.phone" name="cPhone"
+                     [readonly]="modalMode === 'companyView'" required />
+            </label>
+
+            <h4 class="section-title span-2">Payout bank account</h4>
+            <label class="span-2">
+              IBAN
+              <input type="text" [(ngModel)]="companyForm.bankAccountIban" name="cBankAccountIban"
+                     [readonly]="modalMode === 'companyView'" />
+            </label>
+            <label>
+              Beneficiary Name
+              <input type="text" [(ngModel)]="companyForm.bankAccountName" name="cBankAccountName"
+                     [readonly]="modalMode === 'companyView'" />
+            </label>
+            <label>
+              Bank Name
+              <input type="text" [(ngModel)]="companyForm.bankName" name="cBankName"
+                     [readonly]="modalMode === 'companyView'" />
+            </label>
+
+            <div class="modal-actions span-2">
+              <button *ngIf="modalMode === 'companyEdit'" class="primary" type="submit" [disabled]="modalLoading">Save</button>
+              <button type="button" class="secondary" (click)="requestClose()" [disabled]="modalSubmitting">
+                {{ modalMode === 'companyView' ? 'Close' : 'Cancel' }}
+              </button>
+            </div>
+          </form>
+        </ng-container>
+
+        <!-- Request View -->
+        <ng-container *ngIf="modalMode === 'requestView' && modalRequest">
+          <dl class="details">
+            <div><dt>Id</dt><dd>{{ modalRequest.id }}</dd></div>
+            <div><dt>Company</dt><dd>{{ modalRequest.companyName }}</dd></div>
+            <div><dt>Product</dt><dd>{{ modalRequest.productName }}</dd></div>
+            <div><dt>Service Token Count</dt><dd>{{ modalRequest.serviceTokenCount }}</dd></div>
+            <div><dt>Reg Date</dt><dd>{{ modalRequest.regDate | date: 'medium' }}</dd></div>
+            <div><dt>Status</dt><dd>{{ requestStatusLabel(modalRequest.status) }}</dd></div>
+            <div><dt>Authorize Date</dt><dd>{{ modalRequest.authorizeDate ? (modalRequest.authorizeDate | date: 'medium') : '-' }}</dd></div>
+            <div><dt>Approve Date</dt><dd>{{ modalRequest.approveDate ? (modalRequest.approveDate | date: 'medium') : '-' }}</dd></div>
+          </dl>
+        </ng-container>
+
+        <!-- Request Add/Edit -->
+        <ng-container *ngIf="modalMode === 'requestAdd' || modalMode === 'requestEdit'">
+          <form (ngSubmit)="modalMode === 'requestAdd' ? submitRequestAdd() : submitRequestEdit()" class="form">
+            <label>
+              Select Product (recommended)
+              <select [(ngModel)]="requestForm.productId" name="productId">
+                <option [ngValue]="0">-- Select --</option>
+                <option *ngFor="let p of products" [ngValue]="p.id">
+                  {{ p.name }} (Id: {{ p.id }})
+                </option>
+              </select>
+            </label>
+
+            <label>
+              Or enter Product Id manually
+              <input type="number" [(ngModel)]="requestFormProductIdManual" name="productIdManual" min="1" />
+            </label>
+
+            <label>
+              Service Token Count
+              <input type="number" [(ngModel)]="requestForm.serviceTokenCount" name="serviceTokenCount" min="1" required />
+            </label>
+
+            <div class="modal-actions">
+              <button type="submit" class="primary" [disabled]="modalLoading">
+                {{ modalMode === 'requestAdd' ? 'Create' : 'Save' }}
+              </button>
+              <button type="button" class="secondary" (click)="requestClose()" [disabled]="modalSubmitting">Cancel</button>
+            </div>
+          </form>
+        </ng-container>
+
+        <!-- Product View -->
+        <ng-container *ngIf="modalMode === 'productView' && modalProduct">
+          <dl class="details">
+            <div><dt>Id</dt><dd>{{ modalProduct.id }}</dd></div>
+            <div><dt>Product</dt><dd>{{ modalProduct.name }}</dd></div>
+            <div><dt>Service Count</dt><dd>{{ modalProduct.serviceCount }}</dd></div>
+            <div><dt>Price</dt><dd class="num">{{ modalProduct.price }}</dd></div>
+            <div><dt>Term</dt><dd>{{ modalProduct.term ?? '-' }}</dd></div>
+            <div><dt>Schedule Type</dt><dd>{{ scheduleTypeLabel(modalProduct.scheduleType.periodType, modalProduct.scheduleType.periodNumber) }}</dd></div>
+          </dl>
+          <div class="pictogram-view">
+            <span class="label">Pictogram</span>
+            <img
+              [src]="productApi.getPictogramUrl(modalProduct.id)"
+              alt="Product pictogram"
+              class="pictogram-img"
+              (error)="pictogramImgEl.style.display='none'; noPictogramMsg.style.display='block'"
+              #pictogramImgEl />
+            <span #noPictogramMsg class="muted" style="display:none">No pictogram uploaded.</span>
+          </div>
+        </ng-container>
+
+        <!-- Product Add/Edit -->
+        <ng-container *ngIf="modalMode === 'productAdd' || modalMode === 'productEdit'">
+          <form #productFormRef="ngForm" (ngSubmit)="productFormRef.valid ? (modalMode === 'productAdd' ? submitProductAdd() : submitProductEdit()) : null" class="form">
+            <label [class.has-error]="nameInput.invalid && nameInput.touched">
+              Name
+              <input
+                type="text"
+                [(ngModel)]="productForm.name"
+                name="name"
+                #nameInput="ngModel"
+                required
+                minlength="2" />
+              <span class="validation-error" *ngIf="nameInput.invalid && nameInput.touched">
+                <span *ngIf="nameInput.errors?.['required']">Name is required</span>
+                <span *ngIf="nameInput.errors?.['minlength']">Name must be at least 2 characters</span>
+              </span>
+            </label>
+
+            <label [class.has-error]="serviceCountInput.invalid && serviceCountInput.touched">
+              Service Count
+              <input
+                type="number"
+                [(ngModel)]="productForm.serviceCount"
+                name="serviceCount"
+                #serviceCountInput="ngModel"
+                min="0"
+                required />
+              <span class="validation-error" *ngIf="serviceCountInput.invalid && serviceCountInput.touched">
+                <span *ngIf="serviceCountInput.errors?.['required']">Service count is required</span>
+                <span *ngIf="serviceCountInput.errors?.['min']">Service count must be at least 0</span>
+              </span>
+            </label>
+
+            <label [class.has-error]="priceInput.invalid && priceInput.touched">
+              Price
+              <input
+                type="number"
+                step="0.01"
+                [(ngModel)]="productForm.price"
+                name="price"
+                #priceInput="ngModel"
+                min="0.01"
+                required />
+              <span class="validation-error" *ngIf="priceInput.invalid && priceInput.touched">
+                <span *ngIf="priceInput.errors?.['required']">Price is required</span>
+                <span *ngIf="priceInput.errors?.['min']">Price must be greater than 0</span>
+              </span>
+            </label>
+
+            <label>
+              Term (optional)
+              <input type="number" [(ngModel)]="productForm.term" name="term" min="1" />
+            </label>
+
+            <label>
+              Schedule Period Type
+              <select [(ngModel)]="productForm.scheduleType.periodType" name="periodType">
+                <option [ngValue]="0">None</option>
+                <option [ngValue]="1">Daily</option>
+                <option [ngValue]="2">Weekly</option>
+                <option [ngValue]="3">Monthly</option>
+                <option [ngValue]="4">Yearly</option>
+              </select>
+            </label>
+
+            <label>
+              Schedule Period Number (optional)
+              <input type="number" [(ngModel)]="productForm.scheduleType.periodNumber" name="periodNumber" min="1" />
+              <span class="helper">Label: {{ scheduleTypeLabel(productForm.scheduleType.periodType, productForm.scheduleType.periodNumber) }}</span>
+            </label>
+
+            <label>
+              Pictogram (optional, image file)
+              <div class="pictogram-upload">
+                <input
+                  type="file"
+                  accept="image/*"
+                  (change)="onPictogramSelected($event)" />
+                <div *ngIf="pictogramPreviewUrl" class="pictogram-preview">
+                  <img [src]="pictogramPreviewUrl" alt="Pictogram preview" />
+                  <span *ngIf="pictogramExistsOnServer && !pictogramFile" class="helper">Current pictogram — select a file to replace it</span>
+                </div>
+              </div>
+            </label>
+
+            <div class="modal-actions">
+              <button type="submit" class="primary" [disabled]="modalLoading || productFormRef.invalid">
+                {{ modalMode === 'productAdd' ? 'Create' : 'Save' }}
+              </button>
+              <button type="button" class="secondary" (click)="requestClose()" [disabled]="modalSubmitting">Cancel</button>
+            </div>
+          </form>
+        </ng-container>
+
+        <!-- User View -->
+        <ng-container *ngIf="modalMode === 'userView' && modalUser">
+          <dl class="details">
+            <div><dt>Id</dt><dd>{{ modalUser.id }}</dd></div>
+            <div><dt>User Name</dt><dd>{{ modalUser.userName }}</dd></div>
+            <div><dt>User Type</dt><dd>{{ userTypeLabel(modalUser.userType) }}</dd></div>
+          </dl>
+        </ng-container>
+
+        <!-- User Add/Edit -->
+        <ng-container *ngIf="modalMode === 'userAdd' || modalMode === 'userEdit'">
+          <form (ngSubmit)="modalMode === 'userAdd' ? submitUserAdd() : submitUserEdit()" class="form">
+            <label>
+              User Name
+              <input
+                type="text"
+                [(ngModel)]="userForm.userName"
+                name="userName"
+                [readonly]="modalMode === 'userEdit'"
+                required />
+              <span class="helper" *ngIf="modalMode === 'userEdit'">
+                User name identifies the record and cannot be changed here.
+              </span>
+            </label>
+
+            <label>
+              Password
+              <input
+                type="text"
+                [(ngModel)]="userForm.password"
+                name="password"
+                required />
+            </label>
+
+            <label>
+              User Type
+              <select [(ngModel)]="userForm.userType" name="userType">
+                <option [ngValue]="CompanyUserType.Admin">Admin</option>
+                <option [ngValue]="CompanyUserType.Other">Other</option>
+              </select>
+            </label>
+
+            <div class="modal-actions">
+              <button type="submit" class="primary" [disabled]="modalLoading">
+                {{ modalMode === 'userAdd' ? 'Create' : 'Save' }}
+              </button>
+              <button type="button" class="secondary" (click)="requestClose()" [disabled]="modalSubmitting">Cancel</button>
+            </div>
+          </form>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

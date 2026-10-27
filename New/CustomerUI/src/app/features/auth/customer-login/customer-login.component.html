@@ -1,0 +1,38 @@
+<div class="auth-container">
+  <h2>Customer {{ isRegisterMode ? 'Registration' : 'Login' }}</h2>
+
+  <button class="toggle-btn" (click)="toggleMode()">
+    Switch to {{ isRegisterMode ? 'Login' : 'Register' }}
+  </button>
+
+  <form *ngIf="!isRegisterMode" (ngSubmit)="onLogin()" class="auth-form">
+    <label>
+      Username
+      <input type="text" [(ngModel)]="loginModel.userName" name="loginUserName" required />
+    </label>
+    <label>
+      Password
+      <input type="password" [(ngModel)]="loginModel.password" name="loginPassword" required />
+    </label>
+    <div *ngIf="loginError" class="auth-error">{{ loginError }}</div>
+    <button type="submit" [disabled]="loading">Login</button>
+  </form>
+
+  <form *ngIf="isRegisterMode" (ngSubmit)="onRegister()" class="auth-form">
+    <label>
+      Public Key
+      <input type="text" [(ngModel)]="registerModel.publicKey" name="publicKey" required />
+    </label>
+    <label>
+      Username
+      <input type="text" [(ngModel)]="registerModel.userName" name="regUserName" required />
+    </label>
+    <label>
+      Password
+      <input type="password" [(ngModel)]="registerModel.password" name="regPassword" required />
+    </label>
+    <button type="submit" [disabled]="loading">Register</button>
+  </form>
+
+  <a routerLink="/" class="back-link">Back to main page</a>
+</div>

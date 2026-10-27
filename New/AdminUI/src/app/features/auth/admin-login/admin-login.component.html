@@ -1,0 +1,17 @@
+<div class="auth-container">
+  <h2>Administrator Login</h2>
+
+  <form (ngSubmit)="onLogin()" class="auth-form">
+    <label>
+      Username
+      <input type="text" [(ngModel)]="model.userName" name="userName" autocomplete="username" required />
+    </label>
+    <label>
+      Password
+      <input type="password" [(ngModel)]="model.password" name="password" autocomplete="current-password" required />
+    </label>
+    <button type="submit" [disabled]="loading">Login</button>
+  </form>
+
+  <a routerLink="/" class="back-link">Back to main page</a>
+</div>

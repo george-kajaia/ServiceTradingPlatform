@@ -19,10 +19,11 @@ namespace ServiceTokenApi.Services.Flitt
         Task<FlittTokenResult> CreateOrderAsync(decimal amount, string orderId, string description, bool requiredRectoken = false, CancellationToken ct = default);
 
         /// <summary>
-        /// Splits a previously approved order: transfers each receiver's share (the company's IBAN
-        /// gets price − fee, the platform's IBAN gets the fee) by POSTing to /api/settlement.
+        /// Charges a saved card (Flitt rectoken) via POST /api/recurring, with no card form.
+        /// The result is final and returned synchronously; the response signature is verified.
+        /// <paramref name="amount"/> is in major units (GEL).
         /// </summary>
-        Task<FlittSettlementResult> SettlementAsync(FlittSettlementOrder order, CancellationToken ct = default);
+        Task<FlittOrderResult> ChargeSavedCardAsync(decimal amount, string orderId, string description, string rectoken, CancellationToken ct = default);
 
         /// <summary>Fetches the current status of an order by our order_id, verifying the response signature.</summary>
         Task<FlittOrderResult> GetOrderStatusAsync(string orderId, CancellationToken ct = default);

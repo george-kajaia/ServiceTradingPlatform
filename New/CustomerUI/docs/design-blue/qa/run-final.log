@@ -1,0 +1,441 @@
+FAIL home@360 no horizontal overflow :: {"scrollWidth":472,"bodyScrollWidth":472,"innerWidth":472,"vw":360}
+PASS home@360 featured cards rendered (7 fixtures)
+PASS home@360 featured request params companyId=-1&requestId=-1
+PASS home@360 FAQ toggles aria-expanded
+PASS home@360 featured card click -> /login
+PASS home@768 no horizontal overflow
+PASS home@768 featured cards rendered (7 fixtures)
+PASS home@768 featured request params companyId=-1&requestId=-1
+PASS home@768 FAQ toggles aria-expanded
+PASS home@768 featured card click -> /login
+PASS home@1440 no horizontal overflow
+PASS home@1440 featured cards rendered (7 fixtures)
+PASS home@1440 featured request params companyId=-1&requestId=-1
+PASS home@1440 FAQ toggles aria-expanded
+PASS home@1440 featured card click -> /login
+FAIL home-empty@360 no overflow :: 
+PASS home-empty@768 no overflow
+PASS home-empty@1440 no overflow
+PASS home-error@360 page still renders hero
+PASS home-error@768 page still renders hero
+PASS home-error@1440 page still renders hero
+PASS login@360 no overflow
+PASS login@360 empty fields flagged :invalid (2 inputs)
+PASS login@360 wrong creds shows error text
+PASS login@360 submit disabled while loading
+PASS login@360 POST body userName/password
+PASS login@360 success -> /marketplace
+PASS login@768 no overflow
+PASS login@768 empty fields flagged :invalid (2 inputs)
+PASS login@768 wrong creds shows error text
+PASS login@768 submit disabled while loading
+PASS login@768 POST body userName/password
+PASS login@768 success -> /marketplace
+PASS login@1440 no overflow
+PASS login@1440 empty fields flagged :invalid (2 inputs)
+PASS login@1440 wrong creds shows error text
+PASS login@1440 submit disabled while loading
+PASS login@1440 POST body userName/password
+PASS login@1440 success -> /marketplace
+PASS register@360 ?mode=register opens register form
+PASS register@360 no overflow
+PASS register@360 failure shows error toast
+PASS register@360 success toast + back to login form
+PASS register@768 ?mode=register opens register form
+PASS register@768 no overflow
+PASS register@768 failure shows error toast
+PASS register@768 success toast + back to login form
+PASS register@1440 ?mode=register opens register form
+PASS register@1440 no overflow
+PASS register@1440 failure shows error toast
+PASS register@1440 success toast + back to login form
+PASS guard /marketplace without session -> /login
+PASS guard /cart without session -> /login
+PASS guard /checkout without session -> /login
+PASS unknown route -> home
+PASS /token/:id without state -> leaves token page
+PASS market@360 My Tokens renders 3 cards
+PASS market@360 GetInvestorServiceTokens investorPublicKey param
+PASS market@360 mytokens no viewport overflow
+PASS market@360 Primary tab renders 7 cards
+PASS market@360 primary no viewport overflow
+PASS market@360 card grid columns = 1
+PASS market@360 cards in a row have equal height
+PASS market@360 grid gap 16px mobile / 20px desktop
+PASS market@360 Secondary tab renders 3 cards
+PASS market@360 secondary params investorPublicKey/companyId/requestId
+PASS filters@360 filter bar visible
+PASS filters@360 request filter disabled until product chosen
+PASS filters@360 product list narrowed to company
+PASS filters@360 request filter enabled after product
+PASS filters@360 Apply sends companyId=1
+PASS filters@360 Apply narrows cards (company 1 only)
+PASS filters@360 Reset restores all companies + all cards
+PASS detail-mytokens@360 modal fits viewport
+PASS detail-mytokens@360 close button >= 44px
+PASS detail-mytokens@360 no horizontal overflow
+PASS detail-mytokens@360 action buttons >= 44px
+PASS detail-mytokens@360 actions stacked
+PASS detail-mytokens@360 Escape closes
+PASS detail-mytokens@360 backdrop click closes
+PASS detail-primary@360 modal fits viewport
+PASS detail-primary@360 close button >= 44px
+PASS detail-primary@360 no horizontal overflow
+PASS detail-primary@360 action buttons >= 44px
+PASS detail-primary@360 actions stacked
+PASS detail-primary@360 Escape closes
+PASS detail-primary@360 backdrop click closes
+PASS detail-secondary@360 modal fits viewport
+PASS detail-secondary@360 close button >= 44px
+PASS detail-secondary@360 no horizontal overflow
+PASS detail-secondary@360 action buttons >= 44px
+PASS detail-secondary@360 actions stacked
+PASS detail-secondary@360 Escape closes
+PASS detail-secondary@360 backdrop click closes
+PASS addcart@360 POST MarkServiceTokenInCart params
+PASS addcart@360 added token leaves the primary list (7 -> 6)
+PASS addcart@360 cart badge = 1
+PASS addcart@360 detail modal Add to Cart closes modal & badge=2
+PASS addcart@360 cart page lists 2 items
+PASS empty@360 primary empty message
+PASS empty@360 no overflow
+PASS error@360 My Tokens failure toast with Retry
+PASS error@360 Retry reloads tokens
+PASS loading@360 loading bar visible while fetching
+PASS loading@360 refresh disabled while loading
+PASS dialog@360 role=alertdialog with title
+PASS dialog@360 buttons >= 44px tall
+PASS dialog@360 buttons stacked full-width
+PASS dialog@360 no overflow
+PASS dialog@360 Escape cancels (still on marketplace)
+PASS dialog@360 confirm logs out -> /login and clears session
+PASS market@768 My Tokens renders 3 cards
+PASS market@768 GetInvestorServiceTokens investorPublicKey param
+PASS market@768 mytokens no viewport overflow
+PASS market@768 Primary tab renders 7 cards
+PASS market@768 primary no viewport overflow
+PASS market@768 card grid columns = 2
+PASS market@768 cards in a row have equal height
+PASS market@768 grid gap 16px mobile / 20px desktop
+PASS market@768 Secondary tab renders 3 cards
+PASS market@768 secondary params investorPublicKey/companyId/requestId
+PASS filters@768 filter bar visible
+PASS filters@768 request filter disabled until product chosen
+PASS filters@768 product list narrowed to company
+PASS filters@768 request filter enabled after product
+PASS filters@768 Apply sends companyId=1
+PASS filters@768 Apply narrows cards (company 1 only)
+PASS filters@768 Reset restores all companies + all cards
+PASS detail-mytokens@768 modal fits viewport
+PASS detail-mytokens@768 close button >= 44px
+PASS detail-mytokens@768 no horizontal overflow
+PASS detail-mytokens@768 action buttons >= 44px
+PASS detail-mytokens@768 Escape closes
+PASS detail-mytokens@768 backdrop click closes
+PASS detail-primary@768 modal fits viewport
+PASS detail-primary@768 close button >= 44px
+PASS detail-primary@768 no horizontal overflow
+PASS detail-primary@768 action buttons >= 44px
+PASS detail-primary@768 Escape closes
+PASS detail-primary@768 backdrop click closes
+PASS detail-secondary@768 modal fits viewport
+PASS detail-secondary@768 close button >= 44px
+PASS detail-secondary@768 no horizontal overflow
+PASS detail-secondary@768 action buttons >= 44px
+PASS detail-secondary@768 Escape closes
+PASS detail-secondary@768 backdrop click closes
+PASS addcart@768 POST MarkServiceTokenInCart params
+PASS addcart@768 added token leaves the primary list (7 -> 6)
+PASS addcart@768 cart badge = 1
+PASS addcart@768 detail modal Add to Cart closes modal & badge=2
+PASS addcart@768 cart page lists 2 items
+PASS empty@768 primary empty message
+PASS empty@768 no overflow
+PASS error@768 My Tokens failure toast with Retry
+PASS error@768 Retry reloads tokens
+PASS loading@768 loading bar visible while fetching
+PASS loading@768 refresh disabled while loading
+PASS dialog@768 role=alertdialog with title
+PASS dialog@768 buttons >= 44px tall
+PASS dialog@768 no overflow
+PASS dialog@768 Escape cancels (still on marketplace)
+PASS dialog@768 confirm logs out -> /login and clears session
+PASS market@1440 My Tokens renders 3 cards
+PASS market@1440 GetInvestorServiceTokens investorPublicKey param
+PASS market@1440 mytokens no viewport overflow
+PASS market@1440 Primary tab renders 7 cards
+PASS market@1440 primary no viewport overflow
+PASS market@1440 card grid columns = 4
+PASS market@1440 cards in a row have equal height
+PASS market@1440 grid gap 16px mobile / 20px desktop
+PASS market@1440 Secondary tab renders 3 cards
+PASS market@1440 secondary params investorPublicKey/companyId/requestId
+PASS filters@1440 filter bar visible
+PASS filters@1440 request filter disabled until product chosen
+PASS filters@1440 product list narrowed to company
+PASS filters@1440 request filter enabled after product
+PASS filters@1440 Apply sends companyId=1
+PASS filters@1440 Apply narrows cards (company 1 only)
+PASS filters@1440 Reset restores all companies + all cards
+PASS detail-mytokens@1440 modal fits viewport
+PASS detail-mytokens@1440 close button >= 44px
+PASS detail-mytokens@1440 no horizontal overflow
+PASS detail-mytokens@1440 action buttons >= 44px
+PASS detail-mytokens@1440 Escape closes
+PASS detail-mytokens@1440 backdrop click closes
+PASS detail-primary@1440 modal fits viewport
+PASS detail-primary@1440 close button >= 44px
+PASS detail-primary@1440 no horizontal overflow
+PASS detail-primary@1440 action buttons >= 44px
+PASS detail-primary@1440 Escape closes
+PASS detail-primary@1440 backdrop click closes
+PASS detail-secondary@1440 modal fits viewport
+PASS detail-secondary@1440 close button >= 44px
+PASS detail-secondary@1440 no horizontal overflow
+PASS detail-secondary@1440 action buttons >= 44px
+PASS detail-secondary@1440 Escape closes
+PASS detail-secondary@1440 backdrop click closes
+PASS addcart@1440 POST MarkServiceTokenInCart params
+PASS addcart@1440 added token leaves the primary list (7 -> 6)
+PASS addcart@1440 cart badge = 1
+PASS addcart@1440 detail modal Add to Cart closes modal & badge=2
+PASS addcart@1440 cart page lists 2 items
+PASS empty@1440 primary empty message
+PASS empty@1440 no overflow
+PASS error@1440 My Tokens failure toast with Retry
+PASS error@1440 Retry reloads tokens
+PASS loading@1440 loading bar visible while fetching
+PASS loading@1440 refresh disabled while loading
+PASS dialog@1440 role=alertdialog with title
+PASS dialog@1440 buttons >= 44px tall
+PASS dialog@1440 no overflow
+PASS dialog@1440 Escape cancels (still on marketplace)
+PASS dialog@1440 confirm logs out -> /login and clears session
+PASS qr@360 modal within viewport
+PASS qr@360 modal no internal scroll
+PASS qr@360 QR <= 240px wide
+PASS qr@360 no overflow
+PASS qr@360 QR light=white, dark modules=#172033
+PASS qr@360 negotiate hit mocked hub
+PASS qr@360 close >= 44px
+PASS qr@360 cancel >= 44px tall
+PASS qr@360 visible waiting text
+PASS qr@360 backdrop click closes (cancel)
+PASS qr@360 ServiceResult success closes modal + success toast
+PASS qr-fail@360 failure result shows error toast with server message
+PASS qr-conn@360 connecting text visible
+PASS qr-err@360 error text + Try Again + Close
+PASS qr-err@360 retry/close buttons >= 44px
+PASS qr-err@360 no overflow
+PASS qr-err@360 Try Again recovers to QR
+PASS qr-err@360 Cancel closes modal
+PASS qr@768 modal within viewport
+PASS qr@768 modal no internal scroll
+PASS qr@768 no overflow
+PASS qr@768 QR light=white, dark modules=#172033
+PASS qr@768 negotiate hit mocked hub
+PASS qr@768 close >= 44px
+PASS qr@768 cancel >= 44px tall
+PASS qr@768 visible waiting text
+PASS qr@768 backdrop click closes (cancel)
+PASS qr@768 ServiceResult success closes modal + success toast
+PASS qr-fail@768 failure result shows error toast with server message
+PASS qr-conn@768 connecting text visible
+PASS qr-err@768 error text + Try Again + Close
+PASS qr-err@768 retry/close buttons >= 44px
+PASS qr-err@768 no overflow
+PASS qr-err@768 Try Again recovers to QR
+PASS qr-err@768 Cancel closes modal
+PASS qr@1440 modal within viewport
+PASS qr@1440 modal no internal scroll
+PASS qr@1440 no overflow
+PASS qr@1440 QR light=white, dark modules=#172033
+PASS qr@1440 negotiate hit mocked hub
+PASS qr@1440 close >= 44px
+PASS qr@1440 cancel >= 44px tall
+PASS qr@1440 visible waiting text
+PASS qr@1440 backdrop click closes (cancel)
+PASS qr@1440 ServiceResult success closes modal + success toast
+PASS qr-fail@1440 failure result shows error toast with server message
+PASS qr-conn@1440 connecting text visible
+PASS qr-err@1440 error text + Try Again + Close
+PASS qr-err@1440 retry/close buttons >= 44px
+PASS qr-err@1440 no overflow
+PASS qr-err@1440 Try Again recovers to QR
+PASS qr-err@1440 Cancel closes modal
+PASS cart@360 3 cards
+PASS cart@360 no overflow
+PASS cart@360 prices rendered with currency
+PASS cart@360 remove button >= 44px
+PASS cart@360 remove has aria-label
+PASS cart@360 checkout button >= 44px tall
+PASS cart@360 remove POST CancelInCart serviceTokenId+rowVersion
+PASS cart@360 item removed from list
+PASS cart@360 Checkout -> /checkout
+PASS cart@768 3 cards
+PASS cart@768 no overflow
+PASS cart@768 prices rendered with currency
+PASS cart@768 remove button >= 44px
+PASS cart@768 remove has aria-label
+PASS cart@768 checkout button >= 44px tall
+PASS cart@768 remove POST CancelInCart serviceTokenId+rowVersion
+PASS cart@768 item removed from list
+PASS cart@768 Checkout -> /checkout
+PASS cart@1440 3 cards
+PASS cart@1440 no overflow
+PASS cart@1440 prices rendered with currency
+PASS cart@1440 remove button >= 44px
+PASS cart@1440 remove has aria-label
+PASS cart@1440 checkout button >= 44px tall
+PASS cart@1440 remove POST CancelInCart serviceTokenId+rowVersion
+PASS cart@1440 item removed from list
+PASS cart@1440 Checkout -> /checkout
+PASS cart-empty@360 message + no overflow
+PASS cart-empty@360 checkout disabled
+PASS cart-empty@768 message + no overflow
+PASS cart-empty@768 checkout disabled
+PASS cart-empty@1440 message + no overflow
+PASS cart-empty@1440 checkout disabled
+PASS checkout@360 summary lists 2 primary items (secondary excluded)
+PASS checkout@360 secondary note visible
+PASS checkout@360 total = sum of primary prices (1,250.50+120.00=1,370.50)
+PASS checkout@360 saved masked card shown
+FAIL checkout@360 no overflow :: {"scrollWidth":633,"bodyScrollWidth":633,"innerWidth":633,"vw":360}
+PASS checkout@360 Pay button >= 44px tall
+FAIL checkout@360 saved-card Remove button inside viewport width :: {"x":444.453125,"y":409,"width":73.015625,"height":44}
+PASS checkout@360 Remove saved card hides it + DELETE call
+PASS checkout@360 initiate body: tokens ids+rowVersion, investorPublicKey, saveCard
+PASS checkout@360 paying: no overflow
+PASS checkout@360 widget container inside viewport width
+PASS checkout@360 widget not clipped (scrollHeight<=clientHeight or scrolls)
+PASS checkout@360 not marked successful client-side while Processing
+PASS checkout@360 Back disabled during payment
+PASS checkout@360 Succeeded -> Payment complete + Purchased badges
+PASS checkout@360 done: no overflow
+PASS checkout@768 summary lists 2 primary items (secondary excluded)
+PASS checkout@768 secondary note visible
+PASS checkout@768 total = sum of primary prices (1,250.50+120.00=1,370.50)
+PASS checkout@768 saved masked card shown
+PASS checkout@768 no overflow
+PASS checkout@768 Pay button >= 44px tall
+PASS checkout@768 saved-card Remove button inside viewport width
+PASS checkout@768 Remove saved card hides it + DELETE call
+PASS checkout@768 initiate body: tokens ids+rowVersion, investorPublicKey, saveCard
+PASS checkout@768 paying: no overflow
+PASS checkout@768 widget container inside viewport width
+PASS checkout@768 widget not clipped (scrollHeight<=clientHeight or scrolls)
+PASS checkout@768 not marked successful client-side while Processing
+PASS checkout@768 Back disabled during payment
+PASS checkout@768 Succeeded -> Payment complete + Purchased badges
+PASS checkout@768 done: no overflow
+PASS checkout@1440 summary lists 2 primary items (secondary excluded)
+PASS checkout@1440 secondary note visible
+PASS checkout@1440 total = sum of primary prices (1,250.50+120.00=1,370.50)
+PASS checkout@1440 saved masked card shown
+PASS checkout@1440 no overflow
+PASS checkout@1440 Pay button >= 44px tall
+PASS checkout@1440 saved-card Remove button inside viewport width
+PASS checkout@1440 Remove saved card hides it + DELETE call
+PASS checkout@1440 initiate body: tokens ids+rowVersion, investorPublicKey, saveCard
+PASS checkout@1440 paying: no overflow
+PASS checkout@1440 widget container inside viewport width
+PASS checkout@1440 widget not clipped (scrollHeight<=clientHeight or scrolls)
+PASS checkout@1440 not marked successful client-side while Processing
+PASS checkout@1440 Back disabled during payment
+PASS checkout@1440 Succeeded -> Payment complete + Purchased badges
+PASS checkout@1440 done: no overflow
+PASS checkout-mixed@360 one Purchased, one Failed, heading Checkout finished
+PASS checkout-mixed@360 no overflow
+PASS checkout-mixed@768 one Purchased, one Failed, heading Checkout finished
+PASS checkout-mixed@768 no overflow
+PASS checkout-mixed@1440 one Purchased, one Failed, heading Checkout finished
+PASS checkout-mixed@1440 no overflow
+PASS checkout-cancelled@360 all Cancelled, never success
+PASS checkout-cancelled@768 all Cancelled, never success
+PASS checkout-cancelled@1440 all Cancelled, never success
+PASS checkout-initfail@360 error toast + back to summary
+PASS checkout-initfail@768 error toast + back to summary
+PASS checkout-initfail@1440 error toast + back to summary
+PASS checkout-empty@360 Nothing to pay for
+PASS checkout-empty@360 no overflow
+PASS checkout-empty@768 Nothing to pay for
+PASS checkout-empty@768 no overflow
+PASS checkout-empty@1440 Nothing to pay for
+PASS checkout-empty@1440 no overflow
+PASS checkout-loading@360 loading text
+PASS checkout-loading@768 loading text
+PASS checkout-loading@1440 loading text
+PASS checkout-pending@360 Still processing + Check again
+PASS checkout-pending@360 no overflow
+PASS checkout-pending@768 Still processing + Check again
+PASS checkout-pending@768 no overflow
+PASS checkout-pending@1440 Still processing + Check again
+PASS checkout-pending@1440 no overflow
+PASS return-verifying@360 Confirming text
+PASS return-verifying@360 no overflow
+PASS return-verifying@360 polls GetStatus?orderId
+PASS return-verifying@768 Confirming text
+PASS return-verifying@768 no overflow
+PASS return-verifying@768 polls GetStatus?orderId
+PASS return-verifying@1440 Confirming text
+PASS return-verifying@1440 no overflow
+PASS return-verifying@1440 polls GetStatus?orderId
+PASS return-success@360 Payment complete from API status
+PASS return-success@360 no overflow
+PASS return-success@360 session cleared
+PASS return-success@768 Payment complete from API status
+PASS return-success@768 no overflow
+PASS return-success@768 session cleared
+PASS return-success@1440 Payment complete from API status
+PASS return-success@1440 no overflow
+PASS return-success@1440 session cleared
+PASS return-failed@360 Checkout finished + Failed badges, no success
+PASS return-failed@360 no overflow
+PASS return-failed@768 Checkout finished + Failed badges, no success
+PASS return-failed@768 no overflow
+PASS return-failed@1440 Checkout finished + Failed badges, no success
+PASS return-failed@1440 no overflow
+PASS return-pending@360 Still processing + Check again
+PASS return-pending@360 no overflow
+PASS return-pending@360 session preserved for retry
+PASS return-pending@768 Still processing + Check again
+PASS return-pending@768 no overflow
+PASS return-pending@768 session preserved for retry
+PASS return-pending@1440 Still processing + Check again
+PASS return-pending@1440 no overflow
+PASS return-pending@1440 session preserved for retry
+PASS return without session -> /marketplace
+PASS token-primary@360 no overflow
+PASS token-primary@360 action buttons >= 44px
+FAIL token-primary@360 last section not hidden under fixed action bar :: {"barTop":671,"lastBottom":704,"pos":"fixed"}
+PASS token-primary@768 no overflow
+PASS token-primary@768 action buttons >= 44px
+PASS token-primary@768 last section not hidden under fixed action bar
+PASS token-primary@1440 no overflow
+PASS token-primary@1440 action buttons >= 44px
+PASS token-primary@1440 last section not hidden under fixed action bar
+PASS token-mytokens-available@360 no overflow
+PASS token-mytokens-available@360 action buttons >= 44px
+FAIL token-mytokens-available@360 last section not hidden under fixed action bar :: {"barTop":615,"lastBottom":704,"pos":"fixed"}
+PASS token-mytokens-available@768 no overflow
+PASS token-mytokens-available@768 action buttons >= 44px
+PASS token-mytokens-available@768 last section not hidden under fixed action bar
+PASS token-mytokens-available@1440 no overflow
+PASS token-mytokens-available@1440 action buttons >= 44px
+PASS token-mytokens-available@1440 last section not hidden under fixed action bar
+PASS token-secondary@360 no overflow
+PASS token-secondary@360 action buttons >= 44px
+FAIL token-secondary@360 last section not hidden under fixed action bar :: {"barTop":671,"lastBottom":704,"pos":"fixed"}
+PASS token-secondary@768 no overflow
+PASS token-secondary@768 action buttons >= 44px
+PASS token-secondary@768 last section not hidden under fixed action bar
+PASS token-secondary@1440 no overflow
+PASS token-secondary@1440 action buttons >= 44px
+PASS token-secondary@1440 last section not hidden under fixed action bar
+PASS token-qr@360 QR modal opens from detail page and fits
+PASS focus login: every tabbed control shows an outline/box-shadow ring (35 stops)
+PASS focus marketplace: every tabbed control shows an outline/box-shadow ring (38 stops)
+PASS focus cart: every tabbed control shows an outline/box-shadow ring (36 stops)
+PASS focus home: every tabbed control shows an outline/box-shadow ring (39 stops)
+
+DONE checks=439 pass=432 fail=7 shots=149

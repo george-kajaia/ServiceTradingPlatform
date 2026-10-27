@@ -1,0 +1,238 @@
+@use '../../../../styles/variables' as *;
+
+// ── Backdrop ────────────────────────────────────────────────
+.qr-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba($ink, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-modal-backdrop;
+  padding: $space-4;
+  overflow-y: auto;
+}
+
+// ── Modal ────────────────────────────────────────────────────
+.qr-modal {
+  position: relative;
+  background: $surface;
+  border-radius: $radius-xl;
+  width: 100%;
+  max-width: 380px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: $space-4;
+  box-shadow: $shadow-pop;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  font-family: $font-family-base;
+  color: $ink;
+
+  @media (min-width: $breakpoint-md) { padding: $space-6; gap: $space-4; }
+
+  &__close {
+    position: absolute;
+    top: $space-2;
+    right: $space-2;
+    width: $ctl-h;
+    height: $ctl-h;
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    color: $ink;
+    cursor: pointer;
+    line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: background $transition-base;
+
+    &:hover { background: $page; }
+    &:focus-visible { outline: none; box-shadow: $focus-ring; }
+  }
+
+  &__header {
+    text-align: center;
+    padding: 0 $space-8; // keep clear of the close button
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $ink;
+    margin: 0 0 $space-1;
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $ink-2;
+    margin: 0;
+  }
+
+  &__token-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+  }
+
+  &__company {
+    font-size: $font-size-md;
+    font-weight: 600;
+    color: $ink;
+  }
+
+  &__product {
+    font-size: $font-size-base;
+    color: $ink-2;
+  }
+
+  &__count {
+    font-size: $font-size-base;
+    color: $ink-2;
+    strong { color: $ink; font-variant-numeric: tabular-nums; }
+  }
+
+  // QR sits on a white tile with dark modules — never tinted.
+  &__qr-wrap {
+    background: #fff;
+    border: 1px solid $line;
+    border-radius: $radius-lg;
+    padding: $space-4;
+    max-width: 100%;
+  }
+
+  &__qr-img {
+    display: block;
+    width: 240px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  &__hint {
+    font-size: $font-size-sm;
+    color: $ink-2;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    margin: 0;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    width: 100%;
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .qr-btn { width: 100%; }
+  }
+
+  &__state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-6 0;
+    color: $ink-2;
+    font-size: $font-size-base;
+    text-align: center;
+
+    p { margin: 0; }
+
+    &--error {
+      color: $danger;
+      background: $danger-bg;
+      border-radius: $radius-lg;
+      padding: $space-4;
+      width: 100%;
+    }
+
+    &-icon { font-size: 2rem; }
+
+    &-actions {
+      display: flex;
+      flex-direction: column;
+      gap: $space-2;
+      width: 100%;
+      @media (min-width: 480px) { flex-direction: row; justify-content: center; width: auto; }
+    }
+  }
+}
+
+// ── Waiting dot animation ────────────────────────────────────
+.qr-modal__waiting-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: $blue-600;
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+// ── Spinner ────────────────────────────────────────────────
+.qr-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid $line;
+  border-top-color: $blue-600;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qr-spinner, .qr-modal__waiting-dot { animation: none; }
+}
+
+// ── Buttons ────────────────────────────────────────────────
+.qr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $ctl-h;
+  padding: $space-2 $space-6;
+  border-radius: $radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background $transition-base, border-color $transition-base;
+
+  &:focus-visible { outline: none; box-shadow: $focus-ring; }
+
+  &--ghost {
+    background: $surface;
+    border-color: $line;
+    color: $ink;
+
+    &:hover { background: $page; border-color: $ink-2; }
+  }
+
+  &--primary {
+    background: $blue-600;
+    border-color: $blue-600;
+    color: #fff;
+
+    &:hover { background: $blue-700; border-color: $blue-700; }
+  }
+}

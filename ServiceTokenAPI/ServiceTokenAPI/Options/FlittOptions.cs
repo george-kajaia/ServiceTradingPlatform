@@ -18,7 +18,7 @@ namespace ServiceTokenApi.Options
         /// <summary>Payment secret key used for the purchase flow (test value: "test"). Used to build / verify signatures.</summary>
         public string SecretKey { get; set; } = string.Empty;
 
-        /// <summary>Payment secret key used for the payout flow (test value: "testcredit"). Reserved for future payout support.</summary>
+        /// <summary>Payment secret key used for the payout flow (test value: "testcredit"). Reserved for future payouts to companies (IBAN withdrawal).</summary>
         public string PayoutSecretKey { get; set; } = string.Empty;
 
         /// <summary>ISO currency code for payments (GEL, USD, EUR...).</summary>
@@ -50,18 +50,5 @@ namespace ServiceTokenApi.Options
 
         /// <summary>Order lifetime in seconds (how long the checkout token stays payable).</summary>
         public int LifetimeSeconds { get; set; } = 36000;
-
-        /// <summary>
-        /// Platform commission, expressed as a percentage of each token's price (e.g. 2.5 = 2.5%).
-        /// When a customer payment is settled (split), the issuing company receives the token price
-        /// minus this fee, and the platform keeps the fee. Applied per token, then summed per company.
-        /// </summary>
-        public decimal FeePercentPerToken { get; set; }
-
-        /// <summary>
-        /// Base URL of the Flitt settlement (split) endpoint, trailing slash required.
-        /// The split request is POSTed to <c>settlement</c> relative to this. Defaults to the live host.
-        /// </summary>
-        public string SettlementBaseUrl { get; set; } = "https://pay.flitt.com/api/";
     }
 }

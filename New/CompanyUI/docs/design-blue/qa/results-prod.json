@@ -1,0 +1,3158 @@
+{
+ "summary": {
+  "target": "prod",
+  "base": "http://127.0.0.1:4322",
+  "seconds": 228,
+  "pass": 347,
+  "fail": 0
+ },
+ "results": [
+  {
+   "id": "home@360: body bg #F4F7FB",
+   "ok": true,
+   "detail": "rgb(244, 247, 251)"
+  },
+  {
+   "id": "home@360: body text #172033",
+   "ok": true,
+   "detail": "rgb(23, 32, 51)"
+  },
+  {
+   "id": "home@360: font stack Inter/system sans",
+   "ok": true,
+   "detail": "Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+  },
+  {
+   "id": "home@360: FAQ item expands (aria-expanded true + answer visible)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "home@360: hero primary solid blue bg, white text",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "home@360: hero primary hover #1D4ED8",
+   "ok": true,
+   "detail": "rgb(29, 78, 216)"
+  },
+  {
+   "id": "home@360: Register CTA navigates to /login?mode=register and shows registration",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@360: card fits viewport with >=16px gutters",
+   "ok": true,
+   "detail": "{\"l\":16,\"r\":16,\"w\":328,\"radius\":\"16px\",\"bg\":\"rgb(255, 255, 255)\"}"
+  },
+  {
+   "id": "login@360: auth card radius 12 or 16",
+   "ok": true,
+   "detail": "16px"
+  },
+  {
+   "id": "login@360: Login button solid blue",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "login@360: Login button >=44px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@360: every Tab stop has a visible focus indicator",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login@360: blue (token) focus ring on tab stops",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login@360: failed login shows error toast with API text and stays on /login",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/login"
+  },
+  {
+   "id": "login@360: login POST body {userName,password}",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@360: toast inside viewport",
+   "ok": true,
+   "detail": "{\"x\":16,\"y\":714,\"width\":328,\"height\":70,\"top\":714,\"right\":344,\"bottom\":784,\"left\":16}"
+  },
+  {
+   "id": "register@360: POST Company/create body has legalForm 2, economicActivity 1, flat bank fields",
+   "ok": true,
+   "detail": "{\"name\":\"Synthetic Test LLC\",\"taxCode\":\"000000000\",\"address\":\"1 Test Street\",\"legalForm\":2,\"economicActivity\":1,\"mail\":\"qa@example.test\",\"phone\":\"+0000000\",\"userName\":\"qa.reg\",\"password\":\"synthetic-pass\",\"bankAccountIban\":\"GE00TEST\",\"bankAccountName\":\"Synthetic\",\"bankName\":\"Test Bank\"}"
+  },
+  {
+   "id": "register@360: success toast and switch back to login mode",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dashboard@360: unauthenticated /dashboard redirects to /login (existing behaviour)",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/login"
+  },
+  {
+   "id": "wildcard@360: unknown route redirects to /",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/"
+  },
+  {
+   "id": "dash@360: login POST then GetById then Request/GetAll CompanyId=1&status=0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: content max width <=1120px",
+   "ok": true,
+   "detail": "{\"w\":360,\"l\":0,\"padL\":16,\"mw\":\"1120px\",\"panelRadius\":\"16px\",\"panelBg\":\"rgb(255, 255, 255)\",\"panelPad\":\"16px\",\"tableWrapOverflow\":\"auto\"}"
+  },
+  {
+   "id": "dash@360: gutter 16px (<768) / 24px (>=768)",
+   "ok": true,
+   "detail": "{\"w\":360,\"l\":0,\"padL\":16,\"mw\":\"1120px\",\"panelRadius\":\"16px\",\"panelBg\":\"rgb(255, 255, 255)\",\"panelPad\":\"16px\",\"tableWrapOverflow\":\"auto\"}"
+  },
+  {
+   "id": "dash@360: panel radius 16 or 12, white surface",
+   "ok": true,
+   "detail": "16px rgb(255, 255, 255)"
+  },
+  {
+   "id": "dash@360: table wrapper is overflow-x auto",
+   "ok": true,
+   "detail": "auto"
+  },
+  {
+   "id": "dash@360: Add button solid blue + white text",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "dash@360: Add button hover #1D4ED8",
+   "ok": true,
+   "detail": "rgb(29, 78, 216)"
+  },
+  {
+   "id": "dash@360: status badge shows text label \"Active\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: requests table scrolls only inside .table-wrap (table wider than wrapper allowed)",
+   "ok": true,
+   "detail": "{\"tw\":749,\"ww\":292}"
+  },
+  {
+   "id": "dash@360: selected row has blue-50 tint (#EAF1FF)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)|rgb(234, 241, 255)|none"
+  },
+  {
+   "id": "dash@360: selecting Created row enables View/Edit/Delete",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: selecting Authorised row disables Edit/Delete (business rule)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: disabled button: opacity ~.55 and not-allowed cursor",
+   "ok": true,
+   "detail": "{\"o\":\"0.55\",\"c\":\"not-allowed\"}"
+  },
+  {
+   "id": "dash@360: Authorize POSTs requestId=1&rowVersion=11 with no body",
+   "ok": true,
+   "detail": "{\"method\":\"POST\",\"path\":\"Request/Authorize\",\"query\":{\"requestId\":\"1\",\"rowVersion\":\"11\"},\"body\":null}"
+  },
+  {
+   "id": "dash@360: row 1 status becomes Authorised after Authorize",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: modal fully inside viewport",
+   "ok": true,
+   "detail": "[16,44.5,344,755.5]"
+  },
+  {
+   "id": "dash@360: modal radius 16, white, backdrop rgba(23,32,51,.5) no blur",
+   "ok": true,
+   "detail": "{\"r\":[16,44.5,344,755.5],\"radius\":\"16px\",\"bg\":\"rgb(255, 255, 255)\",\"bd\":\"rgba(23, 32, 51, 0.5)\",\"z\":\"400\",\"close\":[44,44],\"vw\":360,\"vh\":800,\"blur\":\"none\"}"
+  },
+  {
+   "id": "dash@360: modal close button >=44x44",
+   "ok": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "dash@360: request-add dialog: focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<select _ngcontent-ng-c3894350940=\"\" name=\"productId\" class=\"ng-untouched ng-pri"
+  },
+  {
+   "id": "dash@360: request-add dialog: Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@360: request-add dialog: Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: request-add dialog: background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@360: request-add dialog: wheel over backdrop does not scroll page (scrollY unchanged from open position)",
+   "ok": true,
+   "detail": "before=138 after=138"
+  },
+  {
+   "id": "dash@360: request-add dialog: Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: request-add dialog: focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON.primary"
+  },
+  {
+   "id": "dash@360: request-add dialog: body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: submit button disabled while request in flight",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: Escape does NOT close dialog while submitting (designer rule)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: Request/Create body {companyId:1, productId:3, serviceTokenCount:7}",
+   "ok": true,
+   "detail": "{\"companyId\":1,\"productId\":3,\"serviceTokenCount\":7}"
+  },
+  {
+   "id": "dash@360: invalid request add shows inline role=alert error",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: request edit dialog prefilled with productId and count",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: Request/Update?requestId=4&rowVersion=14",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<button _ngcontent-ng-c1279163833=\"\" class=\"btn btn--secondary\"> Cancel </button"
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): wheel over backdrop does not scroll page (scrollY unchanged from open position)",
+   "ok": true,
+   "detail": "before=568 after=568"
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON.danger"
+  },
+  {
+   "id": "dash@360: confirm dialog (request delete): body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: confirm dialog inside viewport",
+   "ok": true,
+   "detail": "[16,344,245.109375,554.890625]"
+  },
+  {
+   "id": "dash@360: confirm buttons >=44px high",
+   "ok": true,
+   "detail": "[44,44]"
+  },
+  {
+   "id": "dash@360: confirm Delete button is solid danger #B91C1C / white",
+   "ok": true,
+   "detail": "[{\"t\":\"Cancel\",\"bg\":\"rgb(255, 255, 255)\",\"color\":\"rgb(23, 32, 51)\",\"h\":44,\"w\":294},{\"t\":\"Delete\",\"bg\":\"rgb(185, 28, 28)\",\"color\":\"rgb(255, 255, 255)\",\"h\":44,\"w\":294}]"
+  },
+  {
+   "id": "dash@360: Request/Delete?requestId=4&rowVersion=14 on confirm",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: empty requests shows existing copy",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: failed load shows error toast with Retry action",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: Retry reloads and shows populated table",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: loading text visible while request in flight and Refresh disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: active tab has aria/visual state and Products shows only company 1 rows (4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: active tab uses blue-50 bg, blue-700 text, >=44px",
+   "ok": true,
+   "detail": "{\"bg\":\"rgb(234, 241, 255)\",\"color\":\"rgb(29, 78, 216)\",\"bb\":\"rgb(37, 99, 235) 2px\",\"h\":44,\"inactive\":\"rgb(89, 103, 121)\"}"
+  },
+  {
+   "id": "dash@360: zero price renders \"0\" (not hidden)",
+   "ok": true,
+   "detail": "[\"1250\",\"0\",\"49.9\",\"0.01\"]"
+  },
+  {
+   "id": "dash@360: price column right-aligned or tabular-nums (aligned price numbers, brief)",
+   "ok": true,
+   "detail": "{\"ta\":\"right\",\"fv\":\"tabular-nums\",\"th\":\"right\"}"
+  },
+  {
+   "id": "dash@360: product view pictogram stays inside modal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: product without pictogram shows \"No pictogram uploaded.\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: zero price displays in product details",
+   "ok": true,
+   "detail": "Id 2 Product Free Consultation Service Count 1 Price 0 Term - Schedule Type None"
+  },
+  {
+   "id": "dash@360: search sends skip=0&take=200&search=whit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: Load more sends skip=200",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: product add Create disabled while form invalid",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: touched invalid fields show validation text + danger styling",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: validation error uses danger color",
+   "ok": true,
+   "detail": "{\"c\":\"rgb(185, 28, 28)\",\"bg\":\"rgba(0, 0, 0, 0)\"}"
+  },
+  {
+   "id": "dash@360: Product/Create body has name, serviceCount 3, price 19.5, companyId 1",
+   "ok": true,
+   "detail": "{\"id\":0,\"companyId\":1,\"name\":\"QA Synthetic Product\",\"serviceCount\":3,\"price\":19.5,\"term\":null,\"scheduleType\":{\"periodType\":0,\"periodNumber\":null}}"
+  },
+  {
+   "id": "dash@360: product edit prefilled and existing pictogram helper shown",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: empty products copy",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: Product/Delete?productId=3",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: users table filtered to company 1 (2 rows)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: user view GET GetUserByName/<encoded name>",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: long user name does not overflow modal",
+   "ok": true,
+   "detail": "{\"r\":314,\"m\":344}"
+  },
+  {
+   "id": "dash@360: user add with empty fields shows \"User name is required.\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: INFO password input type=text (pre-existing, out of redesign scope)",
+   "ok": true,
+   "detail": "known"
+  },
+  {
+   "id": "dash@360: CreateUser body userType 1, companyId 1, userName set",
+   "ok": true,
+   "detail": "{\"userType\":1,\"companyId\":1,\"userName\":\"qa.new.user\",\"password\":\"***\"}"
+  },
+  {
+   "id": "dash@360: user edit: user name read-only with helper text",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: DeleteUser userName query + companyId body",
+   "ok": true,
+   "detail": "{\"method\":\"DELETE\",\"path\":\"Company/DeleteUser\",\"query\":{\"userName\":\"admin.aurora\"},\"body\":1}"
+  },
+  {
+   "id": "dash@360: company view shows legal form NAME resolved from domain lookup",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: company grid: 2 cols >=640 viewport else 1",
+   "ok": true,
+   "detail": "{\"cols\":1,\"mw\":328,\"vw\":360,\"sh\":1108,\"ch\":766,\"vh\":800}"
+  },
+  {
+   "id": "dash@360: company-edit dialog: focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<input _ngcontent-ng-c3894350940=\"\" type=\"text\" name=\"cName\" required=\"\" class=\""
+  },
+  {
+   "id": "dash@360: company-edit dialog: Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@360: company-edit dialog: Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: company-edit dialog: background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@360: company-edit dialog: wheel over backdrop does not scroll page (scrollY unchanged from open position)",
+   "ok": true,
+   "detail": "before=132 after=132"
+  },
+  {
+   "id": "dash@360: company-edit dialog: Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: company-edit dialog: focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON."
+  },
+  {
+   "id": "dash@360: company-edit dialog: body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@360: company edit Save button reachable within viewport (scrolls inside modal)",
+   "ok": true,
+   "detail": "{\"b\":767,\"vh\":800,\"t\":723}"
+  },
+  {
+   "id": "dash@360: Company/update?companyId=1&rowVersion=7 with flat bank fields + new name",
+   "ok": true,
+   "detail": "{\"q\":{\"companyId\":\"1\",\"rowVersion\":\"7\"},\"n\":\"Aurora Dental Studio LLC (QA)\"}"
+  },
+  {
+   "id": "dash@360: every dashboard Tab stop shows a focus indicator",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "dash@360: touch media: (pointer: coarse) emulation state",
+   "ok": true,
+   "detail": "coarse=false"
+  },
+  {
+   "id": "home@768: body bg #F4F7FB",
+   "ok": true,
+   "detail": "rgb(244, 247, 251)"
+  },
+  {
+   "id": "home@768: body text #172033",
+   "ok": true,
+   "detail": "rgb(23, 32, 51)"
+  },
+  {
+   "id": "home@768: font stack Inter/system sans",
+   "ok": true,
+   "detail": "Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+  },
+  {
+   "id": "home@768: FAQ item expands (aria-expanded true + answer visible)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "home@768: hero primary solid blue bg, white text",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "home@768: hero primary hover #1D4ED8",
+   "ok": true,
+   "detail": "rgb(29, 78, 216)"
+  },
+  {
+   "id": "home@768: Register CTA navigates to /login?mode=register and shows registration",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@768: card fits viewport with >=16px gutters",
+   "ok": true,
+   "detail": "{\"l\":174,\"r\":174,\"w\":420,\"radius\":\"16px\",\"bg\":\"rgb(255, 255, 255)\"}"
+  },
+  {
+   "id": "login@768: auth card radius 12 or 16",
+   "ok": true,
+   "detail": "16px"
+  },
+  {
+   "id": "login@768: Login button solid blue",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "login@768: Login button >=44px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@768: every Tab stop has a visible focus indicator",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login@768: blue (token) focus ring on tab stops",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login@768: failed login shows error toast with API text and stays on /login",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/login"
+  },
+  {
+   "id": "login@768: login POST body {userName,password}",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@768: toast inside viewport",
+   "ok": true,
+   "detail": "{\"x\":410.328125,\"y\":24,\"width\":333.671875,\"height\":70,\"top\":24,\"right\":744,\"bottom\":94,\"left\":410.328125}"
+  },
+  {
+   "id": "register@768: POST Company/create body has legalForm 2, economicActivity 1, flat bank fields",
+   "ok": true,
+   "detail": "{\"name\":\"Synthetic Test LLC\",\"taxCode\":\"000000000\",\"address\":\"1 Test Street\",\"legalForm\":2,\"economicActivity\":1,\"mail\":\"qa@example.test\",\"phone\":\"+0000000\",\"userName\":\"qa.reg\",\"password\":\"synthetic-pass\",\"bankAccountIban\":\"GE00TEST\",\"bankAccountName\":\"Synthetic\",\"bankName\":\"Test Bank\"}"
+  },
+  {
+   "id": "register@768: success toast and switch back to login mode",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dashboard@768: unauthenticated /dashboard redirects to /login (existing behaviour)",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/login"
+  },
+  {
+   "id": "wildcard@768: unknown route redirects to /",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/"
+  },
+  {
+   "id": "dash@768: login POST then GetById then Request/GetAll CompanyId=1&status=0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: content max width <=1120px",
+   "ok": true,
+   "detail": "{\"w\":768,\"l\":0,\"padL\":24,\"mw\":\"1120px\",\"panelRadius\":\"16px\",\"panelBg\":\"rgb(255, 255, 255)\",\"panelPad\":\"24px\",\"tableWrapOverflow\":\"auto\"}"
+  },
+  {
+   "id": "dash@768: gutter 16px (<768) / 24px (>=768)",
+   "ok": true,
+   "detail": "{\"w\":768,\"l\":0,\"padL\":24,\"mw\":\"1120px\",\"panelRadius\":\"16px\",\"panelBg\":\"rgb(255, 255, 255)\",\"panelPad\":\"24px\",\"tableWrapOverflow\":\"auto\"}"
+  },
+  {
+   "id": "dash@768: panel radius 16 or 12, white surface",
+   "ok": true,
+   "detail": "16px rgb(255, 255, 255)"
+  },
+  {
+   "id": "dash@768: table wrapper is overflow-x auto",
+   "ok": true,
+   "detail": "auto"
+  },
+  {
+   "id": "dash@768: Add button solid blue + white text",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "dash@768: Add button hover #1D4ED8",
+   "ok": true,
+   "detail": "rgb(29, 78, 216)"
+  },
+  {
+   "id": "dash@768: status badge shows text label \"Active\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: requests table scrolls only inside .table-wrap (table wider than wrapper allowed)",
+   "ok": true,
+   "detail": "{\"tw\":749,\"ww\":668}"
+  },
+  {
+   "id": "dash@768: selected row has blue-50 tint (#EAF1FF)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)|rgb(234, 241, 255)|none"
+  },
+  {
+   "id": "dash@768: selecting Created row enables View/Edit/Delete",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: selecting Authorised row disables Edit/Delete (business rule)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: disabled button: opacity ~.55 and not-allowed cursor",
+   "ok": true,
+   "detail": "{\"o\":\"0.55\",\"c\":\"not-allowed\"}"
+  },
+  {
+   "id": "dash@768: Authorize POSTs requestId=1&rowVersion=11 with no body",
+   "ok": true,
+   "detail": "{\"method\":\"POST\",\"path\":\"Request/Authorize\",\"query\":{\"requestId\":\"1\",\"rowVersion\":\"11\"},\"body\":null}"
+  },
+  {
+   "id": "dash@768: row 1 status becomes Authorised after Authorize",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: modal fully inside viewport",
+   "ok": true,
+   "detail": "[84,232.5,684,791.5]"
+  },
+  {
+   "id": "dash@768: modal radius 16, white, backdrop rgba(23,32,51,.5) no blur",
+   "ok": true,
+   "detail": "{\"r\":[84,232.5,684,791.5],\"radius\":\"16px\",\"bg\":\"rgb(255, 255, 255)\",\"bd\":\"rgba(23, 32, 51, 0.5)\",\"z\":\"400\",\"close\":[44,44],\"vw\":768,\"vh\":1024,\"blur\":\"none\"}"
+  },
+  {
+   "id": "dash@768: modal close button >=44x44",
+   "ok": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "dash@768: request-add dialog: focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<select _ngcontent-ng-c3894350940=\"\" name=\"productId\" class=\"ng-untouched ng-pri"
+  },
+  {
+   "id": "dash@768: request-add dialog: Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@768: request-add dialog: Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: request-add dialog: background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@768: request-add dialog: wheel over backdrop does not scroll page (scrollY unchanged from open position)",
+   "ok": true,
+   "detail": "before=0 after=0"
+  },
+  {
+   "id": "dash@768: request-add dialog: Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: request-add dialog: focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON.primary"
+  },
+  {
+   "id": "dash@768: request-add dialog: body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: submit button disabled while request in flight",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: Escape does NOT close dialog while submitting (designer rule)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: Request/Create body {companyId:1, productId:3, serviceTokenCount:7}",
+   "ok": true,
+   "detail": "{\"companyId\":1,\"productId\":3,\"serviceTokenCount\":7}"
+  },
+  {
+   "id": "dash@768: invalid request add shows inline role=alert error",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: request edit dialog prefilled with productId and count",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: Request/Update?requestId=4&rowVersion=14",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<button _ngcontent-ng-c1279163833=\"\" class=\"btn btn--secondary\"> Cancel </button"
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): wheel over backdrop does not scroll page (scrollY unchanged from open position)",
+   "ok": true,
+   "detail": "before=0 after=0"
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON.danger"
+  },
+  {
+   "id": "dash@768: confirm dialog (request delete): body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: confirm dialog inside viewport",
+   "ok": true,
+   "detail": "[184,584,377.109375,646.890625]"
+  },
+  {
+   "id": "dash@768: confirm buttons >=44px high",
+   "ok": true,
+   "detail": "[44,44]"
+  },
+  {
+   "id": "dash@768: confirm Delete button is solid danger #B91C1C / white",
+   "ok": true,
+   "detail": "[{\"t\":\"Cancel\",\"bg\":\"rgb(255, 255, 255)\",\"color\":\"rgb(23, 32, 51)\",\"h\":44,\"w\":100},{\"t\":\"Delete\",\"bg\":\"rgb(185, 28, 28)\",\"color\":\"rgb(255, 255, 255)\",\"h\":44,\"w\":100}]"
+  },
+  {
+   "id": "dash@768: Request/Delete?requestId=4&rowVersion=14 on confirm",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: empty requests shows existing copy",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: failed load shows error toast with Retry action",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: Retry reloads and shows populated table",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: loading text visible while request in flight and Refresh disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: active tab has aria/visual state and Products shows only company 1 rows (4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: active tab uses blue-50 bg, blue-700 text, >=44px",
+   "ok": true,
+   "detail": "{\"bg\":\"rgb(234, 241, 255)\",\"color\":\"rgb(29, 78, 216)\",\"bb\":\"rgb(37, 99, 235) 2px\",\"h\":44,\"inactive\":\"rgb(89, 103, 121)\"}"
+  },
+  {
+   "id": "dash@768: zero price renders \"0\" (not hidden)",
+   "ok": true,
+   "detail": "[\"1250\",\"0\",\"49.9\",\"0.01\"]"
+  },
+  {
+   "id": "dash@768: price column right-aligned or tabular-nums (aligned price numbers, brief)",
+   "ok": true,
+   "detail": "{\"ta\":\"right\",\"fv\":\"tabular-nums\",\"th\":\"right\"}"
+  },
+  {
+   "id": "dash@768: product view pictogram stays inside modal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: product without pictogram shows \"No pictogram uploaded.\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: zero price displays in product details",
+   "ok": true,
+   "detail": "Id 2 Product Free Consultation Service Count 1 Price 0 Term - Schedule Type None"
+  },
+  {
+   "id": "dash@768: search sends skip=0&take=200&search=whit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: Load more sends skip=200",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: product add Create disabled while form invalid",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: touched invalid fields show validation text + danger styling",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: validation error uses danger color",
+   "ok": true,
+   "detail": "{\"c\":\"rgb(185, 28, 28)\",\"bg\":\"rgba(0, 0, 0, 0)\"}"
+  },
+  {
+   "id": "dash@768: Product/Create body has name, serviceCount 3, price 19.5, companyId 1",
+   "ok": true,
+   "detail": "{\"id\":0,\"companyId\":1,\"name\":\"QA Synthetic Product\",\"serviceCount\":3,\"price\":19.5,\"term\":null,\"scheduleType\":{\"periodType\":0,\"periodNumber\":null}}"
+  },
+  {
+   "id": "dash@768: product edit prefilled and existing pictogram helper shown",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: empty products copy",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: Product/Delete?productId=3",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: users table filtered to company 1 (2 rows)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: user view GET GetUserByName/<encoded name>",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: long user name does not overflow modal",
+   "ok": true,
+   "detail": "{\"r\":646,\"m\":684}"
+  },
+  {
+   "id": "dash@768: user add with empty fields shows \"User name is required.\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: INFO password input type=text (pre-existing, out of redesign scope)",
+   "ok": true,
+   "detail": "known"
+  },
+  {
+   "id": "dash@768: CreateUser body userType 1, companyId 1, userName set",
+   "ok": true,
+   "detail": "{\"userType\":1,\"companyId\":1,\"userName\":\"qa.new.user\",\"password\":\"***\"}"
+  },
+  {
+   "id": "dash@768: user edit: user name read-only with helper text",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: DeleteUser userName query + companyId body",
+   "ok": true,
+   "detail": "{\"method\":\"DELETE\",\"path\":\"Company/DeleteUser\",\"query\":{\"userName\":\"admin.aurora\"},\"body\":1}"
+  },
+  {
+   "id": "dash@768: company view shows legal form NAME resolved from domain lookup",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: company grid: 2 cols >=640 viewport else 1",
+   "ok": true,
+   "detail": "{\"cols\":2,\"mw\":680,\"vw\":768,\"sh\":776,\"ch\":776,\"vh\":1024}"
+  },
+  {
+   "id": "dash@768: company-edit dialog: focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<input _ngcontent-ng-c3894350940=\"\" type=\"text\" name=\"cName\" required=\"\" class=\""
+  },
+  {
+   "id": "dash@768: company-edit dialog: Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@768: company-edit dialog: Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: company-edit dialog: background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@768: company-edit dialog: Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: company-edit dialog: focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON."
+  },
+  {
+   "id": "dash@768: company-edit dialog: body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@768: company edit Save button reachable within viewport (scrolls inside modal)",
+   "ok": true,
+   "detail": "{\"b\":876,\"vh\":1024,\"t\":832}"
+  },
+  {
+   "id": "dash@768: Company/update?companyId=1&rowVersion=7 with flat bank fields + new name",
+   "ok": true,
+   "detail": "{\"q\":{\"companyId\":\"1\",\"rowVersion\":\"7\"},\"n\":\"Aurora Dental Studio LLC (QA)\"}"
+  },
+  {
+   "id": "dash@768: every dashboard Tab stop shows a focus indicator",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "dash@768: touch media: (pointer: coarse) emulation state",
+   "ok": true,
+   "detail": "coarse=false"
+  },
+  {
+   "id": "home@1440: body bg #F4F7FB",
+   "ok": true,
+   "detail": "rgb(244, 247, 251)"
+  },
+  {
+   "id": "home@1440: body text #172033",
+   "ok": true,
+   "detail": "rgb(23, 32, 51)"
+  },
+  {
+   "id": "home@1440: font stack Inter/system sans",
+   "ok": true,
+   "detail": "Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+  },
+  {
+   "id": "home@1440: FAQ item expands (aria-expanded true + answer visible)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "home@1440: hero primary solid blue bg, white text",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "home@1440: hero primary hover #1D4ED8",
+   "ok": true,
+   "detail": "rgb(29, 78, 216)"
+  },
+  {
+   "id": "home@1440: Register CTA navigates to /login?mode=register and shows registration",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@1440: card fits viewport with >=16px gutters",
+   "ok": true,
+   "detail": "{\"l\":510,\"r\":510,\"w\":420,\"radius\":\"16px\",\"bg\":\"rgb(255, 255, 255)\"}"
+  },
+  {
+   "id": "login@1440: auth card radius 12 or 16",
+   "ok": true,
+   "detail": "16px"
+  },
+  {
+   "id": "login@1440: Login button solid blue",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "login@1440: Login button >=44px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@1440: every Tab stop has a visible focus indicator",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login@1440: blue (token) focus ring on tab stops",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login@1440: failed login shows error toast with API text and stays on /login",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/login"
+  },
+  {
+   "id": "login@1440: login POST body {userName,password}",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "login@1440: toast inside viewport",
+   "ok": true,
+   "detail": "{\"x\":1082.328125,\"y\":24,\"width\":333.671875,\"height\":70,\"top\":24,\"right\":1416,\"bottom\":94,\"left\":1082.328125}"
+  },
+  {
+   "id": "register@1440: POST Company/create body has legalForm 2, economicActivity 1, flat bank fields",
+   "ok": true,
+   "detail": "{\"name\":\"Synthetic Test LLC\",\"taxCode\":\"000000000\",\"address\":\"1 Test Street\",\"legalForm\":2,\"economicActivity\":1,\"mail\":\"qa@example.test\",\"phone\":\"+0000000\",\"userName\":\"qa.reg\",\"password\":\"synthetic-pass\",\"bankAccountIban\":\"GE00TEST\",\"bankAccountName\":\"Synthetic\",\"bankName\":\"Test Bank\"}"
+  },
+  {
+   "id": "register@1440: success toast and switch back to login mode",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dashboard@1440: unauthenticated /dashboard redirects to /login (existing behaviour)",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/login"
+  },
+  {
+   "id": "wildcard@1440: unknown route redirects to /",
+   "ok": true,
+   "detail": "http://127.0.0.1:4322/"
+  },
+  {
+   "id": "dash@1440: login POST then GetById then Request/GetAll CompanyId=1&status=0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: content max width <=1120px",
+   "ok": true,
+   "detail": "{\"w\":1120,\"l\":160,\"padL\":24,\"mw\":\"1120px\",\"panelRadius\":\"16px\",\"panelBg\":\"rgb(255, 255, 255)\",\"panelPad\":\"24px\",\"tableWrapOverflow\":\"auto\"}"
+  },
+  {
+   "id": "dash@1440: gutter 16px (<768) / 24px (>=768)",
+   "ok": true,
+   "detail": "{\"w\":1120,\"l\":160,\"padL\":24,\"mw\":\"1120px\",\"panelRadius\":\"16px\",\"panelBg\":\"rgb(255, 255, 255)\",\"panelPad\":\"24px\",\"tableWrapOverflow\":\"auto\"}"
+  },
+  {
+   "id": "dash@1440: panel radius 16 or 12, white surface",
+   "ok": true,
+   "detail": "16px rgb(255, 255, 255)"
+  },
+  {
+   "id": "dash@1440: table wrapper is overflow-x auto",
+   "ok": true,
+   "detail": "auto"
+  },
+  {
+   "id": "dash@1440: Add button solid blue + white text",
+   "ok": true,
+   "detail": "rgb(37, 99, 235)"
+  },
+  {
+   "id": "dash@1440: Add button hover #1D4ED8",
+   "ok": true,
+   "detail": "rgb(29, 78, 216)"
+  },
+  {
+   "id": "dash@1440: status badge shows text label \"Active\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: selected row has blue-50 tint (#EAF1FF)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)|rgb(234, 241, 255)|none"
+  },
+  {
+   "id": "dash@1440: selecting Created row enables View/Edit/Delete",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: selecting Authorised row disables Edit/Delete (business rule)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: disabled button: opacity ~.55 and not-allowed cursor",
+   "ok": true,
+   "detail": "{\"o\":\"0.55\",\"c\":\"not-allowed\"}"
+  },
+  {
+   "id": "dash@1440: Authorize POSTs requestId=1&rowVersion=11 with no body",
+   "ok": true,
+   "detail": "{\"method\":\"POST\",\"path\":\"Request/Authorize\",\"query\":{\"requestId\":\"1\",\"rowVersion\":\"11\"},\"body\":null}"
+  },
+  {
+   "id": "dash@1440: row 1 status becomes Authorised after Authorize",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: modal fully inside viewport",
+   "ok": true,
+   "detail": "[420,220.5,1020,779.5]"
+  },
+  {
+   "id": "dash@1440: modal radius 16, white, backdrop rgba(23,32,51,.5) no blur",
+   "ok": true,
+   "detail": "{\"r\":[420,220.5,1020,779.5],\"radius\":\"16px\",\"bg\":\"rgb(255, 255, 255)\",\"bd\":\"rgba(23, 32, 51, 0.5)\",\"z\":\"400\",\"close\":[44,44],\"vw\":1440,\"vh\":1000,\"blur\":\"none\"}"
+  },
+  {
+   "id": "dash@1440: modal close button >=44x44",
+   "ok": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "dash@1440: request-add dialog: focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<select _ngcontent-ng-c3894350940=\"\" name=\"productId\" class=\"ng-untouched ng-pri"
+  },
+  {
+   "id": "dash@1440: request-add dialog: Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@1440: request-add dialog: Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: request-add dialog: background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@1440: request-add dialog: wheel over backdrop does not scroll page (scrollY unchanged from open position)",
+   "ok": true,
+   "detail": "before=0 after=0"
+  },
+  {
+   "id": "dash@1440: request-add dialog: Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: request-add dialog: focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON.primary"
+  },
+  {
+   "id": "dash@1440: request-add dialog: body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: submit button disabled while request in flight",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: Escape does NOT close dialog while submitting (designer rule)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: Request/Create body {companyId:1, productId:3, serviceTokenCount:7}",
+   "ok": true,
+   "detail": "{\"companyId\":1,\"productId\":3,\"serviceTokenCount\":7}"
+  },
+  {
+   "id": "dash@1440: invalid request add shows inline role=alert error",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: request edit dialog prefilled with productId and count",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: Request/Update?requestId=4&rowVersion=14",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<button _ngcontent-ng-c1279163833=\"\" class=\"btn btn--secondary\"> Cancel </button"
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): wheel over backdrop does not scroll page (scrollY unchanged from open position)",
+   "ok": true,
+   "detail": "before=0 after=0"
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON.danger"
+  },
+  {
+   "id": "dash@1440: confirm dialog (request delete): body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: confirm dialog inside viewport",
+   "ok": true,
+   "detail": "[520,920,365.109375,634.890625]"
+  },
+  {
+   "id": "dash@1440: confirm buttons >=44px high",
+   "ok": true,
+   "detail": "[44,44]"
+  },
+  {
+   "id": "dash@1440: confirm Delete button is solid danger #B91C1C / white",
+   "ok": true,
+   "detail": "[{\"t\":\"Cancel\",\"bg\":\"rgb(255, 255, 255)\",\"color\":\"rgb(23, 32, 51)\",\"h\":44,\"w\":100},{\"t\":\"Delete\",\"bg\":\"rgb(185, 28, 28)\",\"color\":\"rgb(255, 255, 255)\",\"h\":44,\"w\":100}]"
+  },
+  {
+   "id": "dash@1440: Request/Delete?requestId=4&rowVersion=14 on confirm",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: empty requests shows existing copy",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: failed load shows error toast with Retry action",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: Retry reloads and shows populated table",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: loading text visible while request in flight and Refresh disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: active tab has aria/visual state and Products shows only company 1 rows (4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: active tab uses blue-50 bg, blue-700 text, >=44px",
+   "ok": true,
+   "detail": "{\"bg\":\"rgb(234, 241, 255)\",\"color\":\"rgb(29, 78, 216)\",\"bb\":\"rgb(37, 99, 235) 2px\",\"h\":44,\"inactive\":\"rgb(89, 103, 121)\"}"
+  },
+  {
+   "id": "dash@1440: zero price renders \"0\" (not hidden)",
+   "ok": true,
+   "detail": "[\"1250\",\"0\",\"49.9\",\"0.01\"]"
+  },
+  {
+   "id": "dash@1440: price column right-aligned or tabular-nums (aligned price numbers, brief)",
+   "ok": true,
+   "detail": "{\"ta\":\"right\",\"fv\":\"tabular-nums\",\"th\":\"right\"}"
+  },
+  {
+   "id": "dash@1440: product view pictogram stays inside modal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: product without pictogram shows \"No pictogram uploaded.\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: zero price displays in product details",
+   "ok": true,
+   "detail": "Id 2 Product Free Consultation Service Count 1 Price 0 Term - Schedule Type None"
+  },
+  {
+   "id": "dash@1440: search sends skip=0&take=200&search=whit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: Load more sends skip=200",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: product add Create disabled while form invalid",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: touched invalid fields show validation text + danger styling",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: validation error uses danger color",
+   "ok": true,
+   "detail": "{\"c\":\"rgb(185, 28, 28)\",\"bg\":\"rgba(0, 0, 0, 0)\"}"
+  },
+  {
+   "id": "dash@1440: Product/Create body has name, serviceCount 3, price 19.5, companyId 1",
+   "ok": true,
+   "detail": "{\"id\":0,\"companyId\":1,\"name\":\"QA Synthetic Product\",\"serviceCount\":3,\"price\":19.5,\"term\":null,\"scheduleType\":{\"periodType\":0,\"periodNumber\":null}}"
+  },
+  {
+   "id": "dash@1440: product edit prefilled and existing pictogram helper shown",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: empty products copy",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: Product/Delete?productId=3",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: users table filtered to company 1 (2 rows)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: user view GET GetUserByName/<encoded name>",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: long user name does not overflow modal",
+   "ok": true,
+   "detail": "{\"r\":982,\"m\":1020}"
+  },
+  {
+   "id": "dash@1440: user add with empty fields shows \"User name is required.\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: INFO password input type=text (pre-existing, out of redesign scope)",
+   "ok": true,
+   "detail": "known"
+  },
+  {
+   "id": "dash@1440: CreateUser body userType 1, companyId 1, userName set",
+   "ok": true,
+   "detail": "{\"userType\":1,\"companyId\":1,\"userName\":\"qa.new.user\",\"password\":\"***\"}"
+  },
+  {
+   "id": "dash@1440: user edit: user name read-only with helper text",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: DeleteUser userName query + companyId body",
+   "ok": true,
+   "detail": "{\"method\":\"DELETE\",\"path\":\"Company/DeleteUser\",\"query\":{\"userName\":\"admin.aurora\"},\"body\":1}"
+  },
+  {
+   "id": "dash@1440: company view shows legal form NAME resolved from domain lookup",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: company grid: 2 cols >=640 viewport else 1",
+   "ok": true,
+   "detail": "{\"cols\":2,\"mw\":680,\"vw\":1440,\"sh\":776,\"ch\":776,\"vh\":1000}"
+  },
+  {
+   "id": "dash@1440: company-edit dialog: focus moves inside dialog on open",
+   "ok": true,
+   "detail": "<input _ngcontent-ng-c3894350940=\"\" type=\"text\" name=\"cName\" required=\"\" class=\""
+  },
+  {
+   "id": "dash@1440: company-edit dialog: Tab keeps focus inside (12 presses)",
+   "ok": true,
+   "detail": "111111111111"
+  },
+  {
+   "id": "dash@1440: company-edit dialog: Shift+Tab keeps focus inside",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: company-edit dialog: background scroll locked while open",
+   "ok": true,
+   "detail": "body/html overflow not hidden"
+  },
+  {
+   "id": "dash@1440: company-edit dialog: Escape closes dialog (focus wherever user is)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: company-edit dialog: focus returns to trigger on close",
+   "ok": true,
+   "detail": "BUTTON."
+  },
+  {
+   "id": "dash@1440: company-edit dialog: body scroll restored after close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "dash@1440: company edit Save button reachable within viewport (scrolls inside modal)",
+   "ok": true,
+   "detail": "{\"b\":864,\"vh\":1000,\"t\":820}"
+  },
+  {
+   "id": "dash@1440: Company/update?companyId=1&rowVersion=7 with flat bank fields + new name",
+   "ok": true,
+   "detail": "{\"q\":{\"companyId\":\"1\",\"rowVersion\":\"7\"},\"n\":\"Aurora Dental Studio LLC (QA)\"}"
+  },
+  {
+   "id": "dash@1440: every dashboard Tab stop shows a focus indicator",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "id": "dash@1440: touch media: (pointer: coarse) emulation state",
+   "ok": true,
+   "detail": "coarse=false"
+  },
+  {
+   "id": "extra@360: backdrop click closes idle dialog",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@360: focus returns to View button after backdrop close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@360: body scroll restored after backdrop close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@360: backdrop click does NOT close dialog while submitting",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@360: close x and Cancel disabled while submitting",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@360: exactly one Request/Create POST despite repeated submit attempts",
+   "ok": true,
+   "detail": "1"
+  },
+  {
+   "id": "extra@360: dialog closes and scroll lock released after submit resolves",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@360: empty-body 500 shows readable non-empty error toast",
+   "ok": true,
+   "detail": "\"Something went wrong. Please try again.\""
+  },
+  {
+   "id": "extra@360: dialog stays open after failed create and controls re-enabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@360: Escape closes dialog after failure (not stuck in submitting)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: backdrop click closes idle dialog",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: focus returns to View button after backdrop close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: body scroll restored after backdrop close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: backdrop click does NOT close dialog while submitting",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: close x and Cancel disabled while submitting",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: exactly one Request/Create POST despite repeated submit attempts",
+   "ok": true,
+   "detail": "1"
+  },
+  {
+   "id": "extra@768: dialog closes and scroll lock released after submit resolves",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: empty-body 500 shows readable non-empty error toast",
+   "ok": true,
+   "detail": "\"Something went wrong. Please try again.\""
+  },
+  {
+   "id": "extra@768: dialog stays open after failed create and controls re-enabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@768: Escape closes dialog after failure (not stuck in submitting)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: backdrop click closes idle dialog",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: focus returns to View button after backdrop close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: body scroll restored after backdrop close",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: backdrop click does NOT close dialog while submitting",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: close x and Cancel disabled while submitting",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: exactly one Request/Create POST despite repeated submit attempts",
+   "ok": true,
+   "detail": "1"
+  },
+  {
+   "id": "extra@1440: dialog closes and scroll lock released after submit resolves",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: empty-body 500 shows readable non-empty error toast",
+   "ok": true,
+   "detail": "\"Something went wrong. Please try again.\""
+  },
+  {
+   "id": "extra@1440: dialog stays open after failed create and controls re-enabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "extra@1440: Escape closes dialog after failure (not stuck in submitting)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "no remote request escaped (all non-local requests aborted/mocked)",
+   "ok": true,
+   "detail": "blocked=42"
+  },
+  {
+   "id": "no unmocked API endpoint hit",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "audits": {
+  "overflow": [],
+  "clipped": [],
+  "touch": [],
+  "contrast": [],
+  "brand": [
+   {
+    "sig": "green color rgb(22,101,52) on span.token__icon\"✓\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "home/default",
+     "home/faq-open"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.token__icon\"✓\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "home/default",
+     "home/faq-open"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Registration successful!\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "login-register/success-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.toast__icon",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.toast__icon",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on svg",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on path",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.value.badge-active\"Active\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-requests/populated",
+     "dashboard-requests/row-selected",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-view/dialog",
+     "dashboard-request-add/dialog",
+     "dashboard-request-add/submitting",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-products/populated",
+     "dashboard-product-view/dialog",
+     "dashboard-product-view/no-pictogram-zero-price",
+     "dashboard-product-add/validation-errors",
+     "dashboard-product-add/valid-form",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast",
+     "dashboard-requests/keyboard-focus",
+     "dashboard-request-add/empty-500-toast"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.value.badge-active\"Active\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-requests/populated",
+     "dashboard-requests/row-selected",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-view/dialog",
+     "dashboard-request-add/dialog",
+     "dashboard-request-add/submitting",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-products/populated",
+     "dashboard-product-view/dialog",
+     "dashboard-product-view/no-pictogram-zero-price",
+     "dashboard-product-add/validation-errors",
+     "dashboard-product-add/valid-form",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast",
+     "dashboard-requests/keyboard-focus",
+     "dashboard-request-add/empty-500-toast"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request authorized.\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-requests/authorized-toast"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request created successf\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request updated successf\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-confirm-delete/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request deleted successf\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Product created successf\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Product deleted successf\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"User created successfull\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-user-edit/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"User deleted successfull\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Company updated successf\"",
+    "kind": "green",
+    "w": 360,
+    "states": [
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.token__icon\"✓\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "home/default",
+     "home/faq-open"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.token__icon\"✓\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "home/default",
+     "home/faq-open"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Registration successful!\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "login-register/success-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.toast__icon",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.toast__icon",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on svg",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on path",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.value.badge-active\"Active\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-requests/populated",
+     "dashboard-requests/row-selected",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-view/dialog",
+     "dashboard-request-add/dialog",
+     "dashboard-request-add/submitting",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-products/populated",
+     "dashboard-product-view/dialog",
+     "dashboard-product-view/no-pictogram-zero-price",
+     "dashboard-product-add/validation-errors",
+     "dashboard-product-add/valid-form",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast",
+     "dashboard-requests/keyboard-focus",
+     "dashboard-request-add/empty-500-toast"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.value.badge-active\"Active\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-requests/populated",
+     "dashboard-requests/row-selected",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-view/dialog",
+     "dashboard-request-add/dialog",
+     "dashboard-request-add/submitting",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-products/populated",
+     "dashboard-product-view/dialog",
+     "dashboard-product-view/no-pictogram-zero-price",
+     "dashboard-product-add/validation-errors",
+     "dashboard-product-add/valid-form",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast",
+     "dashboard-requests/keyboard-focus",
+     "dashboard-request-add/empty-500-toast"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request authorized.\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-requests/authorized-toast"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request created successf\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request updated successf\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-confirm-delete/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request deleted successf\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Product created successf\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Product deleted successf\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"User created successfull\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"User deleted successfull\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Company updated successf\"",
+    "kind": "green",
+    "w": 768,
+    "states": [
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.token__icon\"✓\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "home/default",
+     "home/faq-open"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.token__icon\"✓\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "home/default",
+     "home/faq-open"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Registration successful!\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "login-register/success-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.toast__icon",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.toast__icon",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on svg",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on path",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "login-register/success-toast",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-requests/company-updated-toast"
+    ]
+   },
+   {
+    "sig": "green color rgb(22,101,52) on span.value.badge-active\"Active\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-requests/populated",
+     "dashboard-requests/row-selected",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-view/dialog",
+     "dashboard-request-add/dialog",
+     "dashboard-request-add/submitting",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-products/populated",
+     "dashboard-product-view/dialog",
+     "dashboard-product-view/no-pictogram-zero-price",
+     "dashboard-product-add/validation-errors",
+     "dashboard-product-add/valid-form",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast",
+     "dashboard-requests/keyboard-focus",
+     "dashboard-request-add/empty-500-toast"
+    ]
+   },
+   {
+    "sig": "green bg rgb(231,245,236) on span.value.badge-active\"Active\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-requests/populated",
+     "dashboard-requests/row-selected",
+     "dashboard-requests/authorized-toast",
+     "dashboard-request-view/dialog",
+     "dashboard-request-add/dialog",
+     "dashboard-request-add/submitting",
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog",
+     "dashboard-confirm-delete/dialog",
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading",
+     "dashboard-products/populated",
+     "dashboard-product-view/dialog",
+     "dashboard-product-view/no-pictogram-zero-price",
+     "dashboard-product-add/validation-errors",
+     "dashboard-product-add/valid-form",
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog",
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry",
+     "dashboard-company-view/dialog",
+     "dashboard-company-edit/dialog",
+     "dashboard-requests/company-updated-toast",
+     "dashboard-requests/keyboard-focus",
+     "dashboard-request-add/empty-500-toast"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request authorized.\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-requests/authorized-toast"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request created successf\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-request-add/validation-error",
+     "dashboard-request-edit/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request updated successf\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-confirm-delete/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Request deleted successf\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-requests/empty",
+     "dashboard-requests/error-toast-retry",
+     "dashboard-requests/loading"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Product created successf\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-product-edit/dialog",
+     "dashboard-products/empty",
+     "dashboard-products/error-toast-retry",
+     "dashboard-confirm-delete-product/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Product deleted successf\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-users/populated",
+     "dashboard-user-view/dialog-long-username",
+     "dashboard-user-add/validation-error",
+     "dashboard-user-edit/dialog"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"User created successfull\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-user-edit/dialog",
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"User deleted successfull\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-users/empty",
+     "dashboard-users/error-toast-retry"
+    ]
+   },
+   {
+    "sig": "green borderL rgb(22,101,52) on div.toast.toast--success\"Company updated successf\"",
+    "kind": "green",
+    "w": 1440,
+    "states": [
+     "dashboard-requests/company-updated-toast"
+    ]
+   }
+  ],
+  "names": [],
+  "gradients": [],
+  "placeholder": []
+ },
+ "consoleIssues": [
+  {
+   "w": 360,
+   "tag": "home",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "home"
+  },
+  {
+   "w": 360,
+   "tag": "home",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "home"
+  },
+  {
+   "w": 360,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "login"
+  },
+  {
+   "w": 360,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "login"
+  },
+  {
+   "w": 360,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+   "state": "login-error"
+  },
+  {
+   "w": 360,
+   "tag": "register",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "register"
+  },
+  {
+   "w": 360,
+   "tag": "register",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "register"
+  },
+  {
+   "w": 360,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 360,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 360,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 360,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "dash-requests"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "dash-requests"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-request-states"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-request-states"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "state": "dash-products"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-products"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-products"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-users"
+  },
+  {
+   "w": 360,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-users"
+  },
+  {
+   "w": 768,
+   "tag": "home",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "home"
+  },
+  {
+   "w": 768,
+   "tag": "home",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "home"
+  },
+  {
+   "w": 768,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "login"
+  },
+  {
+   "w": 768,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "login"
+  },
+  {
+   "w": 768,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+   "state": "login-error"
+  },
+  {
+   "w": 768,
+   "tag": "register",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "register"
+  },
+  {
+   "w": 768,
+   "tag": "register",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "register"
+  },
+  {
+   "w": 768,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 768,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 768,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 768,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "dash-requests"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "dash-requests"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-request-states"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-request-states"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "state": "dash-products"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-products"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-products"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-users"
+  },
+  {
+   "w": 768,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-users"
+  },
+  {
+   "w": 1440,
+   "tag": "home",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "home"
+  },
+  {
+   "w": 1440,
+   "tag": "home",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "home"
+  },
+  {
+   "w": 1440,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "login"
+  },
+  {
+   "w": 1440,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "login"
+  },
+  {
+   "w": 1440,
+   "tag": "login",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+   "state": "login-error"
+  },
+  {
+   "w": 1440,
+   "tag": "register",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "register"
+  },
+  {
+   "w": 1440,
+   "tag": "register",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "register"
+  },
+  {
+   "w": 1440,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 1440,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 1440,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 1440,
+   "tag": "redir",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "redirects"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "dash-requests"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "dash-requests"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-request-states"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-request-states"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "state": "dash-products"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-products"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-products"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "dash-users"
+  },
+  {
+   "w": 1440,
+   "tag": "dash",
+   "kind": "console",
+   "text": "da",
+   "state": "dash-users"
+  },
+  {
+   "w": 360,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "extra"
+  },
+  {
+   "w": 360,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "extra"
+  },
+  {
+   "w": 360,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "extra"
+  },
+  {
+   "w": 360,
+   "tag": "extra",
+   "kind": "console",
+   "text": "da",
+   "state": "extra"
+  },
+  {
+   "w": 768,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "extra"
+  },
+  {
+   "w": 768,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "extra"
+  },
+  {
+   "w": 768,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "extra"
+  },
+  {
+   "w": 768,
+   "tag": "extra",
+   "kind": "console",
+   "text": "da",
+   "state": "extra"
+  },
+  {
+   "w": 1440,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "extra"
+  },
+  {
+   "w": 1440,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+   "state": "extra"
+  },
+  {
+   "w": 1440,
+   "tag": "extra",
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "state": "extra"
+  },
+  {
+   "w": 1440,
+   "tag": "extra",
+   "kind": "console",
+   "text": "da",
+   "state": "extra"
+  }
+ ],
+ "blocked": [
+  "GET https://fonts.googleapis.com/css2"
+ ],
+ "unmocked": [],
+ "failedReq": [
+  "GET https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap net::ERR_BLOCKED_BY_CLIENT.Inspector"
+ ],
+ "unverified": [
+  "dash@768: company-edit dialog: wheel-scroll behaviour not exercised at 768px (page not scrollable); style check only",
+  "dash@1440: company-edit dialog: wheel-scroll behaviour not exercised at 1440px (page not scrollable); style check only",
+  "Scan overlay (ScanTokenComponent): not reachable. `<app-scan-token>` is not used by any template/route (grep of src), so scanner launch/cancel/error/retry/duplicate-POST/null-payload behaviour cannot be exercised in the real UI without editing app source. Not tested; see qa-report.md."
+ ]
+}

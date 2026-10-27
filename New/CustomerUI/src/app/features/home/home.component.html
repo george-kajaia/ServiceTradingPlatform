@@ -1,0 +1,224 @@
+<!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a class="navbar__brand" routerLink="/" aria-label="Service Tokens home">
+      <span class="navbar__logo-icon" aria-hidden="true">◈</span>
+      <span class="navbar__logo-text">ServiceTokens</span>
+    </a>
+
+    <div class="navbar__center">
+      <a class="navbar__link" href="#how-it-works">How It Works</a>
+      <a class="navbar__link" href="#value-proposition">Benefits</a>
+      <a class="navbar__link" href="#faq">FAQ</a>
+    </div>
+
+    <div class="navbar__auth">
+      <a class="btn btn--outline" routerLink="/login">Login</a>
+      <a class="btn btn--primary" routerLink="/login" [queryParams]="{mode: 'register'}">Register as Customer</a>
+    </div>
+  </div>
+</nav>
+
+
+
+<main>
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="top" aria-label="Hero">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__headline">Buy, Redeem, and Resell<br>Service Tokens</h1>
+        <p class="hero__subheadline">
+          Discover and purchase service tokens from companies on the platform.
+          Redeem them for services you need — or resell them anytime if your plans change.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" routerLink="/login" [queryParams]="{mode: 'register'}">Get Started as Customer</a>
+          <a class="hero__secondary-cta" href="#how-it-works">Learn How It Works ↓</a>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="token-graphic">
+          <div class="token token--1">
+            <span class="token__icon">🛒</span>
+            <span class="token__label">Buy</span>
+          </div>
+          <div class="token-arrow">→</div>
+          <div class="token token--2">
+            <span class="token__icon">◈</span>
+            <span class="token__label">Use</span>
+          </div>
+          <div class="token-arrow">→</div>
+          <div class="token token--3">
+            <span class="token__icon">✓</span>
+            <span class="token__label">ReSell</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FEATURED TOKENS ═══════════════════════════ -->
+  <section class="featured-tokens" id="featured-tokens" aria-labelledby="ft-heading">
+    <div class="section-inner">
+      <h2 class="section-title" id="ft-heading">Top Services to buy</h2>
+      <p class="section-subtitle">Browse tokens currently available on the primary market. Click any card to get started.</p>
+
+      <div *ngIf="featuredLoading" class="featured-tokens__loading">Loading tokens…</div>
+
+      <div class="featured-tokens__grid" *ngIf="!featuredLoading">
+        <div class="ft-card" *ngFor="let t of featuredTokens" (click)="onFeaturedCardClick(t)" role="button" tabindex="0"
+             (keydown.enter)="onFeaturedCardClick(t)" (keydown.space)="onFeaturedCardClick(t)">
+          <div class="ft-card__image">
+            <img *ngIf="pictogramSrc(t)" [src]="pictogramSrc(t)" alt="{{ t.productName }} pictogram" />
+            <div *ngIf="!pictogramSrc(t)" class="ft-card__image-placeholder">◈</div>
+          </div>
+          <div class="ft-card__body">
+            <div class="ft-card__company">{{ t.companyName }}</div>
+            <div class="ft-card__product">{{ t.productName }}</div>
+            <div class="ft-card__stats">
+              <span class="ft-card__stat"><span class="ft-card__stat-label">Remaining service count</span> {{ t.remainingCount }}</span>
+              <span class="ft-card__stat"><span class="ft-card__stat-label">Total service count</span> {{ t.serviceCount }}</span>
+              <span class="ft-card__stat"><span class="ft-card__stat-label">Schedule</span> {{ scheduleLabel(t) }}</span>
+            </div>
+          </div>
+          <div class="ft-card__footer">
+            <span class="ft-card__price" *ngIf="t.price">{{ t.price | currency }}</span>
+            <span class="ft-card__cta">Login to Buy →</span>
+          </div>
+        </div>
+
+        <div *ngIf="featuredTokens.length === 0" class="featured-tokens__empty">
+          No tokens currently available. Check back soon.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ HOW IT WORKS ═══════════════════════════ -->
+  <section class="how-it-works" id="how-it-works" aria-labelledby="hiw-heading">
+    <div class="section-inner">
+      <h2 class="section-title" id="hiw-heading">How It Works for Customers</h2>
+      <p class="section-subtitle">Three simple steps to start buying and using service tokens.</p>
+      <div class="hiw__steps">
+        <div class="hiw__step">
+          <div class="hiw__step-number" aria-hidden="true">1</div>
+          <div class="hiw__step-icon" aria-hidden="true">📋</div>
+          <h3 class="hiw__step-title">Register</h3>
+          <p class="hiw__step-desc">Create your customer account in minutes. No complex setup required.</p>
+        </div>
+        <div class="hiw__connector" aria-hidden="true"></div>
+        <div class="hiw__step">
+          <div class="hiw__step-number" aria-hidden="true">2</div>
+          <div class="hiw__step-icon" aria-hidden="true">🛒</div>
+          <h3 class="hiw__step-title">Browse & Buy</h3>
+          <p class="hiw__step-desc">Explore tokens issued by companies on the marketplace and purchase the ones that fit your needs.</p>
+        </div>
+        <div class="hiw__connector" aria-hidden="true"></div>
+        <div class="hiw__step">
+          <div class="hiw__step-number" aria-hidden="true">3</div>
+          <div class="hiw__step-icon" aria-hidden="true">✅</div>
+          <h3 class="hiw__step-title">Redeem or Resell</h3>
+          <p class="hiw__step-desc">Use your token to receive the service, or resell it to another buyer if your plans change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ VALUE PROPOSITION ═══════════════════════════ -->
+  <section class="value-prop" id="value-proposition" aria-labelledby="vp-heading">
+    <div class="section-inner">
+      <h2 class="section-title" id="vp-heading">Why Invest in Service Tokens?</h2>
+      <p class="section-subtitle">Flexible, digital, and fully in your control.</p>
+      <div class="vp__cards">
+        <div class="vp__card">
+          <div class="vp__card-icon" aria-hidden="true">🔄</div>
+          <h3 class="vp__card-title">Full Resale Flexibility</h3>
+          <p class="vp__card-desc">Changed your mind? Resell any token to another customer on the platform at any time.</p>
+        </div>
+        <div class="vp__card">
+          <div class="vp__card-icon" aria-hidden="true">🌐</div>
+          <h3 class="vp__card-title">Wide Marketplace</h3>
+          <p class="vp__card-desc">Browse tokens from service companies across multiple industries all in one place.</p>
+        </div>
+        <div class="vp__card">
+          <div class="vp__card-icon" aria-hidden="true">⚡</div>
+          <h3 class="vp__card-title">Instant Transactions</h3>
+          <p class="vp__card-desc">Buy and transfer tokens instantly — no waiting, no paperwork, no logistics.</p>
+        </div>
+        <div class="vp__card">
+          <div class="vp__card-icon" aria-hidden="true">🔒</div>
+          <h3 class="vp__card-title">Secure & Transparent</h3>
+          <p class="vp__card-desc">Every token transaction is tracked and secured on the platform with full transparency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ TRUST ═══════════════════════════ -->
+  <section class="trust" id="trust" aria-labelledby="trust-heading">
+    <div class="section-inner">
+      <h2 class="section-title" id="trust-heading">Built on Trust and Security</h2>
+      <p class="trust__mission">
+        Service Tokens is on a mission to give every customer a simple, secure, and
+        flexible way to buy, hold, and resell service tokens from companies they trust.
+      </p>
+      <div class="trust__badges">
+        <div class="trust__badge">
+          <span class="trust__badge-icon" aria-hidden="true">🔒</span>
+          <span class="trust__badge-text">Your data is encrypted and never shared with third parties</span>
+        </div>
+        <div class="trust__badge">
+          <span class="trust__badge-icon" aria-hidden="true">🛡</span>
+          <span class="trust__badge-text">TLS 1.2+ encryption on all connections</span>
+        </div>
+        <div class="trust__badge">
+          <span class="trust__badge-icon" aria-hidden="true">✓</span>
+          <span class="trust__badge-text">GDPR-compliant data handling</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
+  <section class="faq" id="faq" aria-labelledby="faq-heading">
+    <div class="section-inner">
+      <h2 class="section-title" id="faq-heading">Frequently Asked Questions</h2>
+      <dl class="faq__list">
+        <div class="faq__item" *ngFor="let item of faqs" [class.faq__item--open]="item.open">
+          <dt class="faq__question">
+            <button class="faq__btn" (click)="toggleFaq(item)" [attr.aria-expanded]="item.open" type="button">
+              {{ item.q }}
+              <span class="faq__chevron" aria-hidden="true">{{ item.open ? '−' : '+' }}</span>
+            </button>
+          </dt>
+          <dd class="faq__answer" *ngIf="item.open">{{ item.a }}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ BOTTOM CTA ═══════════════════════════ -->
+  <section class="bottom-cta" aria-label="Final call to action">
+    <div class="section-inner bottom-cta__inner">
+      <h2 class="bottom-cta__title">Ready to Start Investing?</h2>
+      <p class="bottom-cta__sub">Join customers already buying and trading service tokens on the platform.</p>
+      <a class="btn btn--lg bottom-cta__btn" routerLink="/login" [queryParams]="{mode: 'register'}">Get Started as Customer</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="footer__logo" routerLink="/" aria-label="Service Tokens home">◈ ServiceTokens</a>
+        <p class="footer__tagline">The platform for tradeable service tokens.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer links">
+        <a href="#" class="footer__link">Privacy Policy</a>
+        <a href="#" class="footer__link">Terms of Service</a>
+        <a href="mailto:admin@service-tokens.com" class="footer__link">admin&#64;service-tokens.com</a>
+      </nav>
+      <p class="footer__copy">&copy; {{ year }} ServiceTokens. All rights reserved.</p>
+    </div>
+  </footer>
+</main>

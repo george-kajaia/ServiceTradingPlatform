@@ -43,6 +43,36 @@ namespace ServiceTokenApi.Services.Flitt
         public string Signature { get; set; } = string.Empty;
     }
 
+    /// <summary>Inner "request" object sent to POST /api/recurring (payment with a saved card).</summary>
+    public sealed class FlittRecurringRequest
+    {
+        [JsonPropertyName("order_id")]
+        public string OrderId { get; set; } = string.Empty;
+
+        [JsonPropertyName("merchant_id")]
+        public int MerchantId { get; set; }
+
+        [JsonPropertyName("order_desc")]
+        public string OrderDesc { get; set; } = string.Empty;
+
+        /// <summary>Amount in minor units (tetri): 10.00 GEL → 1000.</summary>
+        [JsonPropertyName("amount")]
+        public long Amount { get; set; }
+
+        [JsonPropertyName("currency")]
+        public string Currency { get; set; } = "GEL";
+
+        /// <summary>The saved card token returned by an earlier purchase made with required_rectoken=Y.</summary>
+        [JsonPropertyName("rectoken")]
+        public string Rectoken { get; set; } = string.Empty;
+
+        [JsonPropertyName("server_callback_url")]
+        public string? ServerCallbackUrl { get; set; }
+
+        [JsonPropertyName("signature")]
+        public string Signature { get; set; } = string.Empty;
+    }
+
     /// <summary>Envelope wrapping the request: { "request": { ... } }.</summary>
     public sealed class FlittRequestEnvelope<T>
     {
@@ -90,66 +120,6 @@ namespace ServiceTokenApi.Services.Flitt
         private string? Get(string key) => Parameters.TryGetValue(key, out var v) ? v : null;
     }
 
-    // ───── Settlement (split payment) ────────────────────────────────────────────
-
-    /// <summary>One recipient of a split. For a company we transfer to its IBAN (type "bank");
-    /// the requisites are kept as a free dictionary so the exact field set can be tuned per type.</summary>
-    public sealed class FlittSettlementReceiver
-    {
-        [JsonPropertyName("requisites")]
-        public Dictionary<string, object?> Requisites { get; set; } = new();
-
-        [JsonPropertyName("type")]
-        public string Type { get; set; } = "bank";
-    }
-
-    /// <summary>The inner "order" object of a settlement request (gets base64-encoded into <c>data</c>).</summary>
-    public sealed class FlittSettlementOrder
-    {
-        [JsonPropertyName("order_id")]
-        public string OrderId { get; set; } = string.Empty;
-
-        [JsonPropertyName("operation_id")]
-        public string OperationId { get; set; } = string.Empty;
-
-        [JsonPropertyName("order_type")]
-        public string OrderType { get; set; } = "settlement";
-
-        [JsonPropertyName("merchant_id")]
-        public int MerchantId { get; set; }
-
-        [JsonPropertyName("amount")]
-        public long Amount { get; set; }
-
-        [JsonPropertyName("currency")]
-        public string Currency { get; set; } = "GEL";
-
-        [JsonPropertyName("order_desc")]
-        public string OrderDesc { get; set; } = string.Empty;
-
-        [JsonPropertyName("server_callback_url")]
-        public string? ServerCallbackUrl { get; set; }
-
-        [JsonPropertyName("response_url")]
-        public string? ResponseUrl { get; set; }
-
-        [JsonPropertyName("receiver")]
-        public List<FlittSettlementReceiver> Receiver { get; set; } = new();
-    }
-
-    /// <summary>Parsed result of a settlement (split) request.</summary>
-    public sealed class FlittSettlementResult
-    {
-        public string ResponseStatus { get; init; } = string.Empty;
-        public int? ErrorCode { get; init; }
-        public string? ErrorMessage { get; init; }
-        public string? RawBody { get; init; }
-
-        public bool IsSuccess =>
-            string.Equals(ResponseStatus, "success", StringComparison.OrdinalIgnoreCase)
-            && ErrorCode is null;
-    }
-
     // ───── Signature helper ──────────────────────────────────────────────────────
 
     /// <summary>
@@ -160,18 +130,6 @@ namespace ServiceTokenApi.Services.Flitt
     /// </summary>
     public static class FlittSignature
     {
-        /// <summary>
-        /// Settlement / split signature: <c>sha1(secretKey + '|' + data)</c>, where <paramref name="data"/>
-        /// is the already-base64-encoded order payload. Used for the /api/settlement endpoint, which
-        /// does NOT use the sorted-parameter scheme of the purchase flow.
-        /// </summary>
-        public static string BuildForData(string secretKey, string data)
-        {
-            var raw = secretKey + "|" + data;
-            var hash = SHA1.HashData(Encoding.UTF8.GetBytes(raw));
-            return Convert.ToHexString(hash).ToLowerInvariant();
-        }
-
         public static string Build(string secretKey, IEnumerable<KeyValuePair<string, string?>> parameters)
         {
             var ordered = parameters

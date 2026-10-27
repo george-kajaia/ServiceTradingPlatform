@@ -137,6 +137,32 @@ export class CheckoutFlowService {
       );
   }
 
+  /**
+   * Charges the customer's saved card for every item in the session (no widget). The order id
+   * is stored for polling exactly like {@link initiate}; there is no checkout token.
+   */
+  initiateWithSavedCard(): Observable<InitiateEmbeddedPaymentResult> {
+    const s = this.getSession();
+    if (!s) return throwError(() => new Error('No active checkout session.'));
+    if (s.items.length === 0) return throwError(() => new Error('Nothing to pay for.'));
+
+    const tokens: PaymentTokenRef[] = s.items.map(i => ({
+      serviceTokenId: i.tokenId,
+      rowVersion: i.rowVersion
+    }));
+
+    return this.paymentApi
+      .payWithSavedCard(tokens, s.publicKey)
+      .pipe(
+        tap(res => {
+          if (!res.orderId) throw new Error('No order id returned.');
+          s.currentOrderId = res.orderId;
+          s.currentToken = undefined;
+          this.save(s);
+        })
+      );
+  }
+
   /** The Flitt checkout token for the in-flight order, if any (used to (re)render the widget). */
   get currentToken(): string | null {
     return this.getSession()?.currentToken ?? null;

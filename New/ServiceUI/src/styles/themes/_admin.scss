@@ -1,0 +1,12 @@
+// ============================================
+// Admin Theme - Blue (unused in ServiceUI, kept for parity with the other apps)
+// Uses the same shared blue tokens; no separate palette.
+// ============================================
+
+@use '../variables' as *;
+
+.admin-theme {
+  background: $page;
+  color: $ink;
+  min-height: 100vh;
+}

@@ -1,0 +1,17 @@
+<div class="auth-container">
+  <h2>Service Login</h2>
+
+  <form (ngSubmit)="onLogin()" class="auth-form">
+    <label>
+      Username
+      <input type="text" [(ngModel)]="loginModel.userName" name="loginUserName" autocomplete="username" required />
+    </label>
+    <label>
+      Password
+      <input type="password" [(ngModel)]="loginModel.password" name="loginPassword" autocomplete="current-password" required />
+    </label>
+    <button type="submit" [disabled]="loading">Login</button>
+  </form>
+
+  <a routerLink="/" class="back-link">Back to main page</a>
+</div>

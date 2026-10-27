@@ -149,6 +149,18 @@ button:focus-visible, input:focus-visible { outline: none; box-shadow: $focus-ri
   gap: $space-3;
   justify-items: center;
 
+  &__or {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    width: 100%;
+    max-width: 420px;
+    color: $ink-2;
+    font-size: $font-size-sm;
+
+    &::before, &::after { content: ''; flex: 1; height: 1px; background: $line; }
+  }
+
   &__secure {
     margin: 0;
     font-size: $font-size-sm;
@@ -192,6 +204,14 @@ button:focus-visible, input:focus-visible { outline: none; box-shadow: $focus-ri
 
   &--ghost {
     padding: $space-2 $space-5;
+    background: $surface;
+    color: $ink;
+    border-color: $line;
+    &:hover:not(:disabled) { background: $page; border-color: $ink-2; }
+  }
+
+  // "Pay with another card" when a saved card is offered first.
+  &--pay-secondary {
     background: $surface;
     color: $ink;
     border-color: $line;

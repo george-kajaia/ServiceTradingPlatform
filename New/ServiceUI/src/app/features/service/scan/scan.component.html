@@ -1,0 +1,36 @@
+<div class="scan-page" *ngIf="company">
+  <div class="scan-page__header">
+    <h2>Service Dashboard</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <section class="scan-page__company">
+    <div class="company-grid">
+      <div><span class="label">Id</span><span class="value">{{ company.id }}</span></div>
+      <div><span class="label">Name</span><span class="value">{{ company.name }}</span></div>
+      <div>
+        <span class="label">Status</span>
+        <span class="value"
+              [class.badge-active]="company.status === 1"
+              [class.badge-inactive]="company.status !== 1">
+          {{ company.status === 1 ? 'Active' : 'Not Active' }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="scan-page__action">
+    <p class="scan-page__hint">Scan a customer's token QR code to confirm a service.</p>
+    <button class="scan-token-btn" (click)="showScanner = true">
+      📷 Scan Token
+    </button>
+  </section>
+
+  <a routerLink="/" class="back-link">Back to main page</a>
+</div>
+
+<!-- ═══ SCAN TOKEN OVERLAY ══════════════════════════════════ -->
+<app-scan-token
+  *ngIf="showScanner"
+  (closed)="showScanner = false">
+</app-scan-token>

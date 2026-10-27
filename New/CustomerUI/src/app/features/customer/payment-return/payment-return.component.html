@@ -1,0 +1,53 @@
+<div class="return-page">
+  <div class="return-card">
+
+    <!-- ── Verifying ─────────────────────────────────────── -->
+    <ng-container *ngIf="state === 'verifying'">
+      <div class="spinner"></div>
+      <h1>Confirming your payment…</h1>
+      <p>Please wait while we check the result with the bank. Don't close this page.</p>
+    </ng-container>
+
+    <!-- ── Done (summary) ────────────────────────────────── -->
+    <ng-container *ngIf="state === 'done'">
+      <div class="icon" [class.icon--success]="failedCount === 0" [class.icon--mixed]="failedCount > 0">
+        {{ failedCount === 0 ? '✓' : '!' }}
+      </div>
+      <h1>{{ failedCount === 0 ? 'Payment complete' : 'Checkout finished' }}</h1>
+      <p *ngIf="successCount > 0">
+        {{ successCount }} token{{ successCount !== 1 ? 's' : '' }} purchased successfully.
+      </p>
+      <p *ngIf="failedCount > 0" class="muted">
+        {{ failedCount }} item{{ failedCount !== 1 ? 's were' : ' was' }} not completed.
+      </p>
+
+      <ul class="result-list" *ngIf="results.length > 0">
+        <li class="result-row" *ngFor="let r of results">
+          <span class="result-row__name">{{ r.productName }}</span>
+          <span class="result-row__badge"
+                [class.result-row__badge--success]="r.outcome === 'success'"
+                [class.result-row__badge--failed]="r.outcome !== 'success'">
+            {{ r.outcome === 'success' ? 'Purchased' : (r.outcome === 'cancelled' ? 'Cancelled' : 'Failed') }}
+          </span>
+        </li>
+      </ul>
+
+      <div class="actions">
+        <button class="btn btn--primary" (click)="goToMarketplace()">Go to Marketplace</button>
+        <button class="btn btn--ghost" (click)="goToCart()">View Cart</button>
+      </div>
+    </ng-container>
+
+    <!-- ── Pending / could not confirm ───────────────────── -->
+    <ng-container *ngIf="state === 'pending'">
+      <div class="icon icon--pending">…</div>
+      <h1>Still processing</h1>
+      <p>We couldn't confirm your payment yet. This can take a moment.</p>
+      <div class="actions">
+        <button class="btn btn--primary" (click)="verify()">Check again</button>
+        <button class="btn btn--ghost" (click)="goToCart()">View Cart</button>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

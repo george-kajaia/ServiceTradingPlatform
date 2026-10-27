@@ -51,25 +51,34 @@
     </section>
 
     <section class="pay-panel">
-      <!-- Saved card (masked) — token stored server-side; PAN is never stored or shown. -->
-      <div class="saved-card" *ngIf="savedMethod as m">
-        <div class="saved-card__info">
-          <span class="saved-card__icon">💳</span>
-          <span class="saved-card__text">
-            <ng-container *ngIf="m.cardType">{{ m.cardType }} </ng-container>
-            {{ m.maskedCard || 'Saved card' }}
-          </span>
+      <!-- Saved card (masked): the token is stored server-side; the card number never is. -->
+      <ng-container *ngIf="savedMethod as m">
+        <div class="saved-card">
+          <div class="saved-card__info">
+            <span class="saved-card__icon">💳</span>
+            <span class="saved-card__text">
+              <ng-container *ngIf="m.cardType">{{ m.cardType }} </ng-container>
+              {{ m.maskedCard || 'Saved card' }}
+            </span>
+          </div>
+          <button class="saved-card__remove" type="button" (click)="removeSavedCard()">Remove</button>
         </div>
-        <button class="saved-card__remove" type="button" (click)="removeSavedCard()">Remove</button>
-      </div>
+
+        <button class="btn btn--pay" (click)="payWithSavedCard()">
+          Pay {{ total | currency:currency:'symbol':'1.2-2' }} with saved card
+        </button>
+
+        <div class="pay-panel__or"><span>or</span></div>
+      </ng-container>
 
       <label class="save-card">
         <input type="checkbox" [(ngModel)]="saveCard" />
         <span>Securely save my card for faster checkout next time</span>
       </label>
 
-      <button class="btn btn--pay" (click)="pay()">
-        Pay {{ total | currency:currency:'symbol':'1.2-2' }}
+      <button class="btn btn--pay" [class.btn--pay-secondary]="savedMethod" (click)="pay()">
+        <ng-container *ngIf="!savedMethod">Pay {{ total | currency:currency:'symbol':'1.2-2' }}</ng-container>
+        <ng-container *ngIf="savedMethod">Pay with another card</ng-container>
       </button>
       <p class="pay-panel__secure">
         🔒 Pay securely with your card right here — powered by Flitt. Your whole cart is charged in a single payment.
@@ -89,8 +98,14 @@
         </span>
       </div>
 
+      <!-- Saved card: no form, the card is charged directly. -->
+      <div class="checkout-state" *ngIf="payingWithSavedCard">
+        <div class="spinner"></div>
+        <p>Charging your saved card…</p>
+      </div>
+
       <!-- Flitt mounts its checkout form into this container; no redirect leaves the page. -->
-      <div id="flitt-checkout" class="embedded__widget"></div>
+      <div id="flitt-checkout" class="embedded__widget" [hidden]="payingWithSavedCard"></div>
 
       <p class="embedded__hint">
         After paying, this page confirms the result automatically — please don't close it.

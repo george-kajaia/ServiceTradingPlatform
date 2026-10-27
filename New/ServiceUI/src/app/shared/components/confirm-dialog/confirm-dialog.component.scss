@@ -1,0 +1,150 @@
+@use '../../../../styles/variables' as *;
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba($ink, 0.5);
+  z-index: $z-modal-backdrop;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-4;
+  animation: fadeIn 0.2s ease;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 400px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-pop;
+  padding: $space-6;
+  text-align: center;
+  z-index: $z-modal;
+
+  @media (max-width: 479px) {
+    padding: $space-4;
+  }
+
+  &__icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto $space-4;
+    border-radius: $radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &--danger .dialog__icon {
+    background: $danger-bg;
+    color: $danger;
+  }
+
+  &--warning .dialog__icon {
+    background: $warn-bg;
+    color: $warn;
+  }
+
+  &--info .dialog__icon {
+    background: $blue-50;
+    color: $blue-700;
+  }
+
+  &__title {
+    margin: 0 0 $space-2;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $ink;
+  }
+
+  &__message {
+    margin: 0 0 $space-6;
+    font-size: $font-size-base;
+    color: $ink-2;
+    line-height: $line-height-relaxed;
+    overflow-wrap: anywhere;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-3;
+    justify-content: center;
+
+    @media (max-width: 479px) {
+      flex-direction: column-reverse;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.btn {
+  min-height: $ctl-h;
+  padding: $space-2 $space-5;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: background $transition-base, border-color $transition-base;
+  min-width: 100px;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+
+  &--secondary {
+    background: $surface;
+    border-color: $line-strong;
+    color: $ink;
+
+    &:hover {
+      background: $page;
+      border-color: $ink-2;
+    }
+  }
+
+  &--danger {
+    background: $danger;
+    color: #fff;
+
+    &:hover {
+      background: darken($danger, 6%);
+    }
+  }
+
+  &--warning {
+    background: $warn;
+    color: #fff;
+
+    &:hover {
+      background: darken($warn, 6%);
+    }
+  }
+
+  &--info {
+    background: $blue-600;
+    color: #fff;
+
+    &:hover {
+      background: $blue-700;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -1,0 +1,1959 @@
+{
+ "date": "2026-10-14T20:32:13.550Z",
+ "pass": 347,
+ "fail": 41,
+ "results": [
+  {
+   "id": "home.360.noOverflow",
+   "pass": true,
+   "detail": "scrollW=360 body=360 inner=360 offenders="
+  },
+  {
+   "id": "home.360.noBrandLeftovers",
+   "pass": false,
+   "detail": "span.token__icon color=rgb(21, 128, 61) (green); span.token__icon background=rgb(231, 245, 236) (green)"
+  },
+  {
+   "id": "home.360.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.360.contrast",
+   "pass": false,
+   "detail": "span.token__icon \"✓\" 4.46 fg=rgb(21, 128, 61) (checked 71, skipped 0)"
+  },
+  {
+   "id": "home.360.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "home.360.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.360.bodyTokens",
+   "pass": true,
+   "detail": "{\"body\":\"rgb(244, 247, 251)\",\"color\":\"rgb(23, 32, 51)\",\"ff\":\"Inter, system-ui, -apple-system, BlinkMacSystemFont, \\\"Segoe UI\\\", sans-serif\"}"
+  },
+  {
+   "id": "home.360.primarySolidBlue",
+   "pass": true,
+   "detail": "[{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":45.1875},{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":52}]"
+  },
+  {
+   "id": "home.360.ctaLinkHeight>=44(mobile)",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "home.360.faqOpens",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.360.loginCtaNavigates",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.360.noOverflow",
+   "pass": true,
+   "detail": "scrollW=360 body=360 inner=360 offenders="
+  },
+  {
+   "id": "login.360.empty.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.360.empty.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.360.empty.contrast",
+   "pass": true,
+   "detail": " (checked 5, skipped 0)"
+  },
+  {
+   "id": "login.360.empty.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login.360.empty.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.360.labelsReadable",
+   "pass": true,
+   "detail": "Username,Password"
+  },
+  {
+   "id": "login.360.cardInViewport",
+   "pass": true,
+   "detail": "{\"l\":16,\"r\":344,\"iw\":360}"
+  },
+  {
+   "id": "login.360.inputsMarkedRequired",
+   "pass": true,
+   "detail": "{\"req\":2,\"novalidate\":true}"
+  },
+  {
+   "id": "login.360.freshFormForFocus",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.360.focusVisible",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login.360.buttonFocusRingBlue",
+   "pass": false,
+   "detail": "rgba(37, 99, 235, 0.35) 0px 0px 0px 3px | rgb(255, 255, 255)"
+  },
+  {
+   "id": "login.360.submitSolidBlue",
+   "pass": true,
+   "detail": "{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":48,\"r\":\"8px\"}"
+  },
+  {
+   "id": "login.360.error-401.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.360.error-401.toastMessageNonEmpty",
+   "pass": true,
+   "detail": "message=\"Invalid username or password\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.360.error-401.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"Invalid username or password\",\"l\":16,\"r\":344,\"t\":726,\"b\":784,\"iw\":360,\"ih\":800,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.360.error-401.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.360.error-401.toastPlacement",
+   "pass": true,
+   "detail": "bottom at w=360"
+  },
+  {
+   "id": "login.360.error-401.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.360.error-500-empty-body.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.360.error-500-empty-body.toastMessageNonEmpty",
+   "pass": false,
+   "detail": "message=\"\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.360.error-500-empty-body.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"\",\"l\":16,\"r\":344,\"t\":726,\"b\":784,\"iw\":360,\"ih\":800,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.360.error-500-empty-body.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.360.error-500-empty-body.toastPlacement",
+   "pass": true,
+   "detail": "bottom at w=360"
+  },
+  {
+   "id": "login.360.error-500-empty-body.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.360.error-network.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.360.error-network.toastMessageNonEmpty",
+   "pass": true,
+   "detail": "message=\"[object ProgressEvent]\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.360.error-network.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"[object ProgressEvent]\",\"l\":16,\"r\":344,\"t\":726,\"b\":784,\"iw\":360,\"ih\":800,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.360.error-network.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.360.error-network.toastPlacement",
+   "pass": true,
+   "detail": "bottom at w=360"
+  },
+  {
+   "id": "login.360.error-network.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.360.unauthRedirectsToLogin",
+   "pass": true,
+   "detail": "http://127.0.0.1:4314/login"
+  },
+  {
+   "id": "scan.360.loginRequestShape",
+   "pass": true,
+   "detail": "{\"userName\":\"qa.staff\",\"password\":\"synthetic-pass\"}"
+  },
+  {
+   "id": "scan.360.getByIdUsesCompanyId",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.360.noOverflow",
+   "pass": true,
+   "detail": "scrollW=360 body=360 inner=360 offenders="
+  },
+  {
+   "id": "scan.360.companyDetails",
+   "pass": true,
+   "detail": "ID 7 / NAME Synthetic Spa & Wellness / STATUS Active"
+  },
+  {
+   "id": "scan.360.scanBtnSolidBlue56",
+   "pass": true,
+   "detail": "{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":56,\"w\":294,\"pw\":294,\"radius\":\"8px\"}"
+  },
+  {
+   "id": "scan.360.scanBtnFullWidth",
+   "pass": true,
+   "detail": "294 of 294"
+  },
+  {
+   "id": "scan.360.pageMaxWidth1120",
+   "pass": true,
+   "detail": "{\"maxW\":\"1120px\",\"w\":360,\"padL\":\"16px\",\"padR\":\"16px\",\"left\":0,\"iw\":360}"
+  },
+  {
+   "id": "scan.360.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.360.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.360.contrast",
+   "pass": true,
+   "detail": " (checked 11, skipped 0)"
+  },
+  {
+   "id": "scan.360.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scan.360.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.360.activeBadgeTextLabeled",
+   "pass": true,
+   "detail": "{\"color\":\"rgb(21, 128, 61)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Active\"}"
+  },
+  {
+   "id": "scan.360.tabOrderLogical",
+   "pass": true,
+   "detail": "Logout|📷 Scan Token|Back to main page"
+  },
+  {
+   "id": "scan.360.focusVisibleAll",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scan.360.logoutThenScanBlocked",
+   "pass": true,
+   "detail": "http://127.0.0.1:4314/login"
+  },
+  {
+   "id": "home.768.noOverflow",
+   "pass": false,
+   "detail": "scrollW=805 body=805 inner=768 offenders=div.token-graphic:347-805"
+  },
+  {
+   "id": "home.768.noBrandLeftovers",
+   "pass": false,
+   "detail": "span.token__icon color=rgb(21, 128, 61) (green); span.token__icon background=rgb(231, 245, 236) (green)"
+  },
+  {
+   "id": "home.768.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.768.contrast",
+   "pass": true,
+   "detail": " (checked 74, skipped 0)"
+  },
+  {
+   "id": "home.768.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "home.768.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.768.bodyTokens",
+   "pass": true,
+   "detail": "{\"body\":\"rgb(244, 247, 251)\",\"color\":\"rgb(23, 32, 51)\",\"ff\":\"Inter, system-ui, -apple-system, BlinkMacSystemFont, \\\"Segoe UI\\\", sans-serif\"}"
+  },
+  {
+   "id": "home.768.primarySolidBlue",
+   "pass": true,
+   "detail": "[{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":45.1875},{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":52}]"
+  },
+  {
+   "id": "home.768.ctaLinkHeight>=44(mobile)",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "home.768.faqOpens",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.768.loginCtaNavigates",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.768.noOverflow",
+   "pass": true,
+   "detail": "scrollW=768 body=768 inner=768 offenders="
+  },
+  {
+   "id": "login.768.empty.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.768.empty.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.768.empty.contrast",
+   "pass": true,
+   "detail": " (checked 5, skipped 0)"
+  },
+  {
+   "id": "login.768.empty.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login.768.empty.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.768.labelsReadable",
+   "pass": true,
+   "detail": "Username,Password"
+  },
+  {
+   "id": "login.768.cardInViewport",
+   "pass": true,
+   "detail": "{\"l\":174,\"r\":594,\"iw\":768}"
+  },
+  {
+   "id": "login.768.inputsMarkedRequired",
+   "pass": true,
+   "detail": "{\"req\":2,\"novalidate\":true}"
+  },
+  {
+   "id": "login.768.freshFormForFocus",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.768.focusVisible",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login.768.buttonFocusRingBlue",
+   "pass": false,
+   "detail": "rgba(37, 99, 235, 0.35) 0px 0px 0px 3px | rgb(255, 255, 255)"
+  },
+  {
+   "id": "login.768.submitSolidBlue",
+   "pass": true,
+   "detail": "{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":48,\"r\":\"8px\"}"
+  },
+  {
+   "id": "login.768.error-401.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.768.error-401.toastMessageNonEmpty",
+   "pass": true,
+   "detail": "message=\"Invalid username or password\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.768.error-401.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"Invalid username or password\",\"l\":324,\"r\":744,\"t\":24,\"b\":82,\"iw\":768,\"ih\":1024,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.768.error-401.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.768.error-401.toastPlacement",
+   "pass": true,
+   "detail": "top at w=768"
+  },
+  {
+   "id": "login.768.error-401.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.768.error-500-empty-body.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.768.error-500-empty-body.toastMessageNonEmpty",
+   "pass": false,
+   "detail": "message=\"\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.768.error-500-empty-body.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"\",\"l\":324,\"r\":744,\"t\":24,\"b\":82,\"iw\":768,\"ih\":1024,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.768.error-500-empty-body.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.768.error-500-empty-body.toastPlacement",
+   "pass": true,
+   "detail": "top at w=768"
+  },
+  {
+   "id": "login.768.error-500-empty-body.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.768.error-network.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.768.error-network.toastMessageNonEmpty",
+   "pass": true,
+   "detail": "message=\"[object ProgressEvent]\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.768.error-network.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"[object ProgressEvent]\",\"l\":324,\"r\":744,\"t\":24,\"b\":82,\"iw\":768,\"ih\":1024,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.768.error-network.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.768.error-network.toastPlacement",
+   "pass": true,
+   "detail": "top at w=768"
+  },
+  {
+   "id": "login.768.error-network.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.768.unauthRedirectsToLogin",
+   "pass": true,
+   "detail": "http://127.0.0.1:4314/login"
+  },
+  {
+   "id": "scan.768.loginRequestShape",
+   "pass": true,
+   "detail": "{\"userName\":\"qa.staff\",\"password\":\"synthetic-pass\"}"
+  },
+  {
+   "id": "scan.768.getByIdUsesCompanyId",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.768.noOverflow",
+   "pass": true,
+   "detail": "scrollW=768 body=768 inner=768 offenders="
+  },
+  {
+   "id": "scan.768.companyDetails",
+   "pass": true,
+   "detail": "ID 7 / NAME Synthetic Spa & Wellness / STATUS Active"
+  },
+  {
+   "id": "scan.768.scanBtnSolidBlue56",
+   "pass": true,
+   "detail": "{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":56,\"w\":430,\"pw\":430,\"radius\":\"8px\"}"
+  },
+  {
+   "id": "scan.768.pageMaxWidth1120",
+   "pass": true,
+   "detail": "{\"maxW\":\"1120px\",\"w\":768,\"padL\":\"24px\",\"padR\":\"24px\",\"left\":0,\"iw\":768}"
+  },
+  {
+   "id": "scan.768.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.768.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.768.contrast",
+   "pass": true,
+   "detail": " (checked 11, skipped 0)"
+  },
+  {
+   "id": "scan.768.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scan.768.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.768.activeBadgeTextLabeled",
+   "pass": true,
+   "detail": "{\"color\":\"rgb(21, 128, 61)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Active\"}"
+  },
+  {
+   "id": "scan.768.tabOrderLogical",
+   "pass": true,
+   "detail": "Logout|📷 Scan Token|Back to main page"
+  },
+  {
+   "id": "scan.768.focusVisibleAll",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scan.768.logoutThenScanBlocked",
+   "pass": true,
+   "detail": "http://127.0.0.1:4314/login"
+  },
+  {
+   "id": "home.1440.noOverflow",
+   "pass": true,
+   "detail": "scrollW=1440 body=1440 inner=1440 offenders="
+  },
+  {
+   "id": "home.1440.noBrandLeftovers",
+   "pass": false,
+   "detail": "span.token__icon color=rgb(21, 128, 61) (green); span.token__icon background=rgb(231, 245, 236) (green)"
+  },
+  {
+   "id": "home.1440.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.1440.contrast",
+   "pass": true,
+   "detail": " (checked 74, skipped 0)"
+  },
+  {
+   "id": "home.1440.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "home.1440.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.1440.bodyTokens",
+   "pass": true,
+   "detail": "{\"body\":\"rgb(244, 247, 251)\",\"color\":\"rgb(23, 32, 51)\",\"ff\":\"Inter, system-ui, -apple-system, BlinkMacSystemFont, \\\"Segoe UI\\\", sans-serif\"}"
+  },
+  {
+   "id": "home.1440.primarySolidBlue",
+   "pass": true,
+   "detail": "[{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":45.1875},{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":52}]"
+  },
+  {
+   "id": "home.1440.ctaLinkHeight>=44(mobile)",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "home.1440.faqOpens",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "home.1440.loginCtaNavigates",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.1440.noOverflow",
+   "pass": true,
+   "detail": "scrollW=1440 body=1440 inner=1440 offenders="
+  },
+  {
+   "id": "login.1440.empty.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.1440.empty.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.1440.empty.contrast",
+   "pass": true,
+   "detail": " (checked 5, skipped 0)"
+  },
+  {
+   "id": "login.1440.empty.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login.1440.empty.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.1440.labelsReadable",
+   "pass": true,
+   "detail": "Username,Password"
+  },
+  {
+   "id": "login.1440.cardInViewport",
+   "pass": true,
+   "detail": "{\"l\":510,\"r\":930,\"iw\":1440}"
+  },
+  {
+   "id": "login.1440.inputsMarkedRequired",
+   "pass": true,
+   "detail": "{\"req\":2,\"novalidate\":true}"
+  },
+  {
+   "id": "login.1440.freshFormForFocus",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.1440.focusVisible",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "login.1440.buttonFocusRingBlue",
+   "pass": false,
+   "detail": "rgba(37, 99, 235, 0.35) 0px 0px 0px 3px | rgb(255, 255, 255)"
+  },
+  {
+   "id": "login.1440.submitSolidBlue",
+   "pass": true,
+   "detail": "{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":48,\"r\":\"8px\"}"
+  },
+  {
+   "id": "login.1440.error-401.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.1440.error-401.toastMessageNonEmpty",
+   "pass": true,
+   "detail": "message=\"Invalid username or password\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.1440.error-401.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"Invalid username or password\",\"l\":996,\"r\":1416,\"t\":24,\"b\":82,\"iw\":1440,\"ih\":1000,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.1440.error-401.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.1440.error-401.toastPlacement",
+   "pass": true,
+   "detail": "top at w=1440"
+  },
+  {
+   "id": "login.1440.error-401.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.1440.error-500-empty-body.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.1440.error-500-empty-body.toastMessageNonEmpty",
+   "pass": false,
+   "detail": "message=\"\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.1440.error-500-empty-body.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"\",\"l\":996,\"r\":1416,\"t\":24,\"b\":82,\"iw\":1440,\"ih\":1000,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.1440.error-500-empty-body.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.1440.error-500-empty-body.toastPlacement",
+   "pass": true,
+   "detail": "top at w=1440"
+  },
+  {
+   "id": "login.1440.error-500-empty-body.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "login.1440.error-network.toastShown",
+   "pass": true,
+   "detail": "no toast"
+  },
+  {
+   "id": "login.1440.error-network.toastMessageNonEmpty",
+   "pass": true,
+   "detail": "message=\"[object ProgressEvent]\"  [coordinator finding: empty-body error must have readable fallback]"
+  },
+  {
+   "id": "login.1440.error-network.toastInViewport",
+   "pass": true,
+   "detail": "{\"msg\":\"[object ProgressEvent]\",\"l\":996,\"r\":1416,\"t\":24,\"b\":82,\"iw\":1440,\"ih\":1000,\"bg\":\"rgb(255, 255, 255)\",\"closeH\":44,\"closeW\":44}"
+  },
+  {
+   "id": "login.1440.error-network.toastCloseTarget>=44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "login.1440.error-network.toastPlacement",
+   "pass": true,
+   "detail": "top at w=1440"
+  },
+  {
+   "id": "login.1440.error-network.staysOnLogin",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.1440.unauthRedirectsToLogin",
+   "pass": true,
+   "detail": "http://127.0.0.1:4314/login"
+  },
+  {
+   "id": "scan.1440.loginRequestShape",
+   "pass": true,
+   "detail": "{\"userName\":\"qa.staff\",\"password\":\"synthetic-pass\"}"
+  },
+  {
+   "id": "scan.1440.getByIdUsesCompanyId",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.1440.noOverflow",
+   "pass": true,
+   "detail": "scrollW=1440 body=1440 inner=1440 offenders="
+  },
+  {
+   "id": "scan.1440.companyDetails",
+   "pass": true,
+   "detail": "ID 7 / NAME Synthetic Spa & Wellness / STATUS Active"
+  },
+  {
+   "id": "scan.1440.scanBtnSolidBlue56",
+   "pass": true,
+   "detail": "{\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"h\":56,\"w\":430,\"pw\":430,\"radius\":\"8px\"}"
+  },
+  {
+   "id": "scan.1440.pageMaxWidth1120",
+   "pass": true,
+   "detail": "{\"maxW\":\"1120px\",\"w\":1120,\"padL\":\"24px\",\"padR\":\"24px\",\"left\":160,\"iw\":1440}"
+  },
+  {
+   "id": "scan.1440.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.1440.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.1440.contrast",
+   "pass": true,
+   "detail": " (checked 11, skipped 0)"
+  },
+  {
+   "id": "scan.1440.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scan.1440.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scan.1440.activeBadgeTextLabeled",
+   "pass": true,
+   "detail": "{\"color\":\"rgb(21, 128, 61)\",\"bg\":\"rgba(0, 0, 0, 0)\",\"txt\":\"Active\"}"
+  },
+  {
+   "id": "scan.1440.tabOrderLogical",
+   "pass": true,
+   "detail": "Logout|📷 Scan Token|Back to main page"
+  },
+  {
+   "id": "scan.1440.focusVisibleAll",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scan.1440.logoutThenScanBlocked",
+   "pass": true,
+   "detail": "http://127.0.0.1:4314/login"
+  },
+  {
+   "id": "scan.360.inactiveBadgeLabel",
+   "pass": true,
+   "detail": "Not Active"
+  },
+  {
+   "id": "scan.360.inactive.contrast",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.errorStateShown",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.messageText",
+   "pass": true,
+   "detail": "⚠\n\nCamera access denied. Please allow camera permissions and try again."
+  },
+  {
+   "id": "scanner.360.denied.roleAlert",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":0,\"t\":0,\"r\":360,\"b\":800,\"radius\":\"0px\",\"iw\":360,\"ih\":800,\"overflowY\":\"auto\",\"scrollH\":800,\"clientH\":800,\"btns\":[{\"txt\":\"×\",\"top\":8,\"bottom\":52,\"left\":308,\"right\":352,\"h\":44,\"w\":44},{\"txt\":\"Close\",\"top\":740,\"bottom\":784,\"left\":16,\"right\":344,\"h\":44,\"w\":328},{\"txt\":\"Try Again\",\"top\":684,\"bottom\":728,\"left\":16,\"right\":344,\"h\":44,\"w\":328}]}"
+  },
+  {
+   "id": "scanner.360.denied.fullScreenUnder480",
+   "pass": true,
+   "detail": "{\"l\":0,\"t\":0,\"r\":360,\"b\":800,\"radius\":\"0px\",\"iw\":360,\"ih\":800,\"overflowY\":\"auto\",\"scrollH\":800,\"clientH\":800,\"btns\":[{\"txt\":\"×\",\"top\":8,\"bottom\":52,\"left\":308,\"right\":352,\"h\":44,\"w\":44},{\"txt\":\"Close\",\"top\":740,\"bottom\":784,\"left\":16,\"right\":344,\"h\":44,\"w\":328},{\"txt\":\"Try Again\",\"top\":684,\"bottom\":728,\"left\":16,\"right\":344,\"h\":44,\"w\":328}]}"
+  },
+  {
+   "id": "scanner.360.denied.btnTargets>=44",
+   "pass": true,
+   "detail": "[{\"txt\":\"×\",\"top\":8,\"bottom\":52,\"left\":308,\"right\":352,\"h\":44,\"w\":44},{\"txt\":\"Close\",\"top\":740,\"bottom\":784,\"left\":16,\"right\":344,\"h\":44,\"w\":328},{\"txt\":\"Try Again\",\"top\":684,\"bottom\":728,\"left\":16,\"right\":344,\"h\":44,\"w\":328}]"
+  },
+  {
+   "id": "scanner.360.denied.noOverflow",
+   "pass": true,
+   "detail": "scrollW=360 body=360 inner=360 offenders="
+  },
+  {
+   "id": "scanner.360.denied.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.contrast",
+   "pass": true,
+   "detail": " (checked 17, skipped 0)"
+  },
+  {
+   "id": "scanner.360.denied.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.360.denied.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.alertDangerTint",
+   "pass": true,
+   "detail": "rgb(253, 236, 236)"
+  },
+  {
+   "id": "scanner.360.denied.retrySolidBlue",
+   "pass": true,
+   "detail": "[{\"txt\":\"Close\",\"bg\":\"rgb(255, 255, 255)\",\"color\":\"rgb(23, 32, 51)\",\"bi\":\"none\",\"border\":\"rgb(201, 210, 222)\"},{\"txt\":\"Try Again\",\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"border\":\"rgba(0, 0, 0, 0)\"}]"
+  },
+  {
+   "id": "scanner.360.denied.focusMovesInsideOnOpen",
+   "pass": false,
+   "detail": "activeElement=button.scan-token-btn"
+  },
+  {
+   "id": "scanner.360.denied.bodyScrollLocked",
+   "pass": false,
+   "detail": "body=visible html=visible"
+  },
+  {
+   "id": "scanner.360.denied.tabTrapped",
+   "pass": false,
+   "detail": "Tab0:a.back-link,Tab4:body.,Tab5:button.logout-btn,ShiftTab3:a.back-link,ShiftTab4:button.scan-token-btn,ShiftTab5:button.logout-btn"
+  },
+  {
+   "id": "scanner.360.denied.retryReRequestsCamera",
+   "pass": true,
+   "detail": "gum 1->2"
+  },
+  {
+   "id": "scanner.360.denied.retryReturnsToErrorWhenStillDenied",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.escapeCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.focusReturnsToTrigger",
+   "pass": false,
+   "detail": "BODY."
+  },
+  {
+   "id": "scanner.360.denied.bodyScrollRestored",
+   "pass": true,
+   "detail": "body=visible"
+  },
+  {
+   "id": "scanner.360.closeBtn44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "scanner.360.closeBtnCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.denied.closeFooterBtnCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.scanning.stateShown",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.scanning.cameraWrapFits",
+   "pass": true,
+   "detail": "{\"w\":320,\"h\":320,\"l\":20,\"r\":340,\"iw\":360}"
+  },
+  {
+   "id": "scanner.360.scanning.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":0,\"t\":0,\"r\":360,\"b\":800,\"radius\":\"0px\",\"iw\":360,\"ih\":800,\"overflowY\":\"auto\",\"scrollH\":800,\"clientH\":800,\"btns\":[{\"txt\":\"×\",\"top\":8,\"bottom\":52,\"left\":308,\"right\":352,\"h\":44,\"w\":44},{\"txt\":\"Cancel\",\"top\":740,\"bottom\":784,\"left\":16,\"right\":344,\"h\":44,\"w\":328}]}"
+  },
+  {
+   "id": "scanner.360.scanning.bracketsBlue",
+   "pass": true,
+   "detail": "rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)"
+  },
+  {
+   "id": "scanner.360.scanning.focusMovesInsideOnOpen",
+   "pass": false,
+   "detail": "activeElement=button.scan-token-btn"
+  },
+  {
+   "id": "scanner.360.scanning.touch>=44",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.360.scanning.cameraReleasedOnCancel",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.360.invalid-json.errorMessage",
+   "pass": true,
+   "detail": "⚠\n\nInvalid QR code. Please ask the investor to regenerate it."
+  },
+  {
+   "id": "scanner.360.invalid-json.cameraStoppedAfterRead",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.360.invalid-json.tryAgainReturnsToScanning",
+   "pass": true,
+   "detail": "title=Error"
+  },
+  {
+   "id": "scanner.360.missing-fields.errorMessage",
+   "pass": false,
+   "detail": "(no error state) modal=\"× Scan Investor QR Point camera at the investor's QR code Cancel\" reqs=2 {\"gum\":1,\"tracks\":1,\"stopped\":0,\"video\":{\"rs\":4,\"vw\":640,\"paused\":false},\"comp\":{\"state\":\"scanning\",\"payload\":null,\"err\":\"\"}}"
+  },
+  {
+   "id": "scanner.360.missing-fields.cameraStoppedAfterRead",
+   "pass": false,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":0}"
+  },
+  {
+   "id": "scanner.360.missing-fields.tryAgainReturnsToScanning",
+   "pass": true,
+   "detail": "title=Scan Investor QR"
+  },
+  {
+   "id": "scanner.360.inflight.loadingStateShown",
+   "pass": true,
+   "detail": "Loading Token..."
+  },
+  {
+   "id": "scanner.360.inflight.requestContract",
+   "pass": true,
+   "detail": "https://service-tokens.com/api/ServiceToken/GetService?serviceTokenId=00000000-0000-4000-8000-000000000001&rowVersion=5&connectionId=conn-synthetic-123 body=null"
+  },
+  {
+   "id": "scanner.360.inflight.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":0,\"t\":0,\"r\":360,\"b\":800,\"radius\":\"0px\",\"iw\":360,\"ih\":800,\"overflowY\":\"auto\",\"scrollH\":800,\"clientH\":800,\"btns\":[{\"txt\":\"×\",\"top\":8,\"bottom\":52,\"left\":308,\"right\":352,\"h\":44,\"w\":44}]}"
+  },
+  {
+   "id": "scanner.360.inflight.spinnerAnimates",
+   "pass": true,
+   "detail": "_ngcontent-ng-c3980865901_spin"
+  },
+  {
+   "id": "scanner.360.inflight.cameraStopped",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.360.pending.escapeIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via escape while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.360.pending.closeButtonIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via closeButton while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.360.success.toastText",
+   "pass": true,
+   "detail": "Service confirmed and investor notified."
+  },
+  {
+   "id": "scanner.360.success.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.success.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.360.success.oneRedemptionRequest",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.success.toastInViewport",
+   "pass": true,
+   "detail": "{\"l\":16,\"r\":344,\"iw\":360,\"t\":716,\"ih\":800,\"bar\":\"rgb(21, 128, 61)\",\"bw\":\"4px\"}"
+  },
+  {
+   "id": "scanner.360.failure-400-message.toastNonEmpty",
+   "pass": true,
+   "detail": "message=\"Token already redeemed (synthetic).\""
+  },
+  {
+   "id": "scanner.360.failure-400-message.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.failure-400-message.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.360.failure-500-empty.toastNonEmpty",
+   "pass": true,
+   "detail": "message=\"Service request failed.\" [coordinator finding: empty-body error needs readable fallback]"
+  },
+  {
+   "id": "scanner.360.failure-500-empty.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.failure-500-empty.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.360.confirm.forcedRender",
+   "pass": true,
+   "detail": "ok"
+  },
+  {
+   "id": "scanner.360.confirm.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":0,\"t\":0,\"r\":360,\"b\":800,\"radius\":\"0px\",\"iw\":360,\"ih\":800,\"overflowY\":\"auto\",\"scrollH\":800,\"clientH\":800,\"btns\":[{\"txt\":\"×\",\"top\":8,\"bottom\":52,\"left\":308,\"right\":352,\"h\":44,\"w\":44},{\"txt\":\"Cancel\",\"top\":740,\"bottom\":784,\"left\":16,\"right\":344,\"h\":44,\"w\":328},{\"txt\":\"✓ Confirm Service\",\"top\":684,\"bottom\":728,\"left\":16,\"right\":344,\"h\":44,\"w\":328}]}"
+  },
+  {
+   "id": "scanner.360.confirm.scrollsInternallyIfTall",
+   "pass": true,
+   "detail": "{\"sh\":800,\"ch\":800,\"oy\":\"auto\"}"
+  },
+  {
+   "id": "scanner.360.confirm.noOverflow",
+   "pass": true,
+   "detail": "scrollW=360 body=360 inner=360 offenders="
+  },
+  {
+   "id": "scanner.360.confirm.rowValuesNotClipped",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.360.confirm.elevenRows",
+   "pass": true,
+   "detail": "11"
+  },
+  {
+   "id": "scanner.360.confirm.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.confirm.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.confirm.contrast",
+   "pass": true,
+   "detail": " (checked 38, skipped 0)"
+  },
+  {
+   "id": "scanner.360.confirm.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.360.confirm.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.360.confirm.buttonsStackedOnMobile",
+   "pass": true,
+   "detail": "[{\"txt\":\"Cancel\",\"h\":44,\"w\":328,\"top\":740,\"bg\":\"rgb(255, 255, 255)\"},{\"txt\":\"✓ Confirm Service\",\"h\":44,\"w\":328,\"top\":684,\"bg\":\"rgb(37, 99, 235)\"}]"
+  },
+  {
+   "id": "scanner.360.confirm.confirmBtnSolidBlue",
+   "pass": true,
+   "detail": "[{\"txt\":\"Cancel\",\"h\":44,\"w\":328,\"top\":740,\"bg\":\"rgb(255, 255, 255)\"},{\"txt\":\"✓ Confirm Service\",\"h\":44,\"w\":328,\"top\":684,\"bg\":\"rgb(37, 99, 235)\"}]"
+  },
+  {
+   "id": "scanner.768.denied.errorStateShown",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.messageText",
+   "pass": true,
+   "detail": "⚠\n\nCamera access denied. Please allow camera permissions and try again."
+  },
+  {
+   "id": "scanner.768.denied.roleAlert",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":144,\"t\":359,\"r\":624,\"b\":666,\"radius\":\"16px\",\"iw\":768,\"ih\":1024,\"overflowY\":\"auto\",\"scrollH\":305,\"clientH\":305,\"btns\":[{\"txt\":\"×\",\"top\":368,\"bottom\":412,\"left\":571,\"right\":615,\"h\":44,\"w\":44},{\"txt\":\"Close\",\"top\":597,\"bottom\":641,\"left\":169,\"right\":378,\"h\":44,\"w\":209},{\"txt\":\"Try Again\",\"top\":597,\"bottom\":641,\"left\":390,\"right\":599,\"h\":44,\"w\":209}]}"
+  },
+  {
+   "id": "scanner.768.denied.btnTargets>=44",
+   "pass": true,
+   "detail": "[{\"txt\":\"×\",\"top\":368,\"bottom\":412,\"left\":571,\"right\":615,\"h\":44,\"w\":44},{\"txt\":\"Close\",\"top\":597,\"bottom\":641,\"left\":169,\"right\":378,\"h\":44,\"w\":209},{\"txt\":\"Try Again\",\"top\":597,\"bottom\":641,\"left\":390,\"right\":599,\"h\":44,\"w\":209}]"
+  },
+  {
+   "id": "scanner.768.denied.noOverflow",
+   "pass": true,
+   "detail": "scrollW=768 body=768 inner=768 offenders="
+  },
+  {
+   "id": "scanner.768.denied.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.contrast",
+   "pass": true,
+   "detail": " (checked 17, skipped 0)"
+  },
+  {
+   "id": "scanner.768.denied.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.768.denied.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.alertDangerTint",
+   "pass": true,
+   "detail": "rgb(253, 236, 236)"
+  },
+  {
+   "id": "scanner.768.denied.retrySolidBlue",
+   "pass": true,
+   "detail": "[{\"txt\":\"Close\",\"bg\":\"rgb(255, 255, 255)\",\"color\":\"rgb(23, 32, 51)\",\"bi\":\"none\",\"border\":\"rgb(201, 210, 222)\"},{\"txt\":\"Try Again\",\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"border\":\"rgba(0, 0, 0, 0)\"}]"
+  },
+  {
+   "id": "scanner.768.denied.focusMovesInsideOnOpen",
+   "pass": false,
+   "detail": "activeElement=button.scan-token-btn"
+  },
+  {
+   "id": "scanner.768.denied.bodyScrollLocked",
+   "pass": false,
+   "detail": "body=visible html=visible"
+  },
+  {
+   "id": "scanner.768.denied.tabTrapped",
+   "pass": false,
+   "detail": "Tab0:a.back-link,Tab4:body.,Tab5:button.logout-btn,ShiftTab3:a.back-link,ShiftTab4:button.scan-token-btn,ShiftTab5:button.logout-btn"
+  },
+  {
+   "id": "scanner.768.denied.retryReRequestsCamera",
+   "pass": true,
+   "detail": "gum 1->2"
+  },
+  {
+   "id": "scanner.768.denied.retryReturnsToErrorWhenStillDenied",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.escapeCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.focusReturnsToTrigger",
+   "pass": false,
+   "detail": "BODY."
+  },
+  {
+   "id": "scanner.768.denied.bodyScrollRestored",
+   "pass": true,
+   "detail": "body=visible"
+  },
+  {
+   "id": "scanner.768.denied.backdropCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.closeBtn44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "scanner.768.closeBtnCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.denied.closeFooterBtnCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.scanning.stateShown",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.scanning.cameraWrapFits",
+   "pass": true,
+   "detail": "{\"w\":320,\"h\":320,\"l\":224,\"r\":544,\"iw\":768}"
+  },
+  {
+   "id": "scanner.768.scanning.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":144,\"t\":255,\"r\":624,\"b\":769,\"radius\":\"16px\",\"iw\":768,\"ih\":1024,\"overflowY\":\"auto\",\"scrollH\":512,\"clientH\":512,\"btns\":[{\"txt\":\"×\",\"top\":264,\"bottom\":308,\"left\":571,\"right\":615,\"h\":44,\"w\":44},{\"txt\":\"Cancel\",\"top\":700,\"bottom\":744,\"left\":169,\"right\":599,\"h\":44,\"w\":430}]}"
+  },
+  {
+   "id": "scanner.768.scanning.bracketsBlue",
+   "pass": true,
+   "detail": "rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)"
+  },
+  {
+   "id": "scanner.768.scanning.focusMovesInsideOnOpen",
+   "pass": false,
+   "detail": "activeElement=button.scan-token-btn"
+  },
+  {
+   "id": "scanner.768.scanning.touch>=44",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.768.scanning.cameraReleasedOnCancel",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.768.invalid-json.errorMessage",
+   "pass": true,
+   "detail": "⚠\n\nInvalid QR code. Please ask the investor to regenerate it."
+  },
+  {
+   "id": "scanner.768.invalid-json.cameraStoppedAfterRead",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.768.invalid-json.tryAgainReturnsToScanning",
+   "pass": true,
+   "detail": "title=Error"
+  },
+  {
+   "id": "scanner.768.missing-fields.errorMessage",
+   "pass": false,
+   "detail": "(no error state) modal=\"× Scan Investor QR Point camera at the investor's QR code Cancel\" reqs=2 {\"gum\":1,\"tracks\":1,\"stopped\":0,\"video\":{\"rs\":4,\"vw\":640,\"paused\":false},\"comp\":{\"state\":\"scanning\",\"payload\":null,\"err\":\"\"}}"
+  },
+  {
+   "id": "scanner.768.missing-fields.cameraStoppedAfterRead",
+   "pass": false,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":0}"
+  },
+  {
+   "id": "scanner.768.missing-fields.tryAgainReturnsToScanning",
+   "pass": true,
+   "detail": "title=Scan Investor QR"
+  },
+  {
+   "id": "scanner.768.inflight.loadingStateShown",
+   "pass": true,
+   "detail": "Loading Token..."
+  },
+  {
+   "id": "scanner.768.inflight.requestContract",
+   "pass": true,
+   "detail": "https://service-tokens.com/api/ServiceToken/GetService?serviceTokenId=00000000-0000-4000-8000-000000000001&rowVersion=5&connectionId=conn-synthetic-123 body=null"
+  },
+  {
+   "id": "scanner.768.inflight.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":144,\"t\":396,\"r\":624,\"b\":629,\"radius\":\"16px\",\"iw\":768,\"ih\":1024,\"overflowY\":\"auto\",\"scrollH\":231,\"clientH\":231,\"btns\":[{\"txt\":\"×\",\"top\":405,\"bottom\":449,\"left\":571,\"right\":615,\"h\":44,\"w\":44}]}"
+  },
+  {
+   "id": "scanner.768.inflight.spinnerAnimates",
+   "pass": true,
+   "detail": "_ngcontent-ng-c3980865901_spin"
+  },
+  {
+   "id": "scanner.768.inflight.cameraStopped",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.768.pending.escapeIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via escape while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.768.pending.backdropIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via backdrop while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.768.pending.closeButtonIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via closeButton while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.768.success.toastText",
+   "pass": true,
+   "detail": "Service confirmed and investor notified."
+  },
+  {
+   "id": "scanner.768.success.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.success.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.768.success.oneRedemptionRequest",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.success.toastInViewport",
+   "pass": true,
+   "detail": "{\"l\":324,\"r\":744,\"iw\":768,\"t\":24,\"ih\":1024,\"bar\":\"rgb(21, 128, 61)\",\"bw\":\"4px\"}"
+  },
+  {
+   "id": "scanner.768.failure-400-message.toastNonEmpty",
+   "pass": true,
+   "detail": "message=\"Token already redeemed (synthetic).\""
+  },
+  {
+   "id": "scanner.768.failure-400-message.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.failure-400-message.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.768.failure-500-empty.toastNonEmpty",
+   "pass": true,
+   "detail": "message=\"Service request failed.\" [coordinator finding: empty-body error needs readable fallback]"
+  },
+  {
+   "id": "scanner.768.failure-500-empty.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.failure-500-empty.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.768.confirm.forcedRender",
+   "pass": true,
+   "detail": "ok"
+  },
+  {
+   "id": "scanner.768.confirm.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":144,\"t\":150,\"r\":624,\"b\":874,\"radius\":\"16px\",\"iw\":768,\"ih\":1024,\"overflowY\":\"auto\",\"scrollH\":722,\"clientH\":722,\"btns\":[{\"txt\":\"×\",\"top\":159,\"bottom\":203,\"left\":571,\"right\":615,\"h\":44,\"w\":44},{\"txt\":\"Cancel\",\"top\":805,\"bottom\":849,\"left\":169,\"right\":378,\"h\":44,\"w\":209},{\"txt\":\"✓ Confirm Service\",\"top\":805,\"bottom\":849,\"left\":390,\"right\":599,\"h\":44,\"w\":209}]}"
+  },
+  {
+   "id": "scanner.768.confirm.scrollsInternallyIfTall",
+   "pass": true,
+   "detail": "{\"sh\":722,\"ch\":722,\"oy\":\"auto\"}"
+  },
+  {
+   "id": "scanner.768.confirm.noOverflow",
+   "pass": true,
+   "detail": "scrollW=768 body=768 inner=768 offenders="
+  },
+  {
+   "id": "scanner.768.confirm.rowValuesNotClipped",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.768.confirm.elevenRows",
+   "pass": true,
+   "detail": "11"
+  },
+  {
+   "id": "scanner.768.confirm.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.confirm.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.confirm.contrast",
+   "pass": true,
+   "detail": " (checked 38, skipped 0)"
+  },
+  {
+   "id": "scanner.768.confirm.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.768.confirm.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.768.confirm.buttonsStackedOnMobile",
+   "pass": true,
+   "detail": "[{\"txt\":\"Cancel\",\"h\":44,\"w\":209,\"top\":805,\"bg\":\"rgb(255, 255, 255)\"},{\"txt\":\"✓ Confirm Service\",\"h\":44,\"w\":209,\"top\":805,\"bg\":\"rgb(37, 99, 235)\"}]"
+  },
+  {
+   "id": "scanner.768.confirm.confirmBtnSolidBlue",
+   "pass": true,
+   "detail": "[{\"txt\":\"Cancel\",\"h\":44,\"w\":209,\"top\":805,\"bg\":\"rgb(255, 255, 255)\"},{\"txt\":\"✓ Confirm Service\",\"h\":44,\"w\":209,\"top\":805,\"bg\":\"rgb(37, 99, 235)\"}]"
+  },
+  {
+   "id": "scanner.1440.denied.errorStateShown",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.messageText",
+   "pass": true,
+   "detail": "⚠\n\nCamera access denied. Please allow camera permissions and try again."
+  },
+  {
+   "id": "scanner.1440.denied.roleAlert",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":480,\"t\":347,\"r\":960,\"b\":654,\"radius\":\"16px\",\"iw\":1440,\"ih\":1000,\"overflowY\":\"auto\",\"scrollH\":305,\"clientH\":305,\"btns\":[{\"txt\":\"×\",\"top\":356,\"bottom\":400,\"left\":907,\"right\":951,\"h\":44,\"w\":44},{\"txt\":\"Close\",\"top\":585,\"bottom\":629,\"left\":505,\"right\":714,\"h\":44,\"w\":209},{\"txt\":\"Try Again\",\"top\":585,\"bottom\":629,\"left\":726,\"right\":935,\"h\":44,\"w\":209}]}"
+  },
+  {
+   "id": "scanner.1440.denied.btnTargets>=44",
+   "pass": true,
+   "detail": "[{\"txt\":\"×\",\"top\":356,\"bottom\":400,\"left\":907,\"right\":951,\"h\":44,\"w\":44},{\"txt\":\"Close\",\"top\":585,\"bottom\":629,\"left\":505,\"right\":714,\"h\":44,\"w\":209},{\"txt\":\"Try Again\",\"top\":585,\"bottom\":629,\"left\":726,\"right\":935,\"h\":44,\"w\":209}]"
+  },
+  {
+   "id": "scanner.1440.denied.noOverflow",
+   "pass": true,
+   "detail": "scrollW=1440 body=1440 inner=1440 offenders="
+  },
+  {
+   "id": "scanner.1440.denied.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.contrast",
+   "pass": true,
+   "detail": " (checked 17, skipped 0)"
+  },
+  {
+   "id": "scanner.1440.denied.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.1440.denied.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.alertDangerTint",
+   "pass": true,
+   "detail": "rgb(253, 236, 236)"
+  },
+  {
+   "id": "scanner.1440.denied.retrySolidBlue",
+   "pass": true,
+   "detail": "[{\"txt\":\"Close\",\"bg\":\"rgb(255, 255, 255)\",\"color\":\"rgb(23, 32, 51)\",\"bi\":\"none\",\"border\":\"rgb(201, 210, 222)\"},{\"txt\":\"Try Again\",\"bg\":\"rgb(37, 99, 235)\",\"color\":\"rgb(255, 255, 255)\",\"bi\":\"none\",\"border\":\"rgba(0, 0, 0, 0)\"}]"
+  },
+  {
+   "id": "scanner.1440.denied.focusMovesInsideOnOpen",
+   "pass": false,
+   "detail": "activeElement=button.scan-token-btn"
+  },
+  {
+   "id": "scanner.1440.denied.bodyScrollLocked",
+   "pass": false,
+   "detail": "body=visible html=visible"
+  },
+  {
+   "id": "scanner.1440.denied.tabTrapped",
+   "pass": false,
+   "detail": "Tab0:a.back-link,Tab4:body.,Tab5:button.logout-btn,ShiftTab3:a.back-link,ShiftTab4:button.scan-token-btn,ShiftTab5:button.logout-btn"
+  },
+  {
+   "id": "scanner.1440.denied.retryReRequestsCamera",
+   "pass": true,
+   "detail": "gum 1->2"
+  },
+  {
+   "id": "scanner.1440.denied.retryReturnsToErrorWhenStillDenied",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.escapeCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.focusReturnsToTrigger",
+   "pass": false,
+   "detail": "BODY."
+  },
+  {
+   "id": "scanner.1440.denied.bodyScrollRestored",
+   "pass": true,
+   "detail": "body=visible"
+  },
+  {
+   "id": "scanner.1440.denied.backdropCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.closeBtn44",
+   "pass": true,
+   "detail": "44x44"
+  },
+  {
+   "id": "scanner.1440.closeBtnCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.denied.closeFooterBtnCloses",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.scanning.stateShown",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.scanning.cameraWrapFits",
+   "pass": true,
+   "detail": "{\"w\":320,\"h\":320,\"l\":560,\"r\":880,\"iw\":1440}"
+  },
+  {
+   "id": "scanner.1440.scanning.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":480,\"t\":243,\"r\":960,\"b\":757,\"radius\":\"16px\",\"iw\":1440,\"ih\":1000,\"overflowY\":\"auto\",\"scrollH\":512,\"clientH\":512,\"btns\":[{\"txt\":\"×\",\"top\":252,\"bottom\":296,\"left\":907,\"right\":951,\"h\":44,\"w\":44},{\"txt\":\"Cancel\",\"top\":688,\"bottom\":732,\"left\":505,\"right\":935,\"h\":44,\"w\":430}]}"
+  },
+  {
+   "id": "scanner.1440.scanning.bracketsBlue",
+   "pass": true,
+   "detail": "rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235) ; rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)|rgb(37, 99, 235)"
+  },
+  {
+   "id": "scanner.1440.scanning.focusMovesInsideOnOpen",
+   "pass": false,
+   "detail": "activeElement=button.scan-token-btn"
+  },
+  {
+   "id": "scanner.1440.scanning.touch>=44",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.1440.scanning.cameraReleasedOnCancel",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.1440.invalid-json.errorMessage",
+   "pass": true,
+   "detail": "⚠\n\nInvalid QR code. Please ask the investor to regenerate it."
+  },
+  {
+   "id": "scanner.1440.invalid-json.cameraStoppedAfterRead",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.1440.invalid-json.tryAgainReturnsToScanning",
+   "pass": true,
+   "detail": "title=Error"
+  },
+  {
+   "id": "scanner.1440.missing-fields.errorMessage",
+   "pass": false,
+   "detail": "(no error state) modal=\"× Scan Investor QR Point camera at the investor's QR code Cancel\" reqs=2 {\"gum\":1,\"tracks\":1,\"stopped\":0,\"video\":{\"rs\":4,\"vw\":640,\"paused\":false},\"comp\":{\"state\":\"scanning\",\"payload\":null,\"err\":\"\"}}"
+  },
+  {
+   "id": "scanner.1440.missing-fields.cameraStoppedAfterRead",
+   "pass": false,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":0}"
+  },
+  {
+   "id": "scanner.1440.missing-fields.tryAgainReturnsToScanning",
+   "pass": true,
+   "detail": "title=Scan Investor QR"
+  },
+  {
+   "id": "scanner.1440.inflight.loadingStateShown",
+   "pass": true,
+   "detail": "Loading Token..."
+  },
+  {
+   "id": "scanner.1440.inflight.requestContract",
+   "pass": true,
+   "detail": "https://service-tokens.com/api/ServiceToken/GetService?serviceTokenId=00000000-0000-4000-8000-000000000001&rowVersion=5&connectionId=conn-synthetic-123 body=null"
+  },
+  {
+   "id": "scanner.1440.inflight.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":480,\"t\":384,\"r\":960,\"b\":617,\"radius\":\"16px\",\"iw\":1440,\"ih\":1000,\"overflowY\":\"auto\",\"scrollH\":231,\"clientH\":231,\"btns\":[{\"txt\":\"×\",\"top\":393,\"bottom\":437,\"left\":907,\"right\":951,\"h\":44,\"w\":44}]}"
+  },
+  {
+   "id": "scanner.1440.inflight.spinnerAnimates",
+   "pass": true,
+   "detail": "_ngcontent-ng-c3980865901_spin"
+  },
+  {
+   "id": "scanner.1440.inflight.cameraStopped",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.1440.pending.escapeIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via escape while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.1440.pending.backdropIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via backdrop while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.1440.pending.closeButtonIgnoredWhileRequestPending",
+   "pass": false,
+   "detail": "dialog dismissed via closeButton while GetService still pending (request keeps running; user loses the result UI)"
+  },
+  {
+   "id": "scanner.cameraReleasedAfterInstantRead.repeat",
+   "pass": true,
+   "detail": "0/6 runs left the synthetic camera track running after the first QR read [pre-existing race in scan-token.component.ts: stopScanner() no-ops when controls not yet assigned]"
+  },
+  {
+   "id": "scanner.singleRedemptionRequestPerScan.repeat",
+   "pass": false,
+   "detail": "max GetService requests per single scan across 3 runs = 2"
+  },
+  {
+   "id": "scanner.1440.success.toastText",
+   "pass": true,
+   "detail": "Service confirmed and investor notified."
+  },
+  {
+   "id": "scanner.1440.success.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.success.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.1440.success.oneRedemptionRequest",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.success.toastInViewport",
+   "pass": true,
+   "detail": "{\"l\":996,\"r\":1416,\"iw\":1440,\"t\":24,\"ih\":1000,\"bar\":\"rgb(21, 128, 61)\",\"bw\":\"4px\"}"
+  },
+  {
+   "id": "scanner.1440.failure-400-message.toastNonEmpty",
+   "pass": true,
+   "detail": "message=\"Token already redeemed (synthetic).\""
+  },
+  {
+   "id": "scanner.1440.failure-400-message.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.failure-400-message.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.1440.failure-500-empty.toastNonEmpty",
+   "pass": true,
+   "detail": "message=\"Service request failed.\" [coordinator finding: empty-body error needs readable fallback]"
+  },
+  {
+   "id": "scanner.1440.failure-500-empty.dialogClosed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.failure-500-empty.cameraReleased",
+   "pass": true,
+   "detail": "{\"gum\":1,\"tracks\":1,\"stopped\":1}"
+  },
+  {
+   "id": "scanner.1440.confirm.forcedRender",
+   "pass": true,
+   "detail": "ok"
+  },
+  {
+   "id": "scanner.1440.confirm.dialogInViewport",
+   "pass": true,
+   "detail": "{\"l\":480,\"t\":138,\"r\":960,\"b\":862,\"radius\":\"16px\",\"iw\":1440,\"ih\":1000,\"overflowY\":\"auto\",\"scrollH\":722,\"clientH\":722,\"btns\":[{\"txt\":\"×\",\"top\":147,\"bottom\":191,\"left\":907,\"right\":951,\"h\":44,\"w\":44},{\"txt\":\"Cancel\",\"top\":793,\"bottom\":837,\"left\":505,\"right\":714,\"h\":44,\"w\":209},{\"txt\":\"✓ Confirm Service\",\"top\":793,\"bottom\":837,\"left\":726,\"right\":935,\"h\":44,\"w\":209}]}"
+  },
+  {
+   "id": "scanner.1440.confirm.scrollsInternallyIfTall",
+   "pass": true,
+   "detail": "{\"sh\":722,\"ch\":722,\"oy\":\"auto\"}"
+  },
+  {
+   "id": "scanner.1440.confirm.noOverflow",
+   "pass": true,
+   "detail": "scrollW=1440 body=1440 inner=1440 offenders="
+  },
+  {
+   "id": "scanner.1440.confirm.rowValuesNotClipped",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.1440.confirm.elevenRows",
+   "pass": true,
+   "detail": "11"
+  },
+  {
+   "id": "scanner.1440.confirm.noBrandLeftovers",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.confirm.noGradients",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.confirm.contrast",
+   "pass": true,
+   "detail": " (checked 38, skipped 0)"
+  },
+  {
+   "id": "scanner.1440.confirm.noClippedControls",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "id": "scanner.1440.confirm.touch>=44",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "scanner.1440.confirm.buttonsStackedOnMobile",
+   "pass": true,
+   "detail": "[{\"txt\":\"Cancel\",\"h\":44,\"w\":209,\"top\":793,\"bg\":\"rgb(255, 255, 255)\"},{\"txt\":\"✓ Confirm Service\",\"h\":44,\"w\":209,\"top\":793,\"bg\":\"rgb(37, 99, 235)\"}]"
+  },
+  {
+   "id": "scanner.1440.confirm.confirmBtnSolidBlue",
+   "pass": true,
+   "detail": "[{\"txt\":\"Cancel\",\"h\":44,\"w\":209,\"top\":793,\"bg\":\"rgb(255, 255, 255)\"},{\"txt\":\"✓ Confirm Service\",\"h\":44,\"w\":209,\"top\":793,\"bg\":\"rgb(37, 99, 235)\"}]"
+  }
+ ],
+ "unexpectedConsole": [],
+ "blockedExternal": [
+  "GET https://fonts.googleapis.com"
+ ],
+ "notes": [
+  "login: empty-credentials submit is NOT blocked client-side (form novalidate=true); pre-existing behavior, observed not asserted",
+  "scanner.360: modal is full-screen (<480px) so no backdrop area exists; backdrop-click not applicable",
+  "confirm.360 highlight: {\"bg\":\"rgb(234, 241, 255)\",\"color\":\"rgb(29, 78, 216)\",\"row\":\"rgba(0, 0, 0, 0)\"}",
+  "confirm.768 highlight: {\"bg\":\"rgb(234, 241, 255)\",\"color\":\"rgb(29, 78, 216)\",\"row\":\"rgba(0, 0, 0, 0)\"}",
+  "confirm.1440 highlight: {\"bg\":\"rgb(234, 241, 255)\",\"color\":\"rgb(29, 78, 216)\",\"row\":\"rgba(0, 0, 0, 0)\"}",
+  "source: component defines confirm()=false; assigns state='confirm'=false; assigns state='submitting'=false"
+ ]
+}

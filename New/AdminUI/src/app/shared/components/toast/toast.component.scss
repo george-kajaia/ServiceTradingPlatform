@@ -1,0 +1,152 @@
+@use '../../../../styles/variables' as *;
+
+.toast-container {
+  position: fixed;
+  top: $space-6;
+  right: $space-6;
+  z-index: 700;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  pointer-events: none;
+  max-width: 420px;
+
+  @media (max-width: $breakpoint-sm) {
+    top: auto;
+    bottom: $space-4;
+    left: $space-4;
+    right: $space-4;
+    max-width: none;
+  }
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-radius: $radius-lg;
+  background: $surface;
+  border: 1px solid $line;
+  box-shadow: $shadow-pop;
+  pointer-events: auto;
+  animation: slideIn 0.2s ease;
+  border-left: 4px solid $blue-600;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: $shadow-pop, $focus-ring;
+  }
+
+  &--success {
+    border-left-color: $ok;
+
+    .toast__icon { color: $ok; background: $ok-bg; }
+    .toast__action { color: $ok; &:hover { background: $ok-bg; } }
+  }
+
+  &--error {
+    border-left-color: $danger;
+
+    .toast__icon { color: $danger; background: $danger-bg; }
+    .toast__action { color: $danger; &:hover { background: $danger-bg; } }
+  }
+
+  &--warning {
+    border-left-color: $warn;
+
+    .toast__icon { color: $warn; background: $warn-bg; }
+    .toast__action { color: $warn; &:hover { background: $warn-bg; } }
+  }
+
+  &--info {
+    border-left-color: $blue-600;
+
+    .toast__icon { color: $blue-700; background: $blue-50; }
+    .toast__action { color: $blue-700; &:hover { background: $blue-50; } }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-md;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__message {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $ink;
+    line-height: $line-height-base;
+  }
+
+  &__action {
+    flex-shrink: 0;
+    min-height: $ctl-h;
+    padding: $space-1 $space-3;
+    border: none;
+    background: transparent;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: background $transition-fast;
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
+
+  &__close {
+    flex-shrink: 0;
+    width: $ctl-h;
+    height: $ctl-h;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    border-radius: $radius-md;
+    cursor: pointer;
+    color: $ink-2;
+    transition: background $transition-fast, color $transition-fast;
+
+    &:hover {
+      background: $page;
+      color: $ink;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $blue-600;
+      outline-offset: 2px;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

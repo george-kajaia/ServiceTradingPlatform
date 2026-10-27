@@ -1,0 +1,364 @@
+@use '../../../styles/variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+// ── Reset & base ──────────────────────────────────────────────────────────────
+:host {
+  display: block;
+  font-family: $font-family-base;
+  font-size: $font-size-md;
+  color: $ink;
+  background: $page;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+a { text-decoration: none; }
+
+// ── Shared layout ─────────────────────────────────────────────────────────────
+.section-inner {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+
+  @media (max-width: 767px) { padding: 0 $space-4; }
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: $ink;
+  text-align: center;
+  margin: 0 0 $space-3;
+  line-height: $line-height-tight;
+}
+
+.section-subtitle {
+  font-size: $font-size-md;
+  color: $ink-2;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+// ── Buttons ───────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  min-height: $ctl-h;
+  padding: $space-3 $space-6;
+  font-size: $font-size-md;
+
+  &:focus-visible { outline: none; box-shadow: $focus-ring; }
+
+  &--primary {
+    background: $blue-600;
+    color: #fff;
+    &:hover { background: $blue-700; }
+  }
+
+  &--outline {
+    background: $surface;
+    color: $blue-700;
+    border-color: $blue-600;
+    &:hover { background: $blue-50; }
+  }
+
+  &--lg { min-height: 52px; padding: $space-3 $space-8; font-size: $font-size-md; }
+
+  &--full { width: 100%; }
+
+  &:disabled { opacity: 0.55; cursor: not-allowed; }
+}
+
+.btn__spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+// ── Navbar ────────────────────────────────────────────────────────────────────
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background: $surface;
+  border-bottom: 1px solid $line;
+
+  &__inner {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $space-6;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+
+    @media (max-width: 767px) { padding: 0 $space-4; }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    color: $blue-600;
+    font-weight: 700;
+    font-size: $font-size-lg;
+    flex-shrink: 0;
+    min-height: $ctl-h;
+    &:focus-visible { outline: none; box-shadow: $focus-ring; border-radius: $radius-md; }
+  }
+
+  &__logo-icon { font-size: 1.4rem; }
+  &__auth {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    flex-shrink: 0;
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    gap: $space-6;
+    flex: 1;
+    justify-content: center;
+
+    @media (max-width: 767px) { display: none; }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: $ctl-h;
+    color: $ink;
+    font-size: $font-size-base;
+    font-weight: 500;
+    transition: color 0.15s;
+    &:hover, &:focus-visible { color: $blue-600; }
+  }
+}
+
+// ── Hero ──────────────────────────────────────────────────────────────────────
+.hero {
+  background: $blue-50;
+  padding: 80px 0 64px;
+
+  &__inner {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $space-6;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-12;
+    align-items: center;
+  }
+
+  &__headline {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: $ink;
+    line-height: 1.2;
+    margin: 0 0 $space-5;
+  }
+
+  &__subheadline {
+    font-size: $font-size-lg;
+    color: $ink-2;
+    line-height: 1.7;
+    margin: 0 0 $space-8;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-6;
+    flex-wrap: wrap;
+  }
+
+  &__secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: $ctl-h;
+    color: $blue-600;
+    font-weight: 600;
+    font-size: $font-size-base;
+    &:hover, &:focus-visible { color: $blue-700; text-decoration: underline; }
+  }
+
+  &__visual { display: flex; justify-content: center; min-width: 0; }
+}
+
+.token-graphic {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  padding: $space-8 $space-10;
+  box-shadow: $shadow-card;
+}
+
+.token {
+  display: flex; flex-direction: column; align-items: center; gap: $space-3; width: 90px;
+
+  &__icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: $blue-50;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: $blue-700;
+  }
+
+  &__label { font-size: $font-size-sm; font-weight: 600; color: $ink; text-align: center; }
+  &--2 .token__icon { background: $blue-50; }
+  &--3 .token__icon { background: $ok-bg; color: $ok; }
+}
+
+.token-arrow { font-size: 1.5rem; color: $ink-2; }
+
+// ── How It Works ──────────────────────────────────────────────────────────────
+.how-it-works { padding: 80px 0; background: $surface; }
+
+.hiw {
+  &__steps { display: flex; align-items: flex-start; margin-top: $space-12; }
+  &__step { flex: 1; text-align: center; padding: 0 $space-6; }
+  &__step-number {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: $blue-600; color: #fff;
+    font-weight: 700; font-size: $font-size-base;
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: $space-4;
+  }
+  &__step-icon { font-size: 2.4rem; display: block; margin-bottom: $space-4; }
+  &__step-title { font-size: $font-size-lg; font-weight: 700; color: $ink; margin: 0 0 $space-2; }
+  &__step-desc { font-size: $font-size-base; color: $ink-2; line-height: 1.6; margin: 0; }
+  &__connector {
+    width: 80px; height: 2px;
+    background: $blue-600;
+    opacity: 0.4;
+    margin-top: 60px; flex-shrink: 0;
+  }
+}
+
+// ── Value Proposition ─────────────────────────────────────────────────────────
+.value-prop { padding: 80px 0; background: $page; }
+
+.vp {
+  &__cards {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: $space-5; margin-top: $space-12;
+  }
+  &__card {
+    background: $surface; border: 1px solid $line; border-radius: $radius-lg; padding: $space-6;
+    box-shadow: $shadow-card;
+    transition: border-color 0.15s;
+    &:hover { border-color: $blue-600; }
+  }
+  &__card-icon { font-size: 2rem; margin-bottom: $space-4; display: block; }
+  &__card-title { font-size: $font-size-md; font-weight: 700; color: $ink; margin: 0 0 $space-2; }
+  &__card-desc { font-size: $font-size-base; color: $ink-2; line-height: 1.6; margin: 0; }
+}
+
+// ── Trust ─────────────────────────────────────────────────────────────────────
+.trust {
+  padding: 80px 0; background: $surface; text-align: center;
+
+  &__mission {
+    max-width: 640px; margin: 0 auto $space-12;
+    font-size: $font-size-md; color: $ink-2; line-height: 1.75;
+  }
+  &__badges { display: flex; justify-content: center; gap: $space-4; flex-wrap: wrap; margin-bottom: 0; }
+  &__badge {
+    display: flex; align-items: center; gap: $space-3;
+    background: $blue-50; border: 1px solid $line; border-radius: 100px; padding: $space-3 $space-5;
+    &-icon { font-size: 1.1rem; }
+    &-text { font-size: $font-size-base; font-weight: 500; color: $blue-700; }
+  }
+}
+
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+.faq {
+  padding: 80px 0; background: $page;
+
+  &__list { margin: $space-12 auto 0; max-width: 760px; }
+  &__item {
+    border: 1px solid $line; border-radius: $radius-lg; margin-bottom: $space-3;
+    background: $surface; overflow: hidden;
+    &--open { border-color: $blue-600; }
+  }
+  &__btn {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: $space-4 $space-5; background: none; border: none; cursor: pointer;
+    font-size: $font-size-md; font-weight: 600; color: $ink; text-align: left; gap: $space-4;
+    min-height: $ctl-h; font-family: inherit;
+    &:focus-visible { outline: 2px solid $blue-600; outline-offset: -2px; }
+    &:hover { background: $page; }
+  }
+  &__chevron { font-size: 1.3rem; color: $blue-600; flex-shrink: 0; }
+  &__answer { padding: 0 $space-5 $space-5; color: $ink-2; font-size: $font-size-base; line-height: 1.7; margin: 0; }
+}
+
+// ── Bottom CTA ────────────────────────────────────────────────────────────────
+.bottom-cta {
+  padding: 80px 0;
+  background: $blue-600;
+  text-align: center;
+
+  &__inner { display: flex; flex-direction: column; align-items: center; gap: $space-5; }
+  &__title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #fff; margin: 0; }
+  &__sub { font-size: $font-size-md; color: #fff; margin: 0; max-width: 480px; }
+  &__btn { background: #fff; color: $blue-700; &:hover { background: $blue-50; } }
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.footer {
+  background: $ink; padding: $space-12 0 $space-8;
+
+  &__inner {
+    max-width: $container-max-width; margin: 0 auto; padding: 0 $space-6;
+    display: flex; flex-direction: column; align-items: center; gap: $space-6; text-align: center;
+  }
+  &__logo { display: inline-flex; align-items: center; gap: $space-2; color: #fff; font-weight: 700; font-size: $font-size-lg; }
+  &__tagline { color: #c9d2de; font-size: $font-size-base; margin: $space-2 0 0; }
+  &__links { display: flex; gap: $space-8; flex-wrap: wrap; justify-content: center; }
+  &__link { display: inline-flex; align-items: center; min-height: $ctl-h; color: #e0e6ee; font-size: $font-size-base; &:hover, &:focus-visible { color: #fff; text-decoration: underline; } }
+  &__copy { color: #c9d2de; font-size: $font-size-xs; margin: 0; }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 1023px) {
+  .vp__cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 48px 0 40px;
+    &__inner { grid-template-columns: 1fr; gap: $space-8; padding: 0 $space-4; }
+  }
+  .token-graphic { padding: $space-5 $space-4; gap: $space-2; max-width: 100%; }
+  .token { width: 70px; &__icon { width: 52px; height: 52px; font-size: 1.3rem; } }
+
+  .how-it-works, .value-prop, .trust, .faq, .bottom-cta { padding: 48px 0; }
+
+  .hiw__steps { flex-direction: column; align-items: center; }
+  .hiw__step { padding: 0; max-width: 320px; width: 100%; }
+  .hiw__connector { width: 2px; height: 40px; margin-top: 0; }
+
+  .vp__cards { grid-template-columns: 1fr; }
+  .footer__inner { padding: 0 $space-4; }
+}
